@@ -290,7 +290,7 @@ en:
       is_free: "This amenity is free"
       submit: "Save"
       create_success: "Create amenity successfully"
-      create_fail: "Have some error when create amenity" 
+      create_fail: "Have some error when create amenity"
       edit_success: "Edit amenity successfully"
       cancel: "Cancel"
       price: "Price (VND)"
@@ -494,14 +494,20 @@ en:
       total: "Total"
       back: "Go back your booking histories"
   payment_methods:
+    tooltip_active_account: "Click to active this account"
+    active_account: "Active"
+    inactive_account: "Inactive"
     not_found: "Payment method not found!"
     existed_message: "This payment method existed!"
     delete_successfully: "Delete payment method successfully!"
     delete_error: "Opps! Cant delete this payment method!"
+    update_paypal_success: "Paypal main account updated !"
+    update_paypal_fail: "Cant active this paypal account !"
     create_success: "Add payment method successfully!"
     create_fail: "Opps! Add payment method failed!"
   venue_markets:
     edit:
+      main_account: "Main Account"
       account: "Account: "
       add: "Add"
       add_new_paypal: "Add new Paypal account"
@@ -517,7 +523,7 @@ en:
       confirm_delete: "Are you sure?"
       btn_add: "Add Payment Method"
       btn_delete: "Delete"
-      pament_methods: "Payment methods"
+      payment_methods: "Payment methods"
       list_space: "If you change status, all spaces of this venue can't booking"
   user_role_venues:
     new:

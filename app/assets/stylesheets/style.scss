@@ -64,3 +64,20 @@ hr.style-two {
 .select-capitalize{
   text-transform: capitalize;
 }
+
+.topleft {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.x_button{
+  color: red;
+}
+
+.fix-switch{
+  font-size: 8px;
+  text-align: right;
+  width: auto;
+  border-radius: 6px!important;
+}

@@ -1,6 +1,7 @@
 class PaymentMethodsController < ApplicationController
   before_action :load_venue
-  before_action :load_payment_method, only: :destroy
+  before_action :load_payment_method, only: [:destroy, :update]
+  before_action :load_is_chosen_paypal, only: [:update, :create]
 
   def index
     @payment_methods = @venue.payment_methods
@@ -16,6 +17,23 @@ class PaymentMethodsController < ApplicationController
       @payment_method.save
       format.js
     end
+    if @payment_method.paypal? && @chosen_paypal
+      @chosen_paypal.update_attributes is_chosen: false
+    end
+  end
+
+  def update
+    @payment_methods = @venue.payment_methods
+    respond_to do |format|
+      if @payment_method.update_attributes is_chosen: !@payment_method.is_chosen
+        if @chosen_paypal
+          @chosen_paypal.update_attributes is_chosen: false
+        end
+        format.json {render json: {flash: I18n.t("payment_methods.update_paypal_success"), check_update: 1 }}
+      else
+        format.json {render json: {flash: I18n.t("payment_methods.update_paypal_fail")}}
+      end
+    end
   end
 
   def destroy
@@ -29,7 +47,7 @@ class PaymentMethodsController < ApplicationController
 
   private
   def payment_method_params
-    params.require(:payment_method).permit :venue_id, :payment_type, :email
+    params.require(:payment_method).permit :venue_id, :payment_type, :email, :is_chosen
   end
 
   def load_payment_method
@@ -46,5 +64,9 @@ class PaymentMethodsController < ApplicationController
       flash[:danger] = t "venue.not_found"
       redirect_to venues_path
     end
+  end
+
+  def load_is_chosen_paypal
+    @chosen_paypal = @venue.payment_methods.paypal.find_by is_chosen: true
   end
 end
