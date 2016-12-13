@@ -8,7 +8,7 @@ module GeneralHelper
     hash = Gmaps4rails.build_markers(addresses) do |address, marker|
       marker.lat address.latitude
       marker.lng address.longitude
-      marker.infowindow address.venue.name
+      marker.infowindow address.venue.try(:name)
     end
     hash
   end

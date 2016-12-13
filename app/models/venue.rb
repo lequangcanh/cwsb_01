@@ -1,7 +1,7 @@
 class Venue < ApplicationRecord
   acts_as_paranoid
 
-  has_one :address, inverse_of: :venue
+  has_one :address, dependent: :destroy, inverse_of: :venue
   has_many :images, as: :imageable
   has_many :user_role_venues, dependent: :destroy
   has_many :users, through: :user_role_venues

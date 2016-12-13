@@ -26,6 +26,7 @@ class SpacesController < ApplicationController
   end
 
   def edit
+    @space.images.build if @space.images.blank?
   end
 
   def update

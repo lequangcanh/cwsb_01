@@ -1,6 +1,6 @@
 <% if @addresses.any? %>
   <% @addresses.each do |address| %>
-    <% if address.venue.status? %>
+    <% if address.venue.try(:status) %>
       <%= render address.spaces %>
     <% end %>
   <% end %>
