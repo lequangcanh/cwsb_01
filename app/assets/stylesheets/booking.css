@@ -1,10 +1,12 @@
 .form_payment_directly{
   background: #FFF;
-  width: 630px;
-  height: 550px;
+  width: 35%;
+  height: 27%;
   vertical-align: center;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 10%;
+  margin-bottom: auto;
 }
 .form-alert{
   display: none;
@@ -58,4 +60,7 @@ h2.venue-name, h4.venue-address {
 }
 .btn_payment{
   margin-left: 20px;
+}
+#label-pending{
+  font-size: 100%;
 }

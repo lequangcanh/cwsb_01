@@ -54,5 +54,5 @@ owner: "owner"
 manager: "manager"
 client_service : "client_service"
 reception : "reception"
-payment_methods_filter: {all: "", paypal: "Payment", banking: "UserPaymentBanking" , directly: "UserPaymentDirectly"}
+payment_methods_filter: {all: "", paypal: "Paypal", banking: "UserPaymentBanking" , directly: "UserPaymentDirectly"}
 status_filter: {all: "", requested: 0, pending: 1, paid: 2, closed: 3}

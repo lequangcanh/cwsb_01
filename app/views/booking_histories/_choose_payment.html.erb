@@ -8,23 +8,37 @@
         <h4 class="modal-title" id="modal_label_message">
           <%= t "booking_histories.choose_payment.total_modal" %></h4>
       </div>
-      <div class="btn_payment">
+      <div class="btn_payment col-md-12 col-xs-12">
         <% if order.venue.payment_methods.directly.present? %>
           <div class="col-md-4 col-xs-12">
-            <%= link_to t("booking_histories.choose_payment.directly"),
-              "#", class: "btn btn-primary payment-directly", checked: false, id: "#{order.id}" %>
+            <div class="widget">
+              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.directly"%>
+                <%= link_to image_tag("payment_methods/directly_logo.png", class: "themed-background-fixed2"),
+                  "#", class: "payment-directly", checked: false, id: "#{order.id}" %>
+              </div>
+            </div>
           </div>
         <% end %>
         <% if order.venue.payment_methods.paypal.present? %>
           <div class="col-md-4 col-xs-12">
-            <%= button_to t(".paypal"),
-              paypals_path(order: order.id), class: "btn btn-primary", disabled: payment_directly_exist?(order) %>
+            <div class="widget">
+              <div class="widget-extra-full text-center"><%= t ".paypal" %>
+                <%= link_to image_tag("payment_methods/paypal_logo.png", class: "themed-background-fixed2"),
+                  paypals_path(order: order.id), method: :create, disabled: payment_directly_exist?(order) %>
+              </div>
+            </div>
           </div>
         <% end %>
-        <div class="col-md-4 col-xs-12">
-          <%= link_to t("booking_histories.choose_payment.banking"),
-            "#", class: "btn btn-primary", disabled: payment_directly_exist?(order) %>
-        </div>
+        <% if order.venue.payment_methods.banking.present? %>
+          <div class="col-md-4 col-xs-12">
+            <div class="widget">
+              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.banking" %>
+                <%= link_to image_tag("payment_methods/banking_logo.png", class: "themed-background-fixed2"),
+            "#", disabled: payment_directly_exist?(order) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
       <div class="form_old_information">
         <div id="show_old_information_<%= order.id %>" class="display-none">

@@ -5,9 +5,8 @@ class PaypalsController < ApplicationController
   before_action :load_paypal, only: :show
   before_action :load_payment_method, only: :create
   def create
-    @paypal = Paypal.new name: current_user.name,
-      order_id: @order.id, price: @order.total_paid, order: @order,
-      payment_method_id: @payment_method.id, email: @payment_method.email
+    @paypal = Paypal.new order_id: @order.id, price: @order.total_paid, order: @order,
+      payment_method_id: @payment_method.id
     if @paypal.save
       redirect_to @paypal.paypal_url paypal_path @paypal
     else
@@ -24,7 +23,8 @@ class PaypalsController < ApplicationController
     if status == Settings.complete_paypal_status
       @paypal = Paypal.find_by id: params[:invoice]
       if @paypal.update_attributes notification_params: notification_params,
-        status: status, transaction_id: params[:txn_id], purchased_at: Time.now
+        status: status, transaction_id: params[:txn_id], purchased_at: params[:payment_date],
+        email: params[:payer_email], name: params[:first_name]
         flash[:success] = t "payment.success.update"
         @order = Order.find_by id: @paypal.order_id
         @order.update_attributes status: Order.statuses[:paid]

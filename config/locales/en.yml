@@ -381,6 +381,7 @@ en:
       payment: "Payment"
       paid: "Paymented"
       paymented: "Paymented"
+      pending: "Pending"
     close: "X"
     load:
       errors: "Load User payment directly fails"

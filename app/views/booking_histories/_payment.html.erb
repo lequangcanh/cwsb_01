@@ -7,6 +7,9 @@
   <% if order.payment_detail.present? && order.payment_detail.accepted? %>
     <%= link_to t("booking_histories.index.paymented"), "#",
       class: "btn btn-success", disabled: true %>
+  <% elsif order.payment_detail.present? %>
+    <%= link_to t("booking_histories.index.pending"), "#",
+      class: "btn btn-danger", disabled: true %>
   <% else %>
     <%= link_to t("booking_histories.index.payment"), "#",
       class: "btn btn-danger", data: {toggle: "modal", target: "#modal_payment_#{order.id}"} %>
