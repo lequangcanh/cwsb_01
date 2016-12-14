@@ -5,7 +5,7 @@ class VenueMarketsController < ApplicationController
 
   def edit
     @payment_method = @venue.payment_methods.new
-    @payment_methods = @venue.payment_methods
+    @payment_methods = @venue.payment_methods.order_by_payment_type
   end
 
   def update

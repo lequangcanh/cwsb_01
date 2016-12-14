@@ -7,4 +7,6 @@ class PaymentMethod < ApplicationRecord
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, if: :paypal?
 
   enum payment_type: {directly: 0, paypal: 1, banking: 2}
+
+  scope :order_by_payment_type, -> {order :payment_type}
 end

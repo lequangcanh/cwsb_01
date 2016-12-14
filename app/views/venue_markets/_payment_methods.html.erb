@@ -1,3 +1,4 @@
+<%= hidden_field_tag :venue, @venue.id, class: "hidden-venue" %>
 <% @payment_methods.each do |payment| %>
   <% if payment.payment_type %>
     <div class="col-sm-12 col-lg-3">
@@ -6,13 +7,28 @@
           <div class="widget-options">
             <%= link_to venue_payment_method_path(@venue, payment), method: :delete,
               data: {confirm: t("venue_markets.edit.confirm_delete")} do %>
-              <i class="fa fa-close" aria-hidden="true"></i>
+              <i class="fa fa-close x_button" aria-hidden="true"></i>
             <% end %>
           </div>
           <% if payment.paypal? %>
+            <% if payment.is_chosen %>
+              <span class="label label-success topleft">
+                 <%= t "payment_methods.active_account" %>
+              </span>
+            <% else %>
+              <span class="label label-default topleft">
+                <%= t "payment_methods.inactive_account" %>
+              </span>
+              <%= check_box_tag payment.id, payment.id, payment.is_chosen,
+                class: "is_chosen", title: t("payment_methods.tooltip_active_account"),
+                "data-toggle": :tooltip %>
+            <% end %>
             <%= image_tag "payment_methods/paypal_logo.png", class: "image_index" %>
             <div class = "text-fix"><%= payment.email %></div>
           <% else %>
+            <span class="label label-success topleft">
+               <%= t "payment_methods.active_account" %>
+            </span>
             <% if payment.banking? %>
               <%= image_tag "payment_methods/banking_logo.png", class: "image_index" %>
             <% else %>
