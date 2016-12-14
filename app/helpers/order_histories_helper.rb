@@ -16,13 +16,19 @@ module OrderHistoriesHelper
   def render_payment_detail_type order
     case order.payment_detail_type
     when Settings.payment_methods_filter[:directly]
-      t ".directly"
+      image_tag("payment_methods/directly_logo.png", class: "image_index")
     when Settings.payment_methods_filter[:paypal]
-      t ".paypal"
+      image_tag("payment_methods/paypal_logo.png", class: "image_index")
     when Settings.payment_methods_filter[:banking]
-      t ".banking"
+      image_tag("payment_methods/banking_logo.png", class: "image_index")
     else
       t ".undefined"
+    end
+  end
+
+  def render_customer_detail order
+    if order.payment_detail_type == Settings.payment_methods_filter[:directly]
+      render "customer_detail", order: order
     end
   end
 end

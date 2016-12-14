@@ -351,6 +351,7 @@ en:
       default: "%A, %d. %B %Y, %H:%M"
       time_session: "%I:%M %p"
       booking_date: "%A, %d %B %Y"
+      order_date: "%B %d,%Y at %H:%M:%p"
   orders:
     success:
       create: "Create order successfully"
@@ -358,10 +359,15 @@ en:
       create: "Have problem when create orders charge"
       load: "Can't find any order"
   order_histories:
-    index:
-      order_histories: "Order history"
+    content:
       payment_method_type: "Payment method type"
       status: "Status"
+      created_at: "Date of creation"
+      total_paid: "Total paid"
+      customer: "Customer"
+      venue: "Venue"
+    index:
+      order_histories: "Order history"
       payment_methods:
         directly: "Directly"
         paypal: "Paypal"

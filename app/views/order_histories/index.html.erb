@@ -7,24 +7,6 @@
       </h1>
     </div>
   </div>
-  <div class="block custom-block col-md-12">
-    <div class="col-md-2">
-      <%= label :payment_detail_type, t(".payment_method_type") %>
-      <%= form_tag order_histories_path,html: {id: "check"}, remote: true, method: :get do %>
-        <%= select_tag :payment_detail_type,
-          options_for_select(Settings.payment_methods_filter, params[:payment_detail_type]),
-          class: "select-capitalize form-control", onchange: "this.form.submit();",
-          include_blank: false, required: false, data: {remote: true} %>
-    </div>
-    <div class="col-md-2">
-      <%= label :status, t(".status") %>
-        <%= select_tag :status,
-          options_for_select(Settings.status_filter, params[:status]),
-          class: "select-capitalize form-control", onchange: "this.form.submit();",
-          include_blank: false, required: false, data: {remote: true} %>
-      <% end %>
-    </div>
-  </div>
   <div id ="histories_content">
     <%= render "content" %>
   </div>
