@@ -34,48 +34,56 @@
               class: "btn btn-danger check-all", id: "#{venue.id}" %>
           </div>
         </div>
-      <div class="table-responsive padding-0-15">
-        <table class="table table-vcenter bookings-table">
-          <tbody>
-            <% venue.orders.each_with_index do |order, index| %>
-              <%= hidden_field_tag "current_order_id", order.id,
-                id: "current-order-#{venue.id}-#{index}" %>
-              <%= hidden_field_tag "total_of_booking_for_current_order",
-                order.bookings.length, id: "total-of-booking-#{order.id}" %>
-              <% order.bookings.each_with_index do |booking, booking_index| %>
-                <%= render "add_message", booking: booking %>
-                <%= hidden_field_tag "current_booking", booking.id,
-                  id: "current-booking-#{order.id}-#{booking_index}" %>
-                <%= hidden_field_tag "display_state",
-                  check_reject_or_accept(booking),
-                  id: "display-state-#{parent_index}-#{index}-#{booking_index}" %>
-                <%= hidden_field_tag "booking_ids", booking.id,
-                  class: "booking_ids-#{venue.id}", id: booking.state %>
-                    <%= render "layouts/content_of_booking",
-                      booking: booking,
-                      type: Settings.content_booking.type.store_booking %>
-                    <td class="text-center">
-                      <%= form_tag booking_path(booking), method: :patch do |f| %>
-                        <fieldset>
-                          <div class="switch-toggle well" id= "confirm-button">
-                            <input id="rejected-<%= booking.id %>" value="<%= Booking.states.keys[3] %>" name="<%= booking.id %>"
-                              type="radio" class="state" data-toggle="modal" data-target="#modal_message">
-                            <label for="rejected-<%= booking.id %>" id="rejected-label">
-                              <%= Booking.states.keys[Settings.rejected] %>
-                            </label>
-                            <input id="requested-<%= booking.id %>" name="<%= booking.id %>" type="radio" class="state" value="<%= Booking.states.keys[1] %>" disabled>
-                            <label for="requested-<%= booking.id %>" id="requested-label">
-                              <%= Booking.states.keys[Settings.requested] %>
-                            </label>
-                            <input id="accepted-<%= booking.id %>" name="<%= booking.id %>" type="radio" class="state" value="<%= Booking.states.keys[2] %>">
-                            <label for="accepted-<%= booking.id %>" id="accepted-label">
-                              <%= Booking.states.keys[Settings.accepted] %>
-                            </label>
-                            <a class="btn btn-primary"></a>
-                          </div>
-                        </fieldset>
-                      <% end %>
-                    </td>
+        <div class="table-responsive padding-0-15">
+          <table class="table table-vcenter bookings-table">
+            <tbody>
+              <% venue.orders.each_with_index do |order, index| %>
+                <% unless order.payment_detail.present? || order.paypal.present? %>
+                  <%= hidden_field_tag "current_order_id", order.id,
+                    id: "current-order-#{venue.id}-#{index}" %>
+                  <%= hidden_field_tag "total_of_booking_for_current_order",
+                    order.bookings.length, id: "total-of-booking-#{order.id}" %>
+                  <% order.bookings.each_with_index do |booking, booking_index| %>
+                    <%= render "add_message", booking: booking %>
+                    <%= hidden_field_tag "current_booking", booking.id,
+                      id: "current-booking-#{order.id}-#{booking_index}" %>
+                    <%= hidden_field_tag "display_state",
+                      check_reject_or_accept(booking),
+                      id: "display-state-#{parent_index}-#{index}-#{booking_index}" %>
+                    <%= hidden_field_tag "booking_ids", booking.id,
+                      class: "booking_ids-#{venue.id}", id: booking.state %>
+                        <%= render "layouts/content_of_booking",
+                          booking: booking,
+                          type: Settings.content_booking.type.store_booking %>
+                        <td class="text-right">
+                          <%= form_tag booking_path(booking), method: :patch do |f| %>
+                            <% unless order.paypal || order.payment_detail %>
+                              <fieldset class="text-center">
+                                <div class="switch-toggle well" id= "confirm-button">
+                                  <input id="rejected-<%= booking.id %>" value="<%= Booking.states.keys[3] %>" name="<%= booking.id %>"
+                                    type="radio" class="state" data-toggle="modal" data-target="#modal_message">
+                                  <label for="rejected-<%= booking.id %>" id="rejected-label">
+                                    <%= Booking.states.keys[Settings.rejected] %>
+                                  </label>
+                                  <input id="requested-<%= booking.id %>" name="<%= booking.id %>" type="radio" class="state" value="<%= Booking.states.keys[1] %>" disabled>
+                                  <label for="requested-<%= booking.id %>" id="requested-label">
+                                    <%= Booking.states.keys[Settings.requested] %>
+                                  </label>
+                                  <input id="accepted-<%= booking.id %>" name="<%= booking.id %>" type="radio" class="state" value="<%= Booking.states.keys[2] %>">
+                                  <label for="accepted-<%= booking.id %>" id="accepted-label">
+                                    <%= Booking.states.keys[Settings.accepted] %>
+                                  </label>
+                                  <a class="btn btn-primary"></a>
+                                </div>
+                              </fieldset>
+                            <% else %>
+                              <% if order.payment_detail.present? %>
+                                <label class="label label-danger" id="label-pending"><%= t "booking_histories.index.pending" %></label>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                        </td>
+                  <% end %>
                 <% end %>
               <% end %>
               <tr>

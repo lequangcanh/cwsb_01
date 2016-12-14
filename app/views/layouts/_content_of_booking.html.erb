@@ -3,7 +3,7 @@
     <h4 id="test">
       <%= link_to booking.space.name %>
       <% if type == Settings.content_booking.type.booking_history %>
-        <% unless booking.order.paid? %>
+        <% unless booking.order.paid? || booking.order.payment_detail.present? %>
           <%= link_to t(".x"), "#", class: "close",
             class: "btn btn-xs btn-danger delete-booking",
             id: "delete-#{booking.id}" %>
