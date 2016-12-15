@@ -1,24 +1,58 @@
 <div class="col-md-12 space-form">
+  <span class="venue-name"><%= @venue.name %></span>
   <%= simple_form_for [@venue, @space] do |f| %>
     <legend><span class="number">1</span><%= t "space.info" %></legend>
-    <%= f.input :name, input_html: {class: "form-control margin-bot-15"} %>
     <%= f.simple_fields_for :images do |form_image| %>
       <%= form_image.input :picture, input_html: {class: "margin-bot-15"} %>
     <% end %>
-    <%= f.input :space_type, as: :select, collection: Space.space_types.keys,
-      input_html: {class: "form-control"} %>
-    <%= f.input :area, input_html: {class: "form-control margin-bot-15"} %>
-    <%= f.input :day_reject, input_html: {value: day_reject,
-      class: "form-control margin-bot-15"} %>
-    <%= f.input :capicity, input_html: {class: "form-control margin-bot-15"} %>
-    <%= f.input :quantity, input_html: {class: "form-control margin-bot-15"} %>
-    <%= f.input :description, input_html: {class: "form-control margin-bot-15"} %>
+    <div class="row">
+      <div class="col-md-6">
+      <%= f.input :name, input_html: {class: "form-control string optional form-control margin-bot-15",
+        "data-validation": "required"} %>
+      </div>
+      <div class="col-md-6">
+      <%= f.input :space_type, as: :select, collection: Space.space_types.keys,
+        input_html: {class: "form-control string optional form-control margin-bot-15",
+        "data-validation": "required"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :area, input_html: {class: "form-control string optional form-control margin-bot-15",
+          "data-validation": "required"} %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :day_reject, input_html: {value: day_reject,
+          class: "form-control string optional form-control margin-bot-15", "data-validation": "required"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :capicity, input_html: {class: "form-control string optional form-control margin-bot-15",
+          "data-validation": "required"} %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :quantity, input_html: {class: "form-control string optional form-control margin-bot-15",
+          "data-validation": "required"} %>
+      </div>
+    </div>
+    <div>
+      <%= f.input :description, input_html: {class: "form-control string optional form-control margin-bot-15",
+        "data-validation": "required"} %>
+    </div>
     <legend><span class="number">2</span><%= t "space.price" %></legend>
+    <div class="row">
       <%= f.simple_fields_for :prices do |price| %>
-        <%= price.input :price,
-          input_html: {class: "form-control margin-bot-15 booking-#{price.object.id}"} %>
-        <%= price.input :booking_type_id, as: :hidden %>
+        <div class="col-md-6">
+          <%= price.input :price, label: "Price-#{price.object.booking_type.name}",
+            input_html: {class: "form-control margin-bot-15 booking-#{price.object.id}"}, value: 0 %>
+            <%= price.input :booking_type_id, as: :hidden %>
+        </div>
       <% end %>
-    <%= f.button :submit, class: "btn-submit" %>
+    </div></p>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <%= f.button :submit, class: "btn-submit" %>
+    </div>
   <% end %>
 </div>

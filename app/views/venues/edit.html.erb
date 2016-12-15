@@ -6,9 +6,7 @@
     </div>
   </div>
   <div class="col-md-7 max-height-x padding-left-0 padding-right-0 scroll-y">
-    <div class="block full">
-      <%= @venue.name %>
-    </div>
+    <span class="venue-name"><%= @venue.name %></span>
     <div class="block full">
       <div class="block-title">
         <%= render "shared/form_outline", active_id: "venues" %>

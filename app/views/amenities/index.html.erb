@@ -2,9 +2,7 @@
 <%= javascript_include_tag "amenity/index.js" %>
 <div class="row full-height margin-left-0 margin-right-0 background-x scroll-y">
   <div class="block full-height margin-bottom-0">
-    <div class="block-title">
-      <h2 class="amenity-name"><strong><%= t ".block_title" %></strong></h2>
-    </div>
+    <span class="venue-name"><%= @venue.name %></span>
     <%= render "shared/form_outline", active_id: "amenities" %>
     <%= hidden_field_tag "venue", @venue.id, class: "hidden-venue" %>
     <%= hidden_field_tag "price", t(".vnd_per") %>
