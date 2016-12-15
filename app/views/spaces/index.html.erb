@@ -1,8 +1,6 @@
 <div class="row full-height margin-left-0 margin-right-0 scroll-y">
   <div class="col-sm-12 padding-left-0 padding-right-0">
-    <div class="block full">
-      <%= @venue.name %>
-    </div>
+    <span class="venue-name"><%= @venue.name %></span>
   </div>
   <div class="block full full-height">
     <div class="block-title">
@@ -53,7 +51,7 @@
                 </div>
                 <div class="widget-extra themed-background text-center venue-info">
                   <h3 class="widget-content-light">
-                    <strong><%= link_to space.space_type, edit_venue_space_path(space.venue, space) %></strong><br>
+                    <strong><%= link_to space.space_type.humanize, edit_venue_space_path(space.venue, space) %></strong><br>
                     <small><%= t ".capicity" %><%= space.capicity %></small>
                   </h3>
                 </div>

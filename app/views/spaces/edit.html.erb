@@ -6,7 +6,13 @@
     </div>
   </div>
   <div class="col-md-7 max-height-x padding-left-0 padding-right-0 scroll-y">
-    <%= render "spaces/form", day_reject: @space.day_reject %>
+    <div class="row margin-left-0 margin-right-0">
+      <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <%= render "spaces/form", day_reject: @space.day_reject %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyJ3SWFP8U5Xmqe3H3X_iOsR1nw1v6_Q&&libraries=places"></script>

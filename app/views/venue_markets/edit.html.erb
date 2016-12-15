@@ -2,9 +2,7 @@
 <div class="media-body footer-section line-break-block">
   <div class="row">
     <div class="col-md-12">
-      <div class="block full">
-        <%= @venue.name %>
-      </div>
+      <span class="venue-name"><%= @venue.name %></span>
       <div class="block full">
         <div class="block-title">
           <%= render "shared/form_outline", active_id: "marketplace" %>

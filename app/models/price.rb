@@ -4,6 +4,12 @@ class Price < ApplicationRecord
   belongs_to :space
   belongs_to :booking_type
 
-  validates :price, presence: true
-  validates_numericality_of :price, greater_than_or_equal_to: 0
+  validates_numericality_of :price, greater_than_or_equal_to: 0, allow_nil: true
+  before_save :nil_to_zero
+
+  def nil_to_zero
+    unless price
+      self.price = 0
+    end
+  end
 end

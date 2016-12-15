@@ -23,46 +23,48 @@
           </address>
         </div>
         <div class="table-responsive padding-0-15">
-          <table class="table table-vcenter bookings-table">
-            <tbody>
-              <%= render "confirm_payment_directlies/title_status" %>
-              <% venue.orders.have_order_payment_directly.each_with_index do |order, index| %>
-                <% order.bookings.each_with_index do |booking, booking_index| %>
-                  <%= hidden_field_tag :booking_id, booking.id,
-                    class: "booking_id-#{venue.id}", id: booking.state %>
-                  <%= render "layouts/content_of_order_payment_directly", booking: booking,
-                    type: Settings.content_booking.type.store_booking %>
-                  <%= render "confirm_payment_directlies/information_payment_directlies", order: order %>
-                  <td class="text-left">
-                    <div class="load-status">
-                      <% if order.payment_detail.pending? %>
-                        <label class="switch switch-primary" data-toggle="tooltip"
-                          title ="<%= t "payments.tooltip.status_pending" %>">
-                          <%= check_box_tag :status, order.payment_detail.status, checked = false,
-                            id: "checkbox-payment-method-#{order.payment_detail.id}",
-                            class: "payment-directly-status" %>
-                          <span></span>
-                        </label>
-                        <label class="label label-danger" id="label-status-<%= order.payment_detail.id %>">
-                          <%= t "payments.payment" %><%= order.payment_detail.status %>
-                        </label>
-                      <% else %>
-                        <label class="switch switch-primary" data-toggle="tooltip"
-                          title ="<%= t "payments.tooltip.status_accepted" %>">
-                          <%= check_box_tag :status, order.payment_detail.status,
-                            checked = true, disabled: true %>
-                          <span></span>
-                        </label>
-                        <label class="label label-info" id="label-status-<%= order.payment_detail.id %>">
-                          <%= t "payments.payment" %><%= order.payment_detail.status %>
-                        </label>
-                      <% end %>
-                    </div>
-                  </td>
+          <% if venue.payment_methods.find_by(payment_type: "directly").present? %>
+            <table class="table table-vcenter bookings-table">
+              <tbody>
+                <%= render "confirm_payment_directlies/title_status" %>
+                <% venue.orders.have_order_payment_directly.each_with_index do |order, index| %>
+                  <% order.bookings.each_with_index do |booking, booking_index| %>
+                    <%= hidden_field_tag :booking_id, booking.id,
+                      class: "booking_id-#{venue.id}", id: booking.state %>
+                    <%= render "layouts/content_of_order_payment_directly", booking: booking,
+                      type: Settings.content_booking.type.store_booking %>
+                    <%= render "confirm_payment_directlies/information_payment_directlies", order: order %>
+                    <td class="text-left">
+                      <div class="load-status">
+                        <% if order.payment_detail.pending? %>
+                          <label class="switch switch-primary" data-toggle="tooltip"
+                            title ="<%= t "payments.tooltip.status_pending" %>">
+                            <%= check_box_tag :status, order.payment_detail.status, checked = false,
+                              id: "checkbox-payment-method-#{order.payment_detail.id}",
+                              class: "payment-directly-status" %>
+                            <span></span>
+                          </label>
+                          <label class="label label-danger" id="label-status-<%= order.payment_detail.id %>">
+                            <%= t "payments.payment" %><%= order.payment_detail.status %>
+                          </label>
+                        <% else %>
+                          <label class="switch switch-primary" data-toggle="tooltip"
+                            title ="<%= t "payments.tooltip.status_accepted" %>">
+                            <%= check_box_tag :status, order.payment_detail.status,
+                              checked = true, disabled: true %>
+                            <span></span>
+                          </label>
+                          <label class="label label-info" id="label-status-<%= order.payment_detail.id %>">
+                            <%= t "payments.payment" %><%= order.payment_detail.status %>
+                          </label>
+                        <% end %>
+                      </div>
+                    </td>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          <% end %>
         </div>
       </div>
     <% end %>

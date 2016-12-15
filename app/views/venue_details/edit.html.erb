@@ -1,8 +1,6 @@
 <div class="row full-height margin-left-0 margin-right-0 scroll-y">
   <div class="col-md-12">
-    <div class="block full">
-      <%= @venue.name %>
-    </div>
+    <span class="venue-name"><%= @venue.name %></span>
     <div class="block full">
       <div class="block-title">
         <%= render "shared/form_outline", active_id: "details" %>
