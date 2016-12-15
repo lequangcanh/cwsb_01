@@ -13,16 +13,19 @@
     </div>
   </td>
   <td class="text-center col-md-2">
+    <%= l order.created_at, format: :order_date %>
+  </td>
+  <td class="text-center col-md-1">
     <span class="label label-<%= display_status order %>">
       <%= order.status %>
     </span>
   </td>
   <td class="text-center col-md-2">
-    <strong id ="">
+    <strong>
       <%= render_payment_detail_type order %>
     </strong>
   </td>
-  <td class="text-center col-md-2">
+  <td class="text-center col-md-1">
     <strong>
       <span class="badge">$
         <%= order.total_paid %>
@@ -36,13 +39,7 @@
       <strong>
       <span class="fa fa-envelope" aria-hidden="true">
         <%= order.payment_detail.email %></span></p>
-      <strong>
-        <span class="fa fa-phone-square" aria-hidden="true">
-          <%= order.payment_detail.phone %></span>
-      </strong>
-      </p>
-      <span class="fa fa-location-arrow" aria-hidden="true">
-        <%= order.payment_detail.address %></span>
+      <%= render_customer_detail order %>
     <% end %>
   </td>
 </div>

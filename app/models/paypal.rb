@@ -4,7 +4,7 @@ class Paypal < ApplicationRecord
 
   attr_accessor :order
 
-  before_create :update_payment_paypal_of_order
+  after_create :update_payment_paypal_of_order
 
   def paypal_url(return_path)
     values = {
