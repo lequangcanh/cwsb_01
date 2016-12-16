@@ -2,18 +2,18 @@
   method: :post do |f| %>
   <%= f.input :name,
     input_html: {value: current_user.name, class: "form-control margin-bot-10",
-    "data-validation": "required"} %>
+    "data-validation": "required"} %><br/>
   <%= f.input :email,
-    input_html: {value: current_user.email, class: "form-control margin-bot-15",
+    input_html: {value: current_user.email, class: "form-control margin-bot-10",
     "data-validation": "email",
-    "data-validation-help": t("booking_histories.validation.email")} %>
+    "data-validation-help": t("booking_histories.validation.email")} %><br/>
   <%= f.input :phone,
-    input_html: {value: current_user.phone_number, class: "form-control margin-bot-15",
-    "data-validation": "length",
-    "data-validation-length": "min10"} %>
+    input_html: {value: current_user.phone_number, class: "form-control margin-bot-10",
+    "data-validation": "length number",
+    "data-validation-length": "min10"} %></br>
   <%= f.input :address,
-    input_html: {class: "form-control margin-bot-15",
+    input_html: {class: "form-control margin-bot-10",
       "data-validation": "length", "data-validation-length": "max20"} %>
-  <%= f.button :submit, value: t("booking_histories.choose_payment.submit"),
-    class: "btn btn-danger pull-right" %>
+  <%= f.button :submit, value: t("confirm_payment_directly.btn_confirm"),
+    class: "btn btn-primary pull-right", data: {confirm: t("confirm_payment_directly.confirm_directly")} %>
 <% end %>

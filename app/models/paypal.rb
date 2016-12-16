@@ -18,7 +18,7 @@ class Paypal < ApplicationRecord
     order.bookings.accepted.each_with_index do |booking, index|
       values.merge!({
         "amount_#{index+1}":
-          booking.select_price(booking.space, booking.booking_type_id),
+          booking.select_price(booking.space, booking.booking_type_id) * booking.duration,
         "item_name_#{index+1}": booking.space_name,
         "item_number_#{index+1}": booking.id,
         "quantity_#{index+1}": booking.quantity,

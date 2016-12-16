@@ -5,13 +5,25 @@ class PaypalsController < ApplicationController
   before_action :load_paypal, only: :show
   before_action :load_payment_method, only: :create
   def create
-    @paypal = Paypal.new order_id: @order.id, price: @order.total_paid, order: @order,
-      payment_method_id: @payment_method.id
-    if @paypal.save
-      redirect_to @paypal.paypal_url paypal_path @paypal
+    if !@order.paypal
+      @paypal = Paypal.new order_id: @order.id, price: @order.total_paid, order: @order,
+        payment_method_id: @payment_method.id
+
+      if @paypal.save
+        redirect_to @paypal.paypal_url paypal_path @paypal
+      else
+        flash[:danger] = t ".errors.load"
+        redirect_to booking_histories_path
+      end
     else
-      flash[:danger] = t ".errors.load"
-      redirect_to booking_histories_path
+      @paypal = Paypal.find_by id: @order.paypal.id
+      if @paypal
+        @paypal.order = @order
+        redirect_to @paypal.paypal_url paypal_path @paypal
+      else
+        flash[:danger] = t ".errors.load"
+        redirect_to booking_histories_path
+      end
     end
   end
 

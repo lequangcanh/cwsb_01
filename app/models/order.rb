@@ -25,6 +25,14 @@ class Order < ApplicationRecord
     where status: status if status.present?
   end
 
+  after_update :delete_paypal_after_change_method
+
+  def delete_paypal_after_change_method
+    if self.payment_detail_type != Paypal
+      self.paypal.destroy if self.paypal
+    end
+  end
+
   def update_booking
     @booking_ids = booking_ids.split(" ")
     @booking_ids.each do |booking_id|

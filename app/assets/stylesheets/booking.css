@@ -1,12 +1,8 @@
 .form_payment_directly{
   background: #FFF;
-  width: 35%;
-  height: 27%;
   vertical-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10%;
-  margin-bottom: auto;
+  width: auto;
+  border-radius: 10px;
 }
 .form-alert{
   display: none;
@@ -54,13 +50,25 @@ h2.venue-name, h4.venue-address {
 }
 .form_old_information{
   vertical-align: center;
-  margin-top: 70px;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: auto;
+  border-radius: 10px;
 }
 .btn_payment{
   margin-left: 20px;
 }
 #label-pending{
   font-size: 100%;
+}
+
+.attribute{
+  background-color: #FFF;
+  border-radius: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+.display-widget{
+  margin-left: auto;
+  margin-right: auto;
 }

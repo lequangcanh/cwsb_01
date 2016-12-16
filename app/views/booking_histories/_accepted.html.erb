@@ -1,4 +1,6 @@
 <% if @accepts.any? %>
+  <div id="loader_paypal" class="loader display-none">
+  </div>
   <% @accepts.each_with_index do |order, index| %>
     <%= hidden_field_tag "order_id",
       order.first.id, id: "order_id-#{Settings.status.accept}-#{index}" %>
