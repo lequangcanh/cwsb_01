@@ -5,7 +5,7 @@
 <% else %>
   <%= render "choose_payment", order: order %>
   <% if order.venue.payment_methods.present? %>
-    <% if order.payment_detail.present? && order.paypal.name.present? %>
+    <% if order.payment_detail.present? && order.paypal.present? && order.paypal.name.present? %>
       <%= link_to t("booking_histories.index.pending"), "#",
         class: "btn btn-danger", disabled: true %>
     <% elsif order.venue.payment_methods.directly.present? || order.venue.payment_methods.banking.present? %>
@@ -13,7 +13,7 @@
         class: "btn btn-danger", data: {toggle: "modal", target: "#modal_payment_#{order.id}"} %>
     <% else %>
       <% if order.venue.payment_methods === order.venue.payment_methods.paypal %>
-          <%= link_to t(".paypal"), paypals_path(order: order.id),
+        <%= link_to t(".paypal"), paypals_path(order: order.id),
           class: "btn btn-danger", method: :create %>
       <% end %>
     <% end %>
