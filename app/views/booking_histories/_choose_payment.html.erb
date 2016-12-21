@@ -1,6 +1,5 @@
-<div class="modal fade form_payment_directly" id="modal_payment_<%= order.id %>" tabindex="-1" role="dialog"
-  aria-labelledby="modal_label_message" aria-hidden="true">
-  <div class="modal-dialog attribute">
+<div class="modal fade" id="modal_payment_<%= order.id %>"role="dialog">
+  <div class="attribute modal-dialog" role = "dialog">
     <div class="modal-content-<%= order.id %>">
       <div class="modal-header">
         <button type="button" class="close"
@@ -8,11 +7,11 @@
         <h4 class="modal-title" id="modal_label_message">
           <%= t "booking_histories.choose_payment.total_modal" %></h4>
       </div>
-      <div class="btn_payment col-md-12 col-xs-12">
+      <div class="modal-body col-md-12">
         <% if order.venue.payment_methods.directly.present? %>
-          <div class="col-md-4 col-xs-12">
-            <div class="widget">
-              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.directly"%>
+          <div class="col-md-4">
+            <div class="widget display-widget">
+              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.directly"%><br/>
                 <%= link_to image_tag("payment_methods/directly_logo.png", class: "themed-background-fixed2"),
                   "#", class: "payment-directly", checked: false, id: "#{order.id}" %>
               </div>
@@ -20,33 +19,37 @@
           </div>
         <% end %>
         <% if order.venue.payment_methods.paypal.present? %>
-          <div class="col-md-4 col-xs-12">
-            <div class="widget">
-              <div class="widget-extra-full text-center"><%= t ".paypal" %>
-                <%= link_to image_tag("payment_methods/paypal_logo.png", class: "themed-background-fixed2"),
+          <div class="col-md-4">
+            <div class="widget display-widget">
+              <div class="widget-extra-full text-center"><%= t ".paypal" %><br/>
+                <%= link_to image_tag("payment_methods/paypal_logo.png",
+                  class: "themed-background-fixed2 payment-paypal"),
                   paypals_path(order: order.id), method: :create, disabled: payment_directly_exist?(order) %>
               </div>
             </div>
           </div>
         <% end %>
         <% if order.venue.payment_methods.banking.present? %>
-          <div class="col-md-4 col-xs-12">
-            <div class="widget">
-              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.banking" %>
+          <div class="col-md-4">
+            <div class="widget display-widget">
+              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.banking" %><br/>
                 <%= link_to image_tag("payment_methods/banking_logo.png", class: "themed-background-fixed2"),
-            "#", disabled: payment_directly_exist?(order) %>
+                  "#", disabled: payment_directly_exist?(order),
+                  data: {confirm: t("confirm_payment_directly.confirm_directly")} %>
               </div>
             </div>
           </div>
         <% end %>
       </div>
-      <div class="form_old_information">
-        <div id="show_old_information_<%= order.id %>" class="display-none">
-          <div class="form-group">
-            <%= render_form_payment order, current_user %>
+      <% if order.venue.payment_methods.directly.present? %>
+        <div class="form_old_information">
+          <div id="show_old_information_<%= order.id %>">
+            <div class="form-group">
+              <%= render_form_payment order, current_user %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

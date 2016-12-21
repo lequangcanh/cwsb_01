@@ -381,7 +381,7 @@ en:
         undefined: "Undefined"
   booking_histories:
     validation:
-      email: "Som help info..."
+      email: "We will send information about your order to this email"
     index:
       your_bookings: "Your booking history"
       booking_histories: "Your booking history"
@@ -391,7 +391,7 @@ en:
       accept: "Accepted"
       reject: "Rejected"
       payment: "Payment"
-      paid: "Paymented"
+      paid: "Paid"
       paymented: "Paymented"
       pending: "Pending"
     close: "X"
@@ -409,9 +409,9 @@ en:
       address_payment: "Address Payment"
       phone_payment: "Phone"
       email_payment: "Email"
-      directly: "Payment Directly"
-      paypal: "Payment Paypal"
-      banking: "Payment Banking"
+      directly: "Directly"
+      paypal: "Paypal"
+      banking: "Banking"
       submit: "Submit"
       update: "Update"
       new: "New information"
@@ -464,7 +464,8 @@ en:
     email: "Email:"
     phone: "Phone:"
     address: "Address:"
-    confirm: "Confirm Payment Directly"
+    btn_confirm: "Confirm Payment Directly"
+    confirm_directly: "You cant change payment method after confirm. Are you sure ?"
   notification:
     has: "has"
     ago: "ago"

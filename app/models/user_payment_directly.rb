@@ -20,7 +20,7 @@ class UserPaymentDirectly < ApplicationRecord
   end
 
   def update_status_order
-    order = Order.find_by payment_detail_id: id
+    order = Order.find_by payment_detail_id: id, payment_detail_type: UserPaymentDirectly
     order.update_attributes status: Order.statuses[:paid]
   end
 end
