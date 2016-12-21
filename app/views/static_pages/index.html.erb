@@ -77,8 +77,7 @@
           <% end %>
         </div>
       </div>
-    </section>
-    <div id="home-carousel" class="carousel slide" data-interval="false">
+      <div id="home-carousel" class="carousel slide" data-interval="false">
       <ol class="carousel-indicators">
         <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
         <li data-target="#home-carousel" data-slide-to="1"></li>
@@ -122,6 +121,7 @@
         <% end %>
       </nav>
     </div>
+    </section>
     <section id="testimonial" class="parallax-section">
       <div class="container">
         <div class="sub-title text-center wow fadeInDown" data-wow-duration="500ms">
@@ -260,36 +260,44 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-4 col-xs-12">
-              <h3><%= t "home.about_us" %></h3>
-              <ul>
-                <li><a href="#"><%= t "home.company" %></a></li>
-                <li><a href="#"><%= t "home.contact" %></a></li>
-                <li><a href="#"><%= t "home.support" %></a></li>
-              </ul>
+              <h3 class="text-center"><%= t "home.about_us" %></h3>
+              <p class = "col-md-12">
+                <div class = "col-lg-3 text-left">
+                  <a href="http://framgia.com" target="_blank">
+                    <img src="http://poll.framgia.vn/uploads/images/logo.png">
+                  </a>
+                </div>
+                <div class="col-lg-9 text-color">
+                  <p>
+                    <b><%= t "cwsb" %></b>
+                  </p>
+                  <%= t "coppy" %></p>
+                  <%= t "reserved" %>
+                </div>
+              </p>
             </div>
             <div class="col-sm-4 col-xs-12">
-              <h3><%= t "home.legal" %></h3>
+              <h3 class="text-center"><%= t "home.contact" %></h3>
               <ul>
-                <li><a href="#"><%= t "home.licensing" %></a></li>
-                <li><a href="#"><%= t "home.privacy_policy" %></a></li>
+                <li><a class="fa fa-map-marker" href="#"> <%= t "home.place" %></a></li>
+                <li><a class="fa fa-phone" href="#"> <%= t "home.phone" %></a></li>
+                <li><a class="fa fa-envelope-o" href="#"> <%= t "home.email" %></a></li>
               </ul>
             </div>
-            <div class="col-sm-4 col-xs-12 ">
+            <div class="col-sm-4 col-xs-12 text-center">
               <h3><%= t "home.follow_us" %></h3>
               <ul class="social">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="google_plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li class="youtube"><a href="#"><i class="fa fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container">
-          <p class="pull-left"><%= t "home.link_footer" %></p>
+          <div class="row">
+            <p class="text-center"><%= t "home.link_footer" %></p>
+          </div>
         </div>
       </div>
     </footer>
