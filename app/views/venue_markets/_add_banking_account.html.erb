@@ -1,0 +1,23 @@
+<div class="modal fade" id="modal_add_banking" tabindex="-1" role="dialog"
+  aria-labelledby="modal_label_message" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+          data-dismiss="modal" aria-hidden="true"><%= t ".close" %></button>
+        <h4 class="modal-title" id="modal_label_message">
+          <%= t "venue_markets.edit.add_banking_account" %>
+        </h4>
+      </div>
+      <div id="error">
+      </div>
+      <div class="form-group">
+        <div class="col-md-12 form-banking">
+          <%= simple_form_for [@venue, Banking.new], method: :post do |f| %>
+            <% render partial: "form_banking_account", locals: {f: f} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -42,5 +42,12 @@ class VenueMarketsController < ApplicationController
       Settings.payment_methods.directly
     @payment_banking = @payment_methods.find_by payment_type:
       Settings.payment_methods.banking
+    @obj_banking = @venue.payment_methods.find_by payment_type: Settings.payment_methods.banking
+    if @obj_banking
+      @banking = Banking.find_by payment_method: @obj_banking
+      unless @banking
+        flash[:danger] = t "flash.danger_message"
+      end
+    end
   end
 end
