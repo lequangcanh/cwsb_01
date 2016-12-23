@@ -520,7 +520,16 @@ en:
     create_success: "Add payment method successfully!"
     create_fail: "Opps! Add payment method failed!"
   venue_markets:
+    verify: "Committed to this information is correct"
+    update:
+      btn_banking: "Update"
+    create:
+      success: "Create Suceess"
+      errors: "Create Fails"
     edit:
+      edit_banking_account: "Update Banking Account"
+      edit: "Edit"
+      delete: "Delete"
       main_account: "Main Account"
       account: "Account: "
       add: "Add"
@@ -529,6 +538,7 @@ en:
       add_new_directly: "Add Directly payment"
       other_settings: "Other settings"
       add_paypal_account: "Add Paypal Account"
+      add_banking_account: "Add Banking Account"
       btn_add_directly: "Add Directly"
       btn_del_directly: "Delete Directly"
       btn_del_banking: "Delete Banking"

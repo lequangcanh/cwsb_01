@@ -15,7 +15,7 @@
       <%= link_to t("venue_markets.edit.btn_del_directly"),
         venue_payment_method_path(@venue, @payment_directly),
         method: :delete, data: { confirm: t("venue_markets.edit.confirm_delete")},
-        class: "btn btn-primary payment-method form-control" %>
+        class: "btn btn-danger payment-method form-control" %>
     <% else %>
       <%= simple_form_for [@venue, @payment_method], remote: true do |payment| %>
         <%= payment.hidden_field :payment_type, value: Settings.payment_methods.directly %>
@@ -31,16 +31,19 @@
 <div class = "pull-right">
   <div class = "btn-fix">
     <% if @payment_banking %>
+      <%= link_to "#",data: {toggle: "modal", target: "#modal_edit_banking"},
+        class: "btn btn-danger payment-method form-control" do %>
+        &nbsp;<%= t "venue_markets.edit.edit" %>
+      <% end %>
       <%= link_to t("venue_markets.edit.btn_del_banking"),
         venue_payment_method_path(@venue, @payment_banking),
         method: :delete, data: { confirm: t("venue_markets.edit.confirm_delete")},
-        class: "btn btn-primary payment-method form-control" %>
+        class: "btn btn-danger payment-method form-control" %>
     <% else %>
-      <%= simple_form_for [@venue, @payment_method], remote: true do |payment| %>
-        <%= payment.hidden_field :payment_type, value: Settings.payment_methods.banking %>
-        <%= payment.submit t("venue_markets.edit.btn_add_banking"),
-          id: "btn_add_banking", class: "btn btn-primary payment-method btn-fix" %>
-      <% end %>
+      <button data-toggle="modal" data-target="#modal_add_banking"
+        class="btn btn-primary payment-method btn-fix">
+        <%= t "venue_markets.edit.btn_add_banking" %>
+      </button>
     <% end %>
   </div>
 </div>
