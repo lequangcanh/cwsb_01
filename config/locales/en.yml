@@ -519,6 +519,11 @@ en:
     update_paypal_fail: "Cant active this paypal account !"
     create_success: "Add payment method successfully!"
     create_fail: "Opps! Add payment method failed!"
+  directlies:
+    update:
+      directly_not_found: "Directly payment method not found!"
+      update_directly_success: "Update information for directly payment successfully"
+      update_directly_fail: "Cant update information for directly payment"
   venue_markets:
     verify: "Committed to this information is correct"
     update:
@@ -526,6 +531,19 @@ en:
     create:
       success: "Create Suceess"
       errors: "Create Fails"
+    form_directly_detail:
+      verify_message: "I confirm that the information given in this form is true,
+        complete and accurate."
+      validation_message: "You have to agree to our terms"
+    add_info_for_payment_directly:
+      close: "Close"
+      add_detail_directly: "Payment Directly"
+      payment_method_not_found: "Payment method not found!"
+      directly_not_found: "Payment method directly not found"
+      add: "Add Payment Directly"
+    edit_info_for_payment_directly:
+      update: Update
+      update_detail_directly: "Update Payment Directly"
     edit:
       edit_banking_account: "Update Banking Account"
       edit: "Edit"
@@ -533,12 +551,14 @@ en:
       main_account: "Main Account"
       account: "Account: "
       add: "Add"
+      edit: "Edit"
       add_new_paypal: "Add new Paypal account"
       add_new_banking: "Add Banking payment"
       add_new_directly: "Add Directly payment"
       other_settings: "Other settings"
       add_paypal_account: "Add Paypal Account"
       add_banking_account: "Add Banking Account"
+      add_detail_directly: "Payment Directly"
       btn_add_directly: "Add Directly"
       btn_del_directly: "Delete Directly"
       btn_del_banking: "Delete Banking"

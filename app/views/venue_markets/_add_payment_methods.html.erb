@@ -17,11 +17,10 @@
         method: :delete, data: { confirm: t("venue_markets.edit.confirm_delete")},
         class: "btn btn-danger payment-method form-control" %>
     <% else %>
-      <%= simple_form_for [@venue, @payment_method], remote: true do |payment| %>
-        <%= payment.hidden_field :payment_type, value: Settings.payment_methods.directly %>
-        <%= payment.submit t("venue_markets.edit.btn_add_directly"), id: "btn_add_directly",
-          class: "btn btn-primary payment-method btn-fix" %>
-      <% end %>
+        <button id="btn_add_directly" data-toggle="modal" data-target="#modal_add_directly"
+          class="btn btn-primary payment-method btn-fix">
+          <%= t "venue_markets.edit.btn_add_directly" %>
+        </button>
     <% end %>
   </div>
 </div>

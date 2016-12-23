@@ -2,6 +2,7 @@ class PaymentMethodsController < ApplicationController
   before_action :load_venue
   before_action :load_payment_method, only: [:destroy, :update]
   before_action :load_is_chosen_paypal, only: [:update, :create]
+  before_action :load_payment_directly, only: :destroy
 
   def index
     @payment_methods = @venue.payment_methods
@@ -68,5 +69,9 @@ class PaymentMethodsController < ApplicationController
 
   def load_is_chosen_paypal
     @chosen_paypal = @venue.payment_methods.paypal.find_by is_chosen: true
+  end
+
+  def load_payment_directly
+    @directly = Directly.find_by payment_method: @payment_method
   end
 end

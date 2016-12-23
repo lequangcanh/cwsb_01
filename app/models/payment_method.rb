@@ -2,6 +2,7 @@ class PaymentMethod < ApplicationRecord
   belongs_to :venue
   has_one :paypal
   has_one :banking, dependent: :destroy
+  has_one :directly, dependent: :destroy
 
   validates :payment_type, presence: true
   validates :email, presence: true, length: {maximum: 255},

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221015403) do
+ActiveRecord::Schema.define(version: 20161222033335) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "details",                   null: false
@@ -136,6 +136,19 @@ ActiveRecord::Schema.define(version: 20161221015403) do
     t.index ["deleted_at"], name: "index_coupons_on_deleted_at", using: :btree
     t.index ["quantity_id"], name: "index_coupons_on_quantity_id", using: :btree
     t.index ["space_id"], name: "index_coupons_on_space_id", using: :btree
+  end
+
+  create_table "directlies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "name",              limit: 65535
+    t.text     "address",           limit: 65535
+    t.text     "phone_number",      limit: 65535
+    t.boolean  "verified"
+    t.integer  "pending_time"
+    t.text     "message",           limit: 65535
+    t.integer  "payment_method_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["payment_method_id"], name: "index_directlies_on_payment_method_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -410,6 +423,7 @@ ActiveRecord::Schema.define(version: 20161221015403) do
   add_foreign_key "coupons", "booking_types"
   add_foreign_key "coupons", "quantities"
   add_foreign_key "coupons", "spaces"
+  add_foreign_key "directlies", "payment_methods"
   add_foreign_key "invoices", "bookings"
   add_foreign_key "invoices", "coupons"
   add_foreign_key "payment_methods", "venues"
