@@ -8,48 +8,11 @@
           <%= t "booking_histories.choose_payment.total_modal" %></h4>
       </div>
       <div class="modal-body col-md-12">
-        <% if order.venue.payment_methods.directly.present? %>
-          <div class="col-md-4">
-            <div class="widget display-widget">
-              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.directly"%><br/>
-                <%= link_to image_tag("payment_methods/directly_logo.png", class: "themed-background-fixed2"),
-                  "#", class: "payment-directly", checked: false, id: "#{order.id}" %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% if order.venue.payment_methods.paypal.present? %>
-          <div class="col-md-4">
-            <div class="widget display-widget">
-              <div class="widget-extra-full text-center"><%= t ".paypal" %><br/>
-                <%= link_to image_tag("payment_methods/paypal_logo.png",
-                  class: "themed-background-fixed2 payment-paypal"),
-                  paypals_path(order: order.id), method: :create, disabled: payment_directly_exist?(order) %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% if order.venue.payment_methods.banking.present? %>
-          <div class="col-md-4">
-            <div class="widget display-widget">
-              <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.banking" %><br/>
-                <%= link_to image_tag("payment_methods/banking_logo.png", class: "themed-background-fixed2"),
-                  "#", disabled: payment_directly_exist?(order),
-                  data: {confirm: t("confirm_payment_directly.confirm_directly")} %>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <%= render "booking_histories/payment_directly_present", order: order %>
+        <%= render "booking_histories/payment_paypal_present", order: order %>
+        <%= render "booking_histories/payment_banking_present", order: order %>
       </div>
-      <% if order.venue.payment_methods.directly.present? %>
-        <div class="form_old_information">
-          <div id="show_old_information_<%= order.id %>">
-            <div class="form-group">
-              <%= render_form_payment order, current_user %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render "booking_histories/form_payment", order: order %>
     </div>
   </div>
 </div>

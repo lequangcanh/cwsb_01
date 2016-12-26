@@ -48,6 +48,7 @@ class VenueMarketsController < ApplicationController
       @banking = Banking.find_by payment_method: @obj_banking
       unless @banking
         flash[:danger] = t "flash.danger_message"
+        redirect_to venue_venue_market_path
       end
     end
     if @payment_directly

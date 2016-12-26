@@ -72,3 +72,8 @@ h2.venue-name, h4.venue-address {
   margin-left: auto;
   margin-right: auto;
 }
+
+.form_information_banking{
+  background: #FFF;
+  vertical-align: center;
+}

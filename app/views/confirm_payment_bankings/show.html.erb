@@ -1,0 +1,37 @@
+<%= provide :title, t("confirm_payment_banking.title") %>
+<%= javascript_include_tag "confirm_payment_bankings/show.js" %>
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
+  <div class="content-header margin-left-0 margin-right-0">
+    <div class="header-section">
+      <h1>
+        <i class="gi gi-usd"></i><%= t "confirm_payment_directly.confirm" %>
+      </h1>
+    </div>
+  </div>
+  <% @venues.each_with_index do |venue, parent_index| %>
+    <% if venue.orders.any? %>
+      <div class="block custom-block margin-left-0 margin-right-0">
+        <%= render "confirm_payment_bankings/information_venue", venue: venue %>
+        <div class="table-responsive padding-0-15">
+          <% if venue.payment_methods.find_by(payment_type: "banking").present? %>
+            <table class="table table-vcenter bookings-table">
+              <tbody>
+                <%= render "confirm_payment_directlies/title_status" %>
+                <% venue.orders.have_order_payment_banking.each_with_index do |order, index| %>
+                  <% order.bookings.each_with_index do |booking, booking_index| %>
+                    <%= hidden_field_tag :booking_id, booking.id,
+                      class: "booking_id-#{venue.id}", id: booking.state %>
+                    <%= render "layouts/content_of_order_payment_banking", booking: booking,
+                      type: Settings.content_booking.type.store_booking %>
+                    <%= render "confirm_payment_bankings/information_payment_bankings", order: order %>
+                    <%= render "confirm_payment_bankings/checkbox_confirm_banking", order: order %>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

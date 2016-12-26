@@ -1,0 +1,26 @@
+<td class="text-left">
+  <div class="load-status">
+    <% if order.payment_detail.pending? %>
+      <label class="switch switch-primary" data-toggle="tooltip"
+        title ="<%= t "payments.tooltip.status_pending" %>">
+        <%= check_box_tag :status, order.payment_detail.pending?, checked = false,
+          id: "checkbox-payment-method-#{order.payment_detail.id}",
+          class: "payment-banking-status" %>
+        <span></span>
+      </label>
+      <label class="label label-danger" id="label-status-<%= order.payment_detail.id %>">
+        <%= t "payments.payment" %><%= order.payment_detail.status %>
+      </label>
+    <% else %>
+      <label class="switch switch-primary" data-toggle="tooltip"
+        title ="<%= t "payments.tooltip.status_accepted" %>">
+        <%= check_box_tag :status, order.payment_detail.accepted?,
+          checked = true, disabled: true %>
+        <span></span>
+      </label>
+      <label class="label label-info" id="label-status-<%= order.payment_detail.id %>">
+        <%= t "payments.payment" %><%= order.payment_detail.status %>
+      </label>
+    <% end %>
+  </div>
+</td>
