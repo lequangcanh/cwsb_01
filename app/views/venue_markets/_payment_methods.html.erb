@@ -5,7 +5,7 @@
       <div class="widget">
         <div class="widget-extra-full themed-background-fixed">
           <div class="widget-options">
-            <% if payment.banking? %>
+            <% if payment.banking? || payment.directly? %>
               <i class="fa fa-cog setting_icon" aria-hidden="true" data-toggle="dropdown"></i>
               <ul class="dropdown-menu" role="menu">
                 <li>

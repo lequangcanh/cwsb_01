@@ -5,6 +5,7 @@ class VenueMarketsController < ApplicationController
 
   def edit
     @payment_method = @venue.payment_methods.new
+    @directly = Directly.new unless @directly
     @payment_methods = @venue.payment_methods.order_by_payment_type
   end
 
@@ -48,6 +49,9 @@ class VenueMarketsController < ApplicationController
       unless @banking
         flash[:danger] = t "flash.danger_message"
       end
+    end
+    if @payment_directly
+      @directly = Directly.find_by payment_method: @payment_directly
     end
   end
 end

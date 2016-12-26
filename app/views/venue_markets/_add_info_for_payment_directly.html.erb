@@ -1,0 +1,35 @@
+<div class="modal fade" id="modal_add_directly" tabindex="-1";
+  aria-labelledby="modal_label_message" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+          data-dismiss="modal" aria-hidden="true"><%= t ".close" %></button>
+        <h4 class="modal-title" id="modal_label_message">
+          <%= t ".add_detail_directly" %>
+        </h4>
+      </div>
+      <div id="error">
+      </div>
+      <%= simple_form_for [@venue, @directly] do |directly| %>
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="form-directly">
+              <div class="form-group directly-info">
+                <%= directly.input :name, input_html: {value: current_user.name,
+                  class: "form-control margin-bot-10", "data-validation": "required"} %>
+                <%= directly.input :phone_number,
+                  input_html: {value: current_user.phone_number, class: "form-control margin-bot-10",
+                  "data-validation": "length number", "data-validation-length": "min10"} %>
+                <%= render partial: "form_directly_detail", locals: {directly: directly} %>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= directly.submit t(".add"), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

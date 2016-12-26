@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resource :venue_market
     resources :payment_methods
     resources :bankings
+    resources :directlies
   end
 
   resources :static_pages
