@@ -1,4 +1,6 @@
 class Address < ApplicationRecord
+  acts_as_paranoid  
+
   geocoded_by :details
   after_validation :geocode
   belongs_to :county, optional: true

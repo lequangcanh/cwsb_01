@@ -24,7 +24,7 @@ module GeneralHelper
   end
 
   def select_price space, booking_type_id
-    space.prices.find_by_booking_type_id(booking_type_id).price
+    space.prices.with_deleted.find_by_booking_type_id(booking_type_id).price
   end
 
   def display_state booking

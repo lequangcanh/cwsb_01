@@ -1,4 +1,6 @@
 class City < ApplicationRecord
+  acts_as_paranoid
+  
   belongs_to :country
 
   has_many :counties

@@ -1,4 +1,6 @@
 class Country < ApplicationRecord
+  acts_as_paranoid
+  
   has_many :cities
 
   validates :name, presence: true

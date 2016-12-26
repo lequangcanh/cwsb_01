@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   attr_accessor :booking_ids
 
   belongs_to :coupon
-  belongs_to :venue
+  belongs_to :venue, -> {with_deleted}
   belongs_to :payment_detail, polymorphic: true
 
   has_one :paypal
