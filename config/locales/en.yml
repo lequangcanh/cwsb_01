@@ -279,6 +279,7 @@ en:
         quantity: "Quantity: "
   errors:
     blank: "Your %{type} is empty"
+    picture_size: "should be less than 5MB"
     spaces:
       no_result: "No spaces found"
   amenities:
