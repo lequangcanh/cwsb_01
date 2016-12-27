@@ -13,4 +13,5 @@ Rails.application.config.assets.precompile += %w(search/search.js
   static_pages.js booking/index.js booking_history/index.js toggle-switch.css
   store_bookings/show.js cable.js booking_history/delete_booking.js
   booking_history/calculate_price.js venue_market/edit.js
-  booking_history/payment_directly.js confirm_payment_directlies/show.js)
+  booking_history/payment_directly.js confirm_payment_directlies/show.js
+  confirm_payment_bankings/show.js)

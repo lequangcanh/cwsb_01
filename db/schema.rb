@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222033335) do
+ActiveRecord::Schema.define(version: 20161223014352) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "details",                   null: false
@@ -311,6 +311,20 @@ ActiveRecord::Schema.define(version: 20161222033335) do
     t.datetime "updated_at",                            null: false
     t.index ["deleted_at"], name: "index_spaces_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_spaces_on_venue_id", using: :btree
+  end
+
+  create_table "user_payment_bankings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_name"
+    t.string   "card_number"
+    t.string   "card_address"
+    t.string   "banking_name"
+    t.integer  "status",       default: 1
+    t.integer  "pending_time"
+    t.string   "email"
+    t.boolean  "verified",     default: false
+    t.string   "name"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "user_payment_directlies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

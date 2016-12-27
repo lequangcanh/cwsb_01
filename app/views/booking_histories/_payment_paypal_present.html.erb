@@ -1,0 +1,11 @@
+<% if order.venue.payment_methods.paypal.present? %>
+  <div class="col-md-4">
+    <div class="widget display-widget">
+      <div class="widget-extra-full text-center"><%= t ".paypal" %><br/>
+        <%= link_to image_tag("payment_methods/paypal_logo.png",
+          class: "themed-background-fixed2 payment-paypal"),
+          paypals_path(order: order.id), method: :create, disabled: payment_directly_exist?(order) %>
+      </div>
+    </div>
+  </div>
+<% end %>

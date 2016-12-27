@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :order_histories, only: :index
   resources :static_pages, only: :index
   resource :confirm_payment_directlies
+  resource :confirm_payment_bankings
 
   namespace :search do
     resources :spaces
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
     end
     resources :orders do
       resources :user_payment_directlies
+      resources :user_payment_bankings
     end
     resource :venue_detail
     resources :venue_amenities

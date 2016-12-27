@@ -9,7 +9,7 @@ class ConfirmPaymentDirectliesController < ApplicationController
     respond_to do |format|
       if params[:status].present?
         if @user_payment_directly.update status: params[:status]
-          BookingMailer.change_status_payment_directly(@user_payment_directly.status,
+          PaymentMailer.change_status_payment_directly(@user_payment_directly.status,
             @user_payment_directly.email).deliver_later
         else
           flash[:danger] = t "flash.danger_message"

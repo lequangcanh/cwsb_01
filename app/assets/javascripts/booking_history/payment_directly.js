@@ -1,7 +1,11 @@
 $(document).ready(function() {
   $('.payment-directly').on('click', function(){
+    $('#show_information_banking_'+ $(this).attr('id')).addClass('display-none');
     $('#show_old_information_'+ $(this).attr('id')).removeClass('display-none');
-    $('.form_payment_directly').css('height','60%');
+  });
+  $('.payment-banking').on('click', function(){
+    $('#show_old_information_'+ $(this).attr('id')).addClass('display-none');
+    $('#show_information_banking_'+ $(this).attr('id')).removeClass('display-none');
   });
   $('.btn_payment_fix').on('click', function(){
     var $modal = $('#modal_payment_'+ $(this).attr('id'));

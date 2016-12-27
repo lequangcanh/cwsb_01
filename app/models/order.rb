@@ -16,6 +16,9 @@ class Order < ApplicationRecord
   scope :have_order_payment_directly, -> do
     where payment_detail_type: UserPaymentDirectly.name
   end
+  scope :have_order_payment_banking, -> do
+    where payment_detail_type: UserPaymentBanking.name
+  end
   scope :recent, ->{order :created_at}
 
   scope :filter_by_payment_detail, ->payment_detail_type do
@@ -43,5 +46,13 @@ class Order < ApplicationRecord
 
   def load_email_paypal
     self.venue.payment_methods.paypal.find_by is_chosen: true
+  end
+
+  def find_payment_banking
+    self.venue.payment_methods.banking
+  end
+
+  def find_payment_directly
+    self.venue.payment_methods.directly
   end
 end

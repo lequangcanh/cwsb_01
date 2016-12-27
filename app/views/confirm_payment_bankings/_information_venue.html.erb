@@ -1,0 +1,11 @@
+<div class="block-title margin-left-0 margin-right-0">
+  <h2 class="venue-name"><strong><%= venue.name %></strong></h2>
+</div>
+<div class="block-section padding-0-15">
+  <h4 class="venue-address"><%= venue.address_details %></h4>
+  <address>
+    <i class="fa fa-phone"></i> <%= venue.phone_number %><br>
+    <i class="fa fa-envelope-o"></i>
+    <%= link_to venue.name, venue, target: "blank" %>
+  </address>
+</div>

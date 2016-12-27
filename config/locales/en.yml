@@ -69,7 +69,8 @@ en:
     order_history: "Order history"
     your_booking: "Your booking"
     store_booking: "Store booking"
-    payment_directly: "Payment directly"
+    payment_directly: "Payment Directly"
+    payment_banking: "Payment Banking"
     base_title: "CWBS"
     site_name: "CWBS"
     account: "Account"
@@ -467,6 +468,14 @@ en:
     address: "Address:"
     btn_confirm: "Confirm Payment Directly"
     confirm_directly: "You cant change payment method after confirm. Are you sure ?"
+  confirm_payment_banking:
+    btn_confirm: "Confirm Payment Banking"
+    title: "Confirm Payment Banking"
+    card_name: "Card name"
+    card_number: "Card number"
+    card_address: "Card address"
+    banking_name: "Banking name"
+    confirm_banking: "You cant change payment method after confirm. Are you sure ?"
   notification:
     has: "has"
     ago: "ago"
@@ -490,6 +499,9 @@ en:
     directly:
       email: "Change Status Payment Directly"
       status: "The Payment Directly is "
+    banking:
+      email: "Change Status Payment Banking"
+      status: "The Payment Banking is "
     errors:
       create: "Have problem when create payment"
       load: "Can't find any payment"
