@@ -67,26 +67,30 @@
                       <%= link_to t("layout.your_booking"), bookings_path %>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.store_booking"), store_bookings_path %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.payment_directly"), confirm_payment_directlies_path %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.payment_banking"), confirm_payment_bankings_path %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.order_history"), order_histories_path %>
-                    </td>
-                  </tr>
+                  <% if current_user.user_role_venues.owner %>
+                    <tr>
+                      <td>
+                        <%= link_to t("layout.store_booking"), store_bookings_path %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle " data-toggle="dropdown"><%= t "payments.method" %>
+                            <span class="caret"></span></a>
+                          <ul class="dropdown-menu forAnimate" role="menu">
+                            <li class="color-bg"><%= link_to t("layout.payment_directly"), confirm_payment_directlies_path %></li>
+                            <li class="color-bg"><%= link_to t("layout.payment_banking"), confirm_payment_bankings_path %></li>
+                          </ul>
+                        </li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= link_to t("layout.order_history"), order_histories_path %>
+                      </td>
+                    </tr>
+                  <% end %>
                   <tr>
                     <td>
                       <ul class="notificator">

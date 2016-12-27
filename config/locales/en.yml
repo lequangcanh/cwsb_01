@@ -382,6 +382,13 @@ en:
         banking: "Banking"
         undefined: "Undefined"
   booking_histories:
+    banking:
+      title: "Owner information Banking account "
+      card_name: "Card name:"
+      card_number: "Card number:"
+      card_address: "Card address:"
+      banking_name: "Banking name:"
+      status: "Status:"
     validation:
       email: "We will send information about your order to this email"
     index:
@@ -395,7 +402,7 @@ en:
       payment: "Payment"
       paid: "Paid"
       paymented: "Paymented"
-      pending: "Pending"
+      view_info: "View Information"
     close: "X"
     load:
       errors: "Load User payment directly fails"
@@ -418,6 +425,7 @@ en:
       update: "Update"
       new: "New information"
       old: "Use old information"
+      banking_not_found: "Banking payment method not found!"
   spaces:
     index:
       edit: "Edit"
@@ -477,6 +485,7 @@ en:
     banking_name: "Banking name"
     confirm_banking: "You cant change payment method after confirm. Are you sure ?"
   notification:
+    banking: "payment banking"
     has: "has"
     ago: "ago"
     title_notification: "Notification"
@@ -492,6 +501,7 @@ en:
       quantity: "Status and Quantity"
       duration: "Times and Duration"
       information: "Customer Payment Information"
+    method: "Payments Method"
     tooltip:
       status_pending: "You must click for change accepted payment and can't change again"
       status_accepted: "Payment is accepted and can't change again"
@@ -538,6 +548,7 @@ en:
       update_directly_success: "Update information for directly payment successfully"
       update_directly_fail: "Cant update information for directly payment"
   venue_markets:
+    pending_time: "Pending time:"
     verify: "Committed to this information is correct"
     update:
       btn_banking: "Update"

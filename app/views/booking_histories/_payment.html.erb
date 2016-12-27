@@ -6,8 +6,8 @@
   <%= render "choose_payment", order: order %>
   <% if order.venue.payment_methods.present? %>
     <% if order.payment_detail.present? && !order.paypal.present? %>
-      <%= link_to t("booking_histories.index.pending"), "#",
-        class: "btn btn-info", disabled: true %>
+      <%= link_to t("booking_histories.index.view_info"), "#",
+        class: "btn btn-info", data: {toggle: "modal", target: "#modal_banking_#{order.id}"} %>
     <% elsif order.venue.payment_methods.directly.present? || order.venue.payment_methods.banking.present? %>
       <%= link_to t("booking_histories.index.payment"), "#", id: order.id,
         class: "btn btn-danger btn_payment_fix", data: {toggle: "modal", target: "#modal_payment_#{order.id}"} %>

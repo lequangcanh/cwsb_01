@@ -10,6 +10,7 @@ class CreateUserPaymentBankings < ActiveRecord::Migration[5.0]
       t.string :email
       t.boolean :verified, default: false
       t.string :name
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
