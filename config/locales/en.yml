@@ -620,3 +620,19 @@ en:
       permissions12: "Account settings"
       permissions13: "Data & analytics"
       permissions14: "Administrators"
+  admin:
+    users:
+      users_management: "Users Management"
+      admin_users_management_title: "Users Management - Admin"
+      user_id: "User ID"
+      name: "Name"
+      email: "Email"
+      active: "Active?"
+      role: "Role"
+      block: "Block?"
+      search: "Enter user's name or email ..."
+    sidebar:
+      statistics: "&nbsp;Statistics"
+      users: "&nbsp; Users"
+      venues: "&nbsp; Venues"
+      activities: "&nbsp; Activities"

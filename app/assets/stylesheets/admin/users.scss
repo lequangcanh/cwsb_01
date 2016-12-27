@@ -1,0 +1,29 @@
+.admin_user_title {
+  text-align: center;
+  color: #666666 !important;
+}
+
+.search_users {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  input[type=search] {
+    border: none;
+    background-color: #e6e6e6;
+    color: #000000;
+  }
+  .btn-default {
+    background: none;
+    position: relative;
+    border: none;
+    left: -40px;
+    margin: 2px;
+  }
+}
+
+.table-users {
+  text-align: center;
+  th {
+    text-align: center;
+  }
+}

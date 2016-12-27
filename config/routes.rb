@@ -46,5 +46,9 @@ Rails.application.routes.draw do
     post :'update', on: :collection
   end
 
+  namespace :admin do
+    resources :users
+  end
+
   mount ActionCable.server => '/cable'
 end

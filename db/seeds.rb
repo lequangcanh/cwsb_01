@@ -6,27 +6,35 @@ BookingType.create name: "Month"
 
 # create_user 1
 user = User.new name: "Test User 1", email: "testuser1@gmail.com",
-  password: "password", password_confirmation: "password"
+  password: "password", password_confirmation: "password", active: true
 user.skip_confirmation!
 user.save!
 
 # create_user 2
 user = User.new name: "Test User 2", email: "testuser2@gmail.com",
-  password: "password", password_confirmation: "password"
+  password: "password", password_confirmation: "password", active: true
 user.skip_confirmation!
 user.save!
 
 # create_user 3
 user = User.new name: "Doan", email: "le.dinh.doan@framgia.com",
-  password: "doan1234", password_confirmation: "doan1234"
+  password: "doan1234", password_confirmation: "doan1234", active: true
 user.skip_confirmation!
 user.save!
 
 # create_user 4
 user = User.new name: "Giang", email: "le.xuan.giang@framgia.com",
-  password: "12345678", password_confirmation: "12345678"
+  password: "12345678", password_confirmation: "12345678", active: true
 user.skip_confirmation!
 user.save!
+
+# Create some users
+20.times do |n|
+  user = User.new name: Faker::Name.name, email: "example-#{n + 1}@gmail.com",
+  password: "password", password_confirmation: "password", active: false
+  user.skip_confirmation!
+  user.save!
+end
 
 #Create price_types
 3.times do |n|

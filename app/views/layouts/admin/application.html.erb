@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= action_cable_meta_tag %>
     <title><%= full_title yield(:title) %></title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": true %>
+    <%= stylesheet_link_tag "toggle-switch", media: "all",
       "data-turbolinks-track": true %>
     <%= javascript_include_tag "application",
       "data-turbolinks-track": true %>
     <%= render "layouts/shared/shim" %>
   </head>
   <body>
-    <div id="page-wrapper">
-      <div id="page-container">
-        <div id="main-container">
-          <%= render "layouts/admin/header" %>
-          <div id="page-content">
-            <%= render "layouts/admin/menu"%>
-            <%= yield %>
-          </div>
-          <%= render "layouts/shared/footer" %>
-        </div>
-      </div>
+    <%= render "layouts/messages" %>
+    <%= render "layouts/admin/sidebar" %>
+    <div class="container custom-container full-height custom-scroll">
+      <%= yield %>
     </div>
   </body>
 </html>
