@@ -1,0 +1,35 @@
+.admin_venue_title {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #666666 !important;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-shadow: #EDEDED 3px 2px 0;
+  position: relative;
+} 
+.search_venues {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  input[type=search] {
+    border: none;
+    background-color: #e6e6e6;
+    color: #000000;
+  }
+  .btn-default {
+    background: none;
+    position: relative;
+    border: none;
+    left: -40px;
+    margin: 2px;
+  }
+}
+.table-venues {
+  text-align: left;
+  th {
+    text-align: left;
+  }
+}

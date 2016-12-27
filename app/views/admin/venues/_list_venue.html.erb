@@ -1,0 +1,20 @@
+<table class="table table-striped table-venues">
+  <tr class="display-venues">
+    <th><%= t "admin.venues.index" %></th>
+    <th><%= t "admin.venues.name" %></th>
+    <th><%= t "admin.venues.address" %></th>
+    <th><%= t "admin.venues.email" %></th>
+  </tr>
+  <% @venues.each do |venue| %>
+    <tr>
+      <td><%= venue.id %></td>
+      <td><%= link_to venue.name, admin_venue_path(venue) %></td>
+      <td><%= venue.address.details %></td>
+      <td><%= venue.email %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="paginate_and_page_info">
+  <%= paginate @venues %>
+  <%= page_entries_info @venues %>
+</div>  
