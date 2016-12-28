@@ -1,4 +1,5 @@
 class Space < ApplicationRecord
+  include RecordFindingByTime
   acts_as_paranoid
 
   belongs_to :venue, -> {with_deleted}

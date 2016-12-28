@@ -65,6 +65,14 @@ admin:
     per_page: 10
   venues:
     per_page: 10
+  new_statistics:
+    this_week: "thisweek"
+    this_month: "thismonth"
+    this_year: "thisyear"
+    duration: "duration"
+    users: "users"
+    venues: "venues"
+    spaces: "spaces"
 precision_number: 0
 data_slider_min: 1
 data_slider_max: 1000
@@ -72,3 +80,6 @@ data_slider_step: 1
 data_slider_value: [0,500]
 default_price_range: "$1 - $500"
 booking_type: {hour: "Hour", day: "Day", week: "Week", month: "Month"}
+chart_service:
+  january: 1
+  december: 12

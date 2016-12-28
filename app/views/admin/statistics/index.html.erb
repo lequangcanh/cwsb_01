@@ -1,0 +1,53 @@
+<%= provide :title, t("admin.new_statistics.title") %>
+<%= javascript_include_tag "admin/new_statistics.js" %>
+
+<div class="row new_statistics">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="new_statistics_title">
+      <%= t "admin.new_statistics.new_statistics_title" %>
+    </h1>
+    <div>
+      <%= form_for :new_statistics, url: admin_statistics_path, 
+        html: {id: "new_statistics_form"}, remote: true do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-1">
+              <%= f.label :choosen %>
+            </div>
+            <div class="col-md-4">
+              <%= f.select :choosen, get_choosen.collect{|c| [c[:value], c[:id]]},
+                {}, {class: "form-control"} %>
+            </div>
+            <div class="col-md-1">
+              <%= f.label :select_time %>
+            </div>
+            <div class="col-md-4">
+              <%= f.select :times, get_times.collect{|t| [t[:value], t[:id]]},
+                {}, {class: "form-control"} %>
+            </div>
+          </div>
+          <div id="date_duration" class="row">
+            <div class="col-md-1">
+              <%= f.label :from %>
+            </div>
+            <div class="col-md-4">
+              <%= f.date_field :date_from, class: "form-control" %>
+            </div>
+            <div class="col-md-1">
+              <%= f.label :to %>
+            </div>
+            <div class="col-md-4">
+              <%= f.date_field :date_to, class: "form-control" %>
+            </div>
+            <div class="col-md-1">
+              <%= f.submit t("admin.new_statistics.show"), class: "btn btn-success" %>
+            </div>
+          </div>          
+        </div>
+      <% end %>
+    </div>
+    <div id="chart_new_statistics">
+      <%= render "chart" %>
+    </div>
+  </div>
+</div>
