@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :user
-  belongs_to :space
+  belongs_to :space, -> {with_deleted}
   belongs_to :booking_type
   belongs_to :order
 

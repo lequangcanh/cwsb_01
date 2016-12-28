@@ -10,8 +10,10 @@ class CreateAddresses < ActiveRecord::Migration[5.0]
       t.string :unit
       t.references :county, index: true ,foreign_key: true
       t.belongs_to :venue, index: true
+      t.datetime "deleted_at"
 
       t.timestamps
     end
+    add_index :addresses, :deleted_at
   end
 end

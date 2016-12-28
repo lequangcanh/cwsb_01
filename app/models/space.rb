@@ -1,7 +1,7 @@
 class Space < ApplicationRecord
   acts_as_paranoid
 
-  belongs_to :venue
+  belongs_to :venue, -> {with_deleted}
   has_one :address, through: :venue
 
   has_many :images, as: :imageable

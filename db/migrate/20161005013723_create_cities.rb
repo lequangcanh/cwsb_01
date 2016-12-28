@@ -4,8 +4,10 @@ class CreateCities < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.string :postal_code, null: false
       t.references :country, index: true, foreign_key: true
+      t.datetime "deleted_at"
 
       t.timestamps
     end
+    add_index :cities, :deleted_at
   end
 end
