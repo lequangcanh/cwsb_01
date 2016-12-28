@@ -32,6 +32,8 @@ gem "rails-bootstrap-toggle-buttons"
 gem "whenever", require: false
 gem "rubocop", "~> 0.45.0", require: false
 gem "cloudinary"
+gem "kaminari"
+gem "ransack"
 
 source "https://rails-assets.org" do
   gem "rails-assets-growl"

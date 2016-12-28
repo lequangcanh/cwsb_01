@@ -57,3 +57,6 @@ reception : "reception"
 payment_methods_filter: {all: "", paypal: "Paypal", banking: "UserPaymentBanking" , directly: "UserPaymentDirectly"}
 status_filter: {all: "", requested: 0, pending: 1, paid: 2, closed: 3}
 picture_max_size: 5
+admin:
+  users:
+    per_page: 10
