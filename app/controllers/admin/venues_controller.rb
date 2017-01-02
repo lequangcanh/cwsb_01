@@ -10,4 +10,10 @@ class Admin::VenuesController < Admin::BaseController
       format.js
     end
   end  
+
+  def show
+    @venue = Venue.find_by id: params[:id]
+    return render file: Settings.admin.page_404_url unless @venue
+    @spaces = @venue.spaces
+  end
 end

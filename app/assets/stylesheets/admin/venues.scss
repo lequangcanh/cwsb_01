@@ -33,3 +33,47 @@
     text-align: left;
   }
 }
+
+#space_button {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+#back {
+  margin-left: 20px;
+}
+
+.modal-dialog {
+  margin: 0px auto !important;
+}
+
+.modal-body {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-size: 30px;
+  color: #666666;
+ }
+
+.message {
+  text-align: center;
+  color: #666666 !important;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-shadow: #EDEDED 3px 2px 0;
+  position: relative;
+}
+
+.name-title {
+  margin-top: 20px;
+  font-size: 17px;
+  color: #666666;
+  line-height: 1;
+  position: relative;
+}
