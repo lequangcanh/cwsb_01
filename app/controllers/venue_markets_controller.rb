@@ -53,6 +53,8 @@ class VenueMarketsController < ApplicationController
     end
     if @payment_directly
       @directly = Directly.find_by payment_method: @payment_directly
+      @directly.day = Common.convert_day @directly.pending_time
+      @directly.hour = Common.split_hour @directly.pending_time
     end
   end
 end

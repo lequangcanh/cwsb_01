@@ -1,7 +1,18 @@
 <%= directly.input :address,
   input_html: {class: "form-control margin-bot-10", "data-validation": "required"} %>
-<%= directly.input :pending_time,
-  input_html: {class: "form-control margin-bot-10", "data-validation": "number"} %>
+<div class="row">
+  <div class="col-md-12">
+    <label><%= t("venue_markets.pending_time") %></label>
+  </div>
+  <div class="col-md-6">
+    <%= directly.input :day, input_html: {class: "form-control margin-bot-10",
+      "data-validation": "number"} %>
+  </div>
+  <div class="col-md-6">
+    <%= directly.input :hour, input_html: {class: "form-control margin-bot-10",
+      "data-validation": "number"} %>
+  </div>
+</div>
 <%= directly.input :message, input_html: {class: "form-control margin-bot-10"} %>
 <label>
   <%= directly.check_box :verified, "data-validation": "required",

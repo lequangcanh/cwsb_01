@@ -31,6 +31,7 @@ class Order < ApplicationRecord
   end
 
   after_update :delete_paypal_after_change_method
+  after_update :checktime_to_reject
 
   def delete_paypal_after_change_method
     if self.payment_detail_type != Paypal
@@ -44,6 +45,24 @@ class Order < ApplicationRecord
       booking = Booking.find_by id: booking_id
       booking.update_attributes order_id: self.id, state: "requested"
     end
+  end
+
+  def auto_reject_order
+    if self.payment_detail_type && self.payment_detail_type != Settings
+      .payment_methods_filter.paypal && self.status != Order.statuses[:paid]
+      date = self.updated_at + self.payment_detail.pending_time.hours
+      if date > Time.current
+        self.update_attributes status: Order.statuses[:closed]
+        self.bookings.each do |booking|
+          booking.update_attributes state: Booking.states[:rejected]
+        end
+      end
+    end
+  end
+
+  def checktime_to_reject
+    delay(run_at: Common.mul_60(self.payment_detail.pending_time).minutes.from_now)
+      .auto_reject_order
   end
 
   def load_email_paypal
@@ -61,7 +80,7 @@ class Order < ApplicationRecord
   def find_information_banking_account
     self.venue.banking.find_by verified: true
   end
-  
+
   def find_directly_info
     self.venue.directly.find_by verified: true
   end
