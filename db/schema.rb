@@ -342,9 +342,13 @@ ActiveRecord::Schema.define(version: 20161223014352) do
     t.string   "email"
     t.string   "address"
     t.string   "phone"
-    t.integer  "status",     default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.boolean  "verified"
+    t.integer  "status",       default: 1
+    t.integer  "pending_time"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_user_payment_directlies_on_user_id", using: :btree
   end
 
   create_table "user_role_venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -459,6 +463,7 @@ ActiveRecord::Schema.define(version: 20161223014352) do
   add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"
   add_foreign_key "user_payment_bankings", "users"
+  add_foreign_key "user_payment_directlies", "users"
   add_foreign_key "user_role_venues", "users"
   add_foreign_key "user_role_venues", "venues"
   add_foreign_key "venue_amenities", "amenities"

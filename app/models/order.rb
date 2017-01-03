@@ -5,11 +5,13 @@ class Order < ApplicationRecord
 
   belongs_to :coupon
   belongs_to :venue, -> {with_deleted}
+  belongs_to :user
   belongs_to :payment_detail, polymorphic: true
 
   has_one :paypal
 
   has_many :bookings, dependent: :destroy
+  has_many :directly
 
   enum status: {requested: 0, pending: 1, paid: 2, closed: 3}
 
@@ -58,5 +60,9 @@ class Order < ApplicationRecord
 
   def find_information_banking_account
     self.venue.banking.find_by verified: true
+  end
+  
+  def find_directly_info
+    self.venue.directly.find_by verified: true
   end
 end

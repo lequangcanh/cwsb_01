@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :venues, through: :user_role_venues
   has_many :orders, through: :venues
   has_many :user_payment_bankings
+  has_many :user_payment_directlies
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later

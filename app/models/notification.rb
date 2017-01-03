@@ -15,7 +15,7 @@ class Notification < ApplicationRecord
     owner_name = if owner
       owner.name
     else
-      Settings.user
+      User.name
     end
     case notifiable_type
     when Booking.name
@@ -24,6 +24,9 @@ class Notification < ApplicationRecord
     when UserPaymentBanking.name
       "#{I18n.t "notification.payment"} #{owner_name} #{I18n.t "notification.has"} #{message}
         #{I18n.t "notification.banking"} #{time_ago_in_words(created_at)} #{I18n.t "notification.ago"} "
+    when UserPaymentDirectly.name
+      "#{I18n.t "notification.payment"} #{owner_name} #{I18n.t "notification.has"} #{message}
+        #{I18n.t "notification.directly"} #{time_ago_in_words(created_at)} #{I18n.t "notification.ago"} "
     end
   end
 end

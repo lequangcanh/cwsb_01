@@ -389,9 +389,23 @@ en:
       card_address: "Card address:"
       banking_name: "Banking name:"
       status: "Status:"
+    payment_info:
+      status: "Status: "
+      teller: "Teller:"
+      address: "Address:"
+      phone_number: "Phone number:"
+      deadline: "Deadline: "
+      no_deadline: "As soon as possible"
+      close: "Close"
+      payment_info: "Payment information"
+      payment_info_tooltip: "Click to show payment information"
     validation:
+      verify_message: "I confirm that the information given in this form is true,
+        complete and accurate."
+      validation_message: "You have to agree to our terms"
       email: "We will send information about your order to this email"
     index:
+      view_info: "View Infomation"
       your_bookings: "Your booking history"
       booking_histories: "Your booking history"
       waitting: "Wait for confirm"
@@ -403,6 +417,8 @@ en:
       paid: "Paid"
       paymented: "Paymented"
       view_info: "View Information"
+      pending: "Pending"
+      deadline: "Deadline: "
     close: "X"
     load:
       errors: "Load User payment directly fails"
@@ -410,6 +426,9 @@ en:
       success: "Update Success"
       errors: "Update Errors"
     choose_payment:
+      notice_time: ". You have to make a payment in "
+      days: "days"
+      hours: "hours"
       status: "Please Wait the minute, Payment is "
       total_modal: "Payment method"
       success: "Create Payment Directly Success"
@@ -426,6 +445,7 @@ en:
       new: "New information"
       old: "Use old information"
       banking_not_found: "Banking payment method not found!"
+      directly_not_found: "Directly payment method not found!"
   spaces:
     index:
       edit: "Edit"
@@ -486,6 +506,8 @@ en:
     confirm_banking: "You cant change payment method after confirm. Are you sure ?"
   notification:
     banking: "payment banking"
+    payment: "Payment:"
+    directly: "payment directly"
     has: "has"
     ago: "ago"
     title_notification: "Notification"
@@ -493,6 +515,7 @@ en:
     view_all: "View All"
     mark_read_all: "Mark read all"
     unread: "unread"
+    accepted: "accepted your request"
   payments:
     title:
       status: "Accept Payments"

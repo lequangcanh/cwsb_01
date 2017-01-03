@@ -12,6 +12,7 @@ class Venue < ApplicationRecord
   has_many :working_times, dependent: :destroy
   has_many :payment_methods, dependent: :destroy
   has_many :banking, through: :payment_methods
+  has_many :directly, through: :payment_methods
   has_many :orders
   attr_accessor :user
 
@@ -27,7 +28,7 @@ class Venue < ApplicationRecord
   accepts_nested_attributes_for :address, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :working_times, allow_destroy: true
- 
+
   def create_user_role_venue
     user_role_venues.create user: user, type_role: Settings.owner_role
   end

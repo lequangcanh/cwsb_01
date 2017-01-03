@@ -5,7 +5,7 @@ class Directly < ApplicationRecord
   validates :pending_time, numericality: {greater_than: 0}
 
   after_create :create_payment_method
-  
+
   attr_accessor :venue
 
   private

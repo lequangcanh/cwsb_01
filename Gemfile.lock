@@ -55,7 +55,7 @@ GEM
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     builder (3.2.2)
-    bullet (5.4.3)
+    bullet (5.5.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
@@ -388,4 +388,4 @@ DEPENDENCIES
   wow-rails
 
 BUNDLED WITH
-   1.13.6
+   1.13.2
