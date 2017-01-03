@@ -55,4 +55,8 @@ class Order < ApplicationRecord
   def find_payment_directly
     self.venue.payment_methods.directly
   end
+
+  def find_information_banking_account
+    self.venue.banking.find_by verified: true
+  end
 end

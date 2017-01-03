@@ -30,10 +30,6 @@
 <div class = "pull-right">
   <div class = "btn-fix">
     <% if @payment_banking %>
-      <%= link_to "#",data: {toggle: "modal", target: "#modal_edit_banking"},
-        class: "btn btn-danger payment-method form-control" do %>
-        &nbsp;<%= t "venue_markets.edit.edit" %>
-      <% end %>
       <%= link_to t("venue_markets.edit.btn_del_banking"),
         venue_payment_method_path(@venue, @payment_banking),
         method: :delete, data: { confirm: t("venue_markets.edit.confirm_delete")},

@@ -52,6 +52,7 @@ owner_role: 1
 owner_count: 1
 owner: "owner"
 manager: "manager"
+user: "User"
 client_service : "client_service"
 reception : "reception"
 payment_methods_filter: {all: "", paypal: "Paypal", banking: "UserPaymentBanking" , directly: "UserPaymentDirectly"}

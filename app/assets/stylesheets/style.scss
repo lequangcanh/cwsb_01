@@ -24,48 +24,48 @@ hr.style-two {
     rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
-.icon_tag{
+.icon_tag {
   width: 45px;
   height: 45px;
   margin-right: 3%;
 }
 
-.image_index{
+.image_index {
   width: 90px;
   height: 90px;
   margin-right: 3%;
   padding-bottom: 0;
 }
 
-.text-color{
+.text-color {
   color: white;
 }
 
-.fa-3{
+.fa-3 {
   font-size: 35px!important;
   margin-right: 3%;
 }
 
-.themed-background-fixed{
+.themed-background-fixed {
   height: 150px;
   border-radius: 25px;
   border: 2px solid #428bca;
 }
 
-.h2-fix{
+.h2-fix {
   margin-top: 5%!important;
   margin-bottom: 5px!important;
 }
 
-.text-fix{
+.text-fix {
   word-wrap: break-word;
 }
 
-.btn-fix{
+.btn-fix {
   width: 150px;
 }
 
-.select-capitalize{
+.select-capitalize {
   text-transform: capitalize;
 }
 
@@ -75,29 +75,29 @@ hr.style-two {
   left: 16px;
 }
 
-.x_button{
+.x_button {
   color: red;
 }
 
-.fix-switch{
+.fix-switch {
   font-size: 8px;
   text-align: right;
   width: auto;
   border-radius: 6px!important;
 }
 
-.themed-background-fixed2{
+.themed-background-fixed2 {
   height: 100px;
   border-radius: 25px;
   border: 2px solid #428bca;
 }
 
-.venue-name{
+.venue-name {
   font-size: 200%;
   text-align: center;
 }
 
-.loader{
+.loader {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -110,11 +110,19 @@ hr.style-two {
   animation: spin 2s linear infinite;
 }
 
-@keyframes spin{
+@keyframes spin {
   0% {transform: rotate(0deg);}
   100% {transform: rotate(360deg);}
 }
 
-.form-banking{
+.form-banking {
   background-color: white;
+}
+
+.color-bg {
+  background-color: #00464f !important;
+}
+
+.modal-banking-style {
+  padding-top: 5% !important;
 }

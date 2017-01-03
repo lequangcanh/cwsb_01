@@ -1,7 +1,7 @@
 development:
-  cloud_name: <%= ENV["CLOUD_NAME"] %>
-  api_key: <%= ENV["CLOUD_API_KEY"] %>
-  api_secret: <%= ENV["CLOUD_API_SECRET"] %>
+  cloud_name: "dcjxy8kog"
+  api_key: "414697427633951"
+  api_secret: "nPTR_tU2rJtKQuiAdGltaH44yno"
   enhance_image_tag: true
   static_image_support: false
 production:

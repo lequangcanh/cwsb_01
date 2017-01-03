@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 20161223014352) do
     t.string   "unit"
     t.integer  "county_id"
     t.integer  "venue_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["county_id"], name: "index_addresses_on_county_id", using: :btree
+    t.index ["deleted_at"], name: "index_addresses_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_addresses_on_venue_id", using: :btree
   end
 
@@ -99,24 +101,30 @@ ActiveRecord::Schema.define(version: 20161223014352) do
     t.string   "name",        null: false
     t.string   "postal_code", null: false
     t.integer  "country_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
+    t.index ["deleted_at"], name: "index_cities_on_deleted_at", using: :btree
   end
 
   create_table "counties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.integer  "city_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_counties_on_city_id", using: :btree
+    t.index ["deleted_at"], name: "index_counties_on_deleted_at", using: :btree
   end
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",         null: false
     t.string   "country_code", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["deleted_at"], name: "index_countries_on_deleted_at", using: :btree
   end
 
   create_table "coupons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -323,8 +331,10 @@ ActiveRecord::Schema.define(version: 20161223014352) do
     t.string   "email"
     t.boolean  "verified",     default: false
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.index ["user_id"], name: "index_user_payment_bankings_on_user_id", using: :btree
   end
 
   create_table "user_payment_directlies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -448,6 +458,7 @@ ActiveRecord::Schema.define(version: 20161223014352) do
   add_foreign_key "reviews", "venues"
   add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"
+  add_foreign_key "user_payment_bankings", "users"
   add_foreign_key "user_role_venues", "users"
   add_foreign_key "user_role_venues", "venues"
   add_foreign_key "venue_amenities", "amenities"
