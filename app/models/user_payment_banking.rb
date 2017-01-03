@@ -23,7 +23,7 @@ class UserPaymentBanking < ApplicationRecord
     owner = order.venue.user_role_venues.find_by type_role: UserRoleVenue.owner
     case
     when pending?
-      notifications.create message: :request, receiver_id: owner.id, owner_id: user.id
+      notifications.create message: :requested, receiver_id: owner.id, owner_id: user.id
     end
   end
 

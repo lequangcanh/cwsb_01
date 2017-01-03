@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  message:
+    requested: "requested"
   reserved: "All rights reserved."
   coppy: "Copyright 2016 Framgia, Inc."
   cwsb: "Co-working space booking"
@@ -571,6 +573,7 @@ en:
       update_directly_success: "Update information for directly payment successfully"
       update_directly_fail: "Cant update information for directly payment"
   venue_markets:
+    message: "Thank you used services of our"
     pending_time: "Pending time:"
     verify: "Committed to this information is correct"
     update:

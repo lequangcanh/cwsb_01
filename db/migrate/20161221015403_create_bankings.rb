@@ -7,6 +7,7 @@ class CreateBankings < ActiveRecord::Migration[5.0]
       t.string :banking_name
       t.boolean :verified, default: false
       t.integer :pending_time
+      t.text :message
       t.references :payment_method
 
       t.timestamps
