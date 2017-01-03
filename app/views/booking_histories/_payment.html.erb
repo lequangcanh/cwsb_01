@@ -6,8 +6,15 @@
   <%= render "choose_payment", order: order %>
   <% if order.venue.payment_methods.present? %>
     <% if order.payment_detail.present? && !order.paypal.present? %>
-      <%= link_to t("booking_histories.index.view_info"), "#",
-        class: "btn btn-info", data: {toggle: "modal", target: "#modal_banking_#{order.id}"} %>
+      <% if order.payment_detail_type == Settings.payment_methods_filter[:banking] %>
+        <%= link_to t("booking_histories.index.view_info"), "#",
+          class: "btn btn-info", data: {toggle: "modal", target: "#modal_banking_#{order.id}"} %>
+      <% else %>
+        <%= render "payment_info", order: order %>
+        <%= link_to t("booking_histories.index.view_info"), "#",
+          title: t("booking_histories.payment_info.payment_info_tooltip"),
+          data: {toggle: "modal", target: "#modal_payment_info"}, class: "btn btn-info" %>
+      <% end %>
     <% elsif order.venue.payment_methods.directly.present? || order.venue.payment_methods.banking.present? %>
       <%= link_to t("booking_histories.index.payment"), "#", id: order.id,
         class: "btn btn-danger btn_payment_fix", data: {toggle: "modal", target: "#modal_payment_#{order.id}"} %>

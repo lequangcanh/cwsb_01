@@ -61,7 +61,6 @@ class Booking < ApplicationRecord
   end
 
   private
-
   def send_notification
     owner_space_id = self.space.venue.user_role_venues.find_by(type_role: Role.owner)
     case
