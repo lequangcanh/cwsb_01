@@ -48,6 +48,7 @@ en:
   venue: "VENUE"
   detail: "DETAIL"
   vnd_slash: "VND/"
+  usd_slash: "USD/"
   book_now: "Book now"
   clickable_venue: "VENUE"
   clickable_details: "DETAILS"
@@ -256,6 +257,8 @@ en:
       duration: "Duration"
       from: "From"
   search:
+    infowindow:
+      usd_slash: " USD/"
     place_holder: "Enter location"
     spaces:
       index:
