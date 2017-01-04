@@ -7,4 +7,13 @@ module SearchHelper
       end
     end
   end
+
+  def show_price_per_day price, index
+    if index == Settings.price_per_day
+      content_tag :span, class: "label label-success price-tag" do
+        number_with_precision(price.price, precision: Settings.precision_number) +
+          t("usd_slash") + (price.booking_type.name.humanize)
+      end
+    end
+  end
 end

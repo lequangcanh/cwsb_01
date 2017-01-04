@@ -131,9 +131,41 @@ hr.style-two {
   width: 70px !important;
   height: 70px !important;
 }
+
 .info_window {
   width: auto;
   max-width: 340px;
   max-height: 310px;
   overflow: auto;
+}
+
+.close-space-detail {
+  position: fixed;
+  z-index: 9999;
+  right: 15px;
+}
+
+.space_price {
+  display: inline;
+  float: right;
+  margin: 12px 0px;
+  font-size: 17px;
+}
+
+.space_type_style {
+  display: inline;
+  float: left;
+}
+
+#pac-input-space {
+  background-color: #e8e8e8;
+  left: 10px;
+}
+
+.form-search-space {
+  margin-top: 25px;
+}
+
+.color-glyphicon {
+  color: black;
 }

@@ -20,8 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  avatar: "Avatar"
   message:
     requested: "requested"
+  more_options: " + more options"
   reserved: "All rights reserved."
   coppy: "Copyright 2016 Framgia, Inc."
   cwsb: "Co-working space booking"

@@ -1,16 +1,5 @@
 <div class="col-md-6" id="space_type" data-status="<%= space.space_type %>">
   <div class="widget">
-    <div class="widget-simple">
-      <h4 class="widget-content">
-        <%= link_to search_space_path(space), target: :_blank do %>
-          <strong><%= space.space_type.humanize %></strong>
-        <% end %>
-        <small>
-          <%= t "in" %>
-          <%= link_to space.venue.name, "javascript:" %>
-        </small>
-      </h4>
-    </div>
     <div class="widget-extra-full themed-background-dark">
       <div id="widget-carousel-<%= space.id %>"
         class="carousel slide remove-margin">
@@ -18,8 +7,11 @@
           <div class="carousel-inner">
             <% space.images.each do |image| %>
               <div class="item <%= first_active space.images, image %>">
-                <%= image_tag image.picture.url, alt: image.title,
-                  class: "img-responsive custom-image" %>
+                <%= link_to search_space_path(space), remote: true, target: :_blank do %>
+                  <%= image_tag image.picture.url, alt: image.title,
+                    class: "img-responsive custom-image" %>
+                  <%= render "name_and_price_space", space: space %>
+                <% end %>
               </div>
             <% end %>
           </div>
@@ -34,7 +26,10 @@
             </a>
           <% end %>
         <% else %>
-          <%= image_tag "not_available", class: "img-responsive  custom-image" %>
+          <%= link_to search_space_path(space), remote: true, target: :_blank do %>
+            <%= image_tag "not_available", class: "img-responsive custom-image" %>
+            <%= render "name_and_price_space", space: space %>
+          <% end %>
         <% end %>
       </div>
     </div>

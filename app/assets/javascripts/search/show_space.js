@@ -25,3 +25,9 @@ $(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $('.close-space-detail').on('click', function(){
+    $('#map_booking_content').load(location.href + ' #map_booking_content');
+  });
+});

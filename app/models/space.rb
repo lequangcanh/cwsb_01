@@ -25,4 +25,6 @@ class Space < ApplicationRecord
   accepts_nested_attributes_for :venue, allow_destroy: true
 
   delegate :name, to: :venue, prefix: true, allow_nil: true
+  delegate :description, to: :venue, prefix: true, allow_nil: true
+  delegate :details, to: :address, prefix: true, allow_nil: true
 end

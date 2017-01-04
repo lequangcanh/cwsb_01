@@ -1109,7 +1109,6 @@ a.sidebar-title:focus {
 .widget .widget-extra-full,
 .widget .widget-extra {
   position: relative;
-  padding: 15px;
 }
 
 .widget .widget-extra {
@@ -3648,7 +3647,7 @@ p, .table, .alert, .carousel {
 }
 
 .themed-background-dark {
-  background-color: #394263;
+  background-color: #e8e8e8;
 }
 
 /* Contextual Background Colors */

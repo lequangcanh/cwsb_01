@@ -1,0 +1,152 @@
+<%= javascript_include_tag "search/show_space.js" %>
+<div class="col-md-12 max-height-x padding-left-0 padding-right-0 scroll-y" id="search-space-result">
+  <div class="block">
+    <div class="content-header">
+      <label class= "btn btn-danger close-space-detail">
+        <%= t("x") %>
+      </label>
+      <div class="header-section">
+        <h1>
+          <%= @space.space_type.humanize %><br>
+          <small><%= @space.venue.name %></small>
+        </h1>
+      </div>
+    </div>
+    <div id="example-carousel" class="carousel slide">
+      <% if @space.images.any? %>
+        <div class="carousel-inner">
+          <% @space.images.each do |image| %>
+            <div class="item <%= first_active @space.images, image %>">
+              <%= image_tag image.picture.url, alt: image.title,
+                class: "img-responsive full-width height-350px" %>
+            </div>
+          <% end %>
+        </div>
+        <% if @space.images.size > Settings.min_quantity %>
+          <a class="left carousel-control"
+            href="#widget-carousel-<%= space.id %>"  data-slide="prev">
+              <span><i class="fa fa-chevron-left"></i></span>
+          </a>
+          <a class="right carousel-control"
+            href="#widget-carousel-<%= space.id %>" data-slide="next">
+              <span><i class="fa fa-chevron-right"></i></span>
+          </a>
+        <% end %>
+      <% else %>
+        <%= image_tag "not_available",
+          class: "img-responsive full-width height-350px" %>
+      <% end %>
+    </div>
+    <div class="row margin-top-15">
+      <div class="col-md-2 text-center">
+        <%= link_to "javascript:" do %>
+          <%= image_tag "placeholders/avatars/avatar2.png",
+            alt: t("avatar"), class: "img-circle" %>
+        <% end %>
+        <p>
+          <%= link_to t(".contact"), "javascript:" %>
+        </p>
+      </div>
+      <div class="col-md-10">
+        <div class="media-body">
+          <p class="push-bit">
+            <strong>
+              <%= t ".the_space" %>
+            </strong>
+          </p>
+          <p><%= @space.description %></p>
+          <p>
+            <div class="col-md-3">
+              <b><%= t ".area" %></b><%= @space.area %>
+            </div>
+            <div class="col-md-3">
+              <b><%= t ".capicity" %></b><%= @space.capicity %>
+            </div>
+            <div class="col-md-3">
+              <b><%= t ".quantity" %></b><%= @space.quantity %>
+            </div>
+          </p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div id="create-booking-block">
+      <div class="media-body footer-section line-break-block">
+        <div class="col-md-12">
+          <strong><%= t ".price" %></strong>
+        </div>
+        <% @space.prices.each do |price| %>
+          <div class="col-md-3">
+            <span class="label label-success price-tag">
+              <%= "#{number_with_precision price.price, precision: Settings.precision}
+                #{t "usd_slash"} #{price.booking_type.name.humanize}" %>
+            </span>
+          </div>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <%= render "bookings/new", booking: @booking %>
+      <% end %>
+    </div>
+    <div class="media-body line-break-block">
+      <p class="push-bit">
+        <strong><%= t ".the_venue" %></strong>
+      </p>
+      <p><%= @space.venue_description %></p>
+      <p>
+        <h4 class="list-group-item-heading remove-margin space-address">
+          <i class="fa fa-map-marker"></i>
+          <%= @space.address_details %>
+        </h4>
+      </p>
+      <p>
+        <%= link_to "javascript:", class: "btn btn-xs btn-primary" do %>
+          <i class="fa fa-file"></i> <%= t ".full_venue_profile" %>
+        <% end %>
+      </p>
+    </div>
+    <div class="media-body line-break-block">
+      <p class="push-bit">
+        <strong><%= t ".open_hours" %></strong>
+      </p>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th></th>
+              <% @space.venue.working_times.each do |date| %>
+                <th><%= date.day_in_week %></th>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t "from" %></td>
+              <% @space.venue.working_times.each do |date| %>
+                <td>
+                  <%= l date.working_from, format: :time_session %>
+                </td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t "to" %></td>
+              <% @space.venue.working_times.each do |date| %>
+                <td>
+                  <%= l date.working_to, format: :time_session %>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="media-body line-break-block">
+      <p class="push-bit">
+        <strong><%= t ".amenities" %></strong>
+      </p>
+      <% @space.venue.amenities.each do |amenity| %>
+        <div class="col-md-4 col-sm-6">
+          <%= amenity.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
