@@ -51,6 +51,6 @@ class DirectliesController < ApplicationController
 
   def directly_params
     params.require(:directly).permit(:id, :name, :address, :phone_number,
-      :message, :pending_time, :verified).merge! venue: @venue
+      :message, :day, :hour, :verified).merge! venue: @venue
   end
 end
