@@ -64,7 +64,7 @@ class BankingsController < ApplicationController
 
   def banking_params
     params.require(:banking).permit(:id, :card_name, :card_number,
-      :card_address, :banking_name, :verified, :pending_time, :day, :hour)
+      :card_address, :banking_name, :verified, :pending_time, :day, :hour, :message)
       .merge! payment_method: @payment_method
   end
 end

@@ -10,6 +10,10 @@
 <%= f.input :banking_name,
   input_html: {class: "form-control margin-bot-15",
     "data-validation": "required"} %>
+<%= f.input :message,
+  input_html: {value: t("venue_markets.message"),
+    class: "form-control margin-bot-15"} %>
+<label>
 <div class="row">
   <div class="col-md-12 form-banking">
     <label><%= t("venue_markets.pending_time") %></label>

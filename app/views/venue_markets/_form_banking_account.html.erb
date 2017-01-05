@@ -10,6 +10,8 @@
 <%= f.input :banking_name,
   input_html: {class: "form-control margin-bot-15",
   "data-validation": "required"} %>
+<%= f.input :message,
+  input_html: {class: "form-control margin-bot-15"} %>
 <label>
   <%= f.check_box :verified,
     "data-validation": "required" %><%= t("venue_markets.verify")%>

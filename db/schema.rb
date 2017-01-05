@@ -64,11 +64,12 @@ ActiveRecord::Schema.define(version: 20161223014352) do
     t.string   "card_number"
     t.string   "card_address"
     t.string   "banking_name"
-    t.boolean  "verified",          default: false
+    t.boolean  "verified",                        default: false
     t.integer  "pending_time"
+    t.text     "message",           limit: 65535
     t.integer  "payment_method_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.index ["payment_method_id"], name: "index_bankings_on_payment_method_id", using: :btree
   end
 
