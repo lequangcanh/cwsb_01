@@ -8,15 +8,23 @@
       <div id="map"></div>
     </div>
   </div>
-  <div class="col-md-6 max-height-x padding-left-0 padding-right-0 scroll-y">
+  <div class="max-height-x padding-left-0 padding-right-0 scroll-y" id="map_booking_content">
     <div class="block-full">
       <div class="widget">
-        <%= form_tag search_spaces_path, method: :get, remote: true,
-          id: "search-space-form" do %>
-          <%= text_field_tag :search, params[:search],
-            placeholder: t("search.place_holder"), class: "controls",
-            id: "pac-input" %>
-        <% end %>
+        <%= form_tag search_spaces_path, method: :get, id: "search-space-form" do %>
+            <div class="form-search-space">
+              <div class="input-group">
+                <%= text_field_tag :search, params[:search],
+                  placeholder: t("home.search"),
+                  class: "form-control search-query-space", id: "pac-input-space" %>
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <span class="glyphicon glyphicon-search color-glyphicon"></span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          <% end %>
       </div>
       <div class = "widget margin-bottom-x" id = "fixed-top-last">
         <div class="col-md-12">
@@ -50,7 +58,7 @@
       <%= hidden_field_tag "markers-on-map", @hash.to_json %>
       <%= hidden_field_tag "current_lat", Settings.default_latitude %>
       <%= hidden_field_tag "current_lng", Settings.default_latitude %>
-      <div class="row margin-left-0 margin-right-0 max-height-x" id="search-space-result" >
+      <div class="" id="search-space-result" >
         <%= render "search_result" %>
       </div>
     </div>

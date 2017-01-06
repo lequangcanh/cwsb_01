@@ -17,5 +17,8 @@ class Search::SpacesController < ApplicationController
   def show
     @booking = Booking.new space: @space, booking_from: Date.today,
       duration: Settings.default_duration, quantity: Settings.default_quantity
+    respond_to do |format|
+      format.js
+    end
   end
 end

@@ -1,0 +1,16 @@
+<div class="widget-simple">
+  <h4 class="widget-content space_type_style">
+    <%= link_to search_space_path(space), remote: true, target: :_blank do %>
+      <strong><%= space.space_type.humanize %></strong>
+    <% end %>
+    <small>
+      <%= t "in" %>
+      <%= link_to space.venue.name, "javascript:" %>
+    </small>
+  </h4>
+  <%= link_to search_space_path(space), remote: true, class: "space_price" do %>
+    <% space.prices.each_with_index do |price, index| %>
+      <%= show_price_per_day price, index %>
+    <% end %>
+  <% end %>
+</div>

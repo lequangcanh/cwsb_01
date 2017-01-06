@@ -1,3 +1,4 @@
+price_per_day: 1
 radius_search_in_miles: 5
 default_duration: 1
 default_quantity: 1
