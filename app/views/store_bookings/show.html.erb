@@ -59,7 +59,7 @@
                           <%= form_tag booking_path(booking), method: :patch do |f| %>
                             <% unless order.paypal || order.payment_detail %>
                               <fieldset class="text-center">
-                                <div class="switch-toggle well" id= "confirm-button">
+                                <div class="switch-toggle well min-switch" id= "confirm-button">
                                   <input id="rejected-<%= booking.id %>" value="<%= Booking.states.keys[3] %>" name="<%= booking.id %>"
                                     type="radio" class="state" data-toggle="modal" data-target="#modal_message">
                                   <label for="rejected-<%= booking.id %>" id="rejected-label">
