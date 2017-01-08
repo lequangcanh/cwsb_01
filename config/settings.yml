@@ -77,6 +77,8 @@ admin:
     venues: "venues"
     spaces: "spaces"
   page_404_url: "public/404.html"
+  activities:
+    per_page: 50
   january: 1
   december: 12
 precision_number: 0

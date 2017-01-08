@@ -716,3 +716,18 @@ en:
       invalid_date: "Invalid date"
       wrong_date: "Day from must be less than day to"
       back: "Back"
+    activities:
+      timeline: "Time Line"
+      next: "Comming up"
+      error: "added the project that is currently deleted."
+      read_more: "Read more"
+  public_activity:
+    activity_venue_create: "Created venue: "
+    activity_venue_update: "Updated venue: "
+    activity_venue_destroy: "Deleted venue"
+    activity_space_create: "Created space: "
+    activity_space_update: "Updated space: "
+    activity_space_destroy: "Deleted space"
+    activity_booking_create: "Booking space"
+    activity_request_booking: "Requested booking"
+    booking_deleted: "added the project that is currently deleted."

@@ -1,0 +1,22 @@
+<%= javascript_include_tag "admin/activities.js" %>
+<% provide :title, t("admin.activities.timeline") %>
+<div class="col-md-10 col-md-offset-1">
+  <h2 class="col-md-12 text-center text-title"><%= t "view.all_activity" %></h2>
+  <section id="cd-timeline" class="cd-container">
+    <% @activities.each do |activity| %>
+      <div class="cd-timeline-block">
+        <div class="cd-timeline-img"></div>
+        <div class="cd-timeline-content">
+          <strong><%= activity.owner.name if activity.owner %></strong>
+          <%= render_activity activity %>
+        </div> 
+      </div>  
+    <% end %>
+  </section>
+  <div class="read_more" align="center">
+    <%= button_tag t("admin.activities.read_more"), class: "btn btn-info" %>
+  </div>
+  <div class="next">
+    <%= link_to_next_page @activities, t("admin.activities.next") %>
+  </div>
+</div>
