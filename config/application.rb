@@ -29,6 +29,7 @@ module Cwsb01
     config.i18n.default_locale = :en
     config.i18n.available_locales = [:en, :vi, :jp]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.middleware.use I18n::JS::Middleware
 
     Dir[File.join(Rails.root, "lib/core_ext", "*.rb")].each {|file| require file}
     Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|

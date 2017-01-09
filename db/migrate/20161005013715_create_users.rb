@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password
       t.string :phone_number
       t.boolean :verified
-      t.boolean :active
+      t.integer :status, default: 1
       t.integer :role
       t.string :bio
       t.string :company

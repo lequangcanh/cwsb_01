@@ -1,0 +1,56 @@
+<div class="modal fade" id="user_modal_<%= user.id %>" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title modal-title-user">
+          <%= user.name %>
+        </h4>
+      </div>
+      <div class="modal-body modal-body-user">
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <span class="fa fa-phone"></span>
+          </div>
+          <div class="col-md-9">
+            <%= user.phone_number %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <span class="fa fa-building"></span>
+          </div>
+          <div class="col-md-9">
+            <%= user.company %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <span class="fa fa-map-marker"></span>
+          </div>
+          <div class="col-md-9">
+            <%= user.position %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+              <span class="fa fa-globe"></span>
+          </div>
+          <div class="col-md-9">
+            <ul class="social">
+              <li class="facebook"><%= link_to content_tag(:i, "",
+                class: "fa fa-facebook"), user.facebook %></li>
+              <li class="google_plus"><%= link_to content_tag(:i, "",
+                class: "fa fa-google-plus"), user.google %></li>
+              <li class="twitter"><%= link_to content_tag(:i, "",
+                class: "fa fa-twitter"), user.twitter %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

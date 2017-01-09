@@ -132,6 +132,10 @@ vi:
       name9: "Đoàn Chí Nhật"
       our_team: "Our Team"
   users:
+    status:
+      active: "Kích hoạt"
+      blocked: "Khóa"
+      reject: "Từ chối"
     mailer:
       confirm:
         welcome: "Chào mừng"
@@ -152,6 +156,11 @@ vi:
         remind1: "Tài khoản của bạn đã bị khóa vì lí do đăng nhập không thành công quá nhiều lần."
         remind2: "Nhấn vào liên kết bên dưới để mở khóa tài khoản:"
         my_account: "Mở khóa tài khoản của tôi"
+      status:
+        subject: "Thay đổi trạng thái tài khoản"
+        hi: "Xin chào, "
+        notify: "Tôi gửi email này để thông báo rằng tài khoản của bạn đã có sự thay đổi trạng thái: "
+        thank: "Cảm ơn vì đã sử dụng hệ thống của chúng tôi."
     registrations:
       new:
         sign_up: "Đăng kí"
@@ -667,10 +676,15 @@ vi:
       user_id: "User ID"
       name: "Name"
       email: "Email"
-      active: "Active?"
+      status: "Trạng thái"
       role: "Role"
-      block: "Block?"
       search: "Enter user's name or email ..."
+      user_not_found: "Không tìm thấy người dùng!"
+      succ_update: "Cập nhật thành công!"
+      fail_update: "Cập nhật thât bại!"
+      block_alert: "sẽ bị khóa?"
+      active_alert: "sẽ được kích hoạt?"
+      reject_alert: "sẽ bị từ chối?"
     sidebar:
       statistics: "&nbsp;Statistics"
       new_statistics: "What's new?"
