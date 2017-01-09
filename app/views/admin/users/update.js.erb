@@ -1,0 +1,15 @@
+<% flash.each do |message_type, message| %>
+  <% if message_type == Settings.mess_success || message_type == Settings.mess_notice %>
+    $.growl.notice({title: '', message: '<%= message %>'});
+    <% if @status == Settings.admin.users.active %>
+      $('#form_active_user_<%= @user.id %>')
+        .html('<%= j render "admin/users/active", user: @user %>');
+    <% else %>
+      $('#form_block_user_<%= @user.id %>')
+        .html('<%= j render "admin/users/block", user: @user %>');
+    <% end %>
+  <% else %>
+    $.growl.error({title: '', message: '<%= message %>'});
+    location.reload();
+  <% end %>
+<% end %>

@@ -1,0 +1,6 @@
+<label class="switch switch-danger">
+  <%= check_box_tag :block, user.block, user.block, class: "block_user", 
+    id: "block_user_#{user.id}", data: {id: user.id, block: !user.block} %>
+  <span></span>
+</label>
+<%= hidden_field_tag "block_alert_#{user.id}", get_alert_for_block(user) %>

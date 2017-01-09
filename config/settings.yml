@@ -66,6 +66,8 @@ picture_max_size: 5
 admin:
   users:
     per_page: 10
+    block: "block"
+    active: "active"
   venues:
     per_page: 10
   new_statistics:

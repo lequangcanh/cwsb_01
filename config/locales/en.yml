@@ -171,6 +171,16 @@ en:
         remind1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         remind2: "Click the link below to unlock your account:"
         my_account: "Unlock my account"
+      block:
+        block_user: "Block User"
+        hi: "Hi"
+        notify1: "I have sent this email to notify that you was blocked in our system - CWSB"
+        notify2: "To know reason or if you want to unblock this user. Please contact with us."
+      unblock:
+        unblock_user: "Unblock User"
+        hi: "Hi"
+        notify: "I have sent this email to notify that you was accepted in our system - CWSB"
+        thank: "Thank for use our system."
     registrations:
       new:
         sign_up: "Sign up"
@@ -679,9 +689,15 @@ en:
       name: "Name"
       email: "Email"
       active: "Active?"
-      role: "Role"
       block: "Block?"
       search: "Enter user's name or email ..."
+      user_not_found: "User not found!"
+      succ_update: "Successfully updated!"
+      fail_update: "Fail updated!"
+      inactive_alert: "will be inactive?"
+      active_alert: "will be active?"
+      unblock_alert: "will be unblock?"
+      block_alert: "will be block?"
     sidebar:
       statistics: "&nbsp;Statistics"
       new_statistics: "What's new?"

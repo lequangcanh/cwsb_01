@@ -1,29 +1,35 @@
 <table class="table table-striped table-users">
-  <tr>
-    <th><%= t "admin.users.user_id" %></th>
-    <th><%= t "admin.users.name" %></th>
-    <th><%= t "admin.users.email" %></th>
-    <th><%= t "admin.users.active" %></th>
-    <th><%= t "admin.users.role" %></th>
-    <th><%= t "admin.users.block" %></th>
-  </tr>
-  <% @users.each do |user| %>
+  <thead>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td>
-        <label class="switch switch-primary">
-          <%= check_box_tag :active, user.active, user.active, id: "acvite_user_#{user.id}" %>
-          <span></span>
-        </label>
-      </td>
-      <td><%= user.role %></td>
-      <td></td>
+      <th><%= t "admin.users.user_id" %></th>
+      <th><%= t "admin.users.name" %></th>
+      <th><%= t "admin.users.email" %></th>
+      <th><%= t "admin.users.active" %></th>
+      <th><%= t "admin.users.block" %></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <%= render "information", user: user %>
+        <td><%= user.id %></td>
+        <td>
+          <%= link_to user.name, "#user_modal_#{user.id}",
+            data: {toggle: "modal"} %>
+        </td>
+        <td><%= user.email %></td>
+        <td id="form_active_user_<%= user.id %>">
+          <%= render "active", user: user %>     
+        </td>
+        <td id="form_block_user_<%= user.id %>">
+          <%= render "block", user: user %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <div class="paginate_and_page_info">
   <%= paginate @users %>
   <%= page_entries_info @users %>
 </div>
+

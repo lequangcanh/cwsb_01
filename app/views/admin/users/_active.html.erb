@@ -1,0 +1,6 @@
+<label class="switch switch-primary">
+  <%= check_box_tag :active, user.active, user.active, class: "active_user",
+    id: "active_user_#{user.id}", data: {id: user.id, active: !user.active} %>
+  <span></span>
+</label>
+<%= hidden_field_tag "active_alert_#{user.id}", get_alert_for_active(user) %>
