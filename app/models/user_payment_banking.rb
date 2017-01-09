@@ -1,7 +1,8 @@
 class UserPaymentBanking < ApplicationRecord
-  attr_accessor :order
 
-  has_many :orders, as: :payment_details
+  attr_accessor :order_payment
+
+  has_one :order, as: :payment_detail
   has_many :notifications, as: :notifiable
   belongs_to :user
 
@@ -18,24 +19,28 @@ class UserPaymentBanking < ApplicationRecord
   before_update :check_status_without_accepted?
 
   def update_payment_method_of_order
-    order.update_attributes payment_detail_id: id,
+    order_payment.update_attributes payment_detail_id: id,
       payment_detail_type: UserPaymentBanking.name
-    owner = order.venue.user_role_venues.find_by type_role: UserRoleVenue.owner
-    case
-    when pending?
-      notifications.create message: :requested, receiver_id: owner.id, owner_id: user.id
+    owners = order_payment.venue.gets_owner
+    owners.each do |owner|
+      case
+      when pending?
+        notifications.create message: :requested, receiver_id: owner.user.id, owner_id: user.id
+      end
     end
   end
 
   def update_status_order
-    order = Order.find_by payment_detail_id: id, payment_detail_type: UserPaymentBanking.name
-    order.update_attributes status: Order.statuses[:paid]
-    owner = order.venue.user_role_venues.find_by type_role: UserRoleVenue.owner
-    case
-    when rejected?
-      notifications.create message: :rejected, receiver_id: user.id, owner_id: owner.id
-    when accepted?
-      notifications.create message: :accepted, receiver_id: user.id, owner_id: owner.id
+    order_payment = Order.find_by payment_detail_id: id, payment_detail_type: UserPaymentBanking.name
+    order_payment.update_attributes status: Order.statuses[:paid]
+    owners = order_payment.venue.gets_owner
+    owners.each do |owner|
+      case
+      when rejected?
+        notifications.create message: :rejected, receiver_id: user.id, owner_id: owner.user.id
+      when accepted?
+        notifications.create message: :accepted, receiver_id: user.id, owner_id: owner.user.id
+      end
     end
   end
 

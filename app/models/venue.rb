@@ -14,6 +14,7 @@ class Venue < ApplicationRecord
   has_many :banking, through: :payment_methods
   has_many :directly, through: :payment_methods
   has_many :orders
+  has_one :user_payment_directly
   attr_accessor :user
 
   after_create :create_user_role_venue
@@ -48,5 +49,9 @@ class Venue < ApplicationRecord
     default_amenities.each do |default_amenity|
       venue_amenities.create venue_id: id, amenity_id: default_amenity.id
     end
+  end
+
+  def gets_owner
+    user_role_venues.where type_role: UserRoleVenue.type_roles[:owner]
   end
 end

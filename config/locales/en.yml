@@ -28,7 +28,6 @@ en:
   coppy: "Copyright 2016 Framgia, Inc."
   cwsb: "Co-working space booking"
   disabled: "disabled"
-  admin: "Add a new administrator"
   hello: "Hello world"
   failed: "failed"
   success: "success"
@@ -484,6 +483,7 @@ en:
     info: "Space infomation"
     confirm_delete: "Are you sure?"
   store_bookings:
+    booking: "booking"
     fail: "send message fail"
     success: "send message success"
     show:
@@ -665,6 +665,7 @@ en:
       permissions13: "Data & analytics"
       permissions14: "Administrators"
   admin:
+    admin: "Add a new administrator"
     users:
       users_management: "Users Management"
       admin_users_management_title: "Users Management - Admin"

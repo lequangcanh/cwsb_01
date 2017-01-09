@@ -62,16 +62,18 @@ class Booking < ApplicationRecord
 
   private
   def send_notification
-    owner_space_id = self.space.venue.user_role_venues.find_by(type_role: Role.owner)
-    case
-    when rejected?
-      if message.present?
-        notifications.create message: self.message, receiver_id: self.user.id, owner_id: owner_space_id
+    owner_space_ids = self.space.venue.gets_owner
+    owner_space_ids.each do |owner_space_id|
+      case
+      when rejected?
+        if message.present?
+          notifications.create message: self.message, receiver_id: self.user.id, owner_id: owner_space_id
+        end
+      when requested?
+        notifications.create message: :requested, receiver_id: owner_space_id, owner_id: self.user.id
+      when accepted?
+        notifications.create message: :accepted, receiver_id: self.user.id, owner_id: owner_space_id
       end
-    when requested?
-      notifications.create message: :requested, receiver_id: owner_space_id, owner_id: self.user.id
-    when accepted?
-      notifications.create message: :accepted, receiver_id: self.user.id, owner_id: owner_space_id
     end
   end
 end

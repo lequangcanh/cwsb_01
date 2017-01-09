@@ -200,6 +200,7 @@ ActiveRecord::Schema.define(version: 20170109071822) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "status",                         default: 1
+    t.integer  "user_id"
     t.float    "total_paid",          limit: 24
     t.integer  "venue_id"
     t.string   "payment_detail_type"
@@ -209,6 +210,7 @@ ActiveRecord::Schema.define(version: 20170109071822) do
     t.datetime "updated_at",                                 null: false
     t.index ["deleted_at"], name: "index_orders_on_deleted_at", using: :btree
     t.index ["payment_detail_type", "payment_detail_id"], name: "index_orders_on_payment_detail_type_and_payment_detail_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_orders_on_venue_id", using: :btree
   end
 
