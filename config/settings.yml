@@ -62,4 +62,6 @@ picture_max_size: 5
 admin:
   users:
     per_page: 10
+  venues:
+    per_page: 10
 precision_number: 0
