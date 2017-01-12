@@ -3,9 +3,9 @@
     <% if order.payment_detail.pending? %>
       <label class="switch switch-primary" data-toggle="tooltip"
         title ="<%= t "payments.tooltip.status_pending" %>">
-        <%= check_box_tag :status, order.payment_detail.pending?, checked = false,
+        <%= check_box_tag :status, order.payment_detail.status, checked = false,
           id: "checkbox-payment-method-#{order.payment_detail.id}",
-          class: "payment-banking-status" %>
+          class: "payment-directly-status" %>
         <span></span>
       </label>
       <label class="label label-danger" id="label-status-<%= order.payment_detail.id %>">
@@ -14,7 +14,7 @@
     <% else %>
       <label class="switch switch-primary" data-toggle="tooltip"
         title ="<%= t "payments.tooltip.status_accepted" %>">
-        <%= check_box_tag :status, order.payment_detail.accepted?,
+        <%= check_box_tag :status, order.payment_detail.status,
           checked = true, disabled: true %>
         <span></span>
       </label>

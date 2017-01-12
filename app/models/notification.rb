@@ -3,6 +3,7 @@ class Notification < ApplicationRecord
 
   belongs_to :user
   belongs_to :notifiable, polymorphic: true
+  belongs_to :order
 
   scope :unread, -> {where status: false}
   scope :newest, -> {order created_at: :desc}
@@ -11,8 +12,10 @@ class Notification < ApplicationRecord
   after_create_commit {NotificationBroadcastJob.perform_now(Notification.unread.count,self)}
 
   def load_message
-    banking = Banking.find_by verified: true
-    directly = Directly.find_by verified: true
+    if load_venue
+      banking = find_venue.banking.find_by verified: true
+      directly = find_venue.directly.find_by verified: true
+    end
     owner = User.find_by id: owner_id
     owner_name = if owner
       owner.name
@@ -21,6 +24,10 @@ class Notification < ApplicationRecord
     end
 
     case notifiable_type
+    when Order.name
+      "#{Order.name}: #{owner_name} #{I18n.t "notification.has"} #{message}
+        #{I18n.t "store_bookings.booking"} #{time_ago_in_words(created_at)}
+        #{I18n.t "notification.ago"} "
     when Booking.name
       "#{Booking.name}: #{I18n.t "notification.has"} #{message} #{time_ago_in_words(created_at)}
         #{I18n.t "notification.ago"} "
@@ -52,6 +59,14 @@ class Notification < ApplicationRecord
       elsif directly
         owner_message_directly = directly.message
       end
+    end
+  end
+
+  def load_venue
+    if notifiable_type != Order.name
+      notifiable.order.venue
+    else
+      notifiable.venue
     end
   end
 end

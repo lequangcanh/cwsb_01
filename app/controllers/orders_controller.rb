@@ -13,6 +13,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit :total_paid, :venue_id, :booking_ids
+    params.permit(:total_paid, :venue_id, :booking_ids).merge! user_id: current_user.id
   end
 end

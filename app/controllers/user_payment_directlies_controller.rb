@@ -20,7 +20,7 @@ class UserPaymentDirectliesController < ApplicationController
   private
   def user_payment_directly_params
     params.require(:user_payment_directly).permit(:name, :email,:address, :phone, :verified)
-      .merge! order: @order, user_id: current_user.id, pending_time: @directly.pending_time
+      .merge! order_payment: @order, user_id: current_user.id, pending_time: @directly.pending_time
   end
 
   def load_venue

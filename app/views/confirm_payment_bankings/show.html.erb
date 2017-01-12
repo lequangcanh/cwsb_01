@@ -19,12 +19,14 @@
                 <%= render "confirm_payment_directlies/title_status" %>
                 <% venue.orders.have_order_payment_banking.each_with_index do |order, index| %>
                   <% order.bookings.each_with_index do |booking, booking_index| %>
-                    <%= hidden_field_tag :booking_id, booking.id,
-                      class: "booking_id-#{venue.id}", id: booking.state %>
-                    <%= render "layouts/content_of_order_payment_banking", booking: booking,
-                      type: Settings.content_booking.type.store_booking %>
-                    <%= render "confirm_payment_bankings/information_payment_bankings", order: order %>
-                    <%= render "confirm_payment_bankings/checkbox_confirm_banking", order: order %>
+                    <% if booking.accepted? %>
+                      <%= hidden_field_tag :booking_id, booking.id,
+                        class: "booking_id-#{venue.id}", id: booking.state %>
+                      <%= render "layouts/content_of_order_payment_banking", booking: booking,
+                        type: Settings.content_booking.type.store_booking %>
+                      <%= render "confirm_payment_bankings/information_payment_bankings", order: order %>
+                      <%= render "confirm_payment_bankings/checkbox_confirm_banking", order: order %>
+                    <% end %>
                   <% end %>
                 <% end %>
               </tbody>

@@ -1,5 +1,7 @@
 <li class="<%= status_unread notification %> mak-read" data-id="<%= notification.id %>" >
   <span>
-    <%= link_to notification.load_message, load_link(notification.message), class: "style-notification" %>
+    <%= link_to notification.load_message,
+      load_link_notification(notification.message, notification.notifiable_type),
+      class: "style-notification" %>
   </span>
 </li>

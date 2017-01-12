@@ -15,14 +15,14 @@ class UserPaymentBankingsController < ApplicationController
     else
       flash[:danger] = t "booking_histories.choose_payment.choose_payment_update.errors"
     end
-    redirect_to order_histories_path
+    redirect_to booking_histories_path
   end
 
   private
   def user_payment_banking_params
     params.require(:user_payment_banking).permit(:card_name, :card_number,
       :card_address, :banking_name, :email, :verified, :name)
-      .merge! order: @order, user_id: current_user.id, pending_time: @banking.pending_time
+      .merge! order_payment: @order, user_id: current_user.id, pending_time: @banking.pending_time
   end
 
   def load_order

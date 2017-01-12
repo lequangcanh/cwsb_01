@@ -19,14 +19,4 @@ module ApplicationHelper
       t "notification.unread"
     end
   end
-
-  def load_link status_message
-    if user_signed_in?
-      if status_message == t("notification.status_message")
-        store_bookings_path
-      else
-        booking_histories_path
-      end
-    end
-  end
 end

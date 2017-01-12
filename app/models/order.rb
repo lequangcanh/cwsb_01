@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  after_create :update_booking
+  after_create :update_booking, :send_notification
 
   attr_accessor :booking_ids
 
@@ -12,6 +12,7 @@ class Order < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :directly
+  has_many :notifications, as: :notifiable
 
   enum status: {requested: 0, pending: 1, paid: 2, closed: 3}
 
@@ -56,6 +57,16 @@ class Order < ApplicationRecord
         self.bookings.each do |booking|
           booking.update_attributes state: Booking.states[:rejected]
         end
+      end
+    end
+  end
+
+  def send_notification
+    owners = self.venue.gets_owner
+    owners.each do |owner|
+      case
+      when pending?
+        notifications.create message: :requested, receiver_id: owner.user.id, owner_id: user.id
       end
     end
   end
