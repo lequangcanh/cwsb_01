@@ -3,7 +3,7 @@
     <div class="widget display-widget">
       <div class="widget-extra-full text-center"><%= t "booking_histories.choose_payment.banking" %><br/>
         <%= link_to image_tag("payment_methods/banking_logo.png", class: "themed-background-fixed2"),
-          "#", class: "payment-banking", checked: false, id: "#{order.id}" %>
+          "javascript:;", class: "payment-banking", checked: false, id: "#{order.id}" %>
       </div>
     </div>
   </div>

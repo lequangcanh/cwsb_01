@@ -55,4 +55,7 @@
       <%= f.button :submit, class: "btn-submit" %>
     </div>
   <% end %>
+  <%= link_to venue_amenities_path(@venue, @amenity), class: "btn btn-primary pull-right" do %>
+    <%= t "next" %> <i class="fa fa-chevron-right" aria-hidden="true"></i>
+  <% end %>
 </div>

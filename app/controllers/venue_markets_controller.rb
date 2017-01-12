@@ -33,7 +33,7 @@ class VenueMarketsController < ApplicationController
   end
 
   def venue_market_params
-    params.require(:venue_market).permit(:slogan, :description,
+    params.require(:venue_market).permit(:slogan,
       :introduction, :status).merge! user: current_user
   end
 
