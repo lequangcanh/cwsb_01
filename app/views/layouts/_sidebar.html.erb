@@ -58,13 +58,13 @@
                   </tr>
                   <tr>
                     <td>
-                      <%= link_to t("layout.booking_history"),
-                        booking_histories_path %>
+                      <%= link_to t("layout.your_booking"), bookings_path %>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <%= link_to t("layout.your_booking"), bookings_path %>
+                      <%= link_to t("layout.booking_history"),
+                        booking_histories_path %>
                     </td>
                   </tr>
                   <% if current_user.user_role_venues.owner %>
@@ -76,11 +76,11 @@
                     <tr>
                       <td>
                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle " data-toggle="dropdown"><%= t "payments.method" %>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t "payments.method" %>
                             <span class="caret"></span></a>
                           <ul class="dropdown-menu forAnimate" role="menu">
-                            <li class="color-bg"><%= link_to t("layout.payment_directly"), confirm_payment_directlies_path %></li>
-                            <li class="color-bg"><%= link_to t("layout.payment_banking"), confirm_payment_bankings_path %></li>
+                            <%= link_to t("layout.payment_directly"), confirm_payment_directlies_path, class: "color-bg"%></p>
+                            <%= link_to t("layout.payment_banking"), confirm_payment_bankings_path, class: "color-bg" %>
                           </ul>
                         </li>
                       </td>

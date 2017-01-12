@@ -6,12 +6,13 @@
     </div>
   </div>
   <div class="col-md-7 max-height-x padding-left-0 padding-right-0 scroll-y">
+    <span class="venue-name"><%= @venue.name %></span>
+    <div class="block full">
+      <div class="block-title">
+      <%= render "shared/form_outline", active_id: "spaces" %>
+    </div>
     <div class="row margin-left-0 margin-right-0">
-      <div class="col-md-1"></div>
-        <div class="col-md-10">
-          <%= render "spaces/form", day_reject: @space.day_reject %>
-        </div>
-      </div>
+      <%= render "spaces/form", day_reject: @space.day_reject %>
     </div>
   </div>
 </div>

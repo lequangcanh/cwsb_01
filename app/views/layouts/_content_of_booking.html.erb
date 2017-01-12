@@ -1,6 +1,6 @@
-<tr>
-  <td class="first">
-    <h4 id="test">
+<tr class="col-md-12">
+  <td class="first col-md-1">
+    <h4 class="row" id="test">
       <%= link_to booking.space.name %>
       <% if type == Settings.content_booking.type.booking_history %>
         <% unless booking.order.paid? || booking.order.payment_detail.present? %>
@@ -15,42 +15,41 @@
       <% end %>
     </h4>
   </td>
-  <td class="text-center">
-    <%= image_tag "spaces/space1.jpg", class: "image_tag" %>
+  <td class="text-center col-md-2">
+    <%= image_tag booking.space.images.first.picture.to_s, class: "image_tag" %>
   </td>
-  <td class="text-center">
+  <td class="text-center col-md-1">
     <span class="label label-<%= display_state booking %>">
       <%= booking.state %>
     </span>
   </td>
-  <td class="text-center">
-    <strong><%= t ".from" %>
-      <span class="label label-info" id= "booking-from-<%= booking.id %>">
-        <%= l booking.booking_from, format: :booking_date %>
-      </span>
-    </strong>
+  <td class="text-right col-md-1"><%= t ".from" %></td>
+  <td class="text-left col-md-1">
+    <span class="label label-info" id= "booking-from-<%= booking.id %>">
+      <%= l booking.booking_from, format: :booking_date %>
+    </span>
   </td>
-  <td class="text-right">
+  <td class="text-right col-md-1">
     <span class="label label-primary" id="price-<%= booking.id %>">$
       <%= select_price(booking.space, booking.booking_type_id) %>
     </span>
   </td>
-  <td class="text-center">
-    <strong>x
-      <span class="badge" id="quantity-<%= booking.id %>">
-        <%= booking.quantity %>
-      </span>
-    </strong>
+  <td class="text-center col-md-1">X</td>
+  <td class="text-left col-md-1">
+    <span class="badge" id="quantity-<%= booking.id %>">
+      <%= booking.quantity %>
+    </span>
   </td>
-  <td class="text-center">
-    <strong id =""> <%= t ".duration" %>
+  <td class="text-right col-md-1"><%= t ".duration" %></td>
+  <td class="text-left col-md-1">
+    <strong id ="">
       <span class="label label-info" id="duration-<%= booking.id %>">
       <i class="fa fa-clock-o"></i>
       <%= booking.duration %> <%= booking.booking_type_name %>
     </span>
     </strong>
   </td>
-  <td class="text-center">
+  <td class="text-center col-md-1">
     <strong>
       <span class="badge" id="each-price-<%= booking.id %>">$
       </span>
