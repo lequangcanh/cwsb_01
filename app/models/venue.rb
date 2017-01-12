@@ -25,7 +25,8 @@ class Venue < ApplicationRecord
   validates :description, presence: true
   validates :name, presence: true
 
-  delegate :details, to: :address, prefix: true, allow_nil: true
+  delegate :details, :city, :street_address, :postal_code, :unit,
+    to: :address, prefix: true, allow_nil: true
 
   accepts_nested_attributes_for :address, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true

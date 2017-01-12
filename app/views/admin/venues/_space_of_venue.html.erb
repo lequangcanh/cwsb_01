@@ -1,0 +1,39 @@
+<div class="bd-example">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><%= t "admin.venues.space_button" %></button>
+  <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close"
+          data-dismiss="modal" aria-hidden="true"><%= t "admin.venues.close" %></button>
+          <h4 class="modal-title" id="modal_label_message">
+            <%= t "admin.venues.space" %>
+          </h4>
+        </div>
+        <div class="modal-body" >   
+          <% if @spaces.empty? %>
+            <h4 class="message"><%= t "admin.venues.notspace" %></h4>
+          <% else %>
+            <% @spaces.each do |space| %>
+              <div class="col-sm-12 col-lg-3">
+                <div class="widget space-items">
+                  <div class="widget-extra-full venue-items widget-extra-custom">
+                    <% if space.images.any? %>
+                      <%= image_tag space.images.first.picture_url, class: "hgth-150" %>
+                    <% end %>
+                  </div>
+                  <div class="widget-extra themed-background text-center venue-info">
+                    <h3 class="widget-content-light">
+                      <strong><%= space.space_type.humanize %></strong><br>
+                      <small><%= t ".capicity" %><%= space.capicity %></small>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>
