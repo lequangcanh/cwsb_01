@@ -38,6 +38,11 @@ user.save!
   user.save!
 end
 
+# Create admin
+admin = Admin.new email: "admin@gmail.com", password: "password",
+  password_confirmation: "password"
+admin.save!
+
 #Create price_types
 3.times do |n|
   case n

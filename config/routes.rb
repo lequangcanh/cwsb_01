@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   root "static_pages#index"
-  devise_for :admins
+  devise_for :admins, path: :admin, controllers: {sessions: "admin/sessions"}
   devise_for :users
   resources :bookings
   resources :venues do
@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root "statistics#index"
     resources :users
     resources :venues, only: [:index, :show]
     resources :statistics, only: [:index, :create]

@@ -737,3 +737,10 @@ en:
     activity_booking_create: "Booking space"
     activity_request_booking: "Requested booking"
     booking_deleted: "added the project that is currently deleted."
+    devise:
+      sign_in: "Sign in - Admin"
+      remind: "Please login with Admin account"
+      email: "Enter your email"
+      password: "Enter your password"
+      remember_me: "Remember me"
+      log_in: "Log in"
