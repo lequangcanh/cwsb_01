@@ -1,0 +1,12 @@
+<% if flash.any? %>
+  <% flash.each do |message_type, message| %>
+    <% if message_type == Settings.mess_success || message_type == Settings.mess_notice %>
+      $.growl.notice({title: '', message: '<%= message %>'});
+    <% else %>
+      $.growl.error({title: '', message: '<%= message %>'});
+    <% end %>
+  <% end %>
+<% else %>
+  $('#chart_new_statistics')
+    .html('<%= j render "admin/statistics/chart" %>');
+<% end %>

@@ -29,9 +29,10 @@ user.skip_confirmation!
 user.save!
 
 # Create some users
-20.times do |n|
+100.times do |n|
   user = User.new name: Faker::Name.name, email: "example-#{n + 1}@gmail.com",
-  password: "password", password_confirmation: "password", active: false
+    password: "password", password_confirmation: "password", active: false,
+    created_at: rand(2.years.ago..Time.now)
   user.skip_confirmation!
   user.save!
 end

@@ -27,6 +27,7 @@
 //= require bootstrap-sprockets
 //= require wow
 //= require owl.carousel
+//= require chartkick
 
 /* Plugins, libraries */
 //= require jquery-form-validator/form-validator/jquery.form-validator.min.js

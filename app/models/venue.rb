@@ -1,4 +1,5 @@
 class Venue < ApplicationRecord
+  include RecordFindingByTime
   acts_as_paranoid
 
   has_one :address, dependent: :destroy, inverse_of: :venue

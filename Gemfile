@@ -35,6 +35,7 @@ gem "cloudinary"
 gem "kaminari"
 gem "ransack"
 gem "delayed_job_active_record"
+gem "chartkick"
 
 source "https://rails-assets.org" do
   gem "rails-assets-growl"

@@ -25,7 +25,9 @@ module Cwsb01
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths << Rails.root.join("services")
 
+    Dir[File.join(Rails.root, "lib/core_ext", "*.rb")].each {|file| require file}
     Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
       config.assets.paths << path
     end

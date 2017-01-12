@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :venues, only: [:index, :show]
+    resources :statistics, only: [:index, :create]
   end
  
   mount ActionCable.server => '/cable'
