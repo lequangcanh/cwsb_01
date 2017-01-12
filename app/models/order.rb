@@ -52,7 +52,7 @@ class Order < ApplicationRecord
     if self.payment_detail_type && self.payment_detail_type != Settings
       .payment_methods_filter.paypal && self.status != Order.statuses[:paid]
       date = self.updated_at + self.payment_detail.pending_time.hours
-      if date > Time.current
+      if date < Time.current
         self.update_attributes status: Order.statuses[:closed]
         self.bookings.each do |booking|
           booking.update_attributes state: Booking.states[:rejected]
@@ -72,7 +72,7 @@ class Order < ApplicationRecord
   end
 
   def checktime_to_reject
-    delay(run_at: Common.mul_60(self.payment_detail.pending_time).minutes.from_now)
+    delay(run_at: calculate_delay_time.minutes.from_now)
       .auto_reject_order
   end
 
@@ -94,5 +94,10 @@ class Order < ApplicationRecord
 
   def find_directly_info
     self.venue.directly.find_by verified: true
+  end
+
+  private
+  def calculate_delay_time
+    Common.mul_60(self.payment_detail.pending_time) + Settings.delay_time
   end
 end

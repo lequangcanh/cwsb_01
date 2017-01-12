@@ -7,9 +7,9 @@ class BankingsController < ApplicationController
   def create
     @banking = Banking.new banking_params
     if @banking.save
-      flash[:success] = t "venue_markets.create.success"
+      flash[:success] = t "payment_methods.create_success"
     else
-      flash[:danger] = t "venue_markets.create.errors"
+      flash[:danger] = t "payment_methods.create_fail"
     end
     redirect_to edit_venue_venue_market_path
   end
@@ -19,10 +19,10 @@ class BankingsController < ApplicationController
 
   def update
     if @banking.update_attributes banking_params
-      flash[:success] = t "flash.success_detail"
+      flash[:success] = t ".update_banking_success"
       redirect_to edit_venue_venue_market_path
     else
-      flash[:danger] = t "flash.danger_message"
+      flash[:danger] = t ".update_banking_fail"
       render :edit
     end
   end
@@ -64,7 +64,8 @@ class BankingsController < ApplicationController
 
   def banking_params
     params.require(:banking).permit(:id, :card_name, :card_number,
-      :card_address, :banking_name, :verified, :pending_time, :day, :hour, :message)
-      .merge! payment_method: @payment_method
+      :card_address, :banking_name, :verified, :day, :hour, :message)
+      .merge! payment_method: @payment_method,
+      pending_time: Common.convert_hour(params[:banking][:day].to_i, params[:banking][:hour].to_i)
   end
 end
