@@ -3,7 +3,7 @@ class Venue < ApplicationRecord
   include PublicActivity::Model
 
   tracked owner: Proc.new{|controller, model| controller.current_user}
-  
+
   acts_as_paranoid
 
   has_one :address, dependent: :destroy, inverse_of: :venue
@@ -20,8 +20,7 @@ class Venue < ApplicationRecord
   has_many :directly, through: :payment_methods
   has_many :orders
   has_one :user_payment_directly
-  has_one :banking
-  
+
   attr_accessor :user
 
   after_create :create_user_role_venue
@@ -61,5 +60,14 @@ class Venue < ApplicationRecord
 
   def gets_owner
     user_role_venues.where type_role: UserRoleVenue.type_roles[:owner]
+  end
+
+  def check_condition?
+    orders.where(status: [:requested, :pending]).each do |order|
+      order.bookings.where(state: [:requested, :pending]).each do |booking|
+        return true unless booking.accepted?
+      end
+    end
+    false
   end
 end

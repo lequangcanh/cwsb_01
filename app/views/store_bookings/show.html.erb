@@ -16,7 +16,7 @@
       venue.id, id: "current-venue-#{parent_index}" %>
     <%= hidden_field_tag "total_of_order_for_current_venue",
       venue.orders.length, id: "total-of-order-#{venue.id}" %>
-    <% if venue.orders.any? %>
+    <% if venue.check_condition? %>
       <%= render "header", venue: venue %>
       <div class="block custom-block margin-left-0 margin-right-0">
         <div class="block-title margin-left-0 margin-right-0">
@@ -61,7 +61,7 @@
                       <td class="text-right">
                         <%= form_tag booking_path(booking), method: :patch do |f| %>
                           <% unless booking.accepted? %>
-                            <fieldset class="text-center">
+                            <fieldset class="text-left">
                               <div class="switch-toggle well min-switch" id= "confirm-button">
                                 <input id="rejected-<%= booking.id %>" value="<%= Booking.states.keys[3] %>" name="<%= booking.id %>"
                                   type="radio" class="state" data-toggle="modal" data-target="#modal_message">

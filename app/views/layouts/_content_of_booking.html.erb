@@ -16,7 +16,11 @@
     </h4>
   </td>
   <td class="text-center col-md-2">
-    <%= image_tag booking.space.images.first.picture.to_s, class: "image_tag" %>
+    <% if booking.space.images.any? %>
+      <%= image_tag booking.space.images.first.picture.to_s, class: "image_tag" %>
+    <% else %>
+      <%= image_tag "not_available", class: "image_tag" %>
+    <% end %>
   </td>
   <td class="text-center col-md-1">
     <span class="label label-<%= display_state booking %>">
