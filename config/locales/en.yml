@@ -574,13 +574,18 @@ en:
     update_paypal_fail: "Cant active this paypal account !"
     create_success: "Add payment method successfully!"
     create_fail: "Opps! Add payment method failed!"
+  bankings:
+    update:
+      banking_not_found: "Banking payment method not found!"
+      update_banking_success: "Update information for banking payment successfully"
+      update_banking_fail: "Cant update information for banking payment"
   directlies:
     update:
       directly_not_found: "Directly payment method not found!"
       update_directly_success: "Update information for directly payment successfully"
       update_directly_fail: "Cant update information for directly payment"
   venue_markets:
-    message: "Thank you used services of our"
+    message: "Thank you for using our services."
     pending_time: "Pending time:"
     verify: "Committed to this information is correct"
     update:
@@ -620,6 +625,7 @@ en:
       btn_del_directly: "Delete Directly"
       btn_del_banking: "Delete Banking"
       btn_add_banking: "Add Banking"
+      btn_update_banking: "Update"
       btn_add_paypal: "Add Paypal"
       confirm_delete: "Are you sure?"
       btn_add: "Add Payment Method"

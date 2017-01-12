@@ -87,3 +87,4 @@ data_slider_value: [0,500]
 default_price_range: "$1 - $500"
 booking_type: {hour: "Hour", day: "Day", week: "Week", month: "Month"}
 chart_service:
+delay_time: 1

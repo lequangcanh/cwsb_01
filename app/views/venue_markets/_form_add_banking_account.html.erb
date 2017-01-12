@@ -13,7 +13,6 @@
 <%= f.input :message,
   input_html: {value: t("venue_markets.message"),
     class: "form-control margin-bot-15"} %>
-<label>
 <div class="row">
   <div class="col-md-12 form-banking">
     <label><%= t("venue_markets.pending_time") %></label>
@@ -29,9 +28,14 @@
         "data-validation": "required"} %>
   </div>
 </div>
-<label>
-  <%= f.check_box :verified,
-    "data-validation": "required" %><%= t "venue_markets.verify" %>
-</label>
-<%= f.button :submit, value: t("venue_markets.edit.btn_add_banking"),
-  id: "btn_add_banking", class: "btn btn-danger pull-right" %>
+<div>
+  <label>
+    <%= f.check_box :verified,
+      "data-validation": "required" %><%= t("venue_markets.verify")%>
+  </label>
+</div>
+<div class="pull-right">
+  <%= f.button :submit, value: t("venue_markets.edit.btn_add_banking"),
+    id: "btn_add_banking", class: "btn btn-primary margin-bot-15" %>
+  <div class="margin-top-15"></div>
+</div>

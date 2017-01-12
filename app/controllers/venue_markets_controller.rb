@@ -50,6 +50,8 @@ class VenueMarketsController < ApplicationController
         flash[:danger] = t "flash.danger_message"
         redirect_to venue_venue_market_path
       end
+      @banking.day = Common.convert_day @banking.pending_time
+      @banking.hour = Common.split_hour @banking.pending_time
     end
     if @payment_directly
       @directly = Directly.find_by payment_method: @payment_directly
