@@ -13,6 +13,8 @@
       <%= simple_form_for @venue do |f| %>
         <%= f.input :name, input_html: {class: "form-control margin-bot-15",
           "data-validation": "required"} %>
+        <%= f.input :description, input_html: {class: "form-control margin-bot-15",
+          "data-validation": "required"} %>
         <%= f.simple_fields_for :address do |form_address| %>
           <%= form_address.input :details,
             input_html: {class: "form-control margin-bot-15", id: "address",

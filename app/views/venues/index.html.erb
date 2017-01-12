@@ -33,10 +33,10 @@
               </li>
             </ul>
           </div>
-          <div class="pie-chart" data-percent="90" data-line-width="2" data-bar-color="#333333" data-track-color="#eeeeee">
+          <div data-percent="90" data-line-width="2" data-bar-color="#333333" data-track-color="#eeeeee">
             <% if venue.images.any? %>
               <%= image_tag venue.images.first.picture_url,
-                class:"img-circle wth-80" %>
+                class:"img wth-80" %>
             <% end %>
           </div>
         </div>

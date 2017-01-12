@@ -94,7 +94,7 @@
             method: :get, class: "create_amenity" %>
         </div>
         <div class="inner right_amenity">
-          <%= button_to t(".inner_right"), {},
+          <%= link_to t(".inner_right"), edit_venue_venue_market_path(@venue, @venue_market),
             class: "create_amenity btn btn-primary" %>
         </div>
       </div>

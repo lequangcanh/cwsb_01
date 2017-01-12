@@ -6,7 +6,7 @@
 }
 
 .venue-items{
-  height: 150px;
+  height: 200px;
   background-color: #A8A7A7 !important;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .venue-items-info{
-  height: 350px;
+  height: 400px;
   background-color: #A8A7A7 !important;
 }
 
@@ -79,4 +79,10 @@
 }
 .padding-30 {
   padding: 30px;
+}
+
+.payment-directly-active {
+  border: 2px solid #15b51c;
+  height: 100px;
+  border-radius: 25px;
 }
