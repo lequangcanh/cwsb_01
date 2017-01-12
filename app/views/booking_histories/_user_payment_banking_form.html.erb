@@ -1,35 +1,51 @@
 <div class="row">
   <%= simple_form_for [order.venue, order, UserPaymentBanking.new],
     method: :post do |f| %>
-    <div class="col-md-6">
-      <%= f.input :banking_name, input_html: {class: "form-control margin-bot-15",
-        "data-validation": "required"} %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :banking_name, input_html: {class: "form-control margin-bot-15",
+          "data-validation": "length required",
+          "data-validation-length": "max30"} %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :card_name, input_html: {class: "form-control margin-bot-15",
+          "data-validation": "length required",
+          "data-validation-length": "max30"} %><br/>
+      </div>
     </div>
-    <div class="col-md-6">
-      <%= f.input :card_name, input_html: {class: "form-control margin-bot-15",
-        "data-validation": "required"} %><br/>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :card_number, input_html: {class: "form-control margin-bot-15",
+          "data-validation": "length required",
+          "data-validation-length": "max20"} %><br/>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :card_address, input_html: {class: "form-control margin-bot-15",
+          "data-validation": "length required",
+          "data-validation-length": "max40"} %><br/>
+      </div>
     </div>
-    <div class="col-md-6">
-      <%= f.input :card_number, input_html: {class: "form-control margin-bot-15",
-        "data-validation": "required"} %><br/>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :name, input_html: {value: current_user.name,
+          class: "form-control margin-bot-15",
+          "data-validation": "length required",
+          "data-validation-length": "max40"} %><br/>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :email, input_html: {value: current_user.email,
+          class: "form-control margin-bot-15",
+          "data-validation": "length email",
+          "data-validation-length": "max40"} %><br/>
+      </div>
     </div>
-    <div class="col-md-6">
-      <%= f.input :card_address, input_html: {class: "form-control margin-bot-15",
-        "data-validation": "required"} %><br/>
-    </div>
-    <div class="col-md-6">
-      <%= f.input :name, input_html: {value: current_user.name,
-        class: "form-control margin-bot-15", "data-validation": "required"} %><br/>
-    </div>
-    <div class="col-md-6">
-      <%= f.input :email, input_html: {value: current_user.email,
-        class: "form-control margin-bot-15", "data-validation": "email"} %><br/>
-    </div>
-    <div class="col-md-12">
-      <label>
-        <%= f.check_box :verified,
-          "data-validation": "required" %><%= t("venue_markets.verify") %>
-      </label>
+    <div class="row">
+      <div class="col-md-12">
+        <label>
+          <%= f.check_box :verified,
+            "data-validation": "required" %><%= t("venue_markets.verify") %>
+        </label>
+      </div>
     </div>
     <div class="col-md-12">
       <%= f.button :submit, value: t("confirm_payment_directly.btn_confirm"),

@@ -533,7 +533,7 @@ en:
       quantity: "Status and Quantity"
       duration: "Times and Duration"
       information: "Customer Payment Information"
-    method: "Payments Method"
+    method: "Payments"
     tooltip:
       status_pending: "You must click for change accepted payment and can't change again"
       status_accepted: "Payment is accepted and can't change again"

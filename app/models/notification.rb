@@ -13,8 +13,8 @@ class Notification < ApplicationRecord
 
   def load_message
     if load_venue
-      banking = find_venue.banking.find_by verified: true
-      directly = find_venue.directly.find_by verified: true
+      banking = load_venue.banking.find_by verified: true
+      directly = load_venue.directly.find_by verified: true
     end
     owner = User.find_by id: owner_id
     owner_name = if owner

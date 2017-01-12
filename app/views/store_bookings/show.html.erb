@@ -23,11 +23,13 @@
           <h2 class="venue-name"><strong><%= venue.name %></strong></h2>
         </div>
         <div class="block-section padding-0-15">
-          <h4 class="venue-address"><%= venue.address_details %></h4>
+          <h4 class="venue-address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= venue.address_details %></h4>
           <address>
             <i class="fa fa-phone"></i> <%= venue.phone_number %><br>
             <i class="fa fa-envelope-o"></i>
-            <%= link_to venue.name, venue, target: "blank" %>
+            <%= venue.email %>
           </address>
           <div class="request-all margin-bot-70">
             <%= button_tag t(".accept_all"),
@@ -89,7 +91,7 @@
                 <% end %>
               <% end %>
               <tr>
-                <td colspan="10" class="text-right">
+                <td colspan="12" class="text-right">
                   <span class="h3">
                     <strong><%= t ".total_due" %></strong>
                     <strong id="total-price-<%= venue.id %>"></strong>

@@ -9,7 +9,7 @@
     <address>
       <i class="fa fa-phone"></i> <%= order.first.venue.phone_number %><br>
       <i class="fa fa-envelope-o"></i>
-      <%= link_to order.first.venue.email, "javascript:;" %>
+      <%= order.first.venue.email %>
     </address>
   </div>
   <div class="table-responsive padding-0-15">
@@ -22,12 +22,12 @@
             booking: booking, type: Settings.content_booking.type.booking_history %>
         <% end %>
         <tr class="active">
-          <td colspan="7" class="text-right">
+          <td colspan="12" class="text-right">
             <span class="h3">
               <strong><%= t ".total_due" %></strong>
             </span>
           </td>
-          <td class="text-right">
+          <td class="text-center">
             <span class="h3">
               <strong id="total-price-<%= type %>-<%= order.first.id %>"></strong>
             </span>

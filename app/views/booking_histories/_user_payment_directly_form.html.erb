@@ -2,17 +2,21 @@
   method: :post do |f| %>
   <%= f.input :name,
     input_html: {value: current_user.name, class: "form-control margin-bot-10",
-    "data-validation": "required"} %><br/>
+      "data-validation": "length required",
+      "data-validation-length": "max30"} %><br/>
   <%= f.input :email,
     input_html: {value: current_user.email, class: "form-control margin-bot-10",
-    "data-validation": "email",
-    "data-validation-help": t("booking_histories.validation.email")} %><br/>
+      "data-validation": "length email",
+      "data-validation-length": "max40",
+      "data-validation-help": t("booking_histories.validation.email")} %><br/>
   <%= f.input :phone,
     input_html: {value: current_user.phone_number, class: "form-control margin-bot-10",
-    "data-validation": "length number",
-    "data-validation-length": "min10"} %></br>
+      "data-validation": "length required",
+      "data-validation-length": "max20"} %></br>
   <%= f.input :address,
-    input_html: {class: "form-control margin-bot-10"} %>
+    input_html: {class: "form-control margin-bot-10",
+      "data-validation": "length required",
+      "data-validation-length": "max40"} %>
   <label>
     <%= f.check_box :verified, "data-validation": "required",
       "data-validation-error-msg": t("booking_histories.validation.validation_message") %>
