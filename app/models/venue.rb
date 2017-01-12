@@ -1,5 +1,9 @@
 class Venue < ApplicationRecord
   include RecordFindingByTime
+  include PublicActivity::Model
+
+  tracked owner: Proc.new{|controller, model| controller.current_user}
+  
   acts_as_paranoid
 
   has_one :address, dependent: :destroy, inverse_of: :venue
@@ -16,6 +20,8 @@ class Venue < ApplicationRecord
   has_many :directly, through: :payment_methods
   has_many :orders
   has_one :user_payment_directly
+  has_one :banking
+  
   attr_accessor :user
 
   after_create :create_user_role_venue

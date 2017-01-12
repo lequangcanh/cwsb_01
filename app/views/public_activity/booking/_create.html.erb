@@ -1,0 +1,21 @@
+<li class="list-group-item row">
+  <div class="col-md-1">
+    <i class="glyphicon glyphicon-plus"></i>
+  </div>
+  <div class="col-md-9">
+    <div class="activity">
+      <% if activity.trackable %>
+        <span class="action-activity">
+          <%= t "public_activity.activity_booking_create" %>
+        </span>
+      <% else %>
+        <span class = "action-activity">
+          <%= t "public_activity.booking_deleted" %>
+        </span>
+      <% end %>
+    </div>
+    <div class="created_at">
+      <small><%= l activity.created_at, format: :default %></small>
+    </div>
+  </div>
+</li>

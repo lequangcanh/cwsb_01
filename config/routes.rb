@@ -50,7 +50,8 @@ Rails.application.routes.draw do
     resources :users
     resources :venues, only: [:index, :show]
     resources :statistics, only: [:index, :create]
+    resources :activities, only: :index
   end
- 
+
   mount ActionCable.server => '/cable'
 end

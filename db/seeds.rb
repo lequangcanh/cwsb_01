@@ -1,3 +1,4 @@
+PublicActivity.enabled = false
 # booking types
 BookingType.create name: "Hour"
 BookingType.create name: "Day"
@@ -153,3 +154,4 @@ Space.all.each do |space|
     Price.create space: space, booking_type: booking_type, price: price
   end
 end
+PublicActivity.enabled = true
