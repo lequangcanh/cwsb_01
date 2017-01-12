@@ -3,5 +3,9 @@ class Admin::UsersController < Admin::BaseController
     @query_users = User.ransack params[:q]
     @users = @query_users.result
       .page(params[:page]).per Settings.admin.users.per_page
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end
