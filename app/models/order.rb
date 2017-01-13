@@ -14,6 +14,8 @@ class Order < ApplicationRecord
   has_many :directly
   has_many :notifications, as: :notifiable
 
+  delegate :name, to: :user, prefix: true, allow_nil: true
+
   enum status: {requested: 0, pending: 1, paid: 2, closed: 3}
 
   scope :have_order_payment_directly, -> do
@@ -49,8 +51,7 @@ class Order < ApplicationRecord
   end
 
   def auto_reject_order
-    if self.payment_detail_type && self.payment_detail_type != Settings
-      .payment_methods_filter.paypal && self.status != Order.statuses[:paid]
+    if self.status != Order.statuses[:paid]
       date = self.updated_at + self.payment_detail.pending_time.hours
       if date < Time.current
         self.update_attributes status: Order.statuses[:closed]
@@ -72,8 +73,11 @@ class Order < ApplicationRecord
   end
 
   def checktime_to_reject
-    delay(run_at: calculate_delay_time.minutes.from_now)
-      .auto_reject_order
+    if self.payment_detail_type && self.payment_detail_type != Settings
+      .payment_methods_filter.paypal
+      delay(run_at: calculate_delay_time.minutes.from_now)
+        .auto_reject_order
+    end
   end
 
   def load_email_paypal
