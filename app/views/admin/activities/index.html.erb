@@ -13,10 +13,11 @@
       </div>  
     <% end %>
   </section>
-  <div class="read_more" align="center">
+  <div id="more_activity" class="read_more" align="center">
     <%= button_tag t("admin.activities.read_more"), class: "btn btn-info" %>
   </div>
-  <div class="next">
-    <%= link_to_next_page @activities, t("admin.activities.next") %>
+  <div id="next_activity" class="read_more" align="center">
+    <%= link_to_next_page @activities, t("admin.activities.next"),
+      class: "btn btn-info" %>
   </div>
 </div>

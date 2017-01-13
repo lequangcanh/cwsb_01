@@ -1,7 +1,11 @@
 class Admin::StatisticsController < Admin::BaseController
   def index
     @chart = ChartService.new(Settings.admin.new_statistics.users,
-      Settings.admin.new_statistics.this_week).get_chart     
+      Settings.admin.new_statistics.this_week).get_chart
+    @space_count_of_venue = Venue.count_spaces
+    @space_count_of_venue_chart = count_values @space_count_of_venue
+    @booking_count_of_space = Space.count_bookings
+    @booking_count_of_space_chart = count_values @booking_count_of_space
   end
 
   def create
@@ -35,5 +39,9 @@ class Admin::StatisticsController < Admin::BaseController
     else
       flash.now[:danger] = t "admin.new_statistics.invalid_date"
     end
+  end
+
+  def count_values object
+    object.collect{|t| {"#{t.name}": t.quantities}}.reduce Hash.new, :merge  
   end
 end

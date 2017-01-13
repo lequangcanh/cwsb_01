@@ -1,5 +1,6 @@
 <%= provide :title, t("admin.new_statistics.title") %>
 <%= javascript_include_tag "admin/new_statistics.js" %>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 
 <div class="row new_statistics">
   <div class="col-md-10 col-md-offset-1">
@@ -48,6 +49,18 @@
     </div>
     <div id="chart_new_statistics">
       <%= render "chart" %>
+    </div>
+    <div class="system_statistics">
+      <h1 class="new_statistics_title">
+        <%= t "admin.system_statistics.space_chart" %></h1>
+      <%= line_chart  @space_count_of_venue_chart,
+        library: {yAxis: {allowDecimals: false}} %>
+    </div>
+    <div class="system_statistics">
+      <h1 class="new_statistics_title">
+        <%= t "admin.system_statistics.booking_chart" %></h1>
+      <%= line_chart  @booking_count_of_space_chart,
+        library: {yAxis: {allowDecimals: false}} %>
     </div>
   </div>
 </div>

@@ -33,6 +33,12 @@ class Space < ApplicationRecord
   delegate :description, to: :venue, prefix: true, allow_nil: true
   delegate :details, to: :address, prefix: true, allow_nil: true
 
+  scope :count_bookings, -> do
+    joins(:bookings)
+      .select("count(*) as quantities, spaces.*")
+      .group :space_id
+  end
+
   def price_per_day
     prices.find_by booking_type: type_day
   end

@@ -1,6 +1,14 @@
 .admin_user_title {
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   color: #666666 !important;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-shadow: #EDEDED 3px 2px 0;
+  position: relative;
 }
 
 .search_users {
@@ -28,12 +36,12 @@
   }
 }
 
-.modal-title {
+.modal-title-user {
   text-align: center;
   color: #42c5f4 !important;
 }
 
-.modal-body {
+.modal-body-user {
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 10px;

@@ -81,8 +81,6 @@ admin:
   page_404_url: "public/404.html"
   activities:
     per_page: 50
-  january: 1
-  december: 12
 precision_number: 0
 data_slider_min: 1
 data_slider_max: 1000
@@ -91,4 +89,6 @@ data_slider_value: [0,500]
 default_price_range: "$1 - $500"
 booking_type: {hour: "Hour", day: "Day", week: "Week", month: "Month"}
 chart_service:
+  january: 1
+  december: 12
 delay_time: 1
