@@ -19,7 +19,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+jp:
   avatar: "Avatar"
   message:
     requested: "requested"
@@ -531,8 +531,7 @@ en:
       status: "Accept Payments"
       space: "Name Space"
       image: "Image Space"
-      status: "Status"
-      quantity: "Price and Quantity"
+      quantity: "Status and Quantity"
       duration: "Times and Duration"
       information: "Customer Payment Information"
     method: "Payments"
