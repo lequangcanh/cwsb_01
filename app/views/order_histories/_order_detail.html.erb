@@ -40,6 +40,10 @@
       <span class="fa fa-envelope" aria-hidden="true">
         <%= order.payment_detail.email %></span></p>
       <%= render_customer_detail order %>
+    <% elsif order %>
+      <span class="fa fa-user" aria-hidden="true">
+        <%= order.user_name %></span></p>
+      <strong>
     <% end %>
   </td>
 </div>
