@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   after_create :update_booking, :send_notification
 
-  attr_accessor :booking_ids
+  attr_accessor :booking_ids, :user_id
 
   belongs_to :coupon
   belongs_to :venue, -> {with_deleted}
@@ -66,7 +66,7 @@ class Order < ApplicationRecord
     owners.each do |owner|
       case
       when pending?
-        notifications.create message: :requested, receiver_id: owner.user.id, owner_id: user.id
+        notifications.create message: :requested, receiver_id: owner.user.id, owner_id: user_id
       end
     end
   end
