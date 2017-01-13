@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106085952) do
+ActiveRecord::Schema.define(version: 20170113020515) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -216,7 +216,6 @@ ActiveRecord::Schema.define(version: 20170106085952) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "status",                         default: 1
-    t.integer  "user_id"
     t.float    "total_paid",          limit: 24
     t.integer  "venue_id"
     t.string   "payment_detail_type"
@@ -224,6 +223,7 @@ ActiveRecord::Schema.define(version: 20170106085952) do
     t.datetime "deleted_at"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.integer  "user_id"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at", using: :btree
     t.index ["payment_detail_type", "payment_detail_id"], name: "index_orders_on_payment_detail_type_and_payment_detail_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -473,6 +473,7 @@ ActiveRecord::Schema.define(version: 20170106085952) do
   add_foreign_key "directlies", "payment_methods"
   add_foreign_key "invoices", "bookings"
   add_foreign_key "invoices", "coupons"
+  add_foreign_key "orders", "users"
   add_foreign_key "payment_methods", "venues"
   add_foreign_key "permissions", "roles"
   add_foreign_key "prices", "booking_types"

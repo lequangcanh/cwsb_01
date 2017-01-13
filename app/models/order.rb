@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   after_create :update_booking, :send_notification
 
-  attr_accessor :booking_ids, :user_id
+  attr_accessor :booking_ids
 
   belongs_to :coupon
   belongs_to :venue, -> {with_deleted}
