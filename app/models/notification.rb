@@ -63,10 +63,12 @@ class Notification < ApplicationRecord
   end
 
   def load_venue
-    if notifiable_type != Order.name
-      notifiable.order.venue
-    else
-      notifiable.venue
+    if notifiable
+      if notifiable_type != Order.name
+        notifiable.order.venue
+      else
+        notifiable.venue
+      end
     end
   end
 end

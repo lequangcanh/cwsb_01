@@ -1,18 +1,20 @@
-<% if booking.accepted? %>
-  <tr>
-    <td class="first text-center">
-      <h4>
-        <%= link_to booking.space.name %>
-      </h4>
-    </td>
-    <td class="text-center">
-      <%= image_tag "spaces/space1.jpg", class: "image_tag" %>
-    </td>
-    <td class="text-center">
-      <span class="label label-<%= display_state booking %>">
-        <%= booking.state %>
-      </span>
-      <span class="label label-info" id="price-<%= booking.id %>">$
+<tr>
+  <td class="first text-left">
+    <h4 id="form-name-space">
+      <%= link_to booking.space.name %>
+    </h4>
+  </td>
+  <td class="text-center">
+    <%= image_tag "spaces/space1.jpg", class: "image_tag" %>
+  </td>
+  <td class="text-center">
+    <span class="label label-<%= display_state booking %>">
+      <%= booking.state %>
+    </span>
+  </td>
+  <td class="text-center">
+    <div class="row">
+      <span class="label label-info" id="price-<%= booking.id %>"><%= Settings.unit.dollar %>
         <%= select_price(booking.space, booking.booking_type_id) %>
       </span>
       <strong>x
@@ -20,19 +22,19 @@
           <%= booking.quantity %>
         </span>
       </strong>
-    </td>
-    <td class="text-center">
-      <strong>
-        <span class="label label-info" id= "booking-from-<%= booking.id %>">
-          <%= l booking.booking_from, format: :booking_date %>
-        </span>
-      </strong>
-      </p>
-      <strong>
-        <span class="label label-info" id="duration-<%= booking.id %>">
-          <i class="fa fa-clock-o"></i>
-          <%= booking.duration %> <%= booking.booking_type_name %>
-        </span>
-      </strong>
-    </td>
-<% end %>
+    </div>
+  </td>
+  <td class="text-center">
+    <strong>
+      <span class="label label-info" id= "booking-from-<%= booking.id %>">
+        <%= l booking.booking_from, format: :booking_date %>
+      </span>
+    </strong>
+    </p>
+    <strong>
+      <span class="label label-info" id="duration-<%= booking.id %>">
+        <i class="fa fa-clock-o"></i>
+        <%= booking.duration %> <%= booking.booking_type_name %>
+      </span>
+    </strong>
+  </td>

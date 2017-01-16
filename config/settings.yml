@@ -1,3 +1,5 @@
+unit:
+  dollar: "$"
 notification:
   requested: "requested"
   accepted: "accepted"

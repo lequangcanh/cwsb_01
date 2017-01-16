@@ -8,8 +8,9 @@
       @accepts.length, id: "times-#{Settings.status.accept}" %>
     <%= hidden_field_tag "times_child", order.second.length,
       id: "times-child-#{Settings.status.accept}-#{order.first.id}" %>
-    <%= render "content", order: order,
-      index: index, type: "#{Settings.status.accept}" %>
+    <% if order.first.bookings.present? %>
+      <%= render "content", order: order, index: index, type: Settings.status.accept %>
+    <% end %>
   <% end %>
 <% else %>
   <p><%= t "errors.blank", type: Settings.accept_history %></p>

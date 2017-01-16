@@ -9,7 +9,7 @@
     </div>
   </div>
   <% @venues.each_with_index do |venue, parent_index| %>
-    <% if venue.orders.any? %>
+    <% if venue.orders.have_order_payment_banking.present? %>
       <div class="block custom-block margin-left-0 margin-right-0">
         <%= render "confirm_payment_bankings/information_venue", venue: venue %>
         <div class="table-responsive padding-0-15">
