@@ -1,7 +1,7 @@
 <% if booking.accepted? %>
   <tr>
-    <td class="first text-center">
-      <h4>
+    <td class="first text-left">
+      <h4 id="form-name-space">
         <%= link_to booking.space.name %>
       </h4>
     </td>
@@ -12,14 +12,18 @@
       <span class="label label-<%= display_state booking %>">
         <%= booking.state %>
       </span>
-      <span class="label label-info" id="price-<%= booking.id %>">$
-        <%= select_price(booking.space, booking.booking_type_id) %>
-      </span>
-      <strong>x
-        <span class="badge" id="quantity-<%= booking.id %>">
-          <%= booking.quantity %>
+    </td>
+    <td class="text-center">
+      <div class="row">
+        <span class="label label-info" id="price-<%= booking.id %>"><%= Settings.unit.dollar %>
+          <%= select_price(booking.space, booking.booking_type_id) %>
         </span>
-      </strong>
+        <strong>x
+          <span class="badge" id="quantity-<%= booking.id %>">
+            <%= booking.quantity %>
+          </span>
+        </strong>
+      </div>
     </td>
     <td class="text-center">
       <strong>

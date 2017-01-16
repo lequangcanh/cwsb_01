@@ -1,9 +1,9 @@
 class Booking < ApplicationRecord
   include GeneralHelper
   include PublicActivity::Model
-  
+
   tracked owner: Proc.new{|controller, model| controller.current_user}
-  
+
   attr_accessor :message
 
   acts_as_paranoid

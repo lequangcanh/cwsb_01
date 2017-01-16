@@ -22,22 +22,22 @@
                 <div class="col-md-3">
                   <%= f.input :number_of_floors,
                     input_html: {class: "form-control margin-bot-15",
-                    "data-validation": "number"} %>
+                    "data-validation": "number", placeholder: "10"} %>
                 </div>
                 <div class="col-md-3">
                   <%= f.input :floor_space,
                     input_html: {class: "form-control margin-bot-15",
-                    "data-validation": "number"} %>
+                    "data-validation": "number", placeholder: "100"} %>
                 </div>
                 <div class="col-md-3">
                   <%= f.input :number_of_rooms,
                     input_html: {class: "form-control margin-bot-15",
-                    "data-validation": "number"} %>
+                    "data-validation": "number", placeholder: "5"} %>
                 </div>
                 <div class="col-md-3">
                   <%= f.input :number_of_desks,
                     input_html: {class: "form-control margin-bot-15",
-                    "data-validation": "number"} %>
+                    "data-validation": "number", placeholder: "20"} %>
                 </div>
               </div>
               <%= hidden_field_tag :detail, :active %><br>

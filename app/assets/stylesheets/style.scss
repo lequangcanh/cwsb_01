@@ -143,6 +143,7 @@ hr.style-two {
   position: fixed;
   z-index: 9999;
   right: 15px;
+  margin-top: 15px;
 }
 
 .space_price {
@@ -182,4 +183,8 @@ hr.style-two {
   background: #FFFFFF;
   border-color: transparent;
   box-shadow: none;
+}
+
+#form-name-space {
+  width: 150px;
 }
