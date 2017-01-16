@@ -38,6 +38,9 @@ gem "delayed_job_active_record"
 gem "chartkick"
 gem "public_activity"
 gem "rails-i18n"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 
 source "https://rails-assets.org" do
   gem "rails-assets-growl"
