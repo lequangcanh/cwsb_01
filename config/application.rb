@@ -26,6 +26,9 @@ module Cwsb01
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :sidekiq
     config.autoload_paths << Rails.root.join("services")
+    config.i18n.default_locale = :en
+    config.i18n.available_locales = [:en, :vi, :jp]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     Dir[File.join(Rails.root, "lib/core_ext", "*.rb")].each {|file| require file}
     Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|

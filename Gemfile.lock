@@ -216,6 +216,9 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.2)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     railties (5.0.1)
       actionpack (= 5.0.1)
       activesupport (= 5.0.1)
@@ -383,6 +386,7 @@ DEPENDENCIES
   rails-assets-growl!
   rails-bootstrap-toggle-buttons
   rails-controller-testing
+  rails-i18n
   ransack
   reform-rails
   rmagick
