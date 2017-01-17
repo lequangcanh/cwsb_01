@@ -34,6 +34,10 @@
   }
 }
 
+#exampleModal {
+  z-index: 10222;
+}
+
 #space_button {
   margin-top: 10px;
   margin-left: 20px;
@@ -44,16 +48,16 @@
   margin-left: 20px;
 }
 
-.modal-dialog {
+.modal-dialog-venue {
   margin: 0px auto !important;
 }
 
-.modal-body {
+.modal-body-venue {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
 }
 
-.modal-title {
+.modal-title-venue {
   font-size: 30px;
   color: #666666;
  }
