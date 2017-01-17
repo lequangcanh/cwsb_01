@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :directlies
     resources :suggest_payment_methods
   end
+  resources :statistics, only: [:index, :create]
 
   resources :static_pages
   resources :notifications, only: [:index, :update]

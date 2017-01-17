@@ -1,0 +1,9 @@
+<% if params[:statistics] %>
+  <% if params[:statistics][:type] == Settings.chart_service.booking_of_venue %>
+    <%= column_chart @chart, ytitle: t("statistics.ytitle_booking"),
+      library: {yAxis: {allowDecimals: false}} %>
+  <% elsif params[:statistics][:type] == Settings.chart_service.revenue_of_venue %>
+    <%= column_chart @chart, ytitle: t("statistics.ytitle_revenue"),
+      library: {yAxis: {allowDecimals: false}} %>
+  <% end %>
+<% end %>

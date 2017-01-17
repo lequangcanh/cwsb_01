@@ -331,7 +331,9 @@ ActiveRecord::Schema.define(version: 20170122065315) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "space_id"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at", using: :btree
+    t.index ["space_id"], name: "index_reviews_on_space_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_reviews_on_venue_id", using: :btree
   end
@@ -509,6 +511,7 @@ ActiveRecord::Schema.define(version: 20170122065315) do
   add_foreign_key "permissions", "roles"
   add_foreign_key "prices", "booking_types"
   add_foreign_key "prices", "spaces"
+  add_foreign_key "reviews", "spaces"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "venues"
   add_foreign_key "service_charges", "price_types"

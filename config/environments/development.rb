@@ -85,4 +85,6 @@ Rails.application.configure do
     # with a counter_cache
     Bullet.counter_cache_enable = false
   end
+
+  config.middleware.use I18n::JS::Middleware
 end

@@ -33,6 +33,10 @@ class Space < ApplicationRecord
   delegate :description, to: :venue, prefix: true, allow_nil: true
   delegate :details, to: :address, prefix: true, allow_nil: true
 
+  scope :ids_of_venue, -> venue_id do
+    where(venue_id: venue_id).pluck :id
+  end
+
   def price_per_day
     prices.find_by booking_type: type_day
   end
