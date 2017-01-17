@@ -1,11 +1,7 @@
 <%= javascript_include_tag "amenity/edit.js" %>
 <div class="row full-height margin-left-0 margin-right-0 background-x scroll-y">
   <div class="block full-height margin-bottom-0">
-    <div class="block-title">
-      <h2 class="amenity-name">
-        <strong><%= t "amenities.new.block_title" %></strong>
-      </h2>
-    </div>
+    <div class="venue-name"><span><%= @venue.name %></span></div>
     <%= render "shared/form_outline", active_id: "amenities" %>
     <div class="block">
       <div class="block-title text-center">

@@ -37,6 +37,8 @@
             <% if venue.images.any? %>
               <%= image_tag venue.images.first.picture_url,
                 class:"img wth-80" %>
+            <% else %>
+              <%= image_tag "not_available", class: "img wth-80" %>
             <% end %>
           </div>
         </div>

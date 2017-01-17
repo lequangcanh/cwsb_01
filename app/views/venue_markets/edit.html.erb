@@ -2,7 +2,7 @@
 <div class="media-body footer-section line-break-block">
   <div class="row">
     <div class="col-md-12">
-      <span class="venue-name"><%= @venue.name %></span>
+      <div class="venue-name"><span><%= @venue.name %></span></div>
       <div class="block full">
         <div class="block-title">
           <%= render "shared/form_outline", active_id: "marketplace" %>
@@ -36,19 +36,8 @@
                   <%= render "edit_info_for_payment_directly" %>
                 </div>
                 <hr class="style-two">
-                  <p class = "text-center">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                    <%= t ".other_settings" %>
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                  </p>
-                  <%= simple_form_for [@venue, @venue_market], method: :patch, remote: true do |f| %>
-                    <%= f.input :slogan,
-                      input_html: {class: "form-control margin-bot-15"} %>
-                    <br/>
-                    <%= f.input :introduction,
-                      input_html: {class: "form-control margin-bot-15"} %>
-                    <br/>
-                    <%= f.button :submit, class: "btn btn-primary pull-right" %>
+                  <%= link_to venue_spaces_path(@venue), class: "btn btn-primary pull-right" do %>
+                    <%= t "next" %> <i class="fa fa-chevron-right" aria-hidden="true"></i>
                   <% end %>
                 </hr>
               </div>

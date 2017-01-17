@@ -1,4 +1,5 @@
 vi:
+  help_info: "Một số thông tin giúp đỡ..."
   avatar: "Ảnh đại diện"
   message:
     requested: "yêu cầu"
@@ -33,10 +34,10 @@ vi:
   book_now: "Đặt ngay"
   clickable_venue: "ĐỊA ĐIỂM"
   clickable_details: "CHI TIẾT"
-  clickable_space_pricing: "KHÔNG GIAN VÀ GIÁ"
+  clickable_spaces: "KHÔNG GIAN"
   clickable_admins: "QUẢN TRỊ VIÊN"
   clickable_amenities: "TIỆN NGHI"
-  clickable_marketplaces: "THỊ TRƯỜNG"
+  clickable_paymentmethods: "PHƯƠNG THỨC THANH TOÁN"
   flash:
     success_message: "thành công!"
     danger_message: "lỗi"

@@ -14,9 +14,14 @@
               <strong><%= t "clickable_details" %></strong>
             <% end %>
           </li>
+          <li id="marketplace">
+            <%= link_to edit_venue_venue_market_path(@venue) do %>
+              <strong><%= t "clickable_paymentmethods" %></strong>
+            <% end %>
+          </li>
           <li id="spaces">
             <%= link_to venue_spaces_path(@venue) do %>
-              <strong><%= t "clickable_space_pricing" %></strong>
+              <strong><%= t "clickable_spaces" %></strong>
             <% end %>
           </li>
           <li id="admins">
@@ -27,11 +32,6 @@
           <li id="amenities">
             <%= link_to venue_amenities_path(@venue) do %>
               <strong><%= t "clickable_amenities" %></strong>
-            <% end %>
-          </li>
-          <li id="marketplace">
-            <%= link_to edit_venue_venue_market_path(@venue) do %>
-              <strong><%= t "clickable_marketplaces" %></strong>
             <% end %>
           </li>
         </ul>

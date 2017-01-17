@@ -57,20 +57,14 @@
                 <table class="table">
                   <tr>
                     <td>
-                      <%= link_to "javascript:;", title: t("layout.profile"),
-                        class: "enable-tooltip" do %>
+                      <%= link_to edit_user_registration_path, method: :get do %>
                         <i class="gi gi-user"></i>
                       <% end %>
-                      <%= link_to "javascript:;", title: t("layout.message"),
-                        class: "enable-tooltip" do %>
-                        <i class="gi gi-envelope"></i>
-                      <% end %>
-                      <%= link_to edit_user_registration_path, method: :get,
-                        title: t("layout.setting"), class: "enable-tooltip" do %>
+                      <%= link_to "javascript:;", title: t("layout.setting") do %>
                         <i class="gi gi-cogwheel"></i>
                       <% end %>
                       <%= link_to destroy_user_session_path, method: :delete,
-                        title: t("layout.logout"), class: "enable-tooltip" do %>
+                        title: t("layout.logout") do %>
                         <i class="gi gi-exit"></i>
                       <% end %>
                     </td>
@@ -80,35 +74,26 @@
                       <%= link_to t("layout.my_spaces"), venues_url %>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.your_booking"), bookings_path %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.booking_history"),
-                        booking_histories_path %>
-                    </td>
-                  </tr>
-                  <% if current_user.user_role_venues.owner %>
+                  <% if current_user.venues.present? %>
                     <tr>
                       <td>
                         <%= link_to t("layout.store_booking"), store_bookings_path %>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t "payments.method" %>
-                            <span class="caret"></span></a>
-                          <ul class="dropdown-menu forAnimate" role="menu">
-                            <%= link_to t("layout.payment_directly"), confirm_payment_directlies_path, class: "color-bg"%></p>
-                            <%= link_to t("layout.payment_banking"), confirm_payment_bankings_path, class: "color-bg" %>
-                          </ul>
-                        </li>
-                      </td>
-                    </tr>
+                    <% if current_user.orders.order_has_payment_type %>
+                      <tr>
+                        <td>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t "payments.method" %>
+                              <span class="caret"></span></a>
+                            <ul class="dropdown-menu forAnimate" role="menu">
+                              <%= link_to t("layout.payment_directly"), confirm_payment_directlies_path, class: "color-bg"%></p>
+                              <%= link_to t("layout.payment_banking"), confirm_payment_bankings_path, class: "color-bg" %>
+                            </ul>
+                          </li>
+                        </td>
+                      </tr>
+                    <% end %>
                     <tr>
                       <td>
                         <%= link_to t("layout.order_history"), order_histories_path %>
@@ -143,6 +128,20 @@
                     </td>
                   </tr>
                 </table>
+                <% if current_user.bookings.present? %>
+                  <table class="table">
+                    <tr>
+                      <td>
+                        <%= link_to t("layout.your_booking"), bookings_path %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= link_to t("layout.booking_history"), booking_histories_path %>
+                      </td>
+                    </tr>
+                  </table>
+                <% end %>
               </div>
             </div>
           </li>

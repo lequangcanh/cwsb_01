@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  help_info: "Some help info..."
   avatar: "Avatar"
   message:
     requested: "requested"
@@ -54,10 +55,10 @@ en:
   book_now: "Book now"
   clickable_venue: "VENUE"
   clickable_details: "DETAILS"
-  clickable_space_pricing: "SPACES AND PRICING"
+  clickable_spaces: "SPACES"
   clickable_admins: "ADMINS"
   clickable_amenities: "AMENITIES"
-  clickable_marketplaces: "MARKETPLACE"
+  clickable_paymentmethods: "PAYMENT METHODS"
   flash:
     success_message: "successfully!"
     danger_message: "error"

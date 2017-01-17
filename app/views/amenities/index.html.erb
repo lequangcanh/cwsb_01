@@ -2,7 +2,7 @@
 <%= javascript_include_tag "amenity/index.js" %>
 <div class="row full-height margin-left-0 margin-right-0 background-x scroll-y">
   <div class="block full-height margin-bottom-0">
-    <span class="venue-name"><%= @venue.name %></span>
+    <div class="venue-name"><span><%= @venue.name %></span></div>
     <%= render "shared/form_outline", active_id: "amenities" %>
     <%= hidden_field_tag "venue", @venue.id, class: "hidden-venue" %>
     <%= hidden_field_tag "price", t(".vnd_per") %>
@@ -53,7 +53,7 @@
               <td class="text-center">
                 <div class="btn-group btn-group-xs">
                   <%= link_to edit_venue_amenity_path(@venue, amenity),
-                    class: "btn btn-default" do %>
+                    class: "btn btn-default btn-edit" do %>
                     <i class="fa fa-pencil"></i>
                   <% end %>
                   <%= link_to venue_amenity_path(@venue, amenity),
@@ -92,10 +92,6 @@
         <div class="inner left_amenity">
           <%= button_to t(".inner_left"), new_venue_amenity_path,
             method: :get, class: "create_amenity" %>
-        </div>
-        <div class="inner right_amenity">
-          <%= link_to t(".inner_right"), edit_venue_venue_market_path(@venue, @venue_market),
-            class: "create_amenity btn btn-primary" %>
         </div>
       </div>
     </div>
