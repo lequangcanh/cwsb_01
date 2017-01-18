@@ -5,6 +5,10 @@ class Admin::UsersController < Admin::BaseController
     @query_users = User.ransack params[:q]
     @users = @query_users.result
       .page(params[:page]).per Settings.admin.users.per_page
+    @total_active = total_status Settings.admin.users.active
+    @total_block = total_status Settings.admin.users.blocked
+    @total_reject = total_status Settings.admin.users.rejected
+
     respond_to do |format|
       format.html
       format.js
@@ -32,5 +36,9 @@ class Admin::UsersController < Admin::BaseController
       flash[:danger] = t "admin.users.user_not_found" 
       redirect_to admin_users_path
     end
+  end
+
+  def total_status status
+    User.send(status).count
   end
 end

@@ -21,7 +21,7 @@
           <%= select_tag :status, options_for_select(User.statuses.keys
             .collect {|key| [I18n.t("users.status.#{key}"), key]},
               selected: user.status),
-            class: "user_status", id: "user_status_#{user.id}", 
+            class: "user_status form-control dropdown-fix", id: "user_status_#{user.id}", 
             data: {id: user.id, username: user.name} %>
         </td>
       </tr>

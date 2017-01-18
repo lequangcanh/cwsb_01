@@ -46,11 +46,18 @@
     text-align: left;
     background-color: #167F92 !important;
     color: #FFF;
-    padding: 1em;  
+    padding: 12px !important;  
   }
   td {
     text-align: left;  
   }  
+}
+
+.dropdown-fix {
+  background-color: #fff !important;
+  border-color: #000 !important;
+  color: #000 !important;
+  width: 60% !important;
 }
 
 .modal-title-user {
@@ -66,4 +73,53 @@
 
 .social {
   display: inline;
+}
+
+.info-box-user {
+  display: block;
+  min-height: 45px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.info-box-user small {
+  font-size: 10px;
+}
+
+.info-box-icon-user {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  display: block;
+  float: left;
+  height: 47px;
+  width: 45px;
+  text-align: center;
+  font-size: 35px;
+  line-height: 40px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.info-box-user-content {
+  padding: 5px 10px;
+  margin-left: 50px;
+}
+
+.info-box-user-number {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.info-box-user-text {
+  display: block;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
 }

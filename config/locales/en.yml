@@ -714,6 +714,9 @@ en:
       block_alert: "will be blocked?"
       active_alert: "will be active?"
       reject_alert: "will be reject?"
+      active: "Active"
+      block: "Block"
+      reject: "Reject"
     sidebar:
       statistics: "&nbsp;Statistics"
       new_statistics: "What's new?"

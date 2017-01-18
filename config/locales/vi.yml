@@ -693,6 +693,9 @@ vi:
       block_alert: "sẽ bị khóa?"
       active_alert: "sẽ được kích hoạt?"
       reject_alert: "sẽ bị từ chối?"
+      active: "Kích hoạt"
+      block: "Tạm khóa"
+      reject: "Từ chối"
     sidebar:
       statistics: "&nbsp;Statistics"
       new_statistics: "What's new?"

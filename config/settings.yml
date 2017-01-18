@@ -69,6 +69,9 @@ picture_max_size: 5
 admin:
   users:
     per_page: 10
+    active: "active"
+    blocked: "blocked"
+    rejected: "reject"
   venues:
     per_page: 10
   new_statistics:
@@ -93,6 +96,8 @@ data_slider_value: [0,500]
 default_price_range: "$1 - $500"
 booking_type: {hour: "Hour", day: "Day", week: "Week", month: "Month"}
 chart_service:
+  january: 1
+  december: 12
 delay_time: 1
 languages: {en: "English", vi: "Tiếng Việt", jp: "日本の"}
 rate: "rate"
