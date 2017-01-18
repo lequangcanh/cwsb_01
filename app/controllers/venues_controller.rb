@@ -51,7 +51,7 @@ class VenuesController < ApplicationController
   private
   def venue_params
     params.require(:venue).permit(:name, :description, :phone_number, :email,
-      :website, address_attributes: [:details, :city, :postal_code, :street_address, :unit, :id])
+      :website, :introduction, :slogan, address_attributes: [:details, :city, :postal_code, :street_address, :unit, :id])
       .merge! user: current_user
   end
 end

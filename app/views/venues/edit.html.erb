@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="col-md-7 max-height-x padding-left-0 padding-right-0 scroll-y">
-    <span class="venue-name"><%= @venue.name %></span>
+    <div class="venue-name"><span><%= @venue.name %></span></div>
     <div class="block full">
       <div class="block-title">
         <%= render "shared/form_outline", active_id: "venues" %>
@@ -26,10 +26,33 @@
                   <%= form_address.input :details,
                     input_html: {class: "form-control margin-bot-15",
                     id: "address", "data-validation": "required"} %>
-                  <%= form_address.input :city,
-                    input_html: {class: "form-control margin-bot-15"} %>
-                  <%= form_address.input :street_address,
-                    input_html: {class: "form-control margin-bot-15"} %>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <%= form_address.input :city,
+                        input_html: {class: "form-control margin-bot-15"} %>
+                    </div>
+                    <div class="col-md-6">
+                      <%= form_address.input :street_address,
+                        input_html: {class: "form-control margin-bot-15"} %>
+                    </div>
+                  </div>
+                  <%= f.input :phone_number,
+                    input_html: {class: "form-control margin-bot-15",
+                    "data-validation": "length",
+                    "data-validation-length": "min10"} %>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <%= f.input :email,
+                        input_html: {class: "form-control margin-bot-15",
+                        "data-validation": "email",
+                        "data-validation-help": I18n.t("help_info")} %>
+                    </div>
+                    <div class="col-md-6">
+                      <%= f.input :website,
+                        input_html: {class: "form-control margin-bot-15",
+                        "data-validation": "url"} %>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-md-6">
                       <%= form_address.input :postal_code,
@@ -41,17 +64,18 @@
                     </div>
                   </div>
                 <% end %>
-                <%= f.input :phone_number,
-                  input_html: {class: "form-control margin-bot-15",
-                  "data-validation": "length",
-                  "data-validation-length": "min10"} %>
-                <%= f.input :email,
-                  input_html: {class: "form-control margin-bot-15",
-                  "data-validation": "email",
-                  "data-validation-help": "Som help info..."} %>
-                <%= f.input :website,
-                  input_html: {class: "form-control margin-bot-15",
-                  "data-validation": "url"} %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= f.input :introduction,
+                      input_html: {class: "form-control margin-bot-15",
+                      "data-validation": "required"} %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= f.input :slogan,
+                      input_html: {class: "form-control margin-bot-15",
+                      "data-validation": "required"} %>
+                  </div>
+                </div>
                 <%= f.button :submit, class: "btn btn-primary pull-left" %>
               <% end %>
               <%= link_to edit_venue_venue_detail_path(@venue), class: "btn btn-primary pull-right" do %>

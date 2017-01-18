@@ -1,7 +1,5 @@
 <div class="row full-height margin-left-0 margin-right-0 scroll-y">
-  <div class="col-sm-12 padding-left-0 padding-right-0">
-    <span class="venue-name"><%= @venue.name %></span>
-  </div>
+  <div class="venue-name"><span><%= @venue.name %></span></div>
   <div class="block full full-height">
     <div class="block-title">
       <%= render "shared/form_outline", active_id: "spaces" %>
@@ -58,11 +56,11 @@
               </div>
             </div>
           <% end %>
-          <%= link_to venue_amenities_path(@venue), class: "btn btn-primary pull-right" do %>
-            <%= t "next" %> <i class="fa fa-chevron-right" aria-hidden="true"></i>
-          <% end %>
         </div>
       </div>
     </div>
+    <%= link_to venue_user_role_venues_path(@venue), class: "btn btn-primary pull-right" do %>
+      <%= t "next" %> <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    <% end %>
   </div>
 </div>

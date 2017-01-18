@@ -21,14 +21,21 @@ class Order < ApplicationRecord
   scope :have_order_payment_directly, -> do
     where payment_detail_type: UserPaymentDirectly.name
   end
+
   scope :have_order_payment_banking, -> do
     where payment_detail_type: UserPaymentBanking.name
   end
+
+  scope :order_has_payment_type, -> do
+    where.not payment_detail_type: nil
+  end
+
   scope :recent, ->{order :created_at}
 
   scope :filter_by_payment_detail, ->payment_detail_type do
     where payment_detail_type: payment_detail_type if payment_detail_type.present?
   end
+
   scope :filter_by_status, ->status do
     where status: status if status.present?
   end
