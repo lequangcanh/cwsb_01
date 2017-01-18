@@ -1,6 +1,7 @@
 class Paypal < ApplicationRecord
   has_one :order, as: :payment_method
   belongs_to :payment_method
+  belongs_to :venue
 
   attr_accessor :order
 

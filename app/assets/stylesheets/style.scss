@@ -30,6 +30,11 @@ hr.style-two {
   margin-right: 3%;
 }
 
+.icon_suggest_tag {
+  width: 30px;
+  height: 30px;
+}
+
 .image_index {
   width: 90px;
   height: 90px;
@@ -271,4 +276,12 @@ hr.style-two {
 
 .padding-left-18 {
   padding-left: 18%;
+}
+
+.center-fix {
+  text-align: center;
+}
+
+.wrap-fix {
+  word-wrap:break-word;
 }

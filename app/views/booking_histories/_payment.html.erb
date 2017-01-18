@@ -4,7 +4,7 @@
     class: "btn btn-success", disabled: true %>
 <% else %>
   <%= render "choose_payment", order: order %>
-  <% if order.venue.payment_methods.present? %>
+  <% if order.venue.payment_methods.with_deleted.present? %>
     <% if order.payment_detail.present? && !order.paypal.present? %>
       <% if order.payment_detail_type == Settings.payment_methods_filter[:banking] %>
         <%= link_to t("booking_histories.index.view_info"), "#",

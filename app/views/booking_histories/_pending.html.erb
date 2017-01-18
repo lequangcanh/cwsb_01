@@ -9,7 +9,7 @@
     <%= hidden_field_tag "times_child", order.second.length,
       id: "times-child-#{Settings.status.accept}-#{order.first.id}" %>
     <% if order.first.bookings.present? %>
-      <% if !order.first.payment_detail.present? || order.first.paid? || order.first.paypal.present? %>
+      <% if order.first.payment_detail.present? && !order.first.paid? && !order.first.paypal.present? %>
         <%= render "content", order: order, index: index, type: Settings.status.accept %>
       <% end %>
     <% end %>

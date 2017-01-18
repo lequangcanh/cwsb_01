@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :payment_methods
     resources :bankings
     resources :directlies
+    resources :suggest_payment_methods
   end
 
   resources :static_pages

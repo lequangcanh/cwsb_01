@@ -1,19 +1,27 @@
 class Banking < ApplicationRecord
+  acts_as_paranoid
+
   attr_accessor :day
   attr_accessor :hour
+  attr_accessor :venue
 
-  belongs_to :venue
-  belongs_to :payment_method
+  belongs_to :venue, -> {with_deleted}
+  belongs_to :payment_method, -> {with_deleted}
 
   validates :card_name, presence: true
   validates :card_number, presence: true
   validates :card_address, presence: true
   validates :banking_name, presence: true
 
-  after_create :calculate_pending_time
+  after_create :create_payment_method
 
   private
-  def calculate_pending_time
-    self.update_attributes pending_time: (day.to_i * 24 + hour.to_i)
+  def create_payment_method
+    @payment_method = venue.payment_methods.new payment_type: Settings.payment_methods.banking
+    if pending_time.nil?
+      self.update_attributes payment_method: @payment_method, pending_time: Common.convert_hour(day.to_i, hour.to_i)
+    else
+      self.update_attributes payment_method: @payment_method
+    end
   end
 end

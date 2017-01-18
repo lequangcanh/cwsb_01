@@ -19,6 +19,7 @@
         </li>
         <li><%= link_to t(".accept"), "#forum-topics" %></li>
         <li><%= link_to t(".reject"), "#forum-discussion" %></li>
+        <li><%= link_to t(".pending"), "#pending-tab" %></li>
       </ul>
     </div>
     <div class="tab-content">
@@ -30,6 +31,9 @@
       </div>
       <div class="tab-pane" id="forum-discussion">
         <%= render "rejected", rejects: @rejects %>
+      </div>
+      <div class="tab-pane" id="pending-tab">
+        <%= render "pending", accepts: @accepts %>
       </div>
     </div>
   </div>

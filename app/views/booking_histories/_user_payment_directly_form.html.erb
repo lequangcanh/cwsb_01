@@ -1,3 +1,30 @@
+<div class="form-group">
+  <div class="col-md-12">
+    <hr/>
+  </div>
+  <div class="col-md-12 center-fix wrap-fix">
+    <strong><%= t "confirm_payment_directly.payment_directly_info" %></strong>
+  </div>
+  <%= render "payment_directly_info", order: order %>
+  <div class="col-md-12 wrap-fix">
+    <label class="col-md-6">
+      <%= t "venue_markets.pending_time" %>
+    </label>
+    <div class="col-md-6">
+      <% if order.find_directly_info.pending_time > 0 %>
+        <%= order.find_directly_info.pending_time %>
+      <% else %>
+        <%= t "booking_histories.payment_info.no_deadline" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr/>
+  </div>
+</div>
+<div class="col-md-12 center-fix wrap-fix">
+  <strong><%= t "booking_histories.your_info" %></strong>
+</div>
 <%= simple_form_for [order.venue, order, UserPaymentDirectly.new],
   method: :post do |f| %>
   <%= f.input :name,

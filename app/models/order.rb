@@ -100,11 +100,11 @@ class Order < ApplicationRecord
   end
 
   def find_information_banking_account
-    self.venue.banking.find_by verified: true
+    self.venue.banking.with_deleted.find_by verified: true
   end
 
   def find_directly_info
-    self.venue.directly.find_by verified: true
+    self.venue.directly.with_deleted.find_by verified: true
   end
 
   private
