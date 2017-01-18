@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <div class="col-md-8">
+    <div class="row notification-title">
+      <h3 class="text-primary"><%= t "notification.title_notification" %></h3>
+    </div>
+    <div id ="notificationList">
+      <%= render "list" %>
+    </div>
+  </div>
+<% end %>

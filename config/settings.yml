@@ -3,6 +3,7 @@ unit:
 notification:
   requested: "requested"
   accepted: "accepted"
+  index: 12
 price_per_day: 1
 radius_search_in_miles: 5
 default_duration: 1

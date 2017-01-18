@@ -1,10 +1,49 @@
-<% if user_signed_in? %>
-  <div class="col-md-8">
-    <div class="row notification-title">
-      <h3 class="text-primary"><%= t "notification.title_notification" %></h3>
+<% provide :title, t("notification.notification") %>
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
+  <div class="block-title-notification">
+    <h3 class="btn-edit">
+      <i class="fa fa-bell"></i>
+      <strong><%= t "notification.all" %></strong>
+    </h3>
+  </div>
+  <div class="block-all-notification all-notification">
+    <div class="block-section text-center">
+      <a href="javascript:">
+        <%= image_tag "notification.jpg", class: "avatar" %>
+      </a>
+      </p>
+      <label>
+        <i class="fa fa-inbox"> <%= t "notification.message" %></i> &
+        <i class="fa fa-clock-o"> <%= t "notification.time" %></i>
+      </label>
     </div>
-    <div id ="notificationList">
-      <%= render "list" %>
+    <div class="block">
+      <div class="table-responsive">
+        <table>
+          <% @notifications.each do |notification| %>
+            <tr>
+              <td>
+                <label class="<%= status_unread notification %> mark-read" data-id="<%= notification.id %>">
+                  <span>
+                    <%= link_to notification.load_message,
+                      load_link_notification(notification.message, notification.notifiable_type),
+                      class: "style-all-notification" %>
+                  </span>
+                </label>
+                </p>
+              </td>
+              <% end %>
+            </tr>
+        </table>
+      </div>
+      <div class="row paginate_and_page_info">
+        <div class="col-md-12">
+          <%= paginate @notifications %>
+        </div>
+        <div class="col-md-12">
+          <%= page_entries_info @notifications %>
+        </div>
+      </div>
     </div>
   </div>
-<% end %>
+</div>

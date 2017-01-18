@@ -99,6 +99,14 @@ ul #notificationList
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
 }
+
+.style-all-notification {
+  color: black !important;
+  margin-left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
 .fix-noti {
   margin-left: -30px;
 }
@@ -120,7 +128,7 @@ ul #notificationList
 }
 
 .unread {
-  background: rgba(233, 235, 238, 0.27);
+  background: rgba(130, 132, 134, 0.44);
 }
 
 .read-all {
