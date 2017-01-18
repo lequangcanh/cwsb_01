@@ -734,7 +734,7 @@ en:
       notspace: "Now,Venue don't space!"
     new_statistics:
       title: "Statistics - Admin"
-      new_statistics_title: "What's new?"
+      new_statistics_title: "Statistics"
       users: "Users"
       venues: "Venues"
       spaces: "Spaces"
@@ -747,7 +747,8 @@ en:
       wrong_date: "Day from must be less than day to"
       back: "Back"
     activities:
-      timeline: "Time Line - Admin"
+      title: "Time Line - Admin"
+      timeline_title: "Time Line"
       next: "Comming up"
       error: "added the project that is currently deleted."
       read_more: "Read more"

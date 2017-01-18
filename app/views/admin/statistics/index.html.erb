@@ -4,9 +4,14 @@
 
 <div class="row new_statistics">
   <div class="col-md-10 col-md-offset-1">
-    <h1 class="new_statistics_title">
-      <%= t "admin.new_statistics.new_statistics_title" %>
-    </h1>
+    <div class="content-header margin-left-0 margin-right-0">
+      <div class="header-section">
+        <h1>
+          <i class="fa fa-bar-chart"></i><%= t "admin.new_statistics.new_statistics_title" %>
+        </h1>
+      </div>
+    </div>
+    <%= render "total_statistics" %>
     <div>
       <%= form_for :new_statistics, url: admin_statistics_path, 
         html: {id: "new_statistics_form"}, remote: true do |f| %>

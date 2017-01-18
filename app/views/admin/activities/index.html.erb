@@ -1,11 +1,19 @@
 <%= javascript_include_tag "admin/activities.js" %>
-<% provide :title, t("admin.activities.timeline") %>
+<% provide :title, t("admin.activities.title") %>
 <div class="col-md-10 col-md-offset-1">
-  <h2 class="col-md-12 text-center text-title"><%= t "view.all_activity" %></h2>
+  <div class="content-header margin-left-0 margin-right-0">
+    <div class="header-section">
+      <h1>
+        <i class="fa fa-list-alt"></i><%= t "admin.activities.timeline_title" %>
+      </h1>   
+    </div>
+  </div>
+  <div class="img-timeline">
+    <%= image_tag "admin/activity.jpg", size: Settings.admin.image_admin_size %>
+  </div>
   <section id="cd-timeline" class="cd-container">
     <% @activities.each do |activity| %>
       <div class="cd-timeline-block">
-        <div class="cd-timeline-img"></div>
         <div class="cd-timeline-content content-custom">
           <strong><%= activity.owner.name if activity.owner %></strong>
           <%= render_activity activity %>

@@ -712,8 +712,8 @@ vi:
       space_button: "Show space"
       notspace: "Now,Venue don't space!"
     new_statistics:
-      title: "Statistics - Admin"
-      new_statistics_title: "What's new?"
+      title: "Thống kê - Quản trị viên"
+      new_statistics_title: "Thống kê"
       users: "Users"
       venues: "Venues"
       spaces: "Spaces"
@@ -726,7 +726,8 @@ vi:
       wrong_date: "Day from must be less than day to"
       back: "Back"
     activities:
-      timeline: "Hoạt đông của người dùng - Quản trị viên"
+      title: "Hoạt động của người dùng - Quản trị viên"
+      timeline_title: "Hoạt Động"
       next: "Comming up"
       error: "added the project that is currently deleted."
       read_more: "Read more"
