@@ -27,6 +27,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_out_path_for resource
+    return new_admin_session_path if resource == :admin
+    return root_path if resource == :user
+  end
+
   private
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

@@ -16,63 +16,72 @@
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            &nbsp;<%= current_user.name %>
-          </a>
-          <div id="collapseOne" class="panel-collapse collapse in">
-            <div class="panel-body">
-              <table class="table">
-                <tr>
-                  <td>
-                    <%= link_to "#", title: t("layout.profile"),
-                      class: "enable-tooltip" do %>
-                      <i class="gi gi-user"></i>
-                    <% end %>
-                    <%= link_to "#", title: t("layout.message"),
-                      class: "enable-tooltip" do %>
-                      <i class="gi gi-envelope"></i>
-                    <% end %>
-                    <%= link_to edit_user_registration_path, method: :get,
-                      title: t("layout.setting"), class: "enable-tooltip" do %>
-                      <i class="gi gi-cogwheel"></i>
-                    <% end %>
-                    <%= link_to destroy_user_session_path, method: :delete,
-                      title: t("layout.logout"), class: "enable-tooltip" do %>
-                      <i class="gi gi-exit"></i>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= link_to content_tag(:i, raw(t "admin.sidebar.statistics"),
-                      class: "fa fa-chart"), admin_statistics_url %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= link_to content_tag(:i, raw(t "admin.sidebar.users"),
-                      class: "fa fa-user"), admin_users_url %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= link_to content_tag(:i, raw(t "admin.sidebar.venues"),
-                      class: "fa fa-building"), admin_venues_url %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= link_to content_tag(:i, raw(t "admin.sidebar.activities"),
-                      class: "fa fa-list-alt"), admin_activities_url %>
-                  </td>
-                </tr>
-              </table>
+      <ul class="nav navbar-nav fixed-sidebar-admin">
+        <% if admin_signed_in? %>
+          <li>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              &nbsp;<%= current_admin.email %>
+            </a>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <table class="table">
+                  <tr>
+                    <td>
+                      <%= link_to "#", title: t("layout.profile"),
+                        class: "enable-tooltip" do %>
+                        <i class="gi gi-user"></i>
+                      <% end %>
+                      <%= link_to "#", title: t("layout.message"),
+                        class: "enable-tooltip" do %>
+                        <i class="gi gi-envelope"></i>
+                      <% end %>
+                      <%= link_to "#", method: :get,
+                        title: t("layout.setting"), class: "enable-tooltip" do %>
+                        <i class="gi gi-cogwheel"></i>
+                      <% end %>
+                      <%= link_to destroy_admin_session_path, method: :delete,
+                        title: t("layout.logout"), class: "enable-tooltip" do %>
+                        <i class="gi gi-exit"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= link_to content_tag(:i, raw(t "admin.sidebar.statistics"),
+                        class: "fa fa-line-chart"), admin_statistics_url %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= link_to content_tag(:i, raw(t "admin.sidebar.users"),
+                        class: "fa fa-user"), admin_users_url %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= link_to content_tag(:i, raw(t "admin.sidebar.venues"),
+                        class: "fa fa-building"), admin_venues_url %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= link_to content_tag(:i, raw(t "admin.sidebar.activities"), 
+                        class: "fa fa-list-alt"), "#" %>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to new_admin_session_url do %>
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              <%= t "layout.login" %>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -708,6 +708,13 @@ vi:
       next: "Comming up"
       error: "added the project that is currently deleted."
       read_more: "Read more"
+    devise:
+      sign_in: "Đăng nhập - Quản trị"
+      remind: "Vui lòng đăng nhập với tài khoản Quản trị"
+      email: "Nhập email của bạn"
+      password: "Nhập mật khẩu của bạn"
+      remember_me: "Ghi nhớ tài khoản này"
+      log_in: "Đăng nhập"
   public_activity:
     activity_venue_create: "Created venue: "
     activity_venue_update: "Updated venue: "

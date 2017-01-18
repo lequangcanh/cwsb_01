@@ -1,0 +1,43 @@
+<% provide :title, t("admin.devise.sign_in") %>
+<div id="counter" class="row full-height margin-left-0 margin-right-0 
+  vertical-offset-100 scroll-y">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 col-sm-12 animation-fadeIn">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title title-color">
+          <%= t "admin.devise.remind" %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for resource, as: resource_name,
+          url: session_path(resource_name) do |f| %>
+          <%= devise_error_messages! %>
+          <fieldset>
+            <div class="form-group padding-bot-10">
+              <%= f.email_field :email, autofocus: true, class: "form-control",
+                placeholder: t("admin.devise.email") %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "off",
+                class: "form-control",
+                placeholder: t("admin.devise.password") %>
+            </div>
+            <div class="checkbox">
+              <label class="switch switch-success" data-toggle="tooltip"
+                title="<%= t "admin.devise.remember_me" %>">
+                <% if devise_mapping.rememberable? %>
+                  <%= f.check_box :remember_me %>
+                  <span></span>
+                <% end %>
+              </label>
+            </div>
+            <%= f.submit t("admin.devise.log_in"),
+              class: "btn btn-lg btn-success btn-block" %>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
