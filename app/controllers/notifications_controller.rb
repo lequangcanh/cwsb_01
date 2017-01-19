@@ -2,6 +2,7 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @notifications = @notifications.page(params[:page]).per Settings.notification.index
   end
 
   def update

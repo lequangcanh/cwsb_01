@@ -506,6 +506,11 @@ vi:
     mark_read_all: "Mark read all"
     unread: "unread"
     accepted: "accepted your request"
+    notification: "Thông Báo"
+    all: "Tất cả thông báo"
+    sender: "Người gửi"
+    message: "Tin nhắn"
+    time: "Thời gian"
   payments:
     title:
       status: "Accept Payments"

@@ -527,6 +527,11 @@ en:
     mark_read_all: "Mark read all"
     unread: "unread"
     accepted: "accepted your request"
+    notification: "Notification"
+    all: "All Notification"
+    sender: "Sender"
+    message: "Message"
+    time: "Time"
   payments:
     title:
       status: "Accept Payments"
