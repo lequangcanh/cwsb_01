@@ -6,17 +6,18 @@
     <% @activities.each do |activity| %>
       <div class="cd-timeline-block">
         <div class="cd-timeline-img"></div>
-        <div class="cd-timeline-content">
+        <div class="cd-timeline-content content-custom">
           <strong><%= activity.owner.name if activity.owner %></strong>
           <%= render_activity activity %>
         </div> 
       </div>  
     <% end %>
   </section>
-  <div class="read_more" align="center">
+  <div id="more-activity" class="read-more" align="center">
     <%= button_tag t("admin.activities.read_more"), class: "btn btn-info" %>
   </div>
-  <div class="next">
-    <%= link_to_next_page @activities, t("admin.activities.next") %>
+  <div id="next-activity" class="read-more" align="center">
+    <%= link_to_next_page @activities, t("admin.activities.next"),
+      class: "btn btn-info" %>
   </div>
 </div>

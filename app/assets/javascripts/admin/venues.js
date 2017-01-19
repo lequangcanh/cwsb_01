@@ -13,7 +13,7 @@ $(document).ready(function() {
   };
   google.maps.event.addDomListener(window, 'load', initialize);
   map = new google.maps.Map(document.getElementById('gmap_canvas'), {
-    zoom: 8,
+    zoom: 15,
     center: {
       lat: 16.067780,
       lng: 108.220830
