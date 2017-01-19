@@ -185,6 +185,7 @@ en:
         have_account: "Do you have an account?"
         login: "Login"
         remember_me: "Remember Me?"
+        duplicate_email: "Your email has already been taken"
       edit:
         title: "Your Profile"
         title_info: "Customer Info"
@@ -222,6 +223,8 @@ en:
         email: "Email"
         password: "Password (At least 8 characters)"
         remember_me: "Remember Me?"
+        sign_in_facebook: "Sign in with Facebook"
+        sign_in_google: "Sign in with Google+"
     passwords:
       new:
         email: "Your email"

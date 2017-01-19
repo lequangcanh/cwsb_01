@@ -164,6 +164,7 @@ vi:
         have_account: "Bạn đã có tài khoản chưa?"
         login: "Đăng nhập"
         remember_me: "Nhớ tài khoản?"
+        duplicate_email: "Email này đã tồn tại"
       edit:
         title: "Hồ sơ của bạn"
         title_info: "Thông tin khách hàng"
@@ -201,6 +202,8 @@ vi:
         email: "Email"
         password: "Mật khẩu (Ít nhất 8 kí tự)"
         remember_me: "Nhớ tài khoản?"
+        sign_in_facebook: "Đăng nhập với Facebook"
+        sign_in_google: "Đăng nhập với Google+"
     passwords:
       new:
         email: "Email của bạn"
