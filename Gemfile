@@ -41,6 +41,7 @@ gem "rails-i18n"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
+gem "i18n-js", "3.0.0.rc11"
 
 source "https://rails-assets.org" do
   gem "rails-assets-growl"

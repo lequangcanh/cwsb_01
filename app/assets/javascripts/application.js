@@ -28,6 +28,9 @@
 //= require wow
 //= require owl.carousel
 //= require chartkick
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 
 /* Plugins, libraries */
 //= require jquery-form-validator/form-validator/jquery.form-validator.min.js

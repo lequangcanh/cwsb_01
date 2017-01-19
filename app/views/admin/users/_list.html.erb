@@ -1,27 +1,32 @@
-<table class="table table-striped table-users">
-  <tr>
-    <th><%= t "admin.users.user_id" %></th>
-    <th><%= t "admin.users.name" %></th>
-    <th><%= t "admin.users.email" %></th>
-    <th><%= t "admin.users.active" %></th>
-    <th><%= t "admin.users.role" %></th>
-    <th><%= t "admin.users.block" %></th>
-  </tr>
-  <% @users.each do |user| %>
+<table class="table table-striped table-responsive table-users">
+  <thead>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td>
-        <label class="switch switch-primary">
-          <%= check_box_tag :active, user.active, user.active, id: "acvite_user_#{user.id}" %>
-          <span></span>
-        </label>
-      </td>
-      <td><%= user.role %></td>
-      <td></td>
+      <th><%= t "admin.users.user_id" %></th>
+      <th><%= t "admin.users.name" %></th>
+      <th><%= t "admin.users.email" %></th>
+      <th><%= t "admin.users.status" %></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <%= render "information", user: user %>
+        <td><%= user.id %></td>
+        <td>
+          <%= link_to user.name, "#user_modal_#{user.id}",
+            data: {toggle: "modal"} %>
+        </td>
+        <td><%= user.email %></td>
+        <td>
+          <%= select_tag :status, options_for_select(User.statuses.keys
+            .collect {|key| [I18n.t("users.status.#{key}"), key]},
+              selected: user.status),
+            class: "user_status", id: "user_status_#{user.id}", 
+            data: {id: user.id, username: user.name} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <div class="paginate_and_page_info">
   <%= paginate @users %>

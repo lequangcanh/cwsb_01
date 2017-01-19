@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include RecordFindingByTime
+  after_save :send_mail_if_status_changed, if: :status_changed?
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   has_many :user_payment_bankings
   has_many :user_payment_directlies
 
+  enum status: {active: 1, blocked: 2, reject: 3}
+
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -32,5 +35,9 @@ class User < ApplicationRecord
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
+  end
+
+  def send_mail_if_status_changed
+    UserMailer.change_user_status(self).deliver_later
   end
 end

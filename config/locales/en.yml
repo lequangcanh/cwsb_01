@@ -154,6 +154,10 @@ en:
       name9: "Doan Chi Nhat"
       our_team: "Our Team"
   users:
+    status:
+      active: "Active"
+      blocked: "Blocked"
+      reject: "Reject"
     mailer:
       confirm:
         welcome: "Welcome"
@@ -173,6 +177,11 @@ en:
         remind1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         remind2: "Click the link below to unlock your account:"
         my_account: "Unlock my account"
+      status:
+        subject: "Change status of account"
+        hi: "Hi, "
+        notify: "I have sent this email to notify that your account was change status: "
+        thank: "Thank for use our system."
     registrations:
       new:
         sign_up: "Sign up"
@@ -689,10 +698,14 @@ en:
       user_id: "User ID"
       name: "Name"
       email: "Email"
-      active: "Active?"
-      role: "Role"
-      block: "Block?"
+      status: "Status"
       search: "Enter user's name or email ..."
+      user_not_found: "User not found!"
+      succ_update: "Successfully updated!"
+      fail_update: "Fail updated!"
+      block_alert: "will be blocked?"
+      active_alert: "will be active?"
+      reject_alert: "will be reject?"
     sidebar:
       statistics: "&nbsp;Statistics"
       new_statistics: "What's new?"
