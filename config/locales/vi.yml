@@ -51,6 +51,14 @@ vi:
   date:
     day_names: [CN, T2, T3, T4, T5, T6, T7]
   layout:
+    feedback: "Phản Hồi"
+    guide: "Hướng Dẫn"
+    your_space: "Không Gian Của Bạn"
+    notification: "THÔNG BÁO"
+    your_bookings: "ĐƠN ĐẶT HÀNG CỦA BẠN"
+    payments_management: "QUẢN LÝ THANH TOÁN"
+    profile_big: "HỒ SƠ"
+    orders_management: "QUẢN LÝ ĐƠN HÀNG"
     order_history: "Lịch sử bán hàng"
     your_booking: "Đơn đặt hàng của bạn"
     store_booking: "Danh sách đơn hàng"

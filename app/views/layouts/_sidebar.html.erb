@@ -14,134 +14,155 @@
         </span>
       <% end %>
     </div>
-    <div class="col-md-12">
-      <li class="dropdown chosen-language">
-        <% if params[:locale].present? %>
-          <%= link_to url_for(locale: params[:locale]), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
-            <%= image_tag "flag/#{params[:locale]}.png", class: "icon-language" %>
-            <%= Settings.languages[params[:locale]] %>
-          <% end %>
-        <% else %>
-          <%= link_to url_for(locale: :en), class:"dropdown-toggle icon-language", data: {toggle: "dropdown"} do %>
-            <%= image_tag "flag/en.png", class: "icon-language" %>
-            <%= Settings.languages.en %>
-          <% end %>
+    <div class="padding-left-18">
+      <nav class="collapse navbar-collapse navbar-left padding-top-6">
+        <%= link_to "#", class: "color-white" do %>
+          <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %>
         <% end %>
-        <ul class="dropdown-menu forAnimate choose-language" role="menu">
-          <% Settings.languages.keys.each do |lang| %>
-            <%= link_to url_for(locale: lang) do %>
-              <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
-              <%= Settings.languages[lang] %>
-            <% end %>
-            <br/>
-          <% end %>
-        </ul>
-      </li>
+        <a class="color-white" href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
+          <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
+        </a>
+      </nav>
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to search_spaces_url do %>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <%= t "layout.search_for_space" %>
-          <% end %>
-        </li>
-        <% if user_signed_in? %>
+      <ul class="nav navbar-nav nav-custom">
+        <div class="search-space">
           <li>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              &nbsp;<%= current_user.name %>
+            <%= link_to t("layout.search_for_space"), search_spaces_url, class: "fa fa-search" %>
+          </li>
+        </div>
+        <% if user_signed_in? %>
+          <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+            <div class="sidebar-user-avatar">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                <% if current_user.image %>
+                  <%= image_tag current_user.image %>
+                <% else %>
+                  <%= image_tag "user.jpg" %>
+                <% end %>
+              </a>
+            </div>
+            <div class="sidebar-user-name"><%= current_user.name %></div>
+            <div class="sidebar-user-links">
+              <%= link_to edit_user_registration_path, method: :get do %>
+                <i class="gi gi-user"></i>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete,
+                title: t("layout.logout") do %>
+                <i class="gi gi-exit"></i>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-12 padding-top-10">
+            <li class="dropdown chosen-language">
+              <% if params[:locale].present? %>
+                <%= link_to url_for(locale: params[:locale]), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
+                  <%= image_tag "flag/#{params[:locale]}.png", class: "icon-language" %>
+                  <%= Settings.languages[params[:locale]] %>
+                <% end %>
+              <% else %>
+                <%= link_to url_for(locale: :en), class:"dropdown-toggle icon-language", data: {toggle: "dropdown"} do %>
+                  <%= image_tag "flag/en.png", class: "icon-language" %>
+                  <%= Settings.languages.en %>
+                <% end %>
+              <% end %>
+              <ul class="dropdown-menu forAnimate choose-language" role="menu">
+                <% Settings.languages.keys.each do |lang| %>
+                  <%= link_to url_for(locale: lang) do %>
+                    <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
+                    <%= Settings.languages[lang] %>
+                  <% end %>
+                  <br/>
+                <% end %>
+              </ul>
+            </li>
+            <a href="#" class="padding-left-10" id="open_notification">
+              <span class="fix-noti">
+                <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
+              </span>
+              <span class="badge" id="notification_count">
+                <%= render "notifications/counter", counter: count_notification_read %>
+              </span>
             </a>
+          </div>
+          <li>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
                 <table class="table">
-                  <tr>
-                    <td>
-                      <%= link_to edit_user_registration_path, method: :get do %>
-                        <i class="gi gi-user"></i>
-                      <% end %>
-                      <%= link_to "javascript:;", title: t("layout.setting") do %>
-                        <i class="gi gi-cogwheel"></i>
-                      <% end %>
-                      <%= link_to destroy_user_session_path, method: :delete,
-                        title: t("layout.logout") do %>
-                        <i class="gi gi-exit"></i>
-                      <% end %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <%= link_to t("layout.my_spaces"), venues_url %>
-                    </td>
-                  </tr>
-                  <% if current_user.venues.present? %>
-                    <tr>
-                      <td>
-                        <%= link_to t("layout.store_booking"), store_bookings_path %>
-                      </td>
-                    </tr>
-                    <% if current_user.orders.order_has_payment_type %>
-                      <tr>
-                        <td>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t "payments.method" %>
-                              <span class="caret"></span></a>
-                            <ul class="dropdown-menu forAnimate" role="menu">
-                              <%= link_to t("layout.payment_directly"), confirm_payment_directlies_path, class: "color-bg"%></p>
-                              <%= link_to t("layout.payment_banking"), confirm_payment_bankings_path, class: "color-bg" %>
-                            </ul>
-                          </li>
-                        </td>
-                      </tr>
-                    <% end %>
-                    <tr>
-                      <td>
-                        <%= link_to t("layout.order_history"), order_histories_path %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                    <td>
-                      <ul class="notificator">
-                        <a href="#" id="open_notification">
-                          <span class="fix-noti"><%= t "notification.title_notification"%></span>
-                          <i class="fa fa-bell sidebar-nav-icon" id="fix-number">
-                          <span class="badge" id="notification_count">
-                            <%= render "notifications/counter", counter: count_notification_read %>
-                          </span>
-                          </i>
-                        </a>
-                        <div class="notificationContainer" id="none">
-                          <div id="notificationsBody" class="notifications">
-                          <div id="notificationsTitle">
-                            <%= link_to t("notification.mark_read_all"), reads_path,
-                              method: :post, remote: true, class: "pull-right read-all" %>
-                          </div>
-                          <hr />
-                            <ul id="notificationList">
-                              <%= render "notifications/list" %>
-                            </ul>
-                          </div>
-                          <div id="notificationFooter"><%= link_to t("notification.view_all"), notifications_path, id: "color-view" %></div>
+                  <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#profile">
+                    <%= t "layout.profile_big" %></a>
+                  <li>
+                    <div id="profile" class="panel-collapse collapse in">
+                      <div class="panel-body panel-body-custom">
+                        <%= link_to edit_user_registration_path, method: :get, class: "padding-left-10" do %>
+                          <i class="gi gi-user"></i> <%= t "layout.profile" %></p>
+                        <% end %>
+                      </div>
+                    </div>
+                  </li>
+                  <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#your_space">
+                    <%= t "layout.my_spaces" %></a>
+                  <li>
+                    <div id="your_space" class="panel-collapse collapse in">
+                      <div class="panel-body panel-body-custom">
+                        <%= link_to venues_url, method: :get, class: "padding-left-10" do %>
+                          <i class="gi gi-home"></i> <%= t "layout.your_space" %></p>
+                        <% end %>
+                      </div>
+                    </div>
+                  </li>
+                  <% if current_user.bookings.present? %>
+                    <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#booking">
+                      <%= t "layout.your_bookings" %>
+                    </a>
+                    <li>
+                      <div id="booking" class="panel-collapse collapse in">
+                        <div class="panel-body panel-body-custom">
+                          <%= link_to bookings_path, class: "padding-left-10" do %>
+                            <i class="fa fa-shopping-cart"></i> <%= t "layout.your_booking" %></p>
+                          <% end %>
+                          <%= link_to booking_histories_path, class: "padding-left-10" do %>
+                            <i class="fa fa-cart-plus"></i> <%= t "layout.booking_history" %></p>
+                          <% end %>
                         </div>
-                      </ul>
-                    </td>
-                  </tr>
+                      </div>
+                    </li>
+                  <% end %>
+                  <% if current_user.venues.present? %>
+                    <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#orders_management">
+                      <%= t "layout.orders_management" %>
+                    </a>
+                    <li>
+                      <div id="orders_management" class="panel-collapse collapse in">
+                        <div class="panel-body panel-body-custom">
+                          <%= link_to store_bookings_path, class: "padding-left-10" do %>
+                            <i class="fa fa-cart-arrow-down"></i> <%= t "layout.store_booking" %></p>
+                          <% end %>
+                          <%= link_to order_histories_path, class: "padding-left-10" do %>
+                            <i class="fa fa-history"></i> <%= t "layout.order_history" %></p>
+                          <% end %>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                  <% if current_user.orders.order_has_payment_type.present? %>
+                    <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#payment">
+                      <%= t "layout.payments_management" %>
+                    </a>
+                    <li>
+                      <div id="payment" class="panel-collapse collapse in">
+                        <div class="panel-body panel-body-custom">
+                          <%= link_to confirm_payment_directlies_path, class: "padding-left-10" do %>
+                            <i class="fa fa-money"></i> <%= t "layout.payment_directly" %></p>
+                          <% end %>
+                          <%= link_to confirm_payment_bankings_path, class: "padding-left-10" do %>
+                            <i class="fa fa-cc-visa"></i> <%= t "layout.payment_banking" %></p>
+                          <% end %>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
                 </table>
-                <% if current_user.bookings.present? %>
-                  <table class="table">
-                    <tr>
-                      <td>
-                        <%= link_to t("layout.your_booking"), bookings_path %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <%= link_to t("layout.booking_history"), booking_histories_path %>
-                      </td>
-                    </tr>
-                  </table>
-                <% end %>
               </div>
             </div>
           </li>
@@ -157,3 +178,20 @@
     </div>
   </div>
 </nav>
+<% if user_signed_in? %>
+  <div class="notificationContainer" id="none">
+    <div id="notificationsBody" class="notifications">
+      <div id="notificationsTitle">
+        <%= link_to t("notification.mark_read_all"), reads_path,
+          method: :post, remote: true, class: "pull-right read-all" %>
+      </div>
+      <hr/>
+      <ul id="notificationList">
+        <%= render "notifications/list" %>
+      </ul>
+    </div>
+    <div id="notificationFooter">
+      <%= link_to t("notification.view_all"), notifications_path, id: "color-view" %>
+    </div>
+  </div>
+<% end %>

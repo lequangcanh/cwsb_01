@@ -27,6 +27,14 @@
           <a class="navbar-brand" href="#body">
             <h1 id="logo"><%= t "layout.site_name" %></h1>
           </a>
+          <nav class="collapse navbar-collapse navbar-left padding-top-6">
+            <%= link_to "#", class: "color-white" do %>
+              <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %></p>
+            <% end %>
+            <a class="color-white" href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
+              <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
+            </a>
+          </nav>
         </div>
         <nav class="collapse navbar-collapse navbar-right" role="Navigation">
           <ul id="nav" class="nav navbar-nav">

@@ -72,6 +72,14 @@ en:
   date:
     day_names: [SUN, MON, TUE, WED, THU, FRI, SAT]
   layout:
+    feedback: "FeedBack"
+    guide: "Guide"
+    your_space: "Your Space"
+    notification: "NOTIFICATIONS"
+    your_bookings: "YOUR BOOKING"
+    payments_management: "PAYMENTS MANAGEMENT"
+    profile_big: "PROFILE"
+    orders_management: "ORDERS MANAGEMENT"
     order_history: "Order history"
     your_booking: "Your booking"
     store_booking: "Store booking"
@@ -91,7 +99,7 @@ en:
     company_name: "Framgia"
     search_for_space: "Search for a space"
     my_venues: "My venues"
-    my_spaces: "My co-working spaces"
+    my_spaces: "MY CO-WORKING SPACES"
     booking_history: "Booking history"
     how_it_work: "How it work?"
     help: "Help"
