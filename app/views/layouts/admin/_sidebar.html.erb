@@ -18,6 +18,9 @@
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav fixed-sidebar-admin">
         <% if admin_signed_in? %>
+          <li class="image-admin">
+            <%= image_tag "admin/admin.png", size: Settings.admin.image_admin_size %>
+          </li> 
           <li>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
               <i class="fa fa-user" aria-hidden="true"></i>

@@ -7,7 +7,8 @@
           <button type="button" class="close"
           data-dismiss="modal" aria-hidden="true"><%= t "admin.venues.close" %></button>
           <h4 class="modal-title modal-title-venue" id="modal_label_message">
-            <%= t "admin.venues.space" %>
+            <%= @spaces.count %>
+            <span><%= Space.name.pluralize %></span>
           </h4>
         </div>
         <div class="modal-body modal-body-venue">   
@@ -20,6 +21,8 @@
                   <div class="widget-extra-full venue-items widget-extra-custom">
                     <% if space.images.any? %>
                       <%= image_tag space.images.first.picture_url, class: "hgth-150" %>
+                    <% else %>
+                      <%= image_tag "not_available", class: "img wth-80" %>
                     <% end %>
                   </div>
                   <div class="widget-extra themed-background text-center venue-info">

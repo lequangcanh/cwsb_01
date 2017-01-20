@@ -10,30 +10,47 @@
   text-shadow: #EDEDED 3px 2px 0;
   position: relative;
 }
-
 .search_users {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 3px;
   input[type=search] {
-    border: none;
-    background-color: #e6e6e6;
-    color: #000000;
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+    background: #ededed url(search.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 190px;
+    height: 12px;
+    -webkit-border-radius:15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
   }
-  .btn-default {
-    background: none;
-    position: relative;
-    border: none;
-    left: -40px;
-    margin: 2px;
+  input[type=search]:focus {
+    width: 300px;
+    background-color: #fff;
+    border-color: #66CC75;
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
   }
 }
 
 .table-users {
-  text-align: center;
   th {
-    text-align: center;
+    text-align: left;
+    background-color: #167F92 !important;
+    color: #FFF;
+    padding: 1em;  
   }
+  td {
+    text-align: left;  
+  }  
 }
 
 .modal-title-user {

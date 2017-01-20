@@ -1,7 +1,11 @@
 class Admin::StatisticsController < Admin::BaseController
   def index
     @chart = ChartService.new(Settings.admin.new_statistics.users,
-      Settings.admin.new_statistics.this_week).get_chart     
+      Settings.admin.new_statistics.this_week).get_chart
+    @total_user = User.count
+    @total_venue = Venue.count
+    @total_space = Space.count
+    @total_booking = Booking.count    
   end
 
   def create

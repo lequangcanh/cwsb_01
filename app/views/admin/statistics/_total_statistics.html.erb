@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text"><%= User.name.pluralize %></span>
+        <span class="info-box-number"><%= @total_user %></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="info-box">
+      <span class="info-box-icon bg-green"><i class="fa fa-building"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text"><%= Venue.name.pluralize %></span>
+        <span class="info-box-number"><%= @total_venue %></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="info-box">
+      <span class="info-box-icon bg-yellow"><i class="fa fa-square-o"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text"><%= Space.name.pluralize %></span>
+        <span class="info-box-number"><%= @total_space %></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="info-box">
+      <span class="info-box-icon bg-red"><i class="fa fa-cart-plus"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text"><%= Booking.name.pluralize %></span>
+        <span class="info-box-number"><%= @total_booking %></span>
+      </div>
+    </div>
+  </div>
+</div>

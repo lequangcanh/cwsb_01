@@ -80,6 +80,7 @@ admin:
     venues: "venues"
     spaces: "spaces"
   page_404_url: "public/404.html"
+  image_admin_size: "100x50"
   activities:
     per_page: 50
   january: 1

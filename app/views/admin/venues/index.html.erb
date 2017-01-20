@@ -2,7 +2,13 @@
 <% provide :title, t("admin.venues.admin_venues_management_title") %>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h1 class="admin_venue_title"><%= t "admin.venues.all_venues" %></h1>
+    <div class="content-header margin-left-0 margin-right-0">
+      <div class="header-section">
+        <h1>
+          <i class="fa fa-cogs"></i><%= t "admin.venues.all_venues" %>
+        </h1>
+      </div>
+    </div>
     <%= render "search_venues_form" %>
     <div id="list_venue">
       <%= render "list_venue" %>

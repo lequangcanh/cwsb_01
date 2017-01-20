@@ -1,9 +1,14 @@
 <% provide :title, t("admin.users.admin_users_management_title") %>
 <%= javascript_include_tag "admin/users.js" %>
-
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h1 class="admin_user_title"><%= t "admin.users.users_management" %></h1>
+    <div class="content-header margin-left-0 margin-right-0">
+      <div class="header-section">
+        <h1>
+          <i class="fa fa-cogs"></i><%= t "admin.users.users_management" %>
+        </h1>
+      </div>
+    </div>
     <%= render "search_users_form" %>
     <div id="list_users">
       <%= render "list" %>
