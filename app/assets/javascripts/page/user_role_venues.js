@@ -8,10 +8,10 @@ $(document).on('click', '.change-role', function(e){
   $('p.' + role).children().removeClass('text-muted');
 });
 
-$(document).on('keyup click', 'input#search', function() {
+$(document).on('keyup click', 'input#q_name_cont', function() {
   key_search = $(this).val();
   if (key_search.length > 0) {
-    $.get($('#search_user').attr('action'), $('#search_user').serialize(),
+    $.get($('#q_name_cont').attr('action'), $('#q_name_cont').serialize(),
       null, 'script');
     return false;
   } else {
@@ -21,6 +21,6 @@ $(document).on('keyup click', 'input#search', function() {
 
 $(document).on('click', '.click-name-user', function(){
   $('.list-group').slideUp();
-  $('input#search').val($(this).html());
+  $('input#q_name_cont').val($(this).html());
   $('input.user_id').val($(this).data('id'));
 });

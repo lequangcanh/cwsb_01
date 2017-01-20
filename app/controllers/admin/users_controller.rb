@@ -21,7 +21,7 @@ class Admin::UsersController < Admin::BaseController
           total_reject: @total_reject}}
       else
         format.json {render json: {flash: t("admin.users.fail_update"), status: 400}}
-      end  
+      end
     end
   end
 
@@ -33,7 +33,7 @@ class Admin::UsersController < Admin::BaseController
   def user_exists
     @user = User.find_by id: params[:id]
     unless @user
-      flash[:danger] = t "admin.users.user_not_found" 
+      flash[:danger] = t "admin.users.user_not_found"
       redirect_to admin_users_path
     end
   end

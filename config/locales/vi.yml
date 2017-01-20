@@ -423,8 +423,7 @@ vi:
       payment_info: "Thông tin thanh toán"
       payment_info_tooltip: "Nhấn vào để xem thông tin thanh toán"
     validation:
-      verify_message: "I confirm that the information given in this form is true,
-        complete and accurate."
+      verify_message: "Tôi xác nhận rằng thông tin này là thật, đầy đủ và chính xác."
       validation_message: "Bạn phải đồng ý với điều khoản của chúng tôi"
       email: "Chúng tôi sẽ gửi thông tin về đơn hàng của bạn tới địa chỉ email này"
     index:
@@ -671,6 +670,7 @@ vi:
       create_success: "Phân quyền thành công!"
       create_fail: "Rất tiếc! Phân quyền thất bại!"
       existed: "Người dùng này đã tồn tại!"
+      need_info: "Hãy nhập đúng người dùng và vai trò tương ứng"
     update:
       updated: "Đã cập nhật !"
       update_fail: "Rất tiếc! Không thể cập nhật được!"

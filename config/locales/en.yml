@@ -694,6 +694,7 @@ en:
     create:
       create_success: "Create permistion successfully !"
       create_fail: "Opps ! create permistion failed !"
+      need_info: "Please Enter User and Role"
       existed: "The user has existed !"
     update:
       updated: "Updated !"

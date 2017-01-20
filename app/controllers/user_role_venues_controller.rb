@@ -2,6 +2,7 @@ class UserRoleVenuesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_venue
   before_action :check_user_role_venue_existed, only: :create
+  before_action :check_params_q, only: :create
   load_and_authorize_resource param_method: :user_role_params
 
   def index
@@ -11,7 +12,12 @@ class UserRoleVenuesController < ApplicationController
 
   def new
     @user_role_venue = UserRoleVenue.new
-    @users_search = User.search params[:search]
+    respond_to do |format|
+      @q = User.search params[:q]
+      @users_search = @q.result
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -29,7 +35,7 @@ class UserRoleVenuesController < ApplicationController
   end
 
   def update
-    if load_change_role?
+    if load_change_role? && @user_role_venue.user == current_user
       flash[:danger] = t ".change_role_fail"
       render :edit
     elsif @user_role_venue.update_attributes user_role_params
@@ -77,5 +83,12 @@ class UserRoleVenuesController < ApplicationController
     @count_owner_role = UserRoleVenue.find_owner_role_venue(@venue.id).length
     @count_owner_role.equal?(Settings.owner_count) &&
       user_role_venue_params != Settings.owner
+  end
+
+  def check_params_q
+    unless user_role_params[:type_role].present? && user_role_params[:user_id].present?
+      flash[:danger] = t ".need_info"
+      redirect_to new_venue_user_role_venue_path(@venue)
+    end
   end
 end
