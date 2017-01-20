@@ -198,7 +198,7 @@ hr.style-two {
   color: #000000 !important;
   display: inline;
   font-size: 13px;
-  background-color: #1bbae1 !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .chosen-language {
@@ -209,4 +209,66 @@ hr.style-two {
 
 .btn-edit {
   color: black !important;
+}
+
+.sidebar-section {
+  padding: 10px;
+}
+
+.sidebar-user {
+  padding-left: 90px;
+  background: rgba(255,255,255,.1);
+}
+
+.sidebar-user-name {
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 10px;
+  line-height: 26px;
+  color: #fff;
+  width: 100%;
+}
+
+.search-space {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 15%;
+  background: #195860;
+}
+
+.sidebar-user-links {
+  padding-left: 5px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+  color: rgba(234, 228, 228, 0.51) !important;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.nav-custom {
+  width: 100%;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.padding-top-0 {
+  padding-top: 15px !important;
+}
+
+.color-white {
+  color: #fff !important;
+}
+
+.padding-top-6 {
+  padding-top: 6%;
+}
+
+.padding-left-18 {
+  padding-left: 18%;
 }

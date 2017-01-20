@@ -48,11 +48,12 @@ ul #notificationList
   overflow: visible;
   position: absolute;
   top: 70px;
-  width: 300px;
+  width: 280px;
   z-index: 0;
   display: none;
-  margin-left: 187px;
-  margin-top: 158px;
+  margin-left: 13%;
+  margin-top: 7.5%;
+  z-index: 9999;
 }
 
 
@@ -95,7 +96,7 @@ ul #notificationList
 
 .style-notification {
   color: #FFF !important;
-  margin-left: 20px;
+  margin-left: 5px;
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
 }
@@ -108,7 +109,7 @@ ul #notificationList
 }
 
 .fix-noti {
-  margin-left: -30px;
+  margin-left: 13%;
 }
 
 @media (max-width: 1595px) {
