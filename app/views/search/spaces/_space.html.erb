@@ -4,6 +4,7 @@
     <div class="widget-extra-full themed-background-dark">
       <div id="widget-carousel-<%= space.id %>"
         class="carousel slide remove-margin">
+        <%= rating_for space, Settings.rate, enable_half: true %>
         <% if space.images.any? %>
           <div class="carousel-inner">
             <% space.images.each do |image| %>

@@ -5,7 +5,7 @@ class Space < ApplicationRecord
   tracked owner: Proc.new{|controller, model| controller.current_user}
 
   acts_as_paranoid
-
+  ratyrate_rateable Settings.rate
   belongs_to :venue, -> {with_deleted}
   has_one :address, through: :venue
 

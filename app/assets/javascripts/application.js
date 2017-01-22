@@ -31,6 +31,8 @@
 //= require i18n
 //= require i18n.js
 //= require i18n/translations
+//= require jquery.raty
+//= require ratyrate
 
 /* Plugins, libraries */
 //= require jquery-form-validator/form-validator/jquery.form-validator.min.js
