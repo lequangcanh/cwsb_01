@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  include RecordFindingByTime
+
   after_create :update_booking, :send_notification
 
   attr_accessor :booking_ids
@@ -38,6 +40,12 @@ class Order < ApplicationRecord
 
   scope :filter_by_status, ->status do
     where status: status if status.present?
+  end
+
+  scope :group_created_at_by_date, -> {group "date(created_at)"}
+
+  scope :total_revenue_of_venue, -> venue_id do
+    where(venue_id: venue_id).sum :total_paid
   end
 
   after_update :delete_paypal_after_change_method

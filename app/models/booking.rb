@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   include GeneralHelper
   include PublicActivity::Model
+  include RecordFindingByTime
 
   tracked owner: Proc.new{|controller, model| controller.current_user}
 
@@ -51,6 +52,8 @@ class Booking < ApplicationRecord
         (bookings.state = ? OR bookings.state = ? OR orders.status = ?)",
         date, Settings.state_pending, Settings.requested, Settings.status_pending
   end
+
+  scope :of_space_ids, -> space_ids {where space_id: space_ids}
 
   def total_price
     select_price(space, booking_type_id) * quantity

@@ -98,6 +98,8 @@ booking_type: {hour: "Hour", day: "Day", week: "Week", month: "Month"}
 chart_service:
   january: 1
   december: 12
+  booking_of_venue: "booking_of_venue"
+  revenue_of_venue: "revenue_of_venue"
 delay_time: 1
 languages: {en: "English", vi: "Tiếng Việt", jp: "日本の"}
 rate: "rate"

@@ -1,0 +1,52 @@
+<%= provide :title, t("statistics.statistics_title") %>
+<%= javascript_include_tag "statistics.js" %>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
+  <div class="content-header margin-left-0 margin-right-0">
+    <div class="header-section">
+      <h1>
+        <i class="fa fa-bar-chart"></i><%= t "statistics.statistics_title" %>
+      </h1>
+    </div>
+  </div>
+  <div class="padding-0-15">
+    <%= form_for :statistics, html: {id: "statistics_form"}, remote: true do |f| %>
+      <div class="row">
+        <div class="col-md-4">
+          <%= f.select :venue,
+            options_from_collection_for_select(@venues,:id, :name),
+            {prompt: t("statistics.choose_venue")}, {class: "form-control"} %>
+        </div>
+        <div class="col-md-4">
+          <%= f.select :type, get_types.collect{|t| [t[:value], t[:id]]},
+            {prompt: t("statistics.choose_type")}, {class: "form-control"} %>
+        </div>
+        <div class="col-md-4">
+          <%= f.select :time, get_times.collect{|t| [t[:value], t[:id]]},
+            {prompt: t("statistics.choose_time")}, {class: "form-control"} %>
+        </div>
+      </div>
+      <div class="row venue_statistics_chart" id="date_duration">
+        <div class="col-md-1">
+          <label><%= t "statistics.day_from" %></label>
+        </div>
+        <div class="col-md-4">
+          <%= f.date_field :date_from, class: "form-control" %>
+        </div>
+        <div class="col-md-1">
+          <label><%= t "statistics.day_to" %></label>
+        </div>
+        <div class="col-md-4">
+          <%= f.date_field :date_to, class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit t("statistics.show_btn"), class: "btn btn-success" %>
+        </div>
+      </div>    
+    <% end %>
+    <div id="chart_statistics">
+      <%= render "chart" %>
+    </div>
+  </div>
+</div>
