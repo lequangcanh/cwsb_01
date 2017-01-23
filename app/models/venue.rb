@@ -18,6 +18,7 @@ class Venue < ApplicationRecord
   has_many :payment_methods, dependent: :destroy
   has_many :banking, through: :payment_methods
   has_many :directly, through: :payment_methods
+  has_many :paypal, through: :payment_methods
   has_many :orders
   has_one :user_payment_directly
 
@@ -60,6 +61,10 @@ class Venue < ApplicationRecord
 
   def gets_owner
     user_role_venues.where type_role: UserRoleVenue.type_roles[:owner]
+  end
+
+  def have_payment_method?
+    payment_methods.any?
   end
 
   def check_condition?

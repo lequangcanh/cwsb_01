@@ -1,6 +1,32 @@
+<div class="form-group">
+  <div class="col-md-12">
+    <hr/>
+  </div>
+  <div class="col-md-12 center-fix wrap-fix">
+    <strong><%= t "confirm_payment_banking.payment_banking_info" %></strong>
+  </div>
+  <%= render "payment_banking_info", order: order %>
+  <div class="col-md-12 wrap-fix">
+    <label class="col-md-6">
+      <%= t "venue_markets.pending_time" %>
+    </label>
+    <div class="col-md-6">
+      <% if order.find_information_banking_account.pending_time > 0 %>
+        <%= order.find_information_banking_account.pending_time %>
+      <% else %>
+        <%= t "booking_histories.payment_info.no_deadline" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr/>
+  </div>
+</div>
 <div class="row">
-  <%= simple_form_for [order.venue, order, UserPaymentBanking.new],
-    method: :post do |f| %>
+  <div class="col-md-12 center-fix wrap-fix">
+    <strong><%= t "booking_histories.your_info" %></strong>
+  </div>
+  <%= simple_form_for [order.venue, order, UserPaymentBanking.new], method: :post do |f| %>
     <div class="row">
       <div class="col-md-6">
         <%= f.input :banking_name, input_html: {class: "form-control margin-bot-15",
@@ -48,7 +74,7 @@
       </div>
     </div>
     <div class="col-md-12">
-      <%= f.button :submit, value: t("confirm_payment_directly.btn_confirm"),
+      <%= f.button :submit, value: t("confirm_payment_banking.btn_confirm"),
         class: "btn btn-primary pull-right", data: {confirm: t("confirm_payment_banking.confirm_banking")} %>
     </div>
   <% end %>

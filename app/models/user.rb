@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include RecordFindingByTime
   after_save :send_mail_if_status_changed, if: :status_changed?
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :async,
@@ -41,5 +41,14 @@ class User < ApplicationRecord
 
   def send_mail_if_status_changed
     UserMailer.change_user_status(self).deliver_later
+  end
+
+  def have_default_payment_method?
+    if self.venues.any?
+      venues.each do |venue|
+        return true if venue.have_payment_method?
+      end
+    end
+    false
   end
 end

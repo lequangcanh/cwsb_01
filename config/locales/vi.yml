@@ -391,6 +391,7 @@ vi:
         banking: "Ngân hàng"
         undefined: "Chưa xác định"
   booking_histories:
+    your_info: "THÔNG TIN CỦA BẠN"
     banking:
       title: "Thông tin tài khoản ngân hàng "
       card_name: "Tên trên thẻ:"
@@ -500,6 +501,7 @@ vi:
       submit: "Submit"
       rejected: "rejected"
   confirm_payment_directly:
+    payment_directly_info: "THÔNG TIN THANH TOÁN TRỰC TIẾP"
     title: "Confirm Payment Directly"
     email: "Email:"
     phone: "Phone:"
@@ -507,6 +509,7 @@ vi:
     btn_confirm: "Confirm Payment Directly"
     confirm_directly: "You cant change payment method after confirm. Are you sure ?"
   confirm_payment_banking:
+    payment_banking_info: "THÔNG TIN THANH TOÁN NGÂN HÀNG"
     btn_confirm: "Confirm Payment Banking"
     title: "Confirm Payment Banking"
     card_name: "Card name"
@@ -569,6 +572,8 @@ vi:
       total: "Total"
       back: "Go back your booking histories"
   payment_methods:
+    notify: "Địa điểm của bạn chưa thiết lập bất kì phương thức thanh toán nào. Hãy thêm vào ít nhất một phương thức."
+    suggest: "Hoặc nhấn vào đây để sử dụng lại những phương thức thanh toán bạn đã từng chọn trước đó"
     tooltip_active_account: "Click to active this account"
     active_account: "Active"
     inactive_account: "Inactive"

@@ -6,13 +6,15 @@
       </div>
     </div>
   </div>
-  <div class="form_information_banking">
-    <div id="show_information_banking_<%= order.id %>" class = "display-none">
-      <div class="form-group">
-        <%= render_form_payment_banking order, current_user %>
+  <% if order.find_payment_banking.present? %>
+    <div class="form_information_banking">
+      <div id="show_information_banking_<%= order.id %>" class = "display-none">
+        <div class="form-group">
+          <%= render_form_payment_banking order, current_user %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% elsif order.find_payment_banking.present? %>
   <div class="form_information_banking">
     <div id="show_information_banking_<%= order.id %>">

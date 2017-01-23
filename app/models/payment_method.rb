@@ -1,5 +1,8 @@
 class PaymentMethod < ApplicationRecord
-  belongs_to :venue
+  acts_as_paranoid
+
+  belongs_to :venue, -> {with_deleted}
+  
   has_one :paypal
   has_one :banking, dependent: :destroy
   has_one :directly, dependent: :destroy

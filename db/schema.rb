@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20170122065315) do
     t.integer  "payment_method_id"
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_bankings_on_deleted_at", using: :btree
     t.index ["payment_method_id"], name: "index_bankings_on_payment_method_id", using: :btree
   end
 
@@ -173,6 +175,8 @@ ActiveRecord::Schema.define(version: 20170122065315) do
     t.integer  "payment_method_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_directlies_on_deleted_at", using: :btree
     t.index ["payment_method_id"], name: "index_directlies_on_payment_method_id", using: :btree
   end
 
@@ -238,6 +242,8 @@ ActiveRecord::Schema.define(version: 20170122065315) do
     t.integer  "paypal_id"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_payment_methods_on_deleted_at", using: :btree
     t.index ["paypal_id"], name: "index_payment_methods_on_paypal_id", using: :btree
     t.index ["venue_id"], name: "index_payment_methods_on_venue_id", using: :btree
   end

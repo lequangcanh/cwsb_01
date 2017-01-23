@@ -412,6 +412,7 @@ en:
         banking: "Banking"
         undefined: "Undefined"
   booking_histories:
+    your_info: "YOUR INFORMATION"
     banking:
       title: "Owner information Banking account "
       card_name: "Card name:"
@@ -521,6 +522,7 @@ en:
       submit: "Submit"
       rejected: "rejected"
   confirm_payment_directly:
+    payment_directly_info: "PAYMENT DIRECTLY INFORMATION"
     title: "Confirm Payment Directly"
     email: "Email:"
     phone: "Phone:"
@@ -528,6 +530,7 @@ en:
     btn_confirm: "Confirm Payment Directly"
     confirm_directly: "You cant change payment method after confirm. Are you sure ?"
   confirm_payment_banking:
+    payment_banking_info: "PAYMENT BANKING INFORMATION"
     btn_confirm: "Confirm Payment Banking"
     title: "Confirm Payment Banking"
     card_name: "Card name"
@@ -591,6 +594,8 @@ en:
       total: "Total"
       back: "Go back your booking histories"
   payment_methods:
+    notify: "This venue doesn't have any payment method. Please add at least one method"
+    suggest: "Or click here to reuse your payment methods"
     tooltip_active_account: "Click to active this account"
     active_account: "Active"
     inactive_account: "Inactive"

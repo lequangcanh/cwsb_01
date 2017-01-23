@@ -1,73 +1,85 @@
 <%= hidden_field_tag :venue, @venue.id, class: "hidden-venue" %>
-<% @payment_methods.each do |payment| %>
-  <% if payment.payment_type %>
-    <div class="col-sm-12 col-lg-3">
-      <div class="widget">
-        <div class="widget-extra-full themed-background-fixed">
-          <div class="widget-options">
-            <% if payment.banking? || payment.directly? %>
-              <i class="fa fa-cog setting_icon" aria-hidden="true" data-toggle="dropdown"></i>
-              <ul class="dropdown-menu" role="menu">
-                <% if payment.banking? %>
-                  <li>
-                    <%= link_to "#",data: {toggle: "modal", target: "#modal_edit_banking"} do %>
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                      &nbsp;<%= t "venue_markets.edit.edit" %>
-                    <% end %>
-                  </li>
-                <% else %>
-                  <li>
-                    <%= link_to "#",data: {toggle: "modal", target: "#modal_edit_directly"} do %>
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                      &nbsp;<%= t "venue_markets.edit.edit" %>
-                    <% end %>
-                  </li>
-                <% end %>
-                <li>
-                  <%= link_to venue_payment_method_path(@venue, payment), method: :delete,
-                    data: {confirm: t("venue_markets.edit.delete")} do %>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                    &nbsp;<%= t ".venue_markets.edit.delete" %>
+<% if @payment_methods.any? %>
+  <% @payment_methods.each do |payment| %>
+    <% if payment.payment_type %>
+      <div class="col-sm-12 col-lg-3">
+        <div class="widget">
+          <div class="widget-extra-full themed-background-fixed">
+            <div class="widget-options">
+              <% if payment.banking? || payment.directly? %>
+                <i class="fa fa-cog setting_icon" aria-hidden="true" data-toggle="dropdown"></i>
+                <ul class="dropdown-menu" role="menu">
+                  <% if payment.banking? %>
+                    <li>
+                      <%= link_to "#", data: {toggle: "modal", target: "#modal_edit_banking"} do %>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        &nbsp;<%= t "venue_markets.edit.edit" %>
+                      <% end %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to "#", data: {toggle: "modal", target: "#modal_edit_directly"} do %>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        &nbsp;<%= t "venue_markets.edit.edit" %>
+                      <% end %>
+                    </li>
                   <% end %>
-                </li>
-              </ul>
-            <% else %>
-              <%= link_to venue_payment_method_path(@venue, payment), method: :delete,
-                data: {confirm: t("venue_markets.edit.confirm_delete")} do %>
-                <i class="fa fa-close x_button" aria-hidden="true"></i>
+                  <li>
+                    <%= link_to venue_payment_method_path(@venue, payment), method: :delete,
+                      data: {confirm: t("venue_markets.edit.delete")} do %>
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                      &nbsp;<%= t ".venue_markets.edit.delete" %>
+                    <% end %>
+                  </li>
+                </ul>
+              <% else %>
+                <%= link_to venue_payment_method_path(@venue, payment), method: :delete,
+                  data: {confirm: t("venue_markets.edit.confirm_delete")} do %>
+                  <i class="fa fa-close x_button" aria-hidden="true"></i>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <% if payment.paypal? %>
-            <% if payment.is_chosen %>
+            </div>
+            <% if payment.paypal? %>
+              <% if payment.is_chosen %>
+                <span class="label label-success topleft">
+                   <%= t "payment_methods.active_account" %>
+                </span>
+              <% else %>
+                <span class="label label-default topleft">
+                  <%= t "payment_methods.inactive_account" %>
+                </span>
+                <%= check_box_tag payment.id, payment.id, payment.is_chosen,
+                  class: "is_chosen", title: t("payment_methods.tooltip_active_account"),
+                  "data-toggle": :tooltip %>
+              <% end %>
+              <%= image_tag "payment_methods/paypal_logo.png", class: "image_index" %>
+              <div class = "text-fix"><%= payment.email %></div>
+            <% else %>
               <span class="label label-success topleft">
                  <%= t "payment_methods.active_account" %>
               </span>
-            <% else %>
-              <span class="label label-default topleft">
-                <%= t "payment_methods.inactive_account" %>
-              </span>
-              <%= check_box_tag payment.id, payment.id, payment.is_chosen,
-                class: "is_chosen", title: t("payment_methods.tooltip_active_account"),
-                "data-toggle": :tooltip %>
+              <% if payment.banking? %>
+                <%= image_tag "payment_methods/banking_logo.png", class: "image_index" %>
+              <% else %>
+                <%= image_tag "payment_methods/directly_logo.png", class: "image_index" %>
+              <% end %>
+              <h2 class = "h2-fix pull-right">
+                <strong><%= payment.payment_type.titleize %></strong><br/>
+              </h2>
             <% end %>
-            <%= image_tag "payment_methods/paypal_logo.png", class: "image_index" %>
-            <div class = "text-fix"><%= payment.email %></div>
-          <% else %>
-            <span class="label label-success topleft">
-               <%= t "payment_methods.active_account" %>
-            </span>
-            <% if payment.banking? %>
-              <%= image_tag "payment_methods/banking_logo.png", class: "image_index" %>
-            <% else %>
-              <%= image_tag "payment_methods/directly_logo.png", class: "image_index" %>
-            <% end %>
-            <h2 class = "h2-fix pull-right">
-              <strong><%= payment.payment_type.titleize %></strong><br/>
-            </h2>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
+<% else %>
+  <div class="text-center">
+    <div class="margin-bot-15 margin-top-15"><%= t "payment_methods.notify" %></div>
+    <% if current_user.have_default_payment_method? %>
+      <%= link_to venue_suggest_payment_methods_path, method: :post do %>
+        <%= image_tag "payment_methods/suggest_copy.png", class: "icon_suggest_tag" %>
+        <%= t "payment_methods.suggest" %>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
