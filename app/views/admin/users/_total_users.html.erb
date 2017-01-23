@@ -1,9 +1,10 @@
-  <div class="col-md-2">
+<div class="col-md-2">
   <div class="info-box-user">
     <span class="info-box-icon-user bg-green"><i class="fa fa-check"></i></span>
-    <div class="info-box-user-content" id="total_active_user">
+    <div class="info-box-user-content">
       <span class="info-box-user-text"><%= t "admin.users.active" %></span>
-      <span class="info-box-user-number"><%= @total_active %></span>
+      <span class="info-box-user-number" id="total_active_user">
+        <%= @total_active %></span>
     </div>
   </div>
 </div>
@@ -12,7 +13,8 @@
     <span class="info-box-icon-user bg-yellow"><i class="fa fa-ban"></i></span>
     <div class="info-box-user-content">
       <span class="info-box-user-text"><%= t "admin.users.block" %></span>
-      <span class="info-box-user-number"><%= @total_block %></span>
+      <span class="info-box-user-number" id="total_block_user">
+        <%= @total_block %></span>
     </div>
   </div>
 </div>
@@ -21,7 +23,8 @@
     <span class="info-box-icon-user bg-red"><i class="fa fa-user-times"></i></span>
     <div class="info-box-user-content">
       <span class="info-box-user-text"><%= t "admin.users.reject" %></span>
-      <span class="info-box-user-number"><%= @total_reject %></span>
+      <span class="info-box-user-number" id="total_reject_user">
+        <%= @total_reject %></span>
     </div>
   </div>
 </div>

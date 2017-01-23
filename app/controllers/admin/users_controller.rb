@@ -5,10 +5,7 @@ class Admin::UsersController < Admin::BaseController
     @query_users = User.ransack params[:q]
     @users = @query_users.result
       .page(params[:page]).per Settings.admin.users.per_page
-    @total_active = total_status Settings.admin.users.active
-    @total_block = total_status Settings.admin.users.blocked
-    @total_reject = total_status Settings.admin.users.rejected
-
+    get_number_users_by_status
     respond_to do |format|
       format.html
       format.js
@@ -18,7 +15,10 @@ class Admin::UsersController < Admin::BaseController
   def update
     respond_to do |format|
       if @user.update_attributes user_params
-        format.json {render json: {flash: t("admin.users.succ_update"), status: 200}}
+        get_number_users_by_status
+        format.json {render json: {flash: t("admin.users.succ_update"), status: 200,
+          total_active: @total_active, total_block: @total_block,
+          total_reject: @total_reject}}
       else
         format.json {render json: {flash: t("admin.users.fail_update"), status: 400}}
       end  
@@ -38,7 +38,13 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-  def total_status status
-    User.send(status).count
+  def number_users_by_status users
+    users.count
+  end
+
+  def get_number_users_by_status
+    @total_active = number_users_by_status User.active
+    @total_block = number_users_by_status User.blocked
+    @total_reject = number_users_by_status User.reject
   end
 end
