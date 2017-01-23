@@ -14,6 +14,7 @@ class Space < ApplicationRecord
   has_many :prices, dependent: :destroy
   has_many :coupons, dependent: :destroy
   has_many :booking_types, through: :prices
+  has_many :reviews, dependent: :destroy
 
   enum space_type: {desk: 0, prive_office: 1, meeting_room: 2, coworking_space: 3}
 

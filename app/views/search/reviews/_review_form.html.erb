@@ -1,0 +1,10 @@
+<%= form_for [:search, @review], remote: true do |f| %>
+  <%= f.text_area :content, class: "form-control review_form_input",
+    placeholder: t("search.spaces.show.review_placeholder"),
+    value: @review.content %>
+  <%= f.hidden_field :space_id, value: @space.id %>  
+  <div class="col-md-12 submit_review_div">
+    <%= f.submit yield(:button_text), class: "btn btn-success submit_review" %>
+    <br/>
+  </div>
+<% end %>

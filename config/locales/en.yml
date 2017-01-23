@@ -285,6 +285,7 @@ en:
       usd_slash: " USD/"
     place_holder: "Enter location"
     spaces:
+      space_not_found: "Space not found"
       index:
         price_range: "Price range(USD/day)"
         maps: "Maps"
@@ -308,6 +309,17 @@ en:
         area: "Area: "
         capicity: "Capicity: "
         quantity: "Quantity: "
+        reviews: "Reviews"
+        review_placeholder: "Your review"
+        reviewed: "Reviewed "
+        ago: " ago."
+        fail_review: "Fail to review"
+        load_more: "Load more review"
+        submit_review: "Send your review"
+        sure: "Are you sure?"
+    reviews:
+      review_not_found: "Review not found"
+      update_review: "Save changes"
   errors:
     blank: "Your %{type} is empty"
     picture_size: "should be less than 5MB"

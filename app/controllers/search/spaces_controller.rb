@@ -17,6 +17,8 @@ class Search::SpacesController < ApplicationController
   def show
     @booking = Booking.new space: @space, booking_from: Date.today,
       duration: Settings.default_duration, quantity: Settings.default_quantity
+    @review = @space.reviews.build
+    @reviews = @space.reviews.created_desc.limit Settings.reviews.per_loading
     respond_to do |format|
       format.js
     end
