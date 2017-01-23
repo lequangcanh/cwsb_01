@@ -14,7 +14,7 @@
 .search_venues {
   text-align: center;
   margin-top: 0px;
-  margin-bottom: 3px;
+  margin-bottom: 17px;
   input[type=search] {
     -webkit-appearance: textfield;
     -webkit-box-sizing: content-box;
@@ -47,7 +47,8 @@
     text-align: left;
     background-color: #167F92 !important;
     color: #FFF;
-    padding: 1em;  
+    padding: 12px !important;
+    font-size: 18px !important;
   } 
 }
 

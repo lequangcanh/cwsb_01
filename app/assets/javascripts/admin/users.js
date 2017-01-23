@@ -6,7 +6,7 @@ $(document).ready(function(){
   });
 
   var pervious_status;
-  $('.table-users').on('click', '.user_status', function(){
+  $('.table-users').on('focus', '.user_status', function(){
     pervious_status = this.value;
   });
 
