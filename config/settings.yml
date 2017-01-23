@@ -95,3 +95,4 @@ booking_type: {hour: "Hour", day: "Day", week: "Week", month: "Month"}
 chart_service:
 delay_time: 1
 languages: {en: "English", vi: "Tiếng Việt", jp: "日本の"}
+rate: "rate"

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post "/rate" => "rates#create", as: "rate"
   post "/hook" => "paypals#update"
 
   resource :store_bookings, only: [:show, :update]
