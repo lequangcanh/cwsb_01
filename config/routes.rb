@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   resources :static_pages, only: :index
   resource :confirm_payment_directlies
   resource :confirm_payment_bankings
-
   namespace :search do
     resources :spaces
+    resources :users
     resources :reviews
     root to: "spaces#index"
   end

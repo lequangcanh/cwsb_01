@@ -50,7 +50,7 @@
               <div class="widget-extra themed-background text-center venue-info">
                 <h3 class="widget-content-light">
                   <%= link_to role.user.name, edit_venue_user_role_venue_path(role.venue, role) %><br>
-                  <%= role.type_role %>
+                  <%= role.type_role.titleize %>
                 </h3>
               </div>
             </div>

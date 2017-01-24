@@ -8,8 +8,8 @@ class SuggestPaymentMethodsController < ApplicationController
           if venue.have_payment_method? && venue != @venue
             @payment_methods = venue.payment_methods
             ActiveRecord::Base.transaction do
-              raise ActiveRecord::RecordNotSaved unless copy_payment_directly(@payment_methods) &&
-                copy_payment_banking(@payment_methods) && copy_paypals(@payment_methods)
+              raise ActiveRecord::RecordNotSaved unless copy_payment_directly(@payment_methods) ||
+                copy_payment_banking(@payment_methods) || copy_paypals(@payment_methods)
             end
           end
         end
@@ -61,10 +61,13 @@ class SuggestPaymentMethodsController < ApplicationController
   def copy_paypals payment_methods
     unless @venue.paypal.any?
       payment_methods.paypal.each do |payment|
-        payment_method = @venue.payment_methods.create payment.attributes.symbolize_keys
-          .except(:created_at, :updated_at, :id)
+        if payment.is_chosen?
+          payment_method = @venue.payment_methods.create payment.attributes.symbolize_keys
+            .except(:created_at, :updated_at, :id)
+          return true
+            break
+        end
       end
-      return true
     end
     false
   end

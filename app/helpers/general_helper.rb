@@ -8,7 +8,9 @@ module GeneralHelper
     hash = Gmaps4rails.build_markers(addresses) do |address, marker|
       marker.lat address.latitude
       marker.lng address.longitude
-      marker.infowindow render_to_string(partial: "search/infowindow", locals: {spaces: address.spaces})
+      if address.spaces.any?
+        marker.infowindow render_to_string(partial: "search/infowindow", locals: {spaces: address.spaces})
+      end
     end
     hash
   end

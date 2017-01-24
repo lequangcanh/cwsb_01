@@ -22,31 +22,33 @@
                 <ul>
                   <li>
                     <a href="#" class="change-role <%= check_owner_existed @venue %>" id="owner" data-value="owner">
-                      <%= t ".owner" %>
+                      <%= t "user_role_venues.new.owner" %>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
                     <a href="#" class="change-role" id="manager" data-value="manager">
-                      <%= t ".manager" %>
+                      <%= t "user_role_venues.new.manager" %>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
                     <a href="#" class="change-role" id="client_service" data-value="client_service">
-                      <%= t ".client_service" %>
+                      <%= t "user_role_venues.new.client_service" %>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
                     <a href="#" class="change-role" id= "reception" data-value="reception">
-                      <%= t ".reception" %>
+                      <%= t "user_role_venues.new.reception" %>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     </a>
                   </li>
                 </ul>
               </div>
-              <%= user_role.submit t(".save"), class: "btn-submit" %>
+              <div class="col-md-12 button-save-fix">
+                <%= user_role.submit t(".save"), class: "btn-submit" %>
+              </div>
             <% end %>
           </div>
           <div class="col-md-6 permission-role">
