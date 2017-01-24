@@ -41,6 +41,9 @@ $(document).ready(function(){
       success: function(data) {
         if(data['status'] === 200) {
           $.growl.notice({title: '', message: data['flash']});
+          $('#total_active_user').text(data['total_active']);
+          $('#total_block_user').text(data['total_block']);
+          $('#total_reject_user').text(data['total_reject']);
         }
         else {
           $.growl.error({title: '', message: data['flash']});
