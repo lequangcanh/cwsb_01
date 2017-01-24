@@ -1,0 +1,26 @@
+<div class="review_record" data-id="<%= review.id %>"
+  data-space="<%= review.space.id %>" id="review_record_<%= review.id %>">
+  <p>
+    <%= image_tag "user.jpg", size: Settings.reviews.avatar_size %>
+    <strong class="user_name_review"><%= review.user.name %></strong>
+    <span>&#8226</span>
+    <span class="time_review">
+      <%= t "search.spaces.show.reviewed" %>
+      <%= time_ago_in_words review.created_at %>
+      <%= t "search.spaces.show.ago" %>
+    </span>
+    <% if user_signed_in? && (current_user.is_user? review.user) %>
+      <span>&#8226</span>
+      <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-pencil"),
+        edit_search_review_path(review), remote: true %>
+      <span>&#8226</span>
+      <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-trash"), 
+        search_review_path(review), method: :delete,
+        data: {confirm: t("search.spaces.show.sure")}, remote: true %>
+    <% end %>
+  </p>
+  <div id="review_<%= review.id %>">
+    <%= render "search/reviews/content", review: review %>
+  </div>
+  <hr>
+</div>

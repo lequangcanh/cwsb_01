@@ -264,6 +264,7 @@ vi:
       usd_slash: " USD/"
     place_holder: "Nhập địa điểm"
     spaces:
+      space_not_found: "Không tìm thấy điạ điểm"
       index:
         price_range: "Khoảng giá(USD/ngày)"
         maps: "Bản đồ"
@@ -287,6 +288,17 @@ vi:
         area: "Diện tích: "
         capicity: "Sức chứa: "
         quantity: "Số lượng: "
+        reviews: "Đánh giá"
+        review_placeholder: "Đánh giá của bạn"
+        reviewed: "Đã đánh giá "
+        ago: " trước."
+        fail_review: "Không thể đánh giá"
+        load_more: "Xem thêm đánh giá "
+        submit_review: "Gửi đánh giá"
+        sure: "Bạn có chắc chắn không?"
+    reviews:
+      review_not_found: "Không tìm thấy bình luận"
+      update_review: "Lưu thay đổi"
   errors:
     blank: "%{type} của bạn trống"
     picture_size: "nên nhỏ hơn 5MB"

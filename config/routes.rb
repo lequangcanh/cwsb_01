@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :search do
     resources :spaces
+    resources :reviews
     root to: "spaces#index"
   end
 

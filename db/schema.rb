@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122065315) do
+ActiveRecord::Schema.define(version: 20170123071319) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -325,7 +325,6 @@ ActiveRecord::Schema.define(version: 20170122065315) do
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",    null: false
-    t.integer  "rate"
     t.integer  "user_id"
     t.integer  "venue_id"
     t.datetime "deleted_at"

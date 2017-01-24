@@ -1,0 +1,2 @@
+<% provide :button_text, t("search.reviews.update_review") %>
+$('#review_<%= @review.id %>').html('<%= j render partial: "search/reviews/review_form" %>');

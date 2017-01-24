@@ -103,3 +103,6 @@ chart_service:
 delay_time: 1
 languages: {en: "English", vi: "Tiếng Việt", jp: "日本の"}
 rate: "rate"
+reviews:
+  per_loading: 10
+  avatar_size: "20x20"
