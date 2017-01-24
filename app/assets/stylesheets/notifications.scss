@@ -53,7 +53,7 @@ ul #notificationList
   display: none;
   margin-left: 13%;
   margin-top: 7.5%;
-  z-index: 9999;
+  z-index: 9999 !important;
 }
 
 
@@ -109,7 +109,7 @@ ul #notificationList
 }
 
 .fix-noti {
-  margin-left: 13%;
+  margin-left: 9%;
 }
 
 @media (max-width: 1595px) {
@@ -141,4 +141,28 @@ ul #notificationList
 
 #color-view {
   color: black;
+}
+
+.padding-top-5 {
+  padding-top: 5px;
+}
+
+.padding-left-13 {
+  padding-left: 13%;
+}
+
+.padding-left-7 {
+  padding-left: 7%;
+}
+
+.padding-top-11 {
+  padding-top: 11%;
+}
+
+.padding-left-15 {
+  padding-left: 15px;
+}
+
+.padding-left-40 {
+  padding-left: 40px;
 }

@@ -14,23 +14,15 @@
         </span>
       <% end %>
     </div>
-    <div class="padding-left-18">
-      <nav class="collapse navbar-collapse navbar-left padding-top-6">
-        <%= link_to "#", class: "color-white" do %>
-          <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %>
-        <% end %>
-        <a class="color-white" href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
-          <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
-        </a>
-      </nav>
-    </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav nav-custom">
+        <div class="padding-top-5"></div>
         <div class="search-space">
           <li>
             <%= link_to t("layout.search_for_space"), search_spaces_url, class: "fa fa-search" %>
           </li>
         </div>
+        <div class="padding-top-5"></div>
         <% if user_signed_in? %>
           <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
             <div class="sidebar-user-avatar">
@@ -53,53 +45,60 @@
               <% end %>
             </div>
           </div>
-          <div class="col-md-12 padding-top-10">
-            <li class="dropdown chosen-language">
-              <% if session[:locale].present? %>
-                <%= link_to url_for(locale: session[:locale]), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
-                  <%= image_tag "flag/#{session[:locale]}.png", class: "icon-language" %>
-                  <%= Settings.languages[session[:locale]] %>
-                <% end %>
-              <% else %>
-                <%= link_to url_for(locale: :en), class:"dropdown-toggle icon-language", data: {toggle: "dropdown"} do %>
-                  <%= image_tag "flag/en.png", class: "icon-language" %>
-                  <%= Settings.languages.en %>
-                <% end %>
-              <% end %>
-              <ul class="dropdown-menu forAnimate choose-language" role="menu">
-                <% Settings.languages.keys.each do |lang| %>
-                  <%= link_to url_for(locale: lang) do %>
-                    <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
-                    <%= Settings.languages[lang] %>
-                  <% end %>
-                  <br/>
-                <% end %>
-              </ul>
-            </li>
-            <a href="#" class="padding-left-10" id="open_notification">
-              <span class="fix-noti">
-                <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
-              </span>
-              <span class="badge" id="notification_count">
-                <%= render "notifications/counter", counter: count_notification_read %>
-              </span>
+        <% end %>
+        <div class="padding-top-11"></div>
+        <div class="row col-md-12">
+          <nav class="collapse navbar-collapse navbar-left padding-top-6">
+            <a target="_blank" class="padding-left-15 color-white"
+              href="https://drive.google.com/open?id=0B5H0vEUdbVhCcmhGT0VFclQ4XzA">
+              <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %>
             </a>
-          </div>
+            <a target="_blank" class="padding-left-40 color-white"
+              href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
+              <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
+            </a>
+          </nav>
+        </div>
+        <div class="padding-top-5"></div>
+        <div class="col-md-12 padding-top-10">
+          <li class="dropdown chosen-language">
+            <% if params[:locale].present? %>
+              <%= link_to url_for(locale: params[:locale]), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/#{params[:locale]}.png", class: "icon-language" %>
+                <%= Settings.languages[params[:locale]] %>
+              <% end %>
+            <% else %>
+              <%= link_to url_for(locale: :en), class:"dropdown-toggle icon-language", data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/en.png", class: "icon-language" %>
+                <%= Settings.languages.en %>
+              <% end %>
+            <% end %>
+            <ul class="dropdown-menu forAnimate choose-language" role="menu">
+              <% Settings.languages.keys.each do |lang| %>
+                <%= link_to url_for(locale: lang) do %>
+                  <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
+                  <%= Settings.languages[lang] %>
+                <% end %>
+                <br/>
+              <% end %>
+            </ul>
+          </li>
+          <a href="#" class="padding-left-10" id="open_notification">
+            <span class="fix-noti">
+              <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
+            </span>
+            <span class="badge" id="notification_count">
+              <%= render "notifications/counter", counter: count_notification_read %>
+            </span>
+          </a>
+        </p>
+        </div>
+        <div class="padding-top-10"></div>
+        <% if user_signed_in? %>
           <li>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
                 <table class="table">
-                  <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#profile">
-                    <%= t "layout.profile_big" %></a>
-                  <li>
-                    <div id="profile" class="panel-collapse collapse in">
-                      <div class="panel-body panel-body-custom">
-                        <%= link_to edit_user_registration_path, method: :get, class: "padding-left-10" do %>
-                          <i class="gi gi-user"></i> <%= t "layout.profile" %></p>
-                        <% end %>
-                      </div>
-                    </div>
-                  </li>
                   <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#your_space">
                     <%= t "layout.my_spaces" %></a>
                   <li>
@@ -109,7 +108,7 @@
                           <i class="gi gi-home"></i> <%= t "layout.your_space" %></p>
                         <% end %>
                         <%= link_to statistics_path, class: "padding-left-10" do %>
-                          <i class="fa fa-line-chart"></i> <%= t "layout.statistics" %></p>
+                          <i class="fa fa-line-chart"></i> <%= t "layout.statistics" %>
                         <% end %>
                       </div>
                     </div>
@@ -125,7 +124,7 @@
                             <i class="fa fa-shopping-cart"></i> <%= t "layout.your_booking" %></p>
                           <% end %>
                           <%= link_to booking_histories_path, class: "padding-left-10" do %>
-                            <i class="fa fa-cart-plus"></i> <%= t "layout.booking_history" %></p>
+                            <i class="fa fa-cart-plus"></i> <%= t "layout.booking_history" %>
                           <% end %>
                         </div>
                       </div>
@@ -142,7 +141,7 @@
                             <i class="fa fa-cart-arrow-down"></i> <%= t "layout.store_booking" %></p>
                           <% end %>
                           <%= link_to order_histories_path, class: "padding-left-10" do %>
-                            <i class="fa fa-history"></i> <%= t "layout.order_history" %></p>
+                            <i class="fa fa-history"></i> <%= t "layout.order_history" %>
                           <% end %>
                         </div>
                       </div>

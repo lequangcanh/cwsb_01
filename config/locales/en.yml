@@ -132,7 +132,8 @@ en:
     link_footer: "Design by CWBS-Team."
     place: "13F Keangnam Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem District., Ha Noi"
     phone: "84-4-3795-5417"
-    email: "cwsb_team@gmail.com"
+    email: "framgia_cwsb@gmail.com"
+    support: "SUPPORT"
   static_pages:
     index:
       toggle_navigation: "Toggle navigation"

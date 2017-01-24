@@ -27,14 +27,6 @@
           <a class="navbar-brand" href="#body">
             <h1 id="logo"><%= t "layout.site_name" %></h1>
           </a>
-          <nav class="collapse navbar-collapse navbar-left padding-top-6">
-            <%= link_to "#", class: "color-white" do %>
-              <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %></p>
-            <% end %>
-            <a class="color-white" href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
-              <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
-            </a>
-          </nav>
         </div>
         <nav class="collapse navbar-collapse navbar-right" role="Navigation">
           <ul id="nav" class="nav navbar-nav">
@@ -109,7 +101,8 @@
           <% end %>
         </div>
       </div>
-      <div id="home-carousel" class="carousel slide" data-interval="false">
+      <div id="home-carousel" class="carousel slide carousel-html" data-ride="carousel" data-interval="4000"
+      >
       <ol class="carousel-indicators">
         <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
         <li data-target="#home-carousel" data-slide-to="1"></li>
@@ -291,7 +284,7 @@
       <div class="footer" id="footer">
         <div class="container">
           <div class="row">
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-3 col-xs-12">
               <h3 class="text-center"><%= t "home.about_us" %></h3>
               <p class = "col-md-12">
                 <div class = "col-lg-3 text-left">
@@ -308,22 +301,37 @@
                 </div>
               </p>
             </div>
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-3 col-xs-12">
               <h3 class="text-center"><%= t "home.contact" %></h3>
               <ul>
-                <li><a class="fa fa-map-marker" href="#"> <%= t "home.place" %></a></li>
+                <li><a target="_blank" class="fa fa-map-marker"
+                  href="https://www.google.com/maps/search/+13F+Keangnam+Landmark+72+Tower,+Plot+E6,
+                  +Pham+Hung+Road,+Nam+Tu+Liem+District.,+Ha+Noi/@21.0159095,105.7844873,17z"> <%= t "home.place" %></a></li>
                 <li><a class="fa fa-phone" href="#"> <%= t "home.phone" %></a></li>
                 <li><a class="fa fa-envelope-o" href="#"> <%= t "home.email" %></a></li>
               </ul>
             </div>
-            <div class="col-sm-4 col-xs-12 text-center">
+            <div class="col-sm-3 col-xs-12 text-center">
+              <h3><%= t "home.support" %></h3>
+              <a target="_blank" class="color-white"
+                href="https://drive.google.com/open?id=0B5H0vEUdbVhCcmhGT0VFclQ4XzA">
+                <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %>
+              </a>
+              </p>
+              <a target="_blank" class="color-white"
+                href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
+                <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
+              </a>
+            </div>
+            <div class="col-sm-3 col-xs-12 text-center">
               <h3><%= t "home.follow_us" %></h3>
               <ul class="social">
-                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li class="google_plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li class="youtube"><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li class="facebook"><a target="_blank"
+                  href="https://www.facebook.com/groups/119543551582357">
+                  <i class="fa fa-facebook"></i></a></li>
+                <li class="google_plus"><a target="_blank"
+                  href="https://plus.google.com/110329682908618087419">
+                  <i class="fa fa-google-plus"></i></a></li>
               </ul>
             </div>
           </div>
