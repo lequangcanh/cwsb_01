@@ -653,7 +653,8 @@ vi:
       btn_add: "Thêm phương thức thanh toán"
       btn_delete: "Xóa"
       payment_methods: "Phương thức thanh toán"
-      list_space: "Nếu bạn thay đổi trạng thái, tất cả không gian của địa điểm này sẽ không thể được tìm thấy"
+      list_space_off: "Nếu bạn tắt trạng thái, tất cả không gian của địa điểm này sẽ không thể đặt phòng"
+      list_space_on: "Nếu bạn mở trạng thái, tất cả không gian của địa điểm này sẽ có thể đặt phòng"
   user_role_venues:
     new:
       create: "Tạo mới quản trị viên"

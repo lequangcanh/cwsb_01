@@ -6,32 +6,32 @@
         <ul class="nav nav-pills nav-justified clickable-steps" >
           <li id="venues">
             <%= link_to edit_venue_path(@venue) do %>
-              <strong><%= t "clickable_venue" %></strong>
+              <strong><i class="fa fa-building"></i> <%= t "clickable_venue" %></strong>
             <% end %>
           </li>
           <li id="details">
             <%= link_to edit_venue_venue_detail_path(@venue) do %>
-              <strong><%= t "clickable_details" %></strong>
+              <strong><i class="fa fa-asterisk"></i> <%= t "clickable_details" %></strong>
             <% end %>
           </li>
           <li id="marketplace">
             <%= link_to edit_venue_venue_market_path(@venue) do %>
-              <strong><%= t "clickable_paymentmethods" %></strong>
+              <strong><i class="fa fa-buysellads"></i> <%= t "clickable_paymentmethods" %></strong>
             <% end %>
           </li>
           <li id="spaces">
             <%= link_to venue_spaces_path(@venue) do %>
-              <strong><%= t "clickable_spaces" %></strong>
+              <strong><i class="fa fa-home"></i> <%= t "clickable_spaces" %></strong>
             <% end %>
           </li>
           <li id="admins">
             <%= link_to venue_user_role_venues_path(@venue) do %>
-              <strong><%= t "clickable_admins" %></strong>
+              <strong><i class="fa fa-user"></i> <%= t "clickable_admins" %></strong>
             <% end %>
           </li>
           <li id="amenities">
             <%= link_to venue_amenities_path(@venue) do %>
-              <strong><%= t "clickable_amenities" %></strong>
+              <strong><i class="fa fa-plus"></i> <%= t "clickable_amenities" %></strong>
             <% end %>
           </li>
         </ul>

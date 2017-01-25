@@ -632,7 +632,8 @@ jp:
       btn_add: "Add Payment Method"
       btn_delete: "Delete"
       payment_methods: "Payment methods"
-      list_space: "If you change status, all spaces of this venue can't booking"
+      list_space_off: "If you off status, all spaces of this venue can't booking"
+      list_space_on: "If you on status, all spaces of this venue can booking"
   user_role_venues:
     new:
       create: "Create the new administrator"
