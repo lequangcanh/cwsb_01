@@ -5,7 +5,9 @@
     <% end %>
     <small>
       <%= t "in" %>
-      <%= link_to space.venue.name, "javascript:" %>
+      <%= link_to venue_path(space.venue) do %>
+        <% space.venue.name %>
+      <% end %>
     </small>
   </h4>
   <%= link_to search_space_path(space), remote: true, class: "space_price" do %>
