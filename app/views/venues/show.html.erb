@@ -1,2 +1,91 @@
-<% provide "title", t(".venue") %>
-<h1><%= @venue.name %></h1>
+<div class="row full-height margin-left-0 margin-right-0">
+    <% if @venue.images.any? %>
+      <%= image_tag @venue.images.first.picture_url, class: "venue-cover" %>
+    <% else %>
+      <%= image_tag "not_available", class: "venue-cover" %>
+    <% end %>
+    <div class="text-center inside-cover">
+      <h1><%= @venue.name %></h1>
+      <h3><i class="fa fa-map-marker" aria-hidden="true"></i>
+        <%= @venue.address.details %></h3>
+    </div>
+  <div class="col-md-12 padding-top-30">
+    <div class="col-md-1">
+      <%= link_to "#", id: "btn-back-venue" do %>
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        <%= t "back"%>
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      <div class="col-md-12 change-color">
+        <%= render "detail" %>
+      </div>
+      <div class="padding-top-30 col-md-12"></div>
+      <div class="col-md-12 change-color">
+        <%= render "open_hour" %>
+      </div>
+      <div class="padding-top-30 col-md-12"></div>
+      <div class="col-md-12 change-color">
+        <div class="text-center title-line">
+          <%= t "search.spaces.show.amenities" %>
+        </div>
+        <% @venue.amenities.each do |amenity| %>
+          <div class="col-md-4 col-sm-6">
+            <i class="fa fa-<%= render_amenity_icon amenity %>" aria-hidden="true"></i>
+            <%= amenity.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-5 change-color">
+      <div class="text-center title-line">
+        <%= t "payments.show.space" %>
+      </div>
+      <div class="change-color">
+        <% @spaces.each do |space| %>
+          <div class="col-md-6 search_space search_space_detail" id="space_type"
+            data-price="<%= space.price_per_day.price %>" data-status="<%= space.space_type %>">
+            <div class="widget">
+              <div class="widget-extra-full themed-background-dark">
+                <div id="widget-carousel-<%= space.id %>"
+                  class="carousel slide remove-margin">
+                  <%= rating_for space, Settings.rate %>
+                  <% if space.images.any? %>
+                    <div class="carousel-inner">
+                      <% space.images.each do |image| %>
+                        <div class="item <%= first_active space.images, image %>">
+                          <%= link_to search_space_path(space), remote: true, target: :_blank do %>
+                            <%= image_tag image.picture.url, alt: image.title,
+                              class: "img-responsive custom-image" %>
+                            <%= render "search/spaces/name_and_price_space", space: space %>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <% if space.images.size > Settings.min_quantity %>
+                      <a class="left carousel-control"
+                        href="#widget-carousel-<%= space.id %>"  data-slide="prev">
+                          <span><i class="fa fa-chevron-left"></i></span>
+                      </a>
+                      <a class="right carousel-control"
+                        href="#widget-carousel-<%= space.id %>" data-slide="next">
+                          <span><i class="fa fa-chevron-right"></i></span>
+                      </a>
+                    <% end %>
+                  <% else %>
+                    <%= link_to search_space_path(space), target: :_blank do %>
+                      <%= image_tag "not_available", class: "img-responsive custom-image" %>
+                      <%= render "search/spaces/name_and_price_space", space: space %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @spaces %>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

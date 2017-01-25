@@ -1,0 +1,20 @@
+<div class="text-center title-line">
+  <%= t "venues.detail" %>
+</div>
+<div class="text-center">
+  <% if @venue.spaces.any? %>
+    <strong>
+      <%= @venue.spaces.desk.count %> <%= t ".desk" %> |
+      <%= @venue.spaces.prive_office.count %> <%= t ".prive_office" %> |
+      <%= @venue.spaces.meeting_room.count %> <%= t ".meeting_room" %> |
+      <%= @venue.spaces.coworking_space.count %> <%= t ".coworking_space" %>
+    </strong>
+  <% else %>
+    <%= t ".no_space" %>
+  <% end %>
+</div><br/>
+<div>
+  <strong><%= @venue.introduction %></strong>
+  <%= @venue.description %>
+  <%= @venue.slogan %>
+</div>

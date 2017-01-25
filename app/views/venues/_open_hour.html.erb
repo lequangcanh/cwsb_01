@@ -1,0 +1,31 @@
+<div class="text-center title-line">
+  <%= t "search.spaces.show.open_hours" %>
+</div>
+<div class="table-responsive col-md-12">
+  <table class="table col-md-12">
+    <tbody>
+      <tr>
+        <th></th>
+        <% @venue.working_times.each do |date| %>
+          <th><%= date.day_in_week %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= t "from" %></td>
+        <% @venue.working_times.each do |date| %>
+          <td>
+            <%= l date.working_from, format: :time_session %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= t "to" %></td>
+        <% @venue.working_times.each do |date| %>
+          <td>
+            <%= l date.working_to, format: :time_session %>
+          </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
