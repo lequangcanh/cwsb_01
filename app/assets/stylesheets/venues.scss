@@ -35,17 +35,22 @@
   width: 100%;
  }
 
- #gmap_canvas img{
+ #gmap_canvas img {
   max-width: none !important;
   background: none !important;
 }
 
-.map-info{
+.map-info {
   width: 100%;
 }
 
-.map-show{
+.map-show {
   position: static !important;
+  width: 100%;
+}
+
+.map-edit-venue {
+  position: absolute;
   width: 100%;
 }
 

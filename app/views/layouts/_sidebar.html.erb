@@ -36,7 +36,8 @@
             </div>
             <div class="sidebar-user-name"><%= current_user.name %></div>
             <div class="sidebar-user-links">
-              <%= link_to edit_user_registration_path, method: :get do %>
+              <%= link_to edit_user_registration_path, method: :get,
+                title: t("layout.profile") do %>
                 <i class="gi gi-user"></i>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete,
@@ -55,7 +56,7 @@
             </a>
             <a target="_blank" class="padding-left-40 color-white"
               href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
-              <i class="fa fa-commenting-o"></i></i> <%= t "layout.feedback" %>
+              <i class="fa fa-commenting-o"></i> <%= t "layout.feedback" %>
             </a>
           </nav>
         </div>
@@ -100,7 +101,9 @@
               <div class="panel-body">
                 <table class="table">
                   <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#your_space">
-                    <%= t "layout.my_spaces" %></a>
+                    <%= image_tag "home.png", class: "themed-icon-fixed" %>
+                    <%= t "layout.my_spaces" %>
+                  </a>
                   <li>
                     <div id="your_space" class="panel-collapse collapse in">
                       <div class="panel-body panel-body-custom">
@@ -115,6 +118,7 @@
                   </li>
                   <% if current_user.bookings.present? %>
                     <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#booking">
+                      <%= image_tag "your_booking.png", class: "themed-icon-fixed" %>
                       <%= t "layout.your_bookings" %>
                     </a>
                     <li>
@@ -132,6 +136,7 @@
                   <% end %>
                   <% if current_user.venues.present? %>
                     <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#orders_management">
+                      <%= image_tag "order_management.png", class: "themed-icon-fixed" %>
                       <%= t "layout.orders_management" %>
                     </a>
                     <li>
@@ -149,16 +154,19 @@
                   <% end %>
                   <% if current_user.orders.order_has_payment_type.present? %>
                     <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#payment">
+                      <%= image_tag "payment.png", class: "themed-icon-fixed" %>
                       <%= t "layout.payments_management" %>
                     </a>
                     <li>
                       <div id="payment" class="panel-collapse collapse in">
                         <div class="panel-body panel-body-custom">
                           <%= link_to confirm_payment_directlies_path, class: "padding-left-10" do %>
-                            <i class="fa fa-money"></i> <%= t "layout.payment_directly" %></p>
+                            <%= image_tag "payment_methods/directly_logo.png", class: "themed-icon-fixed" %>
+                            <%= t "layout.payment_directly" %></p>
                           <% end %>
                           <%= link_to confirm_payment_bankings_path, class: "padding-left-10" do %>
-                            <i class="fa fa-cc-visa"></i> <%= t "layout.payment_banking" %></p>
+                            <%= image_tag "payment_methods/banking_logo.png", class: "themed-icon-fixed" %>
+                            <%= t "layout.payment_banking" %></p>
                           <% end %>
                         </div>
                       </div>

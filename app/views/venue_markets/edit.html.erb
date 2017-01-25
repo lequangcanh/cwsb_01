@@ -12,7 +12,12 @@
           <div class="col-md-10">
             <div class="tab-content">
               <%= hidden_field_tag "venue_id", @venue.id, id: "venue-id" %>
-              <label  class="switch switch-primary"><%= t(".list_space")%>
+              <label  class="switch switch-primary">
+                <% if @venue.status? %>
+                  <%= t(".list_space_off")%>
+                <% else %>
+                  <%= t(".list_space_on")%>
+                <% end %>
                 <%= check_box_tag :status, @venue.status, @venue.status %>
                 <span></span>
               </label>
