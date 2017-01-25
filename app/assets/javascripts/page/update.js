@@ -32,3 +32,7 @@ function update_checkbox(venue_id, payment_method_id, checkbox){
     }
   });
 }
+
+$(document).on('click', '#btn-back-venue', function(){
+  window.history.back();
+})

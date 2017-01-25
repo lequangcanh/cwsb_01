@@ -298,3 +298,30 @@ hr.style-two {
 .themed-icon-fixed {
   height: 20px;
 }
+
+.venue-cover {
+  width: 100%;
+  max-height: 300px;
+  min-height: 100px;
+}
+
+.inside-cover {
+  position: absolute;
+  z-index: 100;
+  top: 50px;
+  text-color: #FFF !important;
+  width: 100%;
+}
+
+.change-color {
+  background-color: #EEE !important;
+}
+
+.padding-top-30 {
+  padding-top: 30px;
+}
+
+.title-line {
+  background-color: #000 !important;
+  color: #FFF !important;
+}

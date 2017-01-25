@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  back: "Back"
   help_info: "Some help info..."
   avatar: "Avatar"
   message:
@@ -305,7 +306,7 @@ en:
         price: "Price"
         amenities: "Amenities"
         full_venue_profile: "Full venue profile"
-        open_hours: "Open hours"
+        open_hours: "Opening hours"
         booking: "Booking"
         area: "Area: "
         capicity: "Capicity: "
@@ -381,6 +382,7 @@ en:
       delete_successfully: "Delete amenity successfully"
       delete_error: "Delete amenity error"
   venues:
+    detail: "Detail"
     not_found: "Vanues is not found !"
     errors:
       nil_venue: "Can't find this venue"

@@ -1,4 +1,5 @@
 vi:
+  back: "Quay trở lại"
   help_info: "Một số thông tin giúp đỡ..."
   avatar: "Ảnh đại diện"
   message:
@@ -360,6 +361,7 @@ vi:
       delete_successfully: "Xóa tiện nghi thành công"
       delete_error: "Không thể xóa tiện nghi này"
   venues:
+    detail: "Chi tiết"
     not_found: "Không tìm thấy địa điểm !"
     errors:
       nil_venue: "Không thể tìm địa điểm này"

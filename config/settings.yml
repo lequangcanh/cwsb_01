@@ -106,3 +106,7 @@ rate: "rate"
 reviews:
   per_loading: 10
   avatar_size: "20x20"
+amenities: {wifi: "WiFi", restaurant: "Cafe/ Restaurant", drink: "Coffee/ Tea/ Filtered Water", pet: "Pets allowed", lock: "Lockers"}
+user:
+  venue:
+    per_page: 4

@@ -12,4 +12,19 @@ module VenueHelper
       end
     end
   end
+
+  def render_amenity_icon amenity
+    case amenity.name
+    when Settings.amenities.wifi
+      "wifi"
+    when Settings.amenities.restaurant
+      "cutlery"
+    when Settings.amenities.drink
+      "coffee"
+    when Settings.amenities.pet
+      "paw"
+    when Settings.amenities.lock
+      "lock"
+    end
+  end
 end
