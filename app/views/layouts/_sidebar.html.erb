@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_url, class: "navbar-brand" do %>
-        <i class="gi gi-flash"></i>
+        <i class="fa fa-flash"></i>
         <span class="sidebar-nav-mini-hide">
           <strong><%= t "layout.site_name" %></strong>
         </span>
@@ -38,7 +38,7 @@
             <div class="sidebar-user-links">
               <%= link_to edit_user_registration_path, method: :get,
                 title: t("layout.profile") do %>
-                <i class="gi gi-user"></i>
+                <i class="fa fa-user"></i>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete,
                 title: t("layout.logout") do %>
@@ -98,7 +98,7 @@
         <% if user_signed_in? %>
           <li>
             <div id="collapseOne" class="panel-collapse collapse in">
-              <div class="panel-body">
+              <div class="panel-body padding_left_15">
                 <table class="table">
                   <a class="font-size-14" data-toggle="collapse" data-parent="#accordion" href="#your_space">
                     <%= image_tag "home.png", class: "themed-icon-fixed" %>
@@ -108,7 +108,7 @@
                     <div id="your_space" class="panel-collapse collapse in">
                       <div class="panel-body panel-body-custom">
                         <%= link_to venues_url, method: :get, class: "padding-left-10" do %>
-                          <i class="gi gi-home"></i> <%= t "layout.your_space" %></p>
+                          <i class="fa fa-home"></i> <%= t "layout.your_space" %></p>
                         <% end %>
                         <%= link_to statistics_path, class: "padding-left-10" do %>
                           <i class="fa fa-line-chart"></i> <%= t "layout.statistics" %>
