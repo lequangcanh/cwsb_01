@@ -16,4 +16,12 @@ module SearchHelper
       end
     end
   end
+
+  def check_avg object 
+    if object.average(Settings.rate).nil?
+      return Settings.default_rating_avg
+    else
+      object.average(Settings.rate).avg
+    end
+  end
 end
