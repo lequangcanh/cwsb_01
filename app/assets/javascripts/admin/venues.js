@@ -4,6 +4,44 @@ $(document).on('keyup', '#search-form', function() {
   return false;
 });
 
+$(document).on('change', '.block_venue', function() {
+  var back_value = this.value;
+  venue_id = this.dataset.id;
+  if(this.value == 'false')
+    var alert = I18n.t('admin.venues.block_venue');
+  else 
+    var alert = I18n.t('admin.venues.unblock_venue');
+
+  if (confirm(alert))
+    return check_block(JSON.parse(this.value));
+  else
+    $(this).val(back_value);
+});
+
+function check_block(value) {
+  if(value === true)
+    venue_block(false, venue_id);
+  else
+    venue_block(true, venue_id);
+}
+
+function venue_block(block, venue_id) {
+  $.ajax({
+    type: 'patch',
+    dataType: 'json',
+    url: '/admin/venues/' + venue_id,
+    data: {venue: {block: block}},
+    success: function() {
+      $.growl.notice({title: '', message:  I18n.t('admin.venues.success')});
+      $('#block_venue_'+venue_id).val(block);
+    },
+    error: function(error_message) {
+        $.growl.error({message: error_message});
+        location.reload();
+      }
+  });
+}
+
 $(document).ready(function() {
   var geocodeAddress, geocoder, initialize, map;
   initialize = function() {

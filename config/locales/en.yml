@@ -783,6 +783,11 @@ en:
       space: "All Space"
       space_button: "Show space"
       notspace: "Now,Venue don't space!"
+      venue_not_found: "Venue not found!"
+      success: "Successfully!"
+      block_venue: "block?"
+      unblock_venue: "unblock?"
+      block: "Block"
     new_statistics:
       title: "Statistics - Admin"
       new_statistics_title: "Statistics"
