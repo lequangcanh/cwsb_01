@@ -19,7 +19,9 @@ $(document).ready(function(){
         total = calculate_price(current_booking, quantity_for_current_booking, price_for_current_booking );
         var each_price = $('#each-price-' + current_booking);
         each_price.append(total);
-        total_price[i] += total;
+        if(total > 0){
+          total_price[i] += total;
+        }
       }
     }
     total_price[i] = total_price[i].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
