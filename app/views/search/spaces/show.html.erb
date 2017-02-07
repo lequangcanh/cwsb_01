@@ -2,6 +2,7 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 <%= javascript_include_tag "search/show_space.js" %>
+<% provide :button_text, t("search.spaces.show.submit_review") %>
 <div class="row full-height margin-left-0 margin-right-0">
   <div class="col-md-6 max-height-x padding-left-0 padding-right-0">
     <div id="map-containerfull-height">
@@ -15,6 +16,7 @@
       <div class="content-header">
         <div class="header-section">
           <h1>
+            <%= rating_for @space, Settings.rate, disable_after_rate: true, imdb_avg: true  %>
             <%= @space.space_type.humanize %><br>
             <small><%= @space.venue.name %></small>
           </h1>
@@ -49,7 +51,7 @@
         <div class="col-md-2 text-center">
           <%= link_to "javascript:" do %>
             <%= image_tag "placeholders/avatars/avatar2.png",
-              alt: "Avatar", class: "img-circle" %>
+              alt: t("avatar"), class: "img-circle" %>
           <% end %>
           <p>
             <%= link_to t(".contact"), "javascript:" %>
@@ -86,27 +88,29 @@
           <% @space.prices.each do |price| %>
             <div class="col-md-3">
               <span class="label label-success price-tag">
-                <%= "#{number_with_precision price.price, precision: 0}
-                  #{t "vnd_slash"} #{price.booking_type.name.humanize}" %>
+                <%= "#{number_with_precision price.price, precision: Settings.precision}
+                  #{t "usd_slash"} #{price.booking_type.name.humanize}" %>
               </span>
             </div>
           <% end %>
         </div>
-        <%= render "bookings/new", booking: @booking %>
+        <% if user_signed_in? %>
+          <%= render "bookings/new", booking: @booking %>
+        <% end %>
       </div>
       <div class="media-body line-break-block">
         <p class="push-bit">
           <strong><%= t ".the_venue" %></strong>
         </p>
-        <p><%= @space.venue.description %></p>
+        <p><%= @space.venue_description %></p>
         <p>
           <h4 class="list-group-item-heading remove-margin space-address">
             <i class="fa fa-map-marker"></i>
-            <%= @space.address.details %>
+            <%= @space.address_details %>
           </h4>
         </p>
         <p>
-          <%= link_to "javascript:", class: "btn btn-xs btn-primary" do %>
+          <%= link_to venue_path(@space.venue), class: "btn btn-xs btn-primary" do %>
             <i class="fa fa-file"></i> <%= t ".full_venue_profile" %>
           <% end %>
         </p>
@@ -115,7 +119,7 @@
         <p class="push-bit">
           <strong><%= t ".open_hours" %></strong>
         </p>
-        <div class="table-responsive">
+        <div class="table-responsive table-fix-responsive">
           <table class="table">
             <tbody>
               <tr>
@@ -153,6 +157,24 @@
             <%= amenity.name %>
           </div>
         <% end %>
+      </div>
+      <div class="media-body line-break-block">
+        <p class="push-bit">
+          <strong><%= t "search.spaces.show.reviews" %></strong>
+        </p>
+        <div class="col-md-12">
+          <div class="review_form">
+            <%= render "search/reviews/review_form" if user_signed_in? %>
+          </div>
+          <div id="list_review_space">
+            <%= render @reviews %>
+          </div>
+          <div class="load_more_review">
+            <%= image_tag "loading.gif", class: "loading_gif" %>
+            <%= link_to t("search.spaces.show.load_more"), "#",
+              class: "load_more_review_btn btn btn-primary" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

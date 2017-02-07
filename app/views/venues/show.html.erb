@@ -1,17 +1,17 @@
-<div class="row full-height margin-left-0 margin-right-0">
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
     <% if @venue.images.any? %>
       <%= image_tag @venue.images.first.picture_url, class: "venue-cover" %>
     <% else %>
       <%= image_tag "not_available", class: "venue-cover" %>
     <% end %>
     <div class="text-center inside-cover">
-      <h1><%= @venue.name %></h1>
-      <h3><i class="fa fa-map-marker" aria-hidden="true"></i>
+      <h1 class="venue-name-color"><%= @venue.name %></h1>
+      <h3 class="venue-name-color"><i class="fa fa-map-marker" aria-hidden="true"></i>
         <%= @venue.address.details %></h3>
     </div>
   <div class="col-md-12 padding-top-30">
     <div class="col-md-1">
-      <%= link_to "#", id: "btn-back-venue" do %>
+      <%= link_to "#", id: "btn-back-venue", class: "btn-back-search" do %>
         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
         <%= t "back"%>
       <% end %>
@@ -54,7 +54,7 @@
                     <div class="carousel-inner">
                       <% space.images.each do |image| %>
                         <div class="item <%= first_active space.images, image %>">
-                          <%= link_to search_space_path(space), remote: true, target: :_blank do %>
+                          <%= link_to search_space_path(space), target: :_blank do %>
                             <%= image_tag image.picture.url, alt: image.title,
                               class: "img-responsive custom-image" %>
                             <%= render "search/spaces/name_and_price_space", space: space %>
