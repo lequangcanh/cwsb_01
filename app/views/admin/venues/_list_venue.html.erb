@@ -4,6 +4,7 @@
     <th><%= t "admin.venues.name" %></th>
     <th><%= t "admin.venues.address" %></th>
     <th><%= t "admin.venues.email" %></th>
+    <th><%= t "admin.venues.block" %></th>
   </tr>
   <% @venues.each do |venue| %>
     <tr>
@@ -11,6 +12,13 @@
       <td><%= link_to venue.name, admin_venue_path(venue) %></td>
       <td><%= venue.address.details %></td>
       <td><%= venue.email %></td>
+      <td>
+        <label class="switch switch-danger">
+          <%= check_box_tag :block, venue.block, venue.block, id: "block_venue_#{venue.id}", class: "block_venue", 
+            data: {id: venue.id} %>
+          <span></span>
+        </label>
+      </td>
     </tr>
   <% end %>
 </table>

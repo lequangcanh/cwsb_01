@@ -759,6 +759,11 @@ vi:
       space: "Tất cả không gian"
       space_button: "Xem không gian"
       notspace: "Hiện tại không có không gian nào trong địa điểm này!"
+      venue_not_found: "Địa điểm không tồn tại!"
+      success: "Thành công!"
+      block_venue: "Bạn có chắc muốn khóa địa điểm này ?"
+      unblock_venue: "Mở khóa cho địa điểm này?"
+      block: "Khóa"
     new_statistics:
       title: "Thống kê - Quản trị viên"
       new_statistics_title: "Thống kê"

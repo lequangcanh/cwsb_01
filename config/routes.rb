@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "statistics#index"
     resources :users
-    resources :venues, only: [:index, :show]
+    resources :venues
     resources :statistics, only: [:index, :create]
     resources :activities, only: :index
   end
