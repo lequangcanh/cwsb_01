@@ -20,7 +20,8 @@
                   class: "form-control margin-bot-10", "data-validation": "required"} %>
                 <%= directly.input :phone_number,
                   input_html: {value: current_user.phone_number, class: "form-control margin-bot-10",
-                  "data-validation": "length number", "data-validation-length": "min10"} %>
+                  "data-validation": "length number", "data-validation-length": "min10",
+                  placeholder: t("confirm_payment_directly.phone_placeholder")} %>
                 <%= render partial: "form_directly_detail", locals: {directly: directly} %>
               </div>
             </div>

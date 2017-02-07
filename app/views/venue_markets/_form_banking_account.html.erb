@@ -1,11 +1,15 @@
 <%= f.input :card_name, input_html: {class: "form-control margin-bot-10",
-  "data-validation": "required"} %>
+  "data-validation": "required"},
+  placeholder: t("confirm_payment_banking.card_name_placeholder") %>
 <%= f.input :card_number, input_html: {class: "form-control margin-bot-10",
-  "data-validation": "required"} %>
+  "data-validation": "required",
+  placeholder: t("confirm_payment_banking.card_number_placeholder")} %>
 <%= f.input :card_address, input_html: {class: "form-control margin-bot-10",
-  "data-validation": "required"} %>
+  "data-validation": "required",
+  placeholder: t("confirm_payment_banking.card_address_placeholder")} %>
 <%= f.input :banking_name, input_html: {class: "form-control margin-bot-10",
-  "data-validation": "required"} %>
+  "data-validation": "required",
+  placeholder: t("confirm_payment_banking.banking_name_placeholder")} %>
 <%= f.input :message,
   input_html: {class: "form-control margin-bot-10"} %>
 <div class="row">

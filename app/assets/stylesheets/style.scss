@@ -280,6 +280,7 @@ hr.style-two {
 
 .center-fix {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .wrap-fix {
@@ -332,4 +333,13 @@ hr.style-two {
 
 .min-cell-responsive {
   min-width: 100px !important;
+}
+
+.padding_left_15 {
+  padding-left: 15px !important;
+  padding-top: 0px !important;
+}
+
+.color_content_blue {
+  color: #428bca !important;
 }

@@ -30,11 +30,13 @@
                   <div class="row">
                     <div class="col-md-6">
                       <%= form_address.input :city,
-                        input_html: {class: "form-control margin-bot-15"} %>
+                        input_html: {class: "form-control margin-bot-15",
+                        placeholder: t("venues.city_placeholder")} %>
                     </div>
                     <div class="col-md-6">
                       <%= form_address.input :street_address,
-                        input_html: {class: "form-control margin-bot-15"} %>
+                        input_html: {class: "form-control margin-bot-15",
+                        placeholder: t("venues.city_placeholder")} %>
                     </div>
                   </div>
                   <%= f.input :phone_number,
@@ -51,17 +53,20 @@
                     <div class="col-md-6">
                       <%= f.input :website,
                         input_html: {class: "form-control margin-bot-15",
-                        "data-validation": "url"} %>
+                        "data-validation": "url",
+                        placeholder: t("venues.website_placeholder")} %>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                       <%= form_address.input :postal_code,
-                        input_html: {class: "form-control margin-bot-15"} %>
+                        input_html: {class: "form-control margin-bot-15",
+                        placeholder: t("venues.postal_code_placeholder")} %>
                     </div>
                     <div class="col-md-6">
                       <%= form_address.input :unit,
-                        input_html: {class: "form-control margin-bot-15"} %>
+                        input_html: {class: "form-control margin-bot-15",
+                        placeholder: t("venues.unit_placeholder")} %>
                     </div>
                   </div>
                 <% end %>
@@ -69,12 +74,14 @@
                   <div class="col-md-6">
                     <%= f.input :introduction,
                       input_html: {class: "form-control margin-bot-15",
-                      "data-validation": "required"} %>
+                      "data-validation": "required",
+                      placeholder: t("venues.introduction_placeholder")} %>
                   </div>
                   <div class="col-md-6">
                     <%= f.input :slogan,
                       input_html: {class: "form-control margin-bot-15",
-                      "data-validation": "required"} %>
+                      "data-validation": "required",
+                      placeholder: t("venues.slogan_placeholder")} %>
                   </div>
                 </div>
                 <%= f.button :submit, class: "btn btn-primary pull-left" %>

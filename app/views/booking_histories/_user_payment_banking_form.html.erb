@@ -1,7 +1,4 @@
 <div class="form-group">
-  <div class="col-md-12">
-    <hr/>
-  </div>
   <div class="col-md-12 center-fix wrap-fix">
     <strong><%= t "confirm_payment_banking.payment_banking_info" %></strong>
   </div>
@@ -13,6 +10,7 @@
     <div class="col-md-6">
       <% if order.find_information_banking_account.pending_time > 0 %>
         <%= order.find_information_banking_account.pending_time %>
+        <%= t "booking_histories.payment_info.hours" %>
       <% else %>
         <%= t "booking_histories.payment_info.no_deadline" %>
       <% end %>
@@ -31,24 +29,28 @@
       <div class="col-md-6">
         <%= f.input :banking_name, input_html: {class: "form-control margin-bot-15",
           "data-validation": "length required",
-          "data-validation-length": "max30"} %>
+          "data-validation-length": "max30",
+          placeholder: t("confirm_payment_banking.banking_name_placeholder")} %>
       </div>
       <div class="col-md-6">
         <%= f.input :card_name, input_html: {class: "form-control margin-bot-15",
           "data-validation": "length required",
-          "data-validation-length": "max30"} %><br/>
+          "data-validation-length": "max30",
+          placeholder: t("confirm_payment_banking.card_name_placeholder")} %><br/>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <%= f.input :card_number, input_html: {class: "form-control margin-bot-15",
           "data-validation": "length required",
-          "data-validation-length": "max20"} %><br/>
+          "data-validation-length": "max20",
+          placeholder: t("confirm_payment_banking.card_number_placeholder")} %><br/>
       </div>
       <div class="col-md-6">
         <%= f.input :card_address, input_html: {class: "form-control margin-bot-15",
           "data-validation": "length required",
-          "data-validation-length": "max40"} %><br/>
+          "data-validation-length": "max40",
+          placeholder: t("confirm_payment_banking.card_address_placeholder")} %><br/>
       </div>
     </div>
     <div class="row">
@@ -69,13 +71,13 @@
       <div class="col-md-12">
         <label>
           <%= f.check_box :verified,
-            "data-validation": "required" %><%= t("venue_markets.verify") %>
+            "data-validation": "required" %><%= t("booking_histories.validation.verify_message") %>
         </label>
       </div>
     </div>
     <div class="col-md-12">
       <%= f.button :submit, value: t("confirm_payment_banking.btn_confirm"),
-        class: "btn btn-primary pull-right", data: {confirm: t("confirm_payment_banking.confirm_banking")} %>
+        class: "btn btn-success pull-right", data: {confirm: t("confirm_payment_banking.confirm_banking")} %>
     </div>
   <% end %>
 </div>
