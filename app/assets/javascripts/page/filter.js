@@ -29,7 +29,7 @@ $(document).ready(function(){
     var vals = [];
     sort_condition = $('#sort-space').val();
     if(sort_condition){
-      vals = getSorted('.search_space_detail', 'data-price', sort_condition);
+      vals = getSorted('.search_space_detail', 'data-price', 'data-rate', sort_condition);
       list_space = vals;
       for(var i = 0, l = list_space.length; i < l; i++){
         $('#search-space-result').append(list_space[i]);
@@ -38,13 +38,25 @@ $(document).ready(function(){
   });
 });
 
-function getSorted(selector, attrName, sort_condition) {
+function getSorted(selector, attr_price, attr_rate, sort_condition) {
   return $($(selector).toArray().sort(function(element_before, element_after){
-    var element_before_value = parseInt(element_before.getAttribute(attrName)),
-      element_after_value = parseInt(element_after.getAttribute(attrName));
-    if(sort_condition == 'price_high'){
-      return element_after_value - element_before_value;}
-    if(sort_condition == 'price_low'){
-      return element_before_value - element_after_value;}
+    var price_before_value = parseInt(element_before.getAttribute(attr_price)),
+      price_after_value = parseInt(element_after.getAttribute(attr_price));
+      rate_before_value = parseInt(element_before.getAttribute(attr_rate));
+      rate_after_value = parseInt(element_after.getAttribute(attr_rate));
+    switch(sort_condition) {
+      case 'price_high':
+        return price_after_value - price_before_value;
+        break;
+      case 'price_low':
+        return price_before_value - price_after_value;
+        break;
+      case 'rate_low':
+        return rate_before_value - rate_after_value;
+        break;
+      case 'rate_high':
+        return rate_after_value - rate_before_value;
+        break;
+    }  
   }));
 }

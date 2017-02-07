@@ -8,6 +8,7 @@ price_per_day: 1
 radius_search_in_miles: 5
 default_duration: 1
 default_quantity: 1
+default_rating_avg: 0
 min_duration: 1
 min_quantity: 1
 working_to: "8:00"
@@ -63,7 +64,7 @@ user: "User"
 client_service : "client_service"
 reception : "reception"
 payment_methods_filter: {all: "", paypal: "Paypal", banking: "UserPaymentBanking" , directly: "UserPaymentDirectly"}
-space_sort_by: {"Sort by": "", "Price: Low to High": price_low, "Price: High to Low": price_high}
+space_sort_by: {"Sort by": "", "Price: Low to High": price_low, "Price: High to Low": price_high, "Rate: Low to High": rate_low, "Rate: High to Low": rate_high}
 status_filter: {all: "", requested: 0, pending: 1, paid: 2, closed: 3}
 picture_max_size: 5
 admin:
