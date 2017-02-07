@@ -20,6 +20,7 @@ class Search::SpacesController < ApplicationController
     @review = @space.reviews.build
     @reviews = @space.reviews.created_desc.limit Settings.reviews.per_loading
     respond_to do |format|
+      format.html
       format.js
     end
   end

@@ -307,11 +307,18 @@ hr.style-two {
 }
 
 .inside-cover {
-  position: absolute;
   z-index: 100;
   top: 50px;
   text-color: #FFF !important;
   width: 100%;
+}
+
+.venue-name-color {
+  color: #000 !important;
+}
+
+.btn-back-search {
+  font-size: 20px;
 }
 
 .change-color {
@@ -323,7 +330,7 @@ hr.style-two {
 }
 
 .title-line {
-  background-color: #000 !important;
+  background-color: #00464f !important;
   color: #FFF !important;
 }
 
@@ -342,4 +349,8 @@ hr.style-two {
 
 .color_content_blue {
   color: #428bca !important;
+}
+
+.fix-venue-dropdown {
+  margin: 2px -143px 0 !important;
 }
