@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :bankings
     resources :directlies
     resources :suggest_payment_methods
+    resources :reports
   end
   resources :statistics, only: [:index, :create]
 

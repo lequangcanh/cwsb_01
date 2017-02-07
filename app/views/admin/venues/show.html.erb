@@ -1,19 +1,22 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyJ3SWFP8U5Xmqe3H3X_iOsR1nw1v6_Q&&libraries=places"></script>
 <%= javascript_include_tag "admin/venues.js" %>
 <div class="row full-height margin-left-0 margin-right-0">
-  <div class="col-md-5 max-height-x padding-left-0 padding-right-0">
+  <div class="col-md-6 max-height-x padding-left-0 padding-right-0">
     <div class="map-info full-height">
-      <div id="gmap_canvas" class="map-show full-height"></div>
+      <div id="gmap_canvas" class="map-show-venue full-height"></div>
     </div>
   </div>
-  <div class="col-md-7 max-height-x padding-left-0 padding-right-0 scroll-y">
+  <div class="col-md-6 max-height-x padding-left-0 padding-right-0 scroll-y">
     <div id="space_button">
       <%= render "space_of_venue" %>
+    </div>
+    <div class="report-box">
+      <%= render "box_report" %>
     </div>
     <div class="block full">
       <div class="row margin-left-0 margin-right-0">
         <div class="col-md-1"></div>
-        <div class="col-md-10">       
+        <div class="col-md-10">      
           <div class="name-title">
             <strong><%= t "admin.venues.name" %></strong>
           </div>
@@ -23,7 +26,7 @@
           <div class="name-title">
             <strong><%= t "admin.venues.address" %></strong>
           </div>
-          <div class="form-control" id="address" data-address="<%= @venue.address.details %>">
+          <div class="form-address" id="address" data-address="<%= @venue.address.details %>">
             <%= @venue.address_details %>
           </div>
           <div class="name-title">
@@ -67,9 +70,9 @@
           </div>
           <div class="form-control">
             <%= @venue.website %>
-          </div>     
+          </div> 
         </div>
       </div>
-    </div>
+    </div>   
   </div>
 </div>

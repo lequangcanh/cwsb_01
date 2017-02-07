@@ -62,6 +62,7 @@ en:
   clickable_paymentmethods: "PAYMENT METHODS"
   flash:
     success_message: "successfully!"
+    report_success: "Report success!"
     danger_message: "error"
     success_detail: "update venue detail successfully!"
   from: "From"
@@ -382,6 +383,7 @@ en:
       delete_successfully: "Delete amenity successfully"
       delete_error: "Delete amenity error"
   venues:
+    create: "Create"
     city_placeholder: "E.g: Da Nang"
     street_address_placeholder: "E.g: 255 Hung Vuong"
     website_placeholder: "E.g: http://framgia.com/jp/"
@@ -790,6 +792,8 @@ en:
       block: "Block"
       total_venue: "Venue"
       total_block: "Block"
+      report: "Report"
+      list_report: "List Report"
     new_statistics:
       title: "Statistics - Admin"
       new_statistics_title: "Statistics"

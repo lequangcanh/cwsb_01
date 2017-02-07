@@ -41,6 +41,7 @@ vi:
   clickable_paymentmethods: "PHƯƠNG THỨC THANH TOÁN"
   flash:
     success_message: "thành công!"
+    report_success: "Báo cáo thành công!"
     danger_message: "lỗi"
     success_detail: "cập nhật chi tiết địa điểm thành công!"
   from: "Từ"
@@ -361,6 +362,7 @@ vi:
       delete_successfully: "Xóa tiện nghi thành công"
       delete_error: "Không thể xóa tiện nghi này"
   venues:
+    create: "Gửi"
     city_placeholder: "VD: Đà Nẵng"
     street_address_placeholder: "VD: 255 Hùng Vương"
     website_placeholder: "VD: http://framgia.com/jp/"
@@ -766,6 +768,8 @@ vi:
       block: "Khóa"
       total_venue: "Địa điểm"
       total_block: "Khóa"
+      report: "Báo cáo"
+      list_report: "Báo cáo"
     new_statistics:
       title: "Thống kê - Quản trị viên"
       new_statistics_title: "Thống kê"
