@@ -44,7 +44,8 @@
                     <% end %>
                   </div>
                   <% if space.images.any? %>
-                    <%= image_tag space.images.first.picture_url, class: "hgth-150" %>
+                    <%= link_to image_tag(space.images.first.picture_url, class: "hgth-150"),
+                      edit_venue_space_path(space.venue, space) %>
                   <% end %>
                 </div>
                 <div class="widget-extra themed-background text-center venue-info">

@@ -332,7 +332,7 @@ vi:
       block_title: "Tạo địa điểm"
       th_amenity: "Tiện nghi"
       th_is_free: "Miễn phí"
-      th_edit_delete: "Chỉnh sửa / Xóa"
+      th_edit_delete: "Chỉnh sửa/Xóa"
       th_service_charge: "Phí dịch vụ"
       th_description: "Mô tả"
       inner_left: "Thêm tiện nghi tùy chỉnh"

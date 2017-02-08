@@ -301,7 +301,8 @@ hr.style-two {
 }
 
 .venue-cover {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   max-height: 300px;
   min-height: 100px;
 }
@@ -352,5 +353,6 @@ hr.style-two {
 }
 
 .fix-venue-dropdown {
-  margin: 2px -143px 0 !important;
+  margin: -4px -143px 0 !important;
+  margin-left: -158px !important;
 }

@@ -41,16 +41,10 @@ class AmenitiesController < ApplicationController
   end
 
   def destroy
-    if @amenity.is_default?
+    if @amenity
       venue_amenity = @amenity.venue_amenities
         .find_by_amenity_and_venue @venue, @amenity
       if venue_amenity.destroy
-        flash[:success] = t "amenities.destroy.delete_successfully"
-      else
-        flash[:danger] = t "amenities.destroy.delete_error"
-      end
-    else
-      if @amenity.destroy
         flash[:success] = t "amenities.destroy.delete_successfully"
       else
         flash[:danger] = t "amenities.destroy.delete_error"
