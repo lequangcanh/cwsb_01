@@ -39,6 +39,7 @@ class Venue < ApplicationRecord
   accepts_nested_attributes_for :working_times, allow_destroy: true
 
   scope :order_created, ->{order created_at: :desc}
+  scope :block_count, ->{where(block: true).count}
 
   def create_user_role_venue
     user_role_venues.create user: user, type_role: Settings.owner_role

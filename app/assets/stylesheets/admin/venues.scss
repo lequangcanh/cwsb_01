@@ -99,3 +99,52 @@
   line-height: 1;
   position: relative;
 }
+
+.info-box-venue {
+  display: block;
+  min-height: 45px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.info-box-venue small {
+  font-size: 10px;
+}
+
+.info-box-icon-venue {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  display: block;
+  float: left;
+  height: 47px;
+  width: 45px;
+  text-align: center;
+  font-size: 35px;
+  line-height: 40px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.info-box-venue-content {
+  padding: 5px 10px;
+  margin-left: 50px;
+}
+
+.info-box-venue-number {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.info-box-venue-text {
+  display: block;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}

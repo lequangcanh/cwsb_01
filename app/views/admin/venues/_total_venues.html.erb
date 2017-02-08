@@ -1,0 +1,18 @@
+<div class="col-md-2">
+  <div class="info-box-venue">
+    <span class="info-box-icon-venue bg-green"><i class="fa fa-building"></i></span>
+    <div class="info-box-venue-content">
+      <span class="info-box-venue-text"><%= t "admin.venues.total_venue" %></span>
+      <span class="info-box-venue-number"><%= @total_venue %></span>
+    </div>
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="info-box-venue">
+    <span class="info-box-icon-venue bg-red"><i class="fa fa-ban"></i></span>
+    <div class="info-box-venue-content">
+      <span class="info-box-venue-text"><%= t "admin.venues.total_block" %></span>
+      <span class="info-box-venue-number" id="total-block-venue"><%= @venue_block %></span>
+    </div>
+  </div>
+</div>

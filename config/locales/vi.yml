@@ -764,6 +764,8 @@ vi:
       block_venue: "Bạn có chắc muốn khóa địa điểm này ?"
       unblock_venue: "Mở khóa cho địa điểm này?"
       block: "Khóa"
+      total_venue: "Địa điểm"
+      total_block: "Khóa"
     new_statistics:
       title: "Thống kê - Quản trị viên"
       new_statistics_title: "Thống kê"

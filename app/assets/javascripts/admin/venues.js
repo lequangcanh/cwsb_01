@@ -15,7 +15,7 @@ $(document).on('change', '.block_venue', function() {
   if (confirm(alert))
     return check_block(JSON.parse(this.value));
   else
-    $(this).val(back_value);
+    location.reload();
 });
 
 function check_block(value) {
@@ -31,8 +31,9 @@ function venue_block(block, venue_id) {
     dataType: 'json',
     url: '/admin/venues/' + venue_id,
     data: {venue: {block: block}},
-    success: function() {
+    success: function(data) {
       $.growl.notice({title: '', message:  I18n.t('admin.venues.success')});
+      $('#total-block-venue').text(data['block_venue']);
       $('#block_venue_'+venue_id).val(block);
     },
     error: function(error_message) {

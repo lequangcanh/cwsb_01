@@ -788,6 +788,8 @@ en:
       block_venue: "block?"
       unblock_venue: "unblock?"
       block: "Block"
+      total_venue: "Venue"
+      total_block: "Block"
     new_statistics:
       title: "Statistics - Admin"
       new_statistics_title: "Statistics"
