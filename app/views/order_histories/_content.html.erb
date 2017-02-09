@@ -1,5 +1,5 @@
 <div class="block custom-block col-md-12">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <%= label :payment_detail_type, t(".payment_method_type") %>
       <%= select_tag :payment_detail_type,
         options_for_select(Settings.payment_methods_filter,

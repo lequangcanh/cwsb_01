@@ -17,23 +17,31 @@
         <i class="fa fa-clock-o"> <%= t "notification.time" %></i>
       </label>
     </div>
-    <div class="block">
+    <div class="block col-md-12">
+      <div class="col-md-3"></div>
       <div class="table-responsive">
         <table>
           <% @notifications.each do |notification| %>
             <tr>
               <td>
-                <label class="<%= status_unread notification %> mark-read" data-id="<%= notification.id %>">
-                  <span>
+                <div class="<%= status_unread notification %> mark-read" data-id="<%= notification.id %>">
+                  <div>
+                    <% if current_user.image %>
+                      <%= image_tag current_user.image, size: Settings.reviews.avatar_size,
+                        class: "border-radius-10" %>
+                    <% else %>
+                      <%= image_tag "user.jpg", size: Settings.reviews.avatar_size,
+                        class: "border-radius-10" %>
+                    <% end %>
                     <%= link_to notification.load_message,
                       load_link_notification(notification.message, notification.notifiable_type),
                       class: "style-all-notification" %>
-                  </span>
-                </label>
+                  </div>
+                </div>
                 </p>
               </td>
-              <% end %>
             </tr>
+          <% end %>
         </table>
       </div>
       <div class="row paginate_and_page_info">

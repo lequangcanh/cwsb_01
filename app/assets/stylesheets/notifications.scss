@@ -47,7 +47,6 @@ ul #notificationList
   -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
   overflow: visible;
   position: absolute;
-  top: 70px;
   width: 280px;
   z-index: 0;
   display: none;
@@ -56,9 +55,11 @@ ul #notificationList
   z-index: 9999 !important;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
 
 .notificationContainer:before {
-  content: '';
   display: block;
   position: absolute;
   width: 0;
@@ -78,10 +79,11 @@ ul #notificationList
   overflow: auto;
   position: relative;
   width: 100%;
-  background: #00464f;
+  background: rgb(255, 255, 255);
 }
  #notificationsTitle{
   margin-bottom: 35px;
+  margin-right: 4%;
  }
 
 #notificationFooter
@@ -95,7 +97,7 @@ ul #notificationList
 }
 
 .style-notification {
-  color: #FFF !important;
+  color: #333 !important;
   margin-left: 5px;
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
@@ -129,7 +131,17 @@ ul #notificationList
 }
 
 .unread {
-  background: rgba(130, 132, 134, 0.44);
+  background: #dddddd;
+}
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.hr-notification {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-color: #afa6a6;
 }
 
 .read-all {
