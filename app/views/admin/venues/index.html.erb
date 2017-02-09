@@ -9,7 +9,12 @@
         </h1>
       </div>
     </div>
-    <%= render "search_venues_form" %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-0">
+        <%= render "search_venues_form" %>
+      </div>
+      <%= render "total_venues" %>
+    </div>
     <div id="list_venue">
       <%= render "list_venue" %>
     </div>
