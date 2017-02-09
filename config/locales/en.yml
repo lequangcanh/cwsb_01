@@ -353,7 +353,7 @@ en:
       block_title: "Create Venue"
       th_amenity: "Amenity"
       th_is_free: "Is Free"
-      th_edit_delete: "Edit / Delete"
+      th_edit_delete: "Edit/Delete"
       th_service_charge: "Service charge"
       th_description: "Description"
       inner_left: "Add custom amenity"

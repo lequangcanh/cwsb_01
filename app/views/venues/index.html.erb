@@ -35,16 +35,16 @@
           </div>
           <div data-percent="90" data-line-width="2" data-bar-color="#333333" data-track-color="#eeeeee">
             <% if venue.images.any? %>
-              <%= image_tag venue.images.first.picture_url,
-                class:"img wth-80" %>
+              <%= link_to image_tag(venue.images.first.picture_url,
+                class: "img wth-80"), edit_venue_path(venue) %>
             <% else %>
-              <%= image_tag "not_available", class: "img wth-80" %>
+              <%= link_to image_tag("not_available", class: "img wth-80"), edit_venue_path(venue) %>
             <% end %>
           </div>
         </div>
         <div class="widget-extra themed-background text-center venue-info">
           <h3 class="widget-content-light">
-            <%= link_to edit_venue_path(venue), class: "venue_title" do %>
+            <%= link_to venue_path(venue), class: "venue_title" do %>
               <strong><%= venue.name %></strong><br>
             <% end %>
           </h3>

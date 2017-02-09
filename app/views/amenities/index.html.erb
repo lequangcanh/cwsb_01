@@ -21,49 +21,51 @@
         </thead>
         <tbody>
           <% @venue.amenities.each do |amenity| %>
-            <tr>
-              <td class="text-center">
-                <%= amenity.name %>
-              </td>
-              <td class="text-center">
-                <%= amenity.description %>
-              </td>
-              <td class="text-center">
-                <%= form_for edit_venue_amenity_path(@venue, amenity),
-                  html: {name: "amenity-#{amenity.id}",
-                  remote: true, method: :get} do |f| %>
-                  <label class="switch switch-primary">
-                    <%= f.check_box :is_free, {id: amenity.id,
-                      class: "cb-is-free", checked: amenity.is_free},
-                      amenity.is_free %>
-                    <span></span>
-                  </label>
-                <% end %>
-              </td>
-              <td class="text-center" id="service-charge-<%=amenity.id%>">
-                <% if amenity.is_free %>
-                  <%= t ".free" %>
-                <% else %>
-                  <%= amenity.service_charge.price %>
-                  <%= t ".vnd_per" %>
-                  <%= amenity.service_charge.quantity %>
-                  <%= amenity.service_charge.price_type.content %>
-                <% end %>
-              </td>
-              <td class="text-center">
-                <div class="btn-group btn-group-xs">
-                  <%= link_to edit_venue_amenity_path(@venue, amenity),
-                    class: "btn btn-default btn-edit" do %>
-                    <i class="fa fa-pencil"></i>
+            <% if amenity.service_charge %>
+              <tr>
+                <td class="text-center">
+                  <%= amenity.name %>
+                </td>
+                <td class="text-center">
+                  <%= amenity.description %>
+                </td>
+                <td class="text-center">
+                  <%= form_for edit_venue_amenity_path(@venue, amenity),
+                    html: {name: "amenity-#{amenity.id}",
+                      remote: true, method: :get} do |f| %>
+                    <label class="switch switch-primary">
+                      <%= f.check_box :is_free, {id: amenity.id,
+                        class: "cb-is-free", checked: amenity.is_free},
+                        amenity.is_free %>
+                      <span></span>
+                    </label>
                   <% end %>
-                  <%= link_to venue_amenity_path(@venue, amenity),
-                    method: :delete, class: "btn btn-danger",
-                    data: {confirm: t(".confirm")} do %>
-                    <i class="fa fa-times"></i>
+                </td>
+                <td class="text-center" id="service-charge-<%=amenity.id%>">
+                  <% if amenity.is_free %>
+                    <%= t ".free" %>
+                  <% else %>
+                    <%= amenity.service_charge.price %>
+                    <%= t ".vnd_per" %>
+                    <%= amenity.service_charge.quantity %>
+                    <%= amenity.service_charge.price_type.content %>
                   <% end %>
-                </div>
-              </td>
-            </tr>
+                </td>
+                <td class="text-center">
+                  <div class="btn-group btn-group-xs">
+                    <%= link_to edit_venue_amenity_path(@venue, amenity),
+                      class: "btn btn-default btn-edit" do %>
+                      <i class="fa fa-pencil"></i>
+                    <% end %>
+                    <%= link_to venue_amenity_path(@venue, amenity),
+                      method: :delete, class: "btn btn-danger",
+                      data: {confirm: t(".confirm")} do %>
+                      <i class="fa fa-trash"></i>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
             <div tabindex="-1" class="modal fade"
               role="dialog" id="modal-user-settings-<%=amenity.id%>">
               <div class="modal-dialog" role="document">
