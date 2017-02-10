@@ -8,8 +8,8 @@ class SuggestPaymentMethodsController < ApplicationController
           if venue.have_payment_method? && venue != @venue
             @payment_methods = venue.payment_methods
             ActiveRecord::Base.transaction do
-              raise ActiveRecord::RecordNotSaved unless copy_payment_directly(@payment_methods) ||
-                copy_payment_banking(@payment_methods) || copy_paypals(@payment_methods)
+              raise ActiveRecord::RecordNotSaved unless copy_payment_directly(@payment_methods) &&
+                copy_payment_banking(@payment_methods) && copy_paypals(@payment_methods)
             end
           end
         end
@@ -29,46 +29,45 @@ class SuggestPaymentMethodsController < ApplicationController
   end
 
   def copy_payment_directly payment_methods
-    unless @venue.directly.any?
+    unless @venue.directly.any? || payment_methods.directly.blank?
       payment_directly = payment_methods.find_by payment_type:
         Settings.payment_methods.directly
-      if payment_directly
-        directly_old = Directly.find_by payment_method: payment_directly
-        directly = Directly.create directly_old.attributes.symbolize_keys
-          .except(:created_at, :updated_at, :id)
-          .merge payment_method_id: nil, venue: @venue, pending_time: directly_old.pending_time
-        return true
-      end
+      directly_old = Directly.find_by payment_method: payment_directly
+      directly = Directly.create directly_old.attributes.symbolize_keys
+        .except(:created_at, :updated_at, :id)
+        .merge payment_method_id: nil, venue: @venue, pending_time: directly_old.pending_time
+      return false unless directly
     end
-    false
+    return true
   end
 
   def copy_payment_banking payment_methods
-    unless @venue.banking.any?
+    unless @venue.banking.any? || payment_methods.banking.blank?
       payment_banking = payment_methods.find_by payment_type:
         Settings.payment_methods.banking
-      if payment_banking
-        banking_old = Banking.find_by payment_method: payment_banking
-        banking = Banking.create banking_old.attributes.symbolize_keys
-          .except(:created_at, :updated_at, :id)
-          .merge payment_method_id: nil, venue: @venue, pending_time: banking_old.pending_time
-        return true
-      end
+      banking_old = Banking.find_by payment_method: payment_banking
+      banking = Banking.create banking_old.attributes.symbolize_keys
+        .except(:created_at, :updated_at, :id)
+        .merge payment_method_id: nil, venue: @venue, pending_time: banking_old.pending_time
+      return false unless banking
     end
-    false
+    return true
   end
 
   def copy_paypals payment_methods
-    unless @venue.paypal.any?
-      payment_methods.paypal.each do |payment|
-        if payment.is_chosen?
+    unless payment_methods.paypal.blank?
+      payment_methods.paypal.order_by_updated.each do |payment|
+        if payment.is_chosen? && !@venue.payment_methods.paypal.pluck(:email).include?(payment.email)
           payment_method = @venue.payment_methods.create payment.attributes.symbolize_keys
             .except(:created_at, :updated_at, :id)
-          return true
-            break
+          return false unless payment_method
+          if @venue.payment_methods.paypal.pluck(:is_chosen).include?(true) &&
+            @venue.payment_methods.paypal.count > number_is_chosen
+            payment_method.update_attributes is_chosen: false
+          end
         end
       end
     end
-    false
+    return true
   end
 end
