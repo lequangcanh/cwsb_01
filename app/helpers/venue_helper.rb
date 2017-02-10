@@ -27,4 +27,8 @@ module VenueHelper
       "lock"
     end
   end
+
+  def count_report object
+    object.reports.count
+  end
 end

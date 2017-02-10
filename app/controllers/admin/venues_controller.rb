@@ -16,6 +16,8 @@ class Admin::VenuesController < Admin::BaseController
   def show
     @venue = Venue.find_by id: params[:id]
     return render file: Settings.admin.page_404_url unless @venue
+    @report_venue = @venue.reports.order_report.page(params[:page])
+      .per Settings.admin.venues.per_page_report
     @spaces = @venue.spaces
   end
 

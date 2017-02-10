@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206034316) do
+ActiveRecord::Schema.define(version: 20170207075702) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -323,6 +323,17 @@ ActiveRecord::Schema.define(version: 20170206034316) do
     t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
   end
 
+  create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "venue_id"
+    t.integer  "type_report"
+    t.text     "content",     limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
+    t.index ["venue_id"], name: "index_reports_on_venue_id", using: :btree
+  end
+
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",    null: false
     t.integer  "user_id"
@@ -511,6 +522,8 @@ ActiveRecord::Schema.define(version: 20170206034316) do
   add_foreign_key "permissions", "roles"
   add_foreign_key "prices", "booking_types"
   add_foreign_key "prices", "spaces"
+  add_foreign_key "reports", "users"
+  add_foreign_key "reports", "venues"
   add_foreign_key "reviews", "spaces"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "venues"

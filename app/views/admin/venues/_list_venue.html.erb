@@ -5,6 +5,7 @@
     <th><%= t "admin.venues.address" %></th>
     <th><%= t "admin.venues.email" %></th>
     <th><%= t "admin.venues.block" %></th>
+    <th><%= t "admin.venues.report" %></th>
   </tr>
   <% @venues.each do |venue| %>
     <tr>
@@ -18,6 +19,10 @@
             data: {id: venue.id} %>
           <span></span>
         </label>
+      </td>
+      <td>
+        <%= link_to count_report(venue), admin_venue_path(venue) %>
+        <i class="fa fa-flag-checkered" aria-hidden="true"></i>
       </td>
     </tr>
   <% end %>

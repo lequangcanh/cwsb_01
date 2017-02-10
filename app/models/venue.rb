@@ -20,6 +20,7 @@ class Venue < ApplicationRecord
   has_many :directly, through: :payment_methods
   has_many :paypal, through: :payment_methods
   has_many :orders
+  has_many :reports
   has_one :user_payment_directly
 
   attr_accessor :user

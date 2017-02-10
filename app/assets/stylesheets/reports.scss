@@ -1,0 +1,126 @@
+.report-box {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  width: 300px !important;
+  background-color: #24884e !important;
+  z-index: 9000;
+  border-radius: 5px !important;
+}
+
+.panel {
+  box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 24px;
+}
+
+.panel .panel-heading, .panel>:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.panel-heading {
+  position: relative;
+  height: 25px;
+  padding: 0;
+  border-bottom:1px solid #eee;
+}
+
+.panel-control {
+  position: relative;
+  float: right;
+  padding: 0 15px;
+}
+
+.panel-title {
+  font-weight: normal;
+  padding: 0 20px 0 20px;
+  font-size: 1.416em;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-control>.btn:last-child, .panel-control>.btn-group:last-child>.btn:first-child {
+  border-bottom-right-radius: 0;
+}
+
+.panel-control .btn, .panel-control .dropdown-toggle.btn {
+  border: 0;
+}
+
+.nano {
+  height: 380px !important;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.nano>.nano-content {
+  right: -17px !important;
+  position: absolute;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.pad-all {
+  padding: 15px;
+  right: -17px !important;
+}
+
+#demo-body {
+  min-height: 10px;
+}
+
+.btn-custom {
+  cursor: pointer;
+  background-color: #24884e !important;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 0;
+  border: 1px solid 0;
+  font-size: 11px;
+  line-height: 1.42857;
+  vertical-align: middle;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.form-control {
+  font-size: 11px;
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid #e9e9e9;
+  transition-duration: .5s;
+}
+
+.nano>.nano-pane {
+  background-color: rgba(0,0,0,0.1);
+  position: absolute;
+  width: 5px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: all .7s;
+  transition: all .7s;
+}
+
+.report-box-footer {
+  background-color: #24884e !important;
+  padding: 5px 0px;
+}
+
+.title-block {
+  text-align: right;
+  color: #d6ff00;
+  font-size: 20px;
+}

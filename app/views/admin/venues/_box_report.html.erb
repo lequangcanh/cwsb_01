@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="col-md-10 offset-md-6 panel report-box">
+  <div class="row panel-heading">
+    <div class="title-block col-md-8">
+      <i class="fa fa-flag-checkered" aria-hidden="true"></i>
+      <strong><%= t "admin.venues.list_report" %></strong>
+    </div>
+    <div class="row panel-control">
+      <div class="btn-group col-md-4">
+        <button class="btn btn-default btn-custom" type="button" data-toggle="collapse" 
+          data-target="#demo-body"><i class="fa fa-chevron-down"></i></button>
+      </div>
+    </div> 
+  </div>
+  <div id="demo-body" class="collapse in">
+    <div class="nano has-scrollbar">
+      <div class="nano-content pad-all">
+        <ul class="list-unstyled media-block">
+          <% @report_venue.each do |report| %>
+            <li class="gi gi-user"></li>
+            <strong><%= report.user.name %></strong>
+            <%= report.content %>
+            <br>
+          <% end %>
+          <%= paginate @report_venue %>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-footer report-box-footer"></div>
+  </div>
+</div>

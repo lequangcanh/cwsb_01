@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :orders, through: :venues
   has_many :user_payment_bankings
   has_many :user_payment_directlies
+  has_many :reports
 
   enum status: {active: 1, blocked: 2, reject: 3}
 
