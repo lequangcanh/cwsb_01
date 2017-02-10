@@ -112,3 +112,4 @@ amenities: {wifi: "WiFi", restaurant: "Cafe/ Restaurant", drink: "Coffee/ Tea/ F
 user:
   venue:
     per_page: 4
+number_is_chosen: 1
