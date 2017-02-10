@@ -56,6 +56,9 @@ function update_single_state(){
       },
       success: function(data) {
         $.growl.notice({ message: data['flash'] });
+        if(state === 'accepted'){
+          $('.hidden-booking-' + booking).remove();
+        }
       },
       error: function(error_message) {
         $.growl.error({ message: 'error ' + error_message });
@@ -89,6 +92,7 @@ function update_all_state(){
         success: function(data) {
           $.growl.notice({ message: data['flash'] });
           display_state_after_update(bunch_of_booking_id);
+          $('.hide-all-booking-' + venue_id).remove();
         },
         error: function(error_message) {
           $.growl.error({ message: 'error ' + error_message });

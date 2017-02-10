@@ -31,13 +31,9 @@
             <i class="fa fa-envelope-o"></i>
             <%= venue.email %>
           </address>
-          <div class="request-all margin-bot-70">
-            <%= button_tag t(".accept_all"),
-              class: "btn btn-danger check-all", id: "#{venue.id}" %>
-          </div>
         </div>
         <div class="table-responsive padding-0-15">
-          <table class="table table-vcenter bookings-table">
+          <table class="table table-vcenter bookings-table hide-all-booking-<%= venue.id %>">
             <tbody>
               <% venue.orders.each_with_index do |order, index| %>
                 <% unless order.paid? %>
@@ -95,7 +91,11 @@
                   <span class="h3">
                     <strong><%= t ".total_due" %></strong>
                     <strong id="total-price-<%= venue.id %>"></strong>
-                  </span>
+                  </span></p>
+                  <div class="float-right">
+                      <%= button_tag t(".accept_all"),
+                        class: "btn btn-danger check-all color-black padding-2", id: "#{venue.id}" %>
+                    </div>
                 </td>
               </tr>
             </tbody>
