@@ -1,4 +1,4 @@
-<nav class="navbar navbar-m2p sidebar navbar-m2p-active overflow-auto" role="navigation">
+<nav class="navbar navbar-m2p sidebar navbar-m2p-active" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -18,9 +18,7 @@
       <ul class="nav navbar-nav nav-custom">
         <div class="padding-top-5"></div>
         <div class="search-space">
-          <li>
-            <%= link_to t("layout.search_for_space"), search_spaces_url, class: "fa fa-search" %>
-          </li>
+          <%= link_to t("layout.search_for_space"), search_spaces_url, class: "fa fa-search" %>
         </div>
         <div class="padding-top-5"></div>
         <% if user_signed_in? %>
@@ -48,17 +46,19 @@
           </div>
         <% end %>
         <div class="padding-top-11"></div>
-        <div class="row col-md-12">
-          <nav class="collapse navbar-collapse navbar-left padding-top-6">
-            <a target="_blank" class="padding-left-15 color-white"
+        <div class="row col-md-12 padding-top-6">
+          <div class="col-md-5">
+            <a target="_blank" class="color-white"
               href="https://drive.google.com/open?id=0B5H0vEUdbVhCcmhGT0VFclQ4XzA">
               <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %>
             </a>
-            <a target="_blank" class="padding-left-40 color-white"
+          </div>
+          <div class="col-md-7">
+            <a target="_blank" class="color-white"
               href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
               <i class="fa fa-commenting-o"></i> <%= t "layout.feedback" %>
             </a>
-          </nav>
+          </div>
         </div>
         <div class="padding-top-5"></div>
         <div class="col-md-12 padding-top-10">
@@ -84,7 +84,7 @@
               <% end %>
             </ul>
           </li>
-          <a href="#" class="padding-left-10" id="open_notification">
+          <a href="#" id="open_notification">
             <span class="fix-noti">
               <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
             </span>

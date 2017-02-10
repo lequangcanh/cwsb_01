@@ -1,5 +1,5 @@
 <% unless booking.deleted_at.present? %>
-  <tr class="col-md-12">
+  <tr class="col-md-12 hidden-booking-<%= booking.id %>">
     <td class="first col-md-1">
       <h4 class="row" id="form-name-space">
         <%= link_to booking.space.name %>
