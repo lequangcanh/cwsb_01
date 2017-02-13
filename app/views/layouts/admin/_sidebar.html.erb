@@ -1,3 +1,4 @@
+<%= javascript_include_tag "admin/notifications.js" %>
 <nav class="navbar navbar-m2p sidebar navbar-m2p-active" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -47,6 +48,11 @@
                         title: t("layout.logout"), class: "enable-tooltip" do %>
                         <i class="gi gi-exit"></i>
                       <% end %>
+                       <a href="#" class="padding-left-10" id="open_notification_admin">
+                        <span class="fix-noti">
+                          <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
+                        </span>
+                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -95,3 +101,20 @@
     </div>
   </div>
 </nav>
+<% if admin_signed_in? %>
+  <div class="notificationContainer-admin" id="none">
+    <div id="notificationsBody" class="notifications">
+      <div id="notificationsTitle">
+        <%= link_to t("notification.mark_read_all"), admin_reads_path,
+          method: :post, remote: true, class: "pull-right read-all" %>
+      </div>
+      <hr/>
+      <ul id="notificationList">
+        <%= render "admin/notifications/list" %>
+      </ul>
+    </div>
+    <div id="notificationFooter">
+      <%= link_to t("notification.view_all"), admin_notifications_path, id: "color-view" %>
+    </div>
+  </div>
+<% end %>

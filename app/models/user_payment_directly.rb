@@ -4,6 +4,7 @@ class UserPaymentDirectly < ApplicationRecord
 
   has_one :order, as: :payment_detail
   has_many :notifications, as: :notifiable
+  has_many :notifications, as: :receiver
   belongs_to :user
 
   enum status: { rejected: 0, pending: 1, accepted: 2 }
@@ -23,7 +24,7 @@ class UserPaymentDirectly < ApplicationRecord
     owners.each do |owner|
       case
       when pending?
-        notifications.create message: :requested, receiver_id: owner.user.id, owner_id: user.id
+        notifications.create message: :requested, receiver: owner.user, owner_id: user.id
       end
     end
   end
@@ -35,9 +36,9 @@ class UserPaymentDirectly < ApplicationRecord
     owners.each do |owner|
       case
       when rejected?
-        notifications.create message: :rejected, receiver_id: user.id, owner_id: owner.user.id
+        notifications.create message: :rejected, receiver: user, owner_id: owner.user.id
       when accepted?
-        notifications.create message: :accepted, receiver_id: user.id, owner_id: owner.user.id
+        notifications.create message: :accepted, receiver: user, owner_id: owner.user.id
       end
     end
   end

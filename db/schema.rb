@@ -212,6 +212,7 @@ ActiveRecord::Schema.define(version: 20170213124156) do
     t.string   "message"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "receiver_type"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id", using: :btree
     t.index ["owner_id"], name: "index_notifications_on_owner_id", using: :btree
     t.index ["receiver_id", "owner_id"], name: "index_notifications_on_receiver_id_and_owner_id", using: :btree
@@ -337,14 +338,18 @@ ActiveRecord::Schema.define(version: 20170213124156) do
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",         limit: 65535, null: false
     t.integer  "user_id"
+    t.integer  "venue_id"
     t.datetime "deleted_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "space_id"
     t.string   "reviewable_type"
     t.integer  "reviewable_id"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at", using: :btree
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id", using: :btree
+    t.index ["space_id"], name: "index_reviews_on_space_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+    t.index ["venue_id"], name: "index_reviews_on_venue_id", using: :btree
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -532,7 +537,9 @@ ActiveRecord::Schema.define(version: 20170213124156) do
   add_foreign_key "prices", "spaces"
   add_foreign_key "reports", "users"
   add_foreign_key "reports", "venues"
+  add_foreign_key "reviews", "spaces"
   add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "venues"
   add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"
   add_foreign_key "supports", "users"

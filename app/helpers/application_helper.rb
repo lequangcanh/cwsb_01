@@ -14,6 +14,12 @@ module ApplicationHelper
     end
   end
 
+  def count_notification_read_admin
+    if admin_signed_in?
+      current_noti_unread = @count_notification_unread_admin
+    end
+  end
+
   def status_unread notification
     unless notification.status?
       t "notification.unread"

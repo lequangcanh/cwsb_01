@@ -5,4 +5,5 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   belongs_to :role
+  has_many :notifications, as: :receiver
 end

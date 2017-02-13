@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :load_notification
   before_action :set_locale
   before_action :load_support_messages
+  before_action :load_notification_admin
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to :back, alert: exception.message
@@ -23,8 +24,15 @@ class ApplicationController < ActionController::Base
 
   def load_notification
     if user_signed_in?
-      @notifications = Notification.by_receiver(current_user.id).newest
+      @notifications = Notification.by_receiver(current_user).newest
       @count_notification_unread = @notifications.unread.size
+    end
+  end
+
+  def load_notification_admin
+    if admin_signed_in?
+      @notifications_admin = Notification.by_receiver(current_admin).limit(Settings.notification.limit).newest
+      count_notification_unread_admin = @notifications_admin.unread.size   
     end
   end
 

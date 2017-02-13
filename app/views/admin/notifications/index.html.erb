@@ -1,0 +1,50 @@
+<% provide :title, t("admin.notification.title") %>
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
+  <div class="block-title-notification">
+    <h3 class="btn-edit">
+      <i class="fa fa-bell"></i>
+      <strong><%= t "notification.all" %></strong>
+    </h3>
+  </div>
+  <div class="block-all-notification all-notification">
+    <div class="block-section text-center">
+      <a href="javascript:">
+        <%= image_tag "notification.jpg", class: "avatar" %>
+      </a>
+      </p>
+      <label>
+        <i class="fa fa-inbox"> <%= t "notification.message" %></i> &
+        <i class="fa fa-clock-o"> <%= t "notification.time" %></i>
+      </label>
+    </div>
+    <div class="block col-md-12">
+      <div class="col-md-3"></div>
+      <div class="table-responsive">
+        <table>
+          <% @notifications.each do |notification| %>
+            <tr>
+              <td>
+                <div class="<%= status_unread notification %> mark-read" data-id="<%= notification.id %>">
+                  <div>
+                    <span><i class="fa fa-flag-checkered" aria-hidden="true"></i></span>
+                    <%= link_to notification.load_message, admin_venues_path,
+                      class: "style-all-notification" %>
+                  </div>
+                </div>
+                </p>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="row paginate_and_page_info">
+        <div class="col-md-12">
+          <%= paginate @notifications %>
+        </div>
+        <div class="col-md-12">
+          <%= page_entries_info @notifications %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

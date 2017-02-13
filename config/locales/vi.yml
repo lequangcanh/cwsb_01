@@ -705,6 +705,8 @@ vi:
       permissions13: "Dữ liệu & Phân tích"
       permissions14: "Quản trị viên"
   admin:
+    notification:
+      title: "Quản trị viên- thông báo"
     admin: "Thêm mới quản trị viên"
     users:
       users_management: "Quản lý người dùng"
