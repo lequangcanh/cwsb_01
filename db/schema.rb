@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207075702) do
+ActiveRecord::Schema.define(version: 20170213124156) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -335,17 +335,16 @@ ActiveRecord::Schema.define(version: 20170207075702) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "content",    null: false
+    t.text     "content",         limit: 65535, null: false
     t.integer  "user_id"
-    t.integer  "venue_id"
     t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "space_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "reviewable_type"
+    t.integer  "reviewable_id"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at", using: :btree
-    t.index ["space_id"], name: "index_reviews_on_space_id", using: :btree
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
-    t.index ["venue_id"], name: "index_reviews_on_venue_id", using: :btree
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -379,6 +378,15 @@ ActiveRecord::Schema.define(version: 20170207075702) do
     t.datetime "updated_at",                            null: false
     t.index ["deleted_at"], name: "index_spaces_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_spaces_on_venue_id", using: :btree
+  end
+
+  create_table "supports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.text     "content",    limit: 65535
+    t.boolean  "from_admin",               default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["user_id"], name: "index_supports_on_user_id", using: :btree
   end
 
   create_table "user_payment_bankings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -524,11 +532,10 @@ ActiveRecord::Schema.define(version: 20170207075702) do
   add_foreign_key "prices", "spaces"
   add_foreign_key "reports", "users"
   add_foreign_key "reports", "venues"
-  add_foreign_key "reviews", "spaces"
   add_foreign_key "reviews", "users"
-  add_foreign_key "reviews", "venues"
   add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"
+  add_foreign_key "supports", "users"
   add_foreign_key "user_payment_bankings", "users"
   add_foreign_key "user_payment_directlies", "users"
   add_foreign_key "user_role_venues", "users"

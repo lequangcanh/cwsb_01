@@ -1,0 +1,2 @@
+<% provide :button_text, t("reviews.update_review") %>
+$('#review_<%= @review.id %>').html('<%= j render partial: "reviews/review_form", locals: {object: @review.reviewable} %>');

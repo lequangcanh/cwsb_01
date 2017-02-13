@@ -1,3 +1,6 @@
+<% provide :button_text, t("reviews.submit_review") %>
+<%= javascript_include_tag "reviews.js" %>
+
 <div class="row full-height margin-left-0 margin-right-0 scroll-y">
   <div class="padding-top-10"></div>
   <% if @venue.images.any? %>
@@ -37,6 +40,26 @@
           </div>
         <% end %>
       </div>
+      <div class="padding-top-30 col-md-12"></div>
+      <div class="col-md-12 change-color">
+        <p>
+          <strong><%= t "reviews.reviews" %></strong>
+        </p>
+        <div class="review_form">
+          <% if user_signed_in? %>
+            <%= render partial: "reviews/review_form", locals: {object: @venue} %>
+          <% end %>
+        </div>
+        <div id="list_reviews">
+          <%= render partial: "reviews/review", collection: @reviews %>
+        </div>
+        <div class="load_more_review">
+          <%= image_tag "loading.gif", class: "loading_gif" %>
+          <%= link_to t("reviews.load_more"), "#",
+            class: "load_more_review_btn btn btn-primary" %>
+        </div>
+      </div>
+      <div class="padding-top-30 col-md-12"></div>
     </div>
     <div class="col-md-5 change-color">
       <div class="text-center title-line">
