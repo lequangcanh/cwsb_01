@@ -1,0 +1,11 @@
+<div class="row">
+  <% if support.from_admin %>
+    <div class="message-from-admin">
+      <%= support.content %>
+    </div>
+  <% else %>
+    <div class="message-from-user">
+      <%= support.content %>
+    </div>
+  <% end %>
+</div>

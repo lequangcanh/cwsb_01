@@ -9,7 +9,7 @@ class User < ApplicationRecord
     :confirmable,:omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   ratyrate_rater
-  
+
   has_one :image
   has_many :bookings
   has_many :reviews
@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :user_payment_bankings
   has_many :user_payment_directlies
   has_many :reports
+  has_many :supports
 
   enum status: {active: 1, blocked: 2, reject: 3}
 

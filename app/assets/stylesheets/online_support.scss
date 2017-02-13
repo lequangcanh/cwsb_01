@@ -1,0 +1,56 @@
+.online-support-form {
+  position: fixed;
+  left: 20px;
+  bottom: 10px;
+  z-index: 10000;
+  border: 1px solid black;
+}
+
+.message-from-admin {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #6495ED;
+}
+
+.message-from-user {
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #A9A9A9;
+}
+
+.user-support-list {
+  height: 300px;
+  width: 300px;
+}
+
+.online-support-title {
+  width: 50px;
+  transition: width 2s;
+  a {
+    color: #6495ED !important;
+  }
+}
+
+.admin-list-users {
+  height: 80vh;
+  display: block;
+  overflow-y: scroll;
+}
+
+.admin-support-form {
+  height: 80vh;
+  display: block;
+  bottom: 0;
+}
+
+.admin-support-list {
+  height: 70vh;
+  display: block;
+  overflow-y: scroll;
+}

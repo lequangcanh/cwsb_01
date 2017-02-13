@@ -1,0 +1,10 @@
+<table class="table table-striped table-responsive">
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to user.name, admin_supports_path(user_id: user.id),
+          method: :post, remote: true %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_notification
   before_action :set_locale
+  before_action :load_support_messages
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to :back, alert: exception.message
@@ -30,6 +31,22 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for resource
     return new_admin_session_path if resource == :admin
     return root_path if resource == :user
+  end
+
+  def load_support_messages
+    if user_signed_in?
+      @support = current_user.supports.build
+      @supports = current_user.supports.all
+      @from_admin = false
+    end
+  end
+
+  def find_user
+    @user = User.find_by id: params[:user_id]
+    unless @user
+      flash[:danger] = t "admin.users.user_not_found"
+      redirect_to root_path
+    end
   end
 
   private

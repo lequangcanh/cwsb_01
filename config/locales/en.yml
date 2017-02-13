@@ -754,6 +754,7 @@ en:
       users: "&nbsp; Users"
       venues: "&nbsp; Venues"
       activities: "&nbsp; Activities"
+      supports: "&nbsp; Client's Chat"
     venues:
       admin_venue_details_title: "Venue details"
       admin_venues_management_title: "Venues Management-Admin"
@@ -810,6 +811,8 @@ en:
       password: "Enter your password"
       remember_me: "Remember me"
       log_in: "Log in"
+    supports:
+      admin_supports_title: "Client's Chat"
   public_activity:
     activity_venue_create: "Created venue: "
     activity_venue_update: "Updated venue: "
