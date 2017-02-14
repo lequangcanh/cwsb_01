@@ -1,4 +1,4 @@
-$('#list_review_space').append('<%= j render partial: @reviews %>');
+$('#list_reviews').append('<%= j render partial: "reviews/review", collection: @reviews %>');
 <% if @end_of_data %>
   $('.load_more_review_btn').hide();
 <% else %>

@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var number_of_record = $('#list_review_space').find('.review_record').length;
-  if(number_of_record <10 ) {
+  var number_of_record = $('#list_reviews').find('.review_record').length;
+  if(number_of_record < 10) {
     $('.load_more_review_btn').hide();
   }
 
@@ -8,11 +8,12 @@ $(document).ready(function() {
     $(this).hide();
     $('.loading_gif').show();
     var last_id = $('.review_record').last().attr('data-id');
-    var space_id = $('.review_record').last().attr('data-space');
+    var reviewable_id = $('.review_record').last().attr('data-reviewable-id');
+    var reviewable_type = $('.review_record').last().attr('data-reviewable-type');
     $.ajax({
       type: 'GET',
-      url: '/search/reviews',
-      data: {last_id: last_id, space_id: space_id},
+      url: '/reviews',
+      data: {last_id: last_id, reviewable_id: reviewable_id, reviewable_type: reviewable_type},
       dataType: 'script',
       success: function(data) {
         $('.loading_gif').hide();

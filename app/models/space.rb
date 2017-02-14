@@ -1,7 +1,7 @@
 class Space < ApplicationRecord
   include RecordFindingByTime
   include PublicActivity::Model
-  
+
   tracked owner: Proc.new{|controller, model| controller.current_user}
 
   acts_as_paranoid
@@ -14,7 +14,7 @@ class Space < ApplicationRecord
   has_many :prices, dependent: :destroy
   has_many :coupons, dependent: :destroy
   has_many :booking_types, through: :prices
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, as: :reviewable, dependent: :destroy
 
   enum space_type: {desk: 0, prive_office: 1, meeting_room: 2, coworking_space: 3}
 

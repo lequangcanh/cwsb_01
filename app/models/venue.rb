@@ -12,7 +12,6 @@ class Venue < ApplicationRecord
   has_many :users, through: :user_role_venues
   has_many :amenities, through: :venue_amenities
   has_many :venue_amenities, dependent: :destroy
-  has_many :reviews, dependent: :destroy
   has_many :spaces, dependent: :destroy
   has_many :working_times, dependent: :destroy
   has_many :payment_methods, dependent: :destroy
@@ -22,6 +21,7 @@ class Venue < ApplicationRecord
   has_many :orders
   has_many :reports
   has_one :user_payment_directly
+  has_many :reviews, as: :reviewable, dependent: :destroy
 
   attr_accessor :user
 
