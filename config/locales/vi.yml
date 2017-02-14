@@ -730,6 +730,7 @@ vi:
       users: "&nbsp; Người dùng"
       venues: "&nbsp; Địa điểm"
       activities: "&nbsp; Hoạt động"
+      supports: "&nbsp; Chat với khách hàng"
     venues:
       admin_venue_details_title: "Chi tiết địa điểm"
       admin_venues_management_title: "Quản lý địa điểm-Trang quản trị"
@@ -786,6 +787,8 @@ vi:
       password: "Nhập mật khẩu của bạn"
       remember_me: "Ghi nhớ tài khoản này"
       log_in: "Đăng nhập"
+    supports:
+      admin_supports_title: "Chat với khách hàng"
   public_activity:
     activity_venue_create: "Tạo địa điểm: "
     activity_venue_update: "Cập nhật địa điểm: "

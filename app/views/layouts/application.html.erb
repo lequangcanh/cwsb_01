@@ -19,5 +19,6 @@
     <div class="container custom-container full-height">
       <%= yield %>
     </div>
+    <%= render "layouts/shared/online_support" if user_signed_in? %>
   </body>
 </html>

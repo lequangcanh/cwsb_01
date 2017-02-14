@@ -1,0 +1,21 @@
+<% provide :title, t("admin.supports.admin_supports_title") %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="content-header margin-left-0 margin-right-0">
+      <div class="header-section">
+        <h1>
+          <i class="fa fa-comments"></i><%= t "admin.supports.admin_supports_title" %>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 admin-list-users">
+        <%= render "list_users" %>
+      </div>
+      <div class="col-md-6 admin-support-form">
+        <%= render "support_form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
