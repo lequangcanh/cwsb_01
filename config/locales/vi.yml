@@ -759,7 +759,8 @@ vi:
       total_venue: "Địa điểm"
       total_block: "Khóa"
       report: "Báo cáo"
-      list_report: "Báo cáo"
+      list_report: "Danh sách báo cáo"
+      list_report_of: "Danh sách báo cáo của "
     new_statistics:
       title: "Thống kê - Quản trị viên"
       new_statistics_title: "Thống kê"

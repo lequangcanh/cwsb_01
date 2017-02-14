@@ -784,6 +784,7 @@ en:
       total_block: "Block"
       report: "Report"
       list_report: "List Report"
+      list_report_of: "List reports of "
     new_statistics:
       title: "Statistics - Admin"
       new_statistics_title: "Statistics"
