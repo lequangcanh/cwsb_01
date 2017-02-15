@@ -6,11 +6,11 @@ $(document).ready(function(){
   });
 
   var pervious_status;
-  $('.table-users').on('focus', '.user_status', function(){
+  $('#list_users').on('focus', '.user_status', function(){
     pervious_status = this.value;
   });
 
-  $('.table-users').on('change', '.user_status', function(){
+  $('#list_users').on('change', '.user_status', function(){
     var id = this.dataset.id;
     var status = this.value;
     var username = this.dataset.username;
