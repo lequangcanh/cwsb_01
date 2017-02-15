@@ -32,18 +32,6 @@
                 <table class="table">
                   <tr>
                     <td>
-                      <%= link_to "#", title: t("layout.profile"),
-                        class: "enable-tooltip" do %>
-                        <i class="gi gi-user"></i>
-                      <% end %>
-                      <%= link_to "#", title: t("layout.message"),
-                        class: "enable-tooltip" do %>
-                        <i class="gi gi-envelope"></i>
-                      <% end %>
-                      <%= link_to "#", method: :get,
-                        title: t("layout.setting"), class: "enable-tooltip" do %>
-                        <i class="gi gi-cogwheel"></i>
-                      <% end %>
                       <%= link_to destroy_admin_session_path, method: :delete,
                         title: t("layout.logout"), class: "enable-tooltip" do %>
                         <i class="gi gi-exit"></i>
