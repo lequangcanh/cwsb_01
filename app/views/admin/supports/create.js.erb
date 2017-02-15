@@ -1,37 +1,37 @@
 $('#support-message').data('user-id', <%= @user.id %>);
+$('#admin-support-user-name').text('<%= @user.name %>');
 $('#admin-new-support').html('<%= j render partial: "supports/new_support", locals: {support: @support} %>');
 $('#support-message').html('<%= j render partial: "supports/support", collection: @supports %>');
-var user_id = $('#support-message').data('user-id');
+$('#support-messages-notification-<%= @user.id %>').hide();
 $('#support-message').scrollTop($('#support-message').prop("scrollHeight"));
-App.supports = ActionCable.createConsumer().subscriptions.create({
-  channel: 'SupportsChannel',
-  user_id: user_id}, {
-  connected: function() {},
-  disconnected: function() {},
-  received: function(data) {
-    $('#support-message').append(data['message']);
-    $('#support-message').scrollTop($('#support-message').prop("scrollHeight"));
-  },
-  send_message: function(message, from_admin) {
-    if (from_admin == null) {
-      from_admin = false;
-    }
-    return this.perform('send_message', {
-      message: message,
-      from_admin: from_admin
-    });
-  }
-});
+$('#admin-new-support').find('#support_content').focus();
 
 $('#new_support').submit(function(e) {
-  var $this, text, from_admin;
+  var $this, text;
   $this = $(this);
   text = $this.find('#support_content');
-  from_admin = JSON.parse($this.find('#support_from_admin').val());
   if ($.trim(text.val()).length > 1) {
-    App.supports.send_message(text.val(), from_admin);
+    App['user' + <%= @user.id %>].send_message(text.val(), true);
     text.val('');
   }
   e.preventDefault();
   return false;
+});
+
+$('#admin-new-support').find('#support_content').click(function() {
+  if($('#support-messages-count-<%= @user.id %>').text().trim() !== '0') {
+    $.ajax({
+      type: 'POST',
+      url: '/admin/supports',
+      data: {user_id: <%= @user.id %>},
+      dataType: 'script',
+      success: function(data) {
+        $('#support-messages-count-<%= @user.id %>').text('0')
+        $('#support-messages-notification-<%= @user.id %>').hide();
+      },
+      error: function(error_message) {
+        $.growl.error({message: error_message});
+      }
+    });
+  }
 });

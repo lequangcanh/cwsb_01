@@ -3,7 +3,6 @@
   left: 20px;
   bottom: 10px;
   z-index: 10000;
-  border: 1px solid black;
 }
 
 .message-from-admin {
@@ -30,7 +29,10 @@
 }
 
 .online-support-title {
-  width: 50px;
+  width: 70px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
   transition: width 2s;
   a {
     color: #6495ED !important;
@@ -53,4 +55,8 @@
   height: 70vh;
   display: block;
   overflow-y: scroll;
+}
+
+.online-support-heading {
+  background-color: #6495ED;
 }

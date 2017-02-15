@@ -15,5 +15,5 @@ Rails.application.config.assets.precompile += %w(search/search.js
   booking_history/calculate_price.js venue_market/edit.js
   booking_history/payment_directly.js confirm_payment_directlies/show.js
   confirm_payment_bankings/show.js admin/venues.js admin/new_statistics.js
-  admin/activities.js admin/users.js statistics.js reviews.js admin/reports.js 
-  admin/notifications.js)
+  admin/activities.js admin/users.js statistics.js reviews.js admin/reports.js
+  admin/notifications.js admin/supports.js)
