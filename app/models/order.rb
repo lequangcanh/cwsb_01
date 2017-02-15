@@ -82,7 +82,7 @@ class Order < ApplicationRecord
     owners.each do |owner|
       case
       when pending?
-        notifications.create message: :requested, receiver_id: owner.user.id, owner_id: user_id
+        notifications.create message: :requested, receiver: owner.user, owner_id: user_id
       end
     end
   end

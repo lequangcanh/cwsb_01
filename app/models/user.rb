@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :invoices, through: :bookings
-  has_many :notifications
+  has_many :notifications, as: :receiver
   has_many :user_role_venues
   has_many :roles, through: :user_role_venues
   has_many :venues, through: :user_role_venues

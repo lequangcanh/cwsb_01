@@ -1,0 +1,29 @@
+.notificationContainer-admin {
+  background-color: #fff;
+  border: 1px solid rgba(100, 100, 100, .4);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  overflow: visible;
+  position: absolute;
+  width: 280px;
+  z-index: 0;
+  display: none;
+  margin-left: 13%;
+  margin-top: 7.5%;
+  z-index: 9999 !important;
+}
+
+@media (max-width: 1595px) {
+  .notificationContainer-admin {
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 70px;
+    width: 300px;
+    z-index: 0;
+    display: none;
+    margin-left: 187px;
+    margin-top: 158px;
+  }
+}

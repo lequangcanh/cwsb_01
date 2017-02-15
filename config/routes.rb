@@ -58,6 +58,10 @@ Rails.application.routes.draw do
     resources :statistics, only: [:index, :create]
     resources :activities, only: :index
     resources :supports
+    resources :notifications
+    resources :reads, only: :update do
+      post :'update', on: :collection
+    end
   end
 
   resources :supports

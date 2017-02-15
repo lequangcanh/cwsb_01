@@ -730,6 +730,8 @@ en:
       permissions13: "Data & analytics"
       permissions14: "Administrators"
   admin:
+    notification:
+      title: "Admin-notifications"
     admin: "Add a new administrator"
     users:
       users_management: "Users Management"
