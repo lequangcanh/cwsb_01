@@ -35,6 +35,17 @@
   border-color: #FFF;
 }
 
+img.raty-cancel {
+  display: none;
+}
+.search_space {
+  border: solid 2px #FFF;
+}
+
+.search_space:hover {
+  border: solid 2px #66CC75;
+}
+
 .pac-container {
   font-family: Roboto;
 }

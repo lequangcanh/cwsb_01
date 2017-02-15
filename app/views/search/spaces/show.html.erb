@@ -2,7 +2,8 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 <%= javascript_include_tag "search/show_space.js" %>
-<% provide :button_text, t("search.spaces.show.submit_review") %>
+<%= javascript_include_tag "reviews.js" %>
+<% provide :button_text, t("reviews.submit_review") %>
 <div class="row full-height margin-left-0 margin-right-0">
   <div class="col-md-6 max-height-x padding-left-0 padding-right-0">
     <div id="map-containerfull-height">
@@ -160,18 +161,20 @@
       </div>
       <div class="media-body line-break-block">
         <p class="push-bit">
-          <strong><%= t "search.spaces.show.reviews" %></strong>
+          <strong><%= t "reviews.reviews" %></strong>
         </p>
         <div class="col-md-12">
           <div class="review_form">
-            <%= render "search/reviews/review_form" if user_signed_in? %>
+            <% if user_signed_in? %>
+              <%= render partial: "reviews/review_form", locals: {object: @space} %>
+            <% end %>
           </div>
-          <div id="list_review_space">
-            <%= render @reviews %>
+          <div id="list_reviews">
+            <%= render partial: "reviews/review", collection: @reviews %>
           </div>
           <div class="load_more_review">
             <%= image_tag "loading.gif", class: "loading_gif" %>
-            <%= link_to t("search.spaces.show.load_more"), "#",
+            <%= link_to t("reviews.load_more"), "#",
               class: "load_more_review_btn btn btn-primary" %>
           </div>
         </div>

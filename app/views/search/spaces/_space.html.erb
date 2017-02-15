@@ -5,7 +5,7 @@
     <div class="widget-extra-full themed-background-dark">
       <div id="widget-carousel-<%= space.id %>"
         class="carousel slide remove-margin">
-        <%= rating_for space, Settings.rate %>
+        <%= rating_for space, Settings.rate, disable_after_rate: false %>
         <% if space.images.any? %>
           <div class="carousel-inner">
             <% space.images.each do |image| %>
@@ -29,10 +29,12 @@
             </a>
           <% end %>
         <% else %>
-          <%= link_to search_space_path(space), remote: true, target: :_blank do %>
+          <div class="item-not-image">
+            <%= link_to search_space_path(space), remote: true, target: :_blank do %>
             <%= image_tag "not_available", class: "img-responsive custom-image" %>
             <%= render "name_and_price_space", space: space %>
-          <% end %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

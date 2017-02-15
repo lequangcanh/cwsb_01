@@ -9,18 +9,23 @@
     <%= image_tag "not_available", class: "venue-cover" %>
   <% end %>
   <div class="text-center inside-cover">
-    <h1 class="venue-name-color"><%= @venue.name %></h1>
+    <h1 class="venue-name-color name-space"><%= @venue.name %></h1>
     <h3 class="venue-name-color"><i class="fa fa-map-marker" aria-hidden="true"></i>
       <%= @venue.address.details %></h3>
   </div>
-  <div class="col-md-12 padding-top-30">
+  <div class="row">
     <div class="col-md-1">
       <%= link_to "#", id: "btn-back-venue", class: "btn-back-search" do %>
         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
         <%= t "back"%>
       <% end %>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-1">
+      <%= render "report" %>
+    </div>
+  </div>
+  <div class="col-md-12 padding-top-30">
+    <div class="col-md-6">
       <div class="col-md-12 change-color">
         <%= render "detail" %>
       </div>
@@ -61,7 +66,7 @@
       </div>
       <div class="padding-top-30 col-md-12"></div>
     </div>
-    <div class="col-md-5 change-color">
+    <div class="col-md-6 change-color">
       <div class="text-center title-line">
         <%= t "payments.show.space" %>
       </div>
@@ -109,9 +114,6 @@
         <% end %>
         <%= paginate @spaces %>
       </div>
-    </div>
-    <div class="col-md-1">
-      <%= render "report" %>
     </div>
   </div>
 </div>
