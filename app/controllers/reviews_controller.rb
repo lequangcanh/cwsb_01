@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build review_params
     if @review.save
+      @counter = set_count_review
       respond_to_js
     else
       flash[:danger] = t "reviews.fail_review"
@@ -42,6 +43,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
+      @counter = set_count_review
       respond_to_js
     else
       flash[:danger] = @review.errors.full_messages
@@ -75,5 +77,9 @@ class ReviewsController < ApplicationController
       flash[:danger] = t "reviews.fail_load_more"
       redirect_to root_path
     end
+  end
+
+  def set_count_review
+    @review.reviewable.reviews.count
   end
 end

@@ -154,7 +154,10 @@
     </div>
     <div class="media-body line-break-block">
       <p class="push-bit">
-        <strong><%= t "reviews.reviews" %></strong>
+        <strong>
+          <%= t "reviews.reviews" %>
+          (<span id="review_count"><%= @review_count %></span>)
+        </strong>
       </p>
       <div class="col-md-12">
         <div class="review_form">
