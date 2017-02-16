@@ -17,32 +17,55 @@
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav fixed-sidebar-admin">
+      <div class="nav navbar-nav fixed-sidebar-admin">
         <% if admin_signed_in? %>
-          <li class="image-admin">
-            <%= image_tag "admin/admin.png", size: Settings.admin.image_admin_size %>
-          </li>
-          <li>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              &nbsp;<%= current_admin.email %>
-            </a>
-            <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="padding-top-10">
+            <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+              <div class="sidebar-user-avatar">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  <%= image_tag "admin/admin.png" %>
+                </a>
+              </div>
+              <div class="sidebar-user-name"><%= current_admin.email %></div>
+              <div class="sidebar-user-links">
+                <%= link_to destroy_admin_session_path, method: :delete,
+                  title: t("layout.logout") do %>
+                  <i class="gi gi-exit"></i>
+                <% end %>
+              </div>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in padding-left-5">
               <div class="panel-body">
-                <table class="table">
-                  <tr>
-                    <td>
-                      <%= link_to destroy_admin_session_path, method: :delete,
-                        title: t("layout.logout"), class: "enable-tooltip" do %>
-                        <i class="gi gi-exit"></i>
+                <div>
+                  <span class="dropdown chosen-language admin-chosen-language">
+                    <% if session[:locale].present? %>
+                      <%= link_to url_for(locale: session[:locale]), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
+                        <%= image_tag "flag/#{session[:locale]}.png", class: "icon-language" %>
+                        <%= Settings.languages[session[:locale]] %>
                       <% end %>
-                       <a href="#" class="padding-left-10" id="open_notification_admin">
-                        <span class="fix-noti">
-                          <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
-                        </span>
-                      </a>
-                    </td>
-                  </tr>
+                    <% else %>
+                      <%= link_to url_for(locale: :en), class:"dropdown-toggle icon-language", data: {toggle: "dropdown"} do %>
+                        <%= image_tag "flag/en.png", class: "icon-language" %>
+                        <%= Settings.languages.en %>
+                      <% end %>
+                    <% end %>
+                    <ul class="dropdown-menu forAnimate choose-language" role="menu">
+                      <% Settings.languages.keys.each do |lang| %>
+                        <%= link_to url_for(locale: lang) do %>
+                          <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
+                          <%= Settings.languages[lang] %>
+                        <% end %>
+                        <br/>
+                      <% end %>
+                    </ul>
+                  </span>
+                  <a href="#" id="open_notification_admin">
+                    <span class="fix-noti">
+                      <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
+                    </span>
+                  </a>
+                </div>
+                <table class="table admin-working">
                   <tr>
                     <td>
                       <%= link_to content_tag(:i, raw(t "admin.sidebar.statistics"),
@@ -76,16 +99,16 @@
                 </table>
               </div>
             </div>
-          </li>
+          </div>
         <% else %>
-          <li>
+          <div>
             <%= link_to new_admin_session_url do %>
               <i class="fa fa-sign-in" aria-hidden="true"></i>
               <%= t "layout.login" %>
             <% end %>
-          </li>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </nav>
