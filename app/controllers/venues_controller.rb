@@ -27,6 +27,7 @@ class VenuesController < ApplicationController
     @spaces = @venue.spaces.page(params[:page]).per Settings.user.venue.per_page
     @reviews = @venue.reviews.created_desc.limit Settings.reviews.per_loading
     @review = @venue.reviews.build
+    @review_count = @venue.reviews.count
   end
 
   def update

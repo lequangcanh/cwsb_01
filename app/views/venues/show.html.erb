@@ -48,7 +48,10 @@
       <div class="padding-top-30 col-md-12"></div>
       <div class="col-md-12 change-color">
         <p>
-          <strong><%= t "reviews.reviews" %></strong>
+          <strong>
+            <%= t "reviews.reviews" %>
+            (<span id="review_count"><%= @review_count %></span>)
+          </strong>
         </p>
         <div class="review_form">
           <% if user_signed_in? %>

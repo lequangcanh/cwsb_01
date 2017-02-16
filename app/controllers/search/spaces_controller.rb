@@ -19,6 +19,7 @@ class Search::SpacesController < ApplicationController
       duration: Settings.default_duration, quantity: Settings.default_quantity
     @review = @space.reviews.build
     @reviews = @space.reviews.created_desc.limit Settings.reviews.per_loading
+    @review_count = @space.reviews.count
     respond_to do |format|
       format.html
       format.js
