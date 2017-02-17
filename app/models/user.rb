@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   ratyrate_rater
 
-  has_one :image
+  has_one :image, as: :imageable
   has_many :bookings
   has_many :reviews
   has_many :invoices, through: :bookings
@@ -27,6 +27,9 @@ class User < ApplicationRecord
   enum status: {active: 1, blocked: 2, reject: 3}
 
   validates :status, presence: true
+  validates :name, presence: true
+
+  accepts_nested_attributes_for :image, allow_destroy: true
 
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -233,6 +233,13 @@ en:
         twitter: "Twitter profile "
         twit_place: "E.g. www.twitter.com/yourname"
         change: "Save changed"
+        company: "Company"
+        company_placeholder: "Your company"
+        address: "Address"
+        address_placeholder: "Your address"
+        avatar: "Avatar"
+        success_update: "Update successfully"
+        not_permitted: "You are not permitted"
     sessions:
       new:
         sign_in: "Log in"
