@@ -212,6 +212,13 @@ vi:
         twitter: "Tài khoản Twitter "
         twit_place: "E.g. www.twitter.com/yourname"
         change: "Lưu thay đổi"
+        company: "Công ty"
+        company_placeholder: "Công ty của bạn"
+        address: "Địa chỉ"
+        address_placeholder: "Địa chỉ của bạn"
+        avatar: "Ảnh đại diện"
+        success_update: "Cập nhật thành công"
+        not_permitted: "Bạn không được quyền truy cập"
     sessions:
       new:
         sign_in: "Đăng nhập"

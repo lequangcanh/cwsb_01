@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215031011) do
+ActiveRecord::Schema.define(version: 20170217020927) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -343,10 +343,8 @@ ActiveRecord::Schema.define(version: 20170215031011) do
     t.datetime "updated_at",                    null: false
     t.string   "reviewable_type"
     t.integer  "reviewable_id"
-    t.integer  "space_id"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at", using: :btree
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id", using: :btree
-    t.index ["space_id"], name: "index_reviews_on_space_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -440,23 +438,23 @@ ActiveRecord::Schema.define(version: 20170215031011) do
     t.string   "password"
     t.string   "phone_number"
     t.boolean  "verified"
-    t.integer  "status",                 default: 1
+    t.integer  "status",                               default: 1
     t.integer  "role"
-    t.string   "bio"
+    t.text     "bio",                    limit: 65535
     t.string   "company"
-    t.string   "position"
+    t.string   "address"
     t.string   "skill"
     t.string   "facebook"
     t.string   "google"
     t.string   "twitter"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -536,7 +534,6 @@ ActiveRecord::Schema.define(version: 20170215031011) do
   add_foreign_key "prices", "spaces"
   add_foreign_key "reports", "users"
   add_foreign_key "reports", "venues"
-  add_foreign_key "reviews", "spaces"
   add_foreign_key "reviews", "users"
   add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"

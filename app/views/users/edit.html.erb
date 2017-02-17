@@ -1,0 +1,182 @@
+<% provide :title, t("users.registrations.edit.title") %>
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
+  <div class="block edit-profile">
+    <div class="block-title padding-top-0">
+      <h2 class="btn-edit">
+        <i class="fa fa-user"></i>
+        <strong><%= t "users.registrations.edit.title_info" %></strong>
+      </h2>
+    </div>
+    <div class="block-section text-center">
+    </div>
+    <div class="block">
+      <%= form_for @user, html: {method: :put, class: "form-horizontal form-bordered
+        form-control-borderless"} do |f| %>
+        <fieldset>
+          <legend>
+            <i class="fa fa-angle-right"></i>
+            <%= t "users.registrations.edit.basic" %>
+          </legend>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_email">
+              <%= t "users.registrations.edit.email" %>
+              <span class="text-danger">*</span>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.email_field :email, autofocus: true,
+                  class: "form-control", disabled: true %>
+                <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_username">
+              <%= t "users.registrations.edit.username" %>
+              <span class="text-danger">*</span>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :name, autofocus: true, class: "form-control",
+                  required: true %>
+                <span class="input-group-addon"><i class="gi gi-user"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group edit-user-avatar">
+            <label class="col-md-4 control-label" for="val_avatar">
+              <%= t "users.registrations.edit.avatar" %>
+            </label>
+            <div class="col-md-6">
+              <% if current_user.image %>
+                <%= image_tag current_user.image.picture_url %>
+              <% else %>
+                <%= image_tag "user.jpg" %>
+              <% end %>
+              <%= f.simple_fields_for :image do |form_image| %>
+                <%= form_image.input :picture, input_html: {class: "margin-bot-15"} %>
+              <% end %>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>
+            <i class="fa fa-angle-right"></i>
+            <%= t "users.registrations.edit.addition" %>
+          </legend>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_bio">
+              <%= t "users.registrations.edit.short_bio" %>
+            </label>
+            <div class="col-md-6">
+              <%= f.text_area :bio, class: "form-control",
+                placeholder: t("users.registrations.edit.bio_place") %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_website">
+              <%= t "users.registrations.edit.phone_number" %>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :phone_number,
+                  autocomplete: "off", class: "form-control",
+                  placeholder: t("users.registrations.edit.phone_place") %>
+                <span class="input-group-addon">
+                  <i class="fa fa-phone"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_company">
+              <%= t "users.registrations.edit.company" %>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :company,
+                  autocomplete: "off", class: "form-control",
+                  placeholder: t("users.registrations.edit.company_placeholder") %>
+                <span class="input-group-addon">
+                  <i class="gi gi-building"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_address">
+              <%= t "users.registrations.edit.address" %>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :address,
+                  autocomplete: "off", class: "form-control",
+                  placeholder: t("users.registrations.edit.address_placeholder") %>
+                <span class="input-group-addon">
+                  <i class="fa fa-map-marker"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>
+            <i class="fa fa-angle-right"></i>
+            <%= t "users.registrations.edit.extra" %>
+          </legend>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_facebook">
+              <%= t "users.registrations.edit.facebook" %>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :facebook,
+                  autocomplete: "off", class: "form-control",
+                  placeholder: t("users.registrations.edit.fb_place") %>
+                <span class="input-group-addon">
+                  <i class="fa fa-facebook"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_google">
+              <%= t "users.registrations.edit.google" %>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :google,
+                  autocomplete: "off", class: "form-control",
+                  placeholder: t("users.registrations.edit.gg_place") %>
+                <span class="input-group-addon">
+                  <i class="fa fa-google-plus"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="val_twitter">
+              <%= t "users.registrations.edit.twitter" %>
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <%= f.text_field :twitter,
+                  autocomplete: "off", class: "form-control",
+                  placeholder: t("users.registrations.edit.twit_place") %>
+                <span class="input-group-addon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group form-actions">
+          <div class="text-center">
+            <%= f.submit t("users.registrations.edit.change"),
+              class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiNNIpP8sLtpWlcwLuv_ZqA1NQnbtm_Dk&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjfPUSvY404aAP2XJSKwslo15qAITOlI8&libraries=places"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 <%= javascript_include_tag "search/search.js" %>
@@ -82,7 +82,7 @@
           </div>
         </div>
       </div>
-      <%= hidden_field_tag "markers-on-map", @hash.to_json %>   
+      <%= hidden_field_tag "markers-on-map", @hash.to_json %>
       <%= hidden_field_tag "current_lat", Settings.default_latitude %>
       <%= hidden_field_tag "current_lng", Settings.default_latitude %>
       <div class="" id="search-space-result" >

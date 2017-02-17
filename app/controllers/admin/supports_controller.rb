@@ -1,5 +1,5 @@
 class Admin::SupportsController < Admin::BaseController
-  before_action :find_user, only: :create
+  before_action :find_user_by_params_user_id, only: :create
 
   def index
     @users = Support.latest_user_id.map {|id| User.find_by id: id}

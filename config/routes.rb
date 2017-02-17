@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   end
 
   resources :supports
+  resources :users
 
   mount ActionCable.server => '/cable'
 end

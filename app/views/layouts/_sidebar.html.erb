@@ -26,7 +26,7 @@
             <div class="sidebar-user-avatar">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                 <% if current_user.image %>
-                  <%= image_tag current_user.image %>
+                  <%= image_tag current_user.image.picture_url %>
                 <% else %>
                   <%= image_tag "user.jpg" %>
                 <% end %>
@@ -34,7 +34,7 @@
             </div>
             <div class="sidebar-user-name"><%= current_user.name %></div>
             <div class="sidebar-user-links">
-              <%= link_to edit_user_registration_path, method: :get,
+              <%= link_to edit_user_path(current_user), method: :get,
                 title: t("layout.profile") do %>
                 <i class="fa fa-user"></i>
               <% end %>
