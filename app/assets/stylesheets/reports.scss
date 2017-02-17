@@ -20,6 +20,35 @@
   cursor:pointer;
 }
 
+.animate {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+.action-button {
+  position: relative;
+  padding: 5px 5px;
+  margin: 0px 5px 5px 0px;
+  float: left;
+  border-radius: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 15px;
+  color: #FFF;
+  text-decoration: none;  
+}
+
+.red {
+  background-color: #E74C3C;
+  border-bottom: 5px solid #BD3E31;
+  text-shadow: 0px -2px #BD3E31;
+}
+
+.action-button:active {
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
+}
+
 .admin-report-button:hover {
   opacity: 1;
 }
@@ -59,4 +88,8 @@
   font-size: 20px;
   text-align: center;
   font-style: italic;
+  color: rgba(255, 96, 0, 0.81) !important;
+  text-decoration: none;
+  line-height: 1;
+  position: relative;
 }
