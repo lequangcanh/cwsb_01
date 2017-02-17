@@ -94,8 +94,9 @@
 
 .name-title {
   margin-top: 20px;
+  font-family: 'Pacifico', cursive;
   font-size: 17px;
-  color: #666666;
+  color: rgba(0, 0, 0, 0.88);
   line-height: 1;
   position: relative;
 }
@@ -166,4 +167,33 @@
 .map-show-venue {
   position: absolute;
   width: 100%;
+}
+
+.animate {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+.show-space-button {
+  position: relative;
+  padding: 5px 5px;
+  margin: 0px 5px 5px 0px;
+  float: left;
+  border-radius: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 15px;
+  color: #FFF;
+  text-decoration: none;  
+}
+
+.blue {
+  background-color: #3498DB;
+  border-bottom: 5px solid #2980B9;
+  text-shadow: 0px -2px #2980B9;
+}
+
+.show-space-button:active {
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
 }

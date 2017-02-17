@@ -10,6 +10,14 @@
   background-color: #A8A7A7 !important;
 }
 
+.venue-item-hover:hover {
+  -webkit-transform: scale(1.05,1.05);
+  -moz-transform: scale(1.05,1.05);
+  -o-transform: scale(1.05,1.05);
+  -ms-transform: scale(1.05,1.05);
+  transform: scale(1.05,1.05);
+}
+
 .venue-info{
   min-height: 200px;
   position: relative;
