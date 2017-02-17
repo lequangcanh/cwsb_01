@@ -1,8 +1,14 @@
 $(document).ready(function() {
+  var user_id = $('#support-message').data('user-id');
   $('.online-support-button').click(function(){
     $('#support-message').scrollTop($('#support-message').prop("scrollHeight"));
+    update_support_count();
   });
-  var user_id = $('#support-message').data('user-id');
+
+  $('.online-support-form').find('#support_content').click(function() {
+    update_support_count();
+  });
+
   App.supports = ActionCable.createConsumer().subscriptions.create({
     channel: 'SupportsChannel',
     user_id: user_id}, {
@@ -11,11 +17,9 @@ $(document).ready(function() {
     received: function(data) {
       $('#support-message').append(data['message']);
       $('#support-message').scrollTop($('#support-message').prop("scrollHeight"));
+      $('.online-support-button').text(' ' + data['user_unread_count']);
     },
     send_message: function(message, from_admin) {
-      if (from_admin == null) {
-        from_admin = false;
-      }
       return this.perform('send_message', {
         message: message,
         from_admin: from_admin
@@ -24,15 +28,31 @@ $(document).ready(function() {
   });
 
   $('#new_support').submit(function(e) {
-    var $this, text, from_admin;
+    var $this, text;
     $this = $(this);
     text = $this.find('#support_content');
-    from_admin = JSON.parse($this.find('#support_from_admin').val());
     if ($.trim(text.val()).length > 1) {
-      App.supports.send_message(text.val(), from_admin);
+      App.supports.send_message(text.val(), false);
       text.val('');
     }
     e.preventDefault();
     return false;
   });
+
+  var update_support_count = function() {
+    if($('.online-support-button').text().trim() !== '0') {
+      $.ajax({
+        type: 'GET',
+        url: '/supports',
+        data: {user_id: user_id},
+        dataType: 'json',
+        success: function(data) {
+          $('.online-support-button').text(' ' + data['user_unread']);
+        },
+        error: function(error_message) {
+          $.growl.error({message: error_message});
+        }
+      });
+    }
+  }
 });

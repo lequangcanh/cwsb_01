@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   def load_notification_admin
     if admin_signed_in?
       @notifications_admin = Notification.by_receiver(current_admin).limit(Settings.notification.limit).newest
-      count_notification_unread_admin = @notifications_admin.unread.size   
+      count_notification_unread_admin = @notifications_admin.unread.size
     end
   end
 
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @support = current_user.supports.build
       @supports = current_user.supports.all
-      @from_admin = false
+      @user_unread = current_user.supports.user_unread.count
     end
   end
 
@@ -54,6 +54,12 @@ class ApplicationController < ActionController::Base
     unless @user
       flash[:danger] = t "admin.users.user_not_found"
       redirect_to root_path
+    end
+  end
+
+  def make_read_all_supports unread_supports
+    unread_supports.each do |support|
+      support.update_attributes is_read: true
     end
   end
 

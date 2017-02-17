@@ -851,3 +851,6 @@ en:
     review_not_found: "Review not found!"
     update_review: "Update your review"
     fail_load_more: "Fail to load more review"
+  supports:
+    contact_with_admin: "Contact with admin"
+    new_messages: "new messages"

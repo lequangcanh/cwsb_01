@@ -826,3 +826,6 @@ vi:
     review_not_found: "Không tìm thấy đánh giá!"
     update_review: "Cập nhật đánh giá của bạn"
     fail_load_more: "Tải thêm đánh giá không thành công"
+  supports:
+    contact_with_admin: "Liên hệ với Quản trị viên"
+    new_messages: "tin nhắn mới"

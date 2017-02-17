@@ -1,9 +1,18 @@
-<table class="table table-striped table-responsive">
+<table class="table table-striped table-responsive table-users-support">
   <% @users.each do |user| %>
-    <tr>
+    <tr id="admin-support-user-<%= user.id %>">
       <td>
-        <%= link_to user.name, admin_supports_path(user_id: user.id),
-          method: :post, remote: true %>
+        <%= link_to admin_supports_path(user_id: user.id),
+          method: :post, remote: true do %>
+          <%= user.name %>
+          <span class="label label-info support-messages-notification",
+            id="support-messages-notification-<%= user.id %>",
+            data-user-id="<%= user.id %>">
+            <span id="support-messages-count-<%= user.id %>">
+              <%= user.supports.admin_unread.count %></span>
+            <%= t "supports.new_messages" %>
+          </span>
+        <% end %>
       </td>
     </tr>
   <% end %>
