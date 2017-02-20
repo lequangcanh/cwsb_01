@@ -24,7 +24,7 @@ class User < ApplicationRecord
   has_many :reports
   has_many :supports
 
-  enum status: {active: 1, blocked: 2, reject: 3}
+  enum status: {active: 1, blocked: 2}
 
   validates :status, presence: true
   validates :name, presence: true

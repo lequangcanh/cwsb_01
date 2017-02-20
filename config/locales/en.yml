@@ -65,6 +65,7 @@ en:
     report_success: "Report success!"
     danger_message: "error"
     success_detail: "update venue detail successfully!"
+    user_blocked: "This account has been blocked. Please contact with administrator to know more information"
   from: "From"
   to: "To"
   booking_types:
@@ -757,6 +758,7 @@ en:
       active: "Active"
       block: "Block"
       reject: "Reject"
+      total: "Total"
     sidebar:
       statistics: "&nbsp;Statistics"
       new_statistics: "What's new?"

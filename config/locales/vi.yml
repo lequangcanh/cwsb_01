@@ -44,6 +44,7 @@ vi:
     report_success: "Báo cáo thành công!"
     danger_message: "lỗi"
     success_detail: "cập nhật chi tiết địa điểm thành công!"
+    user_blocked: "Tài khoản này đã bị khóa. Vui lòng liên hệ với Quản trị viên để biết thêm thông tin"
   from: "Từ"
   to: "Đến"
   booking_types:
@@ -733,6 +734,7 @@ vi:
       active: "Kích hoạt"
       block: "Tạm khóa"
       reject: "Từ chối"
+      total: "Tổng cộng"
     sidebar:
       statistics: "&nbsp;Thống kê"
       new_statistics: "Có gì mới?"
