@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :load_support_messages
   before_action :load_notification_admin
+  before_action :user_blocked?
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to :back, alert: exception.message
@@ -91,5 +92,13 @@ class ApplicationController < ActionController::Base
       keys: [:name,:email, :password, :password_confirmation,
       :current_password, :bio, :company, :position, :skill,
       :phone_number, :facebook, :google, :twitter]
+  end
+
+  def user_blocked?
+    if current_user.present? && current_user.blocked?
+      sign_out current_user
+      flash[:danger] = t "flash.user_blocked"
+      redirect_to root_path
+    end
   end
 end

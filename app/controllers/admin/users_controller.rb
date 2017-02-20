@@ -6,6 +6,7 @@ class Admin::UsersController < Admin::BaseController
     @users = @query_users.result
       .page(params[:page]).per Settings.admin.users.per_page
     get_number_users_by_status
+    @total_users = User.all.count
     respond_to do |format|
       format.html
       format.js
@@ -17,8 +18,7 @@ class Admin::UsersController < Admin::BaseController
       if @user.update_attributes user_params
         get_number_users_by_status
         format.json {render json: {flash: t("admin.users.succ_update"), status: 200,
-          total_active: @total_active, total_block: @total_block,
-          total_reject: @total_reject}}
+          total_active: @total_active, total_block: @total_block}}
       else
         format.json {render json: {flash: t("admin.users.fail_update"), status: 400}}
       end
@@ -45,6 +45,5 @@ class Admin::UsersController < Admin::BaseController
   def get_number_users_by_status
     @total_active = number_users_by_status User.active
     @total_block = number_users_by_status User.blocked
-    @total_reject = number_users_by_status User.reject
   end
 end

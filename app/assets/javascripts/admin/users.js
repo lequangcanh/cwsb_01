@@ -21,9 +21,6 @@ $(document).ready(function(){
       case "blocked":
         var status_alert = username + ' ' + I18n.t('admin.users.block_alert');
         break;
-      case "reject":
-        var status_alert = username + ' ' + I18n.t('admin.users.reject_alert');
-        break;
     }
     if(confirm(status_alert)) {
       edit_user(id, status)
@@ -43,7 +40,6 @@ $(document).ready(function(){
           $.growl.notice({title: '', message: data['flash']});
           $('#total_active_user').text(data['total_active']);
           $('#total_block_user').text(data['total_block']);
-          $('#total_reject_user').text(data['total_reject']);
         }
         else {
           $.growl.error({title: '', message: data['flash']});
