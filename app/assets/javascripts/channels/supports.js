@@ -1,8 +1,13 @@
 $(document).ready(function() {
   var user_id = $('#support-message').data('user-id');
+  $('#support-message').scrollTop($('#support-message').prop("scrollHeight"));
+  $('.online-support-form').hide();
   $('.online-support-button').click(function(){
-    $('#support-message').scrollTop($('#support-message').prop("scrollHeight"));
     update_support_count();
+    $('.online-support-form').show();
+  });
+  $('.close-support-form').click(function() {
+    $('.online-support-form').hide();
   });
 
   $('.online-support-form').find('#support_content').click(function() {
