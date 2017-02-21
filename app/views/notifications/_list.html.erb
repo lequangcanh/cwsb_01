@@ -1,17 +1,22 @@
 <% @notifications.each do |notification| %>
-  <li class="<%= status_unread notification %> mark-read" data-id="<%= notification.id %>">
-    <span>
-      <% if current_user.image %>
-        <%= image_tag current_user.image, size: Settings.reviews.avatar_size,
-          class: "border-radius-10" %>
-      <% else %>
-        <%= image_tag "user.jpg", size: Settings.reviews.avatar_size,
-          class: "border-radius-10" %>
-      <% end %>
-      <%= link_to notification.load_message,
-        load_link_notification(notification.message, notification.notifiable_type),
-        class: "style-notification" %>
-    </span>
+  <li class="<%= status_unread notification %> mark-read"
+    data-id="<%= notification.id %>">
+    <div class="row">
+      <div class="col-md-3 notification-user-avatar">
+        <% if current_user.image %>
+          <%= image_tag current_user.image.picture_url,
+            size: Settings.notification.avatar_size, class: "border-radius-50" %>
+        <% else %>
+          <%= image_tag "user.jpg", size: Settings.notification.avatar_size,
+            class: "border-radius-50" %>
+        <% end %>
+      </div>
+      <div class="col-md-9">
+        <%= link_to notification.load_message,
+          load_link_notification(notification.message, notification.notifiable_type),
+          class: "style-notification" %>
+      </div>
+    </div>
   </li>
   <hr class="hr-notification"></hr>
 <% end %>

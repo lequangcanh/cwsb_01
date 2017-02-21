@@ -2,8 +2,8 @@
 <%= javascript_include_tag "booking/index.js" %>
 <%= javascript_include_tag "booking_history/delete_booking.js" %>
 <%= javascript_include_tag "booking_history/calculate_price.js" %>
+
 <div class="row full-height margin-left-0 margin-right-0 scroll-y">
-<div class="row full-height margin-left-0 margin-right-0">
   <%= render "header" %>
   <% @bookings.each_with_index do |venue, index| %>
     <%= hidden_field_tag "venue_id", venue.first.id , class: "venue_id-#{index}" %>

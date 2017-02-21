@@ -42,6 +42,11 @@ class ApplicationController < ActionController::Base
     return root_path if resource == :user
   end
 
+  def after_sign_in_path_for resource
+    return admin_root_path if resource.class.name == Admin.name
+    return venues_path if resource.class.name == User.name
+  end
+
   def load_support_messages
     if user_signed_in?
       @support = current_user.supports.build

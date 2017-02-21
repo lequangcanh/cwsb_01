@@ -8,7 +8,6 @@
 }
 
 #notificationList {
-  margin-left: -14px;
   width: 100%;
 }
 
@@ -33,11 +32,6 @@ ul #notificationList
     }
   }
 
-}
-
-#notificationsBody ul
-{
-  padding-left: 20px;
 }
 
 .notificationContainer
@@ -74,17 +68,23 @@ ul #notificationList
 #notificationsBody
 {
   padding: 3px 0px 0px 0px !important;
-  min-height:300px;
-  max-height:300px;
-  overflow: auto;
-  position: relative;
-  width: 100%;
+  min-height: 0 !important;
+  max-height: 500px !important;
+  min-width: 300px !important;
+  max-width: 300px !important;
   background: rgb(255, 255, 255);
 }
- #notificationsTitle{
+
+#notificationsBody li
+{
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+#notificationsTitle {
   margin-bottom: 35px;
   margin-right: 4%;
- }
+}
 
 #notificationFooter
 {
@@ -94,6 +94,10 @@ ul #notificationList
   padding: 8px;
   font-size: 12px;
   border-top: 1px solid #dddddd;
+}
+
+.notification-user-avatar img {
+  vertical-align: middle;
 }
 
 .style-notification {
@@ -131,11 +135,11 @@ ul #notificationList
 }
 
 .unread {
-  background: #dddddd;
+  background-color: #dddddd !important;
 }
 
-.border-radius-10 {
-  border-radius: 10px;
+.border-radius-50 {
+  border-radius: 50%;
 }
 
 .hr-notification {
@@ -153,7 +157,7 @@ ul #notificationList
   color: black;
   font-style: italic;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 11px;
 }
 
 #color-view {

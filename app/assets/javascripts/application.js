@@ -33,6 +33,7 @@
 //= require i18n/translations
 //= require jquery.raty
 //= require ratyrate
+//= require modernizr.min.js
 
 /* Plugins, libraries */
 //= require jquery-form-validator/form-validator/jquery.form-validator.min.js

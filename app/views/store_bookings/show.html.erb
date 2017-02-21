@@ -32,7 +32,7 @@
             <%= venue.email %>
           </address>
         </div>
-        <div class="table-responsive padding-0-15">
+        <div class="table-responsive padding-0-15" style="overflow-x: auto;">
           <table class="table table-vcenter bookings-table hide-all-booking-<%= venue.id %>">
             <tbody>
               <% venue.orders.each_with_index do |order, index| %>

@@ -118,7 +118,7 @@ body {
 #page-container,
 #sidebar,
 #sidebar-alt {
-  background-color: #394263;
+  background-color: #222222;
 }
 
 #sidebar,
@@ -143,9 +143,7 @@ body {
 }
 
 #page-content {
-  padding: 10px 5px 1px;
-  background-color: #eaedf1;
-  min-height: 100vh;
+  background-color: white;
 }
 
 #page-content + footer {
@@ -3704,10 +3702,6 @@ p, .table, .alert, .carousel {
   #login-alt-container{
     width: 480px;
     margin-top: 100px;
-  }
-
-  #page-content {
-    padding: 20px 20px 1px;
   }
 
   .header-section,

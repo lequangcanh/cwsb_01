@@ -1,9 +1,76 @@
 <header class="navbar navbar-default">
   <ul class="nav navbar-nav-custom">
     <li>
-      <a href="javascript:" id="toggle-sidebar-section">
+      <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');">
         <i class="fa fa-bars fa-fw"></i>
       </a>
     </li>
+  </ul>
+
+  <ul class="nav navbar-nav-custom pull-right">
+    <li>
+      <a target="_blank" class="color-black"
+        href="https://drive.google.com/open?id=0B5H0vEUdbVhCcmhGT0VFclQ4XzA">
+        <i class="fa fa-file-pdf-o"></i> <%= t "layout.guide" %>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" class="color-black"
+        href="https://docs.google.com/forms/d/1ZCrWYLR_hIqKqaiddJasSBJ4AdL-L4kbdT0k_QetK6c">
+        <i class="fa fa-commenting-o"></i> <%= t "layout.feedback" %>
+      </a>
+    </li>
+    <li class="dropdown chosen-language">
+      <% if session[:locale].present? %>
+        <%= link_to url_for(locale: session[:locale]), class:"dropdown-toggle",
+          data: {toggle: "dropdown"} do %>
+          <%= image_tag "flag/#{session[:locale]}.png", class: "icon-language" %>
+          <%= Settings.languages[session[:locale]] %>
+          <i class="fa fa-angle-down"></i>
+        <% end %>
+      <% else %>
+        <%= link_to url_for(locale: :en), class:"dropdown-toggle",
+          data: {toggle: "dropdown"} do %>
+          <%= image_tag "flag/en.png", class: "icon-language" %>
+          <%= Settings.languages.en %>
+          <i class="fa fa-angle-down"></i>
+        <% end %>
+      <% end %>
+      <ul class="dropdown-menu dropdown-custom dropdown-menu-right choose-language" role="menu">
+        <% Settings.languages.keys.each do |lang| %>
+          <%= link_to url_for(locale: lang) do %>
+            <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
+            <%= Settings.languages[lang] %>
+          <% end %>
+          <br/>
+        <% end %>
+      </ul>
+    </li>
+
+    <% if user_signed_in? %>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="fix-noti">
+            <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
+          </span>
+          <span class="badge" id="notification_count">
+            <%= render "notifications/counter", counter: count_notification_read %>
+          </span>
+        </a>
+        <ul class="dropdown-menu dropdown-custom dropdown-menu-right"
+          id="notificationsBody">
+          <div id="notificationsTitle">
+            <%= link_to t("notification.mark_read_all"), reads_path,
+              method: :post, remote: true, class: "pull-right read-all" %>
+          </div>
+          <div id="notificationList">
+            <%= render "notifications/list" %>
+          </div>
+          <div id="notificationFooter">
+            <%= link_to t("notification.view_all"), notifications_path, id: "color-view" %>
+          </div>
+        </ul>
+      </li>
+    <% end %>
   </ul>
 </header>
