@@ -15,9 +15,17 @@
   </head>
   <body>
     <%= render "layouts/messages" %>
-    <%= render "layouts/sidebar" %>
-    <div class="container custom-container full-height">
-      <%= yield %>
+    <div id="page-wrapper" class="full-height">
+      <div id="page-container" class="sidebar-partial sidebar-visible-lg
+        sidebar-no-animations full-height">
+        <%= render "layouts/sidebar" %>
+        <div id="main-container" class="full-height">
+          <%= render "layouts/header" %>
+          <div id="page-content" class="full-height">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
     <%= render "layouts/shared/online_support" if user_signed_in? %>
   </body>

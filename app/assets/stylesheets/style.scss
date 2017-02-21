@@ -13,9 +13,6 @@
 #toggle-sidebar-section:hover, #toggle-sidebar-section:focus {
   background: #394263 !important;
 }
-.sidebar-brand {
-  background: #394263 !important;
-}
 
 hr.style-two {
   border: 0;
@@ -197,19 +194,26 @@ hr.style-two {
 .icon-language {
   max-width: 18px !important;
   max-height: 12px !important;
+  vertical-align: initial !important;
+  border-radius: 0 !important;
+  border: 0 !important;
 }
 
 .choose-language {
   color: #000000 !important;
   display: inline;
-  font-size: 13px;
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  font-size: 12px;
+  background-color: white !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  min-width: 110px !important;
 }
 
 .chosen-language {
   color: #FFFFFF !important;
   display: inline;
   font-size: 13px;
+  min-width: 110px !important;
 }
 
 .btn-edit {
@@ -238,7 +242,7 @@ hr.style-two {
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15%;
-  background: #195860;
+  background: rgba(255, 255, 255, 0.0980392);;
 }
 
 .sidebar-user-links {
@@ -338,7 +342,7 @@ hr.style-two {
 }
 
 .title-line {
-  background-color: #00464f !important;
+  background-color: #222222 !important;
   color: #FFF !important;
 }
 

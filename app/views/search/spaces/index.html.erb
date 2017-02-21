@@ -8,7 +8,7 @@
       <div id="map"></div>
     </div>
   </div>
-  <div class="max-height-x padding-left-0 padding-right-0 scroll-y map_booking_content" id="map_booking_content">
+  <div class="col-md-6 max-height-x padding-left-0 padding-right-0 map_booking_content scroll-y" id="map_booking_content">
     <div class="block-full">
       <div class="widget">
         <%= form_tag search_spaces_path, method: :get, remote: true, id: "search-space-form" do %>
@@ -85,7 +85,7 @@
       <%= hidden_field_tag "markers-on-map", @hash.to_json %>
       <%= hidden_field_tag "current_lat", Settings.default_latitude %>
       <%= hidden_field_tag "current_lng", Settings.default_latitude %>
-      <div class="" id="search-space-result" >
+      <div id="search-space-result" >
         <%= render "search_result" %>
       </div>
     </div>

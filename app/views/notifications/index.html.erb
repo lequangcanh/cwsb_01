@@ -27,7 +27,7 @@
                 <div class="<%= status_unread notification %> mark-read" data-id="<%= notification.id %>">
                   <div>
                     <% if current_user.image %>
-                      <%= image_tag current_user.image, size: Settings.reviews.avatar_size,
+                      <%= image_tag current_user.image.picture_url, size: Settings.reviews.avatar_size,
                         class: "border-radius-10" %>
                     <% else %>
                       <%= image_tag "user.jpg", size: Settings.reviews.avatar_size,

@@ -5,6 +5,7 @@ notification:
   accepted: "accepted"
   index: 12
   limit: 20
+  avatar_size: "40x40"
 price_per_day: 1
 radius_search_in_miles: 5
 default_duration: 1

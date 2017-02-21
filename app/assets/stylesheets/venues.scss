@@ -21,7 +21,10 @@
 .venue-info{
   min-height: 200px;
   position: relative;
-  background-color: #00464f !important;
+  background-color: #666666 !important;
+  a {
+    color: #ffffff;
+  }
 }
 
 .venue-items-info{
