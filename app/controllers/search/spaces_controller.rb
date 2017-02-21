@@ -2,7 +2,7 @@ class Search::SpacesController < ApplicationController
   load_resource
 
   def index
-    @addresses = Address.near params[:search], Settings.radius_search_in_miles
+    @addresses = Address.get_address_unblock.near params[:search], Settings.radius_search_in_miles
     if @addresses.present?
       @hash = mark_to_maps @addresses
     else

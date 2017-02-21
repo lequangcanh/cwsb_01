@@ -1,16 +1,20 @@
 <li class="list-group-item row">
   <div class="col-md-1">
-    <i class="glyphicon glyphicon-edit"></i>
+    <% if activity.trackable %>
+      <i class="glyphicon glyphicon-edit"></i>
+    <% else %>
+      <i class="glyphicon glyphicon-remove"></i>
+    <% end %>
   </div>
   <div class="col-md-9">
     <div class="activity">
       <% if activity.trackable %>
         <span class="action-activity">
-          <%= t "public_activity.activity_request_booking" %>
+          <strong><%= t "public_activity.activity_request_booking" %></strong>
         </span>
       <% else %>
         <span class = "action-activity">
-          <%= t "public_activity.booking_deleted" %>
+          <strong><%= t "public_activity.booking_deleted" %></strong>
         </span>
       <% end %>
     </div>

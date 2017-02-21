@@ -835,7 +835,7 @@ en:
     activity_space_destroy: "Deleted space"
     activity_booking_create: "Booking space"
     activity_request_booking: "Requested booking"
-    booking_deleted: "added the project that is currently deleted."
+    booking_deleted: "Deleted booking"
   statistics:
     statistics_title: "Statistics"
     booking_of_venue: "Booking"
