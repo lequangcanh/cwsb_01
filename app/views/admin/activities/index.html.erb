@@ -9,13 +9,15 @@
     </div>
   </div>
   <div class="img-timeline">
-    <%= image_tag "admin/activity.jpg", size: Settings.admin.image_admin_size %>
   </div>
   <section id="cd-timeline" class="cd-container">
     <% @activities.each do |activity| %>
       <div class="cd-timeline-block">
         <div class="cd-timeline-content content-custom">
-          <strong><%= activity.owner.name if activity.owner %></strong>
+          <strong class="owner-activity">
+            <li class="gi gi-user"></li>
+            <%= activity.owner.name if activity.owner %>
+          </strong>
           <%= render_activity activity %>
         </div> 
       </div>  

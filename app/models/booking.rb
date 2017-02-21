@@ -16,7 +16,6 @@ class Booking < ApplicationRecord
 
   has_one :invoice
   has_many :notifications, as: :notifiable
-  has_many :notifications, as: :receiver
 
   enum state: {pending: 0, requested: 1, accepted: 2, rejected: 3}
 
@@ -74,12 +73,12 @@ class Booking < ApplicationRecord
       case
       when rejected?
         if message.present?
-          notifications.create message: self.message, receiver: self.user, owner_id: owner_space_id
+          notifications.create message: self.message, receiver: self.user, owner_id: owner_space_id.user_id
         end
       when requested?
-        notifications.create message: :requested, receiver_type: User.name, receiver_id: owner_space_id, owner_id: self.user.id
+        notifications.create message: :requested, receiver: self.user, owner_id: self.user.id
       when accepted?
-        notifications.create message: :accepted, receiver: self.user, owner_id: owner_space_id
+        notifications.create message: :accepted, receiver: self.user, owner_id: owner_space_id.user_id
       end
     end
   end

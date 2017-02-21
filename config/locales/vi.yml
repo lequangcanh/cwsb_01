@@ -1,4 +1,12 @@
 vi:
+  devise:
+    sessions:
+      user:
+        signed_out: "Đăng xuất thành công!"
+        signed_in: "Đăng nhập thành công!"
+      admin:
+        signed_out: "Đăng xuất thành công!"
+        signed_in: "Đăng nhập thành công!"
   back: "Quay trở lại"
   help_info: "Một số thông tin giúp đỡ..."
   avatar: "Ảnh đại diện"

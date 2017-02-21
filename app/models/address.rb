@@ -8,4 +8,8 @@ class Address < ApplicationRecord
   has_many :spaces, through: :venue
 
   validates :details, presence: true
+
+  scope :get_address_unblock, -> do
+    joins(:venue).where("venues.block = false")
+  end 
 end
