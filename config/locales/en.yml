@@ -381,6 +381,7 @@ en:
       delete_successfully: "Delete amenity successfully"
       delete_error: "Delete amenity error"
   venues:
+    report_button: "Report"
     create: "Create"
     city_placeholder: "E.g: Da Nang"
     street_address_placeholder: "E.g: 255 Hung Vuong"
@@ -834,8 +835,10 @@ en:
     activity_space_update: "Updated space: "
     activity_space_destroy: "Deleted space"
     activity_booking_create: "Booking space"
+    current_booking_has_request: "current booking has been requested"
     activity_request_booking: "Requested booking"
     booking_deleted: "Deleted booking"
+    delete_booking_history: "Deleted booking history"
   statistics:
     statistics_title: "Statistics"
     booking_of_venue: "Booking"
