@@ -1,220 +1,43 @@
-<% provide :title, t("users.registrations.edit.title") %>
-<div class="row full-height margin-left-0 margin-right-0">
-  <div class="block edit-profile">
-    <div class="block-title padding-top-0">
-      <div class="block-options pull-right">
-        <a class="btn btn-alt btn-sm btn-default btn-edit"
-          data-toggle="modal" data-target="#modal-user-settings" data-placement="bottom">
-          <i class="fa fa-eye"></i>
-        </a>
+<% provide :title, t("users.change_password.title") %>
+<div class="row full-height margin-left-0 margin-right-0 vertical-offset-100">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title title-color">
+          <%= t "users.change_password.title" %>
+        </h3>
       </div>
-      <h2 class="btn-edit">
-        <i class="fa fa-user"></i>
-        <strong><%= t "users.registrations.edit.title_info" %></strong>
-      </h2>
-    </div>
-    <div class="block-section text-center">
-      <a href="javascript:">
-        <%= image_tag "placeholders/avatars/avatar2.png", class: "avatar" %>
-      </a>
-    </div>
-    <div class="block">
-      <%= form_for resource, as: resource_name,
-        url: registration_path(resource_name),
-        html: {method: :put, class: "form-horizontal form-bordered
-        form-control-borderless"} do |f| %>
-        <%= devise_error_messages! %>
-        <fieldset>
-          <legend>
-            <i class="fa fa-angle-right"></i>
-            <%= t "users.registrations.edit.basic" %>
-          </legend>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_username">
-              <%= t "users.registrations.edit.username" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.text_field :name, autofocus: true, class: "form-control" %>
-                <span class="input-group-addon"><i class="gi gi-user"></i></span>
-              </div>
+      <div class="panel-body">
+        <%= form_for resource, as: resource_name,
+          url: registration_path(resource_name), html: {method: :put} do |f| %>
+          <%= devise_error_messages! %>
+          <fieldset>
+            <div class="form-group padding-bot-10">
+              <%= f.password_field :current_password, autofocus: true,
+                class: "form-control",
+                placeholder: t("users.change_password.current_password") %>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_email">
-              <%= t "users.registrations.edit.email" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.email_field :email, autofocus: true,
-                  class: "form-control" %>
-                <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
-              </div>
+            <div class="form-group padding-bot-10">
+              <%= f.password_field :password, autocomplete: "off",
+                class: "form-control",
+                placeholder: t("users.change_password.new_password") %>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_password">
-              <%= t "users.registrations.edit.password" %>
-              <span class="text-danger">*</span></label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.password_field :password,
-                  autocomplete: "off",class: "form-control" %>
-                <span class="input-group-addon">
-                  <i class="gi gi-asterisk"></i>
-                </span>
-              </div>
-              <i><%= t "users.registrations.edit.remind_password" %></i>
-              <% if @minimum_password_length %>
-                <br />
-                <em>
-                  <%= @minimum_password_length %>
-                  <%= t "users.registrations.edit.minimum" %>
-                </em>
-              <% end %>
+            <div class="form-group padding-bot-10">
+              <%= f.password_field :password_confirmation, autocomplete: "off",
+                class: "form-control",
+                placeholder: t("users.change_password.confirm_new_password") %>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_confirm_password">
-              <%= t "users.registrations.edit.confirm_password" %>
-              <span class="text-danger">*</span></label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.password_field :password_confirmation,
-                  autocomplete: "off", class: "form-control" %>
-                <span class="input-group-addon">
-                  <i class="gi gi-asterisk"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_confirm_password">
-              <%= t "users.registrations.edit.current_password" %>
-              <span class="text-danger">*</span></label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.password_field :current_password,
-                  autocomplete: "off", class: "form-control" %>
-                <span class="input-group-addon">
-                  <i class="gi gi-asterisk"></i>
-                </span>
-              </div>
-              <i><%= t "users.registrations.edit.current_password_remind" %></i>
-            </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>
-            <i class="fa fa-angle-right"></i>
-            <%= t "users.registrations.edit.addition" %>
-          </legend>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_bio">
-              <%= t "users.registrations.edit.short_bio" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-8">
-              <%= f.text_area :bio, class: "form-control",
-                placeholder: t("users.registrations.edit.bio_place") %>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_skill">
-              <%= t "users.registrations.edit.best_skill" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.text_field :skill,
-                  autocomplete: "off", class: "form-control",
-                  placeholder: t("users.registrations.edit.skill_place") %>
-                <span class="input-group-addon">
-                  <i class="gi gi-credit_card"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_website">
-              <%= t "users.registrations.edit.phone_number" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.text_field :phone_number,
-                  autocomplete: "off", class: "form-control",
-                  placeholder: t("users.registrations.edit.phone_place") %>
-                <span class="input-group-addon">
-                  <i class="gi gi-asterisk"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>
-            <i class="fa fa-angle-right"></i>
-            <%= t "users.registrations.edit.extra" %>
-          </legend>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_skill">
-              <%= t "users.registrations.edit.facebook" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.text_field :facebook,
-                  autocomplete: "off", class: "form-control",
-                  placeholder: t("users.registrations.edit.fb_place") %>
-                <span class="input-group-addon">
-                  <i class="gi gi-globe"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_skill">
-              <%= t "users.registrations.edit.google" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.text_field :google,
-                  autocomplete: "off", class: "form-control",
-                  placeholder: t("users.registrations.edit.gg_place") %>
-                <span class="input-group-addon">
-                  <i class="gi gi-globe"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="val_skill">
-              <%= t "users.registrations.edit.twitter" %>
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <%= f.text_field :twitter,
-                  autocomplete: "off", class: "form-control",
-                  placeholder: t("users.registrations.edit.twit_place") %>
-                <span class="input-group-addon">
-                  <i class="gi gi-globe"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        <div class="form-group form-actions">
-          <div class="text-center">
-            <%= f.submit t("users.registrations.edit.change"),
-              class: "btn btn-primary" %>
-          </div>
-        </div>
-      <% end %>
+            <%= f.submit t("users.change_password.save"),
+              class: "btn btn-lg btn-success btn-block" %>
+          </fieldset>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <%= link_to t("users.change_password.edit_profile"),
+          edit_user_path(current_user) %>
+      </div>
     </div>
   </div>
+  <div class="col-md-3"></div>
 </div>

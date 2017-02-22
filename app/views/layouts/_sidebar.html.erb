@@ -24,7 +24,7 @@
             title: t("layout.profile") do %>
             <i class="fa fa-user"></i>
           <% end %>
-          <%= link_to "#", method: :get, title: t("layout.change_password") do %>
+          <%= link_to edit_user_registration_path, method: :get, title: t("layout.change_password") do %>
             <i class="fa fa-unlock"></i>
           <% end %>
           <%= link_to destroy_user_session_path, method: :delete,

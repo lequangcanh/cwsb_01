@@ -153,6 +153,13 @@ vi:
       name9: "Đoàn Chí Nhật"
       our_team: "Nhóm của chúng tôi"
   users:
+    change_password:
+      title: "Đổi mật khẩu"
+      current_password: "Nhập mật khẩu hiện tạo của bạn ..."
+      new_password: "Nhập mật khẩu mới (tối thiểu 8 ký tự) ..."
+      confirm_new_password: "Xác nhận mật khẩu mới ..."
+      save: "Lưu mật khẩu của bạn"
+      edit_profile: "Cập nhật thông tin của bạn"
     status:
       active: "Kích hoạt"
       blocked: "Khóa"
