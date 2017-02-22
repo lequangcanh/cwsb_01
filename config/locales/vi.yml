@@ -368,6 +368,7 @@ vi:
       delete_successfully: "Xóa tiện nghi thành công"
       delete_error: "Không thể xóa tiện nghi này"
   venues:
+    report_button: "Báo cáo"
     create: "Gửi"
     city_placeholder: "VD: Đà Nẵng"
     street_address_placeholder: "VD: 255 Hùng Vương"
@@ -818,8 +819,10 @@ vi:
     activity_space_update: "Cập nhật không gian: "
     activity_space_destroy: "Xóa không gian"
     activity_booking_create: "Đặt không gian"
+    current_booking_has_request: "Không gian hiện tại đã được yêu cầu"
     activity_request_booking: "Yêu cầu đặt hàng"
     booking_deleted: "Xóa đơn đặt hàng thành công!"
+    delete_booking_history: "Xóa lịch sử đặt hàng"
   statistics:
     statistics_title: "Thống kê"
     booking_of_venue: "Đơn đặt hàng"

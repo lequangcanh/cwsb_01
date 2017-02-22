@@ -10,14 +10,13 @@
   <% end %>
   <div class="text-center inside-cover">
     <h1 class="venue-name-color name-space"><%= @venue.name %></h1>
-    <h3 class="venue-name-color"><i class="fa fa-map-marker" aria-hidden="true"></i>
+    <h3 class="venue-name-color"><i class="fa fa-map-marker marker-color" aria-hidden="true"></i>
       <%= @venue.address.details %></h3>
   </div>
   <div class="row">
     <div class="col-md-1">
       <%= link_to "#", id: "btn-back-venue", class: "btn-back-search" do %>
         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-        <%= t "back"%>
       <% end %>
     </div>
     <div class="col-md-1">

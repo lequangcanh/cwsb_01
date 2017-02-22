@@ -18,6 +18,43 @@
   transform: scale(1.05,1.05);
 }
 
+.user-report-button {
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: right top;
+  -moz-transform: rotate(90deg);
+  -moz-transform-origin: right top;
+  -ms-transform: rotate(90deg);
+  -ms-transform-origin: right top;
+  -o-transform: rotate(90deg);
+  -o-transform-origin: right top;
+  transform: rotate(90deg);
+  transform-origin: right top;
+  color: #00464f !important;
+  position: fixed;
+  z-index: 6000;
+  right: 10px;
+  top: 50%;
+  font-size: 20px;
+  padding: 10px;
+  opacity: 0.5;
+  cursor:pointer;
+}
+
+.user-report-button:hover {
+  opacity: 1;
+}
+
+.back-report-button {
+  position: fixed;
+  z-index: 6000;
+  left: 5px;
+  top: 50%;
+  font-size: 20px;
+  padding: 10px;
+  opacity: 0.5;
+  cursor:pointer;
+}
+
 .venue-info{
   min-height: 200px;
   position: relative;
