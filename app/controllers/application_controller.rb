@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :load_support_messages
   before_action :load_notification_admin
   before_action :user_blocked?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to :back, alert: exception.message
@@ -105,5 +106,10 @@ class ApplicationController < ActionController::Base
       flash[:danger] = t "flash.user_blocked"
       redirect_to root_path
     end
+  end
+
+  def configure_permitted_parameters
+    update_attrs = [:password, :password_confirmation, :current_password]
+    devise_parameter_sanitizer.permit :account_update, keys: update_attrs
   end
 end

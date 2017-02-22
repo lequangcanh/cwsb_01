@@ -167,6 +167,13 @@ en:
       name9: "Doan Chi Nhat"
       our_team: "Our Team"
   users:
+    change_password:
+      title: "Change password"
+      current_password: "Enter your current password ..."
+      new_password: "Enter new password (at least 8 characters) ..."
+      confirm_new_password: "Confirm your new password ..."
+      save: "Save your password"
+      edit_profile: "Edit your profile"
     status:
       active: "Active"
       blocked: "Blocked"
