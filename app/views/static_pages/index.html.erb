@@ -15,7 +15,7 @@
   <body>
     <%= render "layouts/messages" %>
     <%= render "layouts/shared/online_support" if user_signed_in? %>
-    <header id="navigation" class="navbar navbar-inverse">
+    <header id="navigation" class="navbar navbar-inverse header-index">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -32,8 +32,8 @@
         <nav class="collapse navbar-collapse navbar-right" role="Navigation">
           <ul id="nav" class="nav navbar-nav">
             <% if user_signed_in? %>
-              <li class="current">
-                <%= link_to "#" do %>
+              <li class="current active index-user-name">
+                <%= link_to edit_user_path(current_user) do %>
                   <%= t "home.hello" %><%= current_user.name %>
                 <% end %>
               </li>
@@ -42,7 +42,7 @@
                   method: :delete %>
               </li>
             <% else %>
-              <li class="current">
+              <li class="current active index-user-name">
                 <%= link_to t("layout.login"), new_user_session_url %>
               </li>
               <li>
@@ -57,14 +57,16 @@
               <%= link_to url_for(locale: session[:locale]), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
                 <%= image_tag "flag/#{session[:locale]}.png", class: "icon-language" %>
                 <%= Settings.languages[session[:locale]] %>
+                <i class="fa fa-angle-down"></i>
               <% end %>
             <% else %>
               <%= link_to url_for(locale: :en), class:"dropdown-toggle", data: {toggle: "dropdown"} do %>
                 <%= image_tag "flag/en.png", class: "icon-language" %>
                 <%= Settings.languages.en %>
+                <i class="fa fa-angle-down"></i>
               <% end %>
             <% end %>
-            <ul class="dropdown-menu forAnimate choose-language" role="menu">
+            <ul class="dropdown-menu choose-language-index" role="menu">
               <% Settings.languages.keys.each do |lang| %>
                 <%= link_to url_for(locale: lang) do %>
                   <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
@@ -78,8 +80,9 @@
       </div>
     </header>
     <section id="search_section" class="bg-one">
-      <div class="container">
-        <div class="row">
+      <div id="home-carousel" class="carousel slide carousel-html"
+        data-ride="carousel" data-interval="4000">
+        <div class="row index-search-space">
           <div class="title text-center wow fadeIn" data-wow-duration="1500ms" >
             <h2>
               <%= t ".type" %> <span class="color"><%= t ".somewhere" %></span>
@@ -101,52 +104,49 @@
             </div>
           <% end %>
         </div>
+        <ol class="carousel-indicators">
+          <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#home-carousel" data-slide-to="1"></li>
+          <li data-target="#home-carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="carousel-caption">
+              <div class="animated bounceInRight">
+                <h2><%= t ".carousel1" %></h2>
+                <p><%= t ".carousel_line" %></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-caption">
+              <div class="animated bounceInDown">
+                <h2><%= t ".carousel2" %></h2>
+                <p><%= t ".carousel_line" %></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-caption">
+              <div class="animated bounceInUp">
+                <h2><%= t ".carousel3" %></h2>
+                <p><%= t ".carousel_line" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav id="nav-arrows" class="nav-arrows hidden-xs
+          hidden-sm visible-md visible-lg">
+          <%= link_to "#home-carousel", data: {slide: "prev"},
+            class: "sl-prev hidden-xs" do %>
+            <i class="fa fa-angle-left fa-3x"></i>
+          <% end %>
+          <%= link_to "#home-carousel", data: {slide: "next"},
+            class: "sl-next hidden-xs" do %>
+            <i class="fa fa-angle-right fa-3x"></i>
+          <% end %>
+        </nav>
       </div>
-      <div id="home-carousel" class="carousel slide carousel-html" data-ride="carousel" data-interval="4000"
-      >
-      <ol class="carousel-indicators">
-        <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#home-carousel" data-slide-to="1"></li>
-        <li data-target="#home-carousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="carousel-caption">
-            <div class="animated bounceInRight">
-              <h2><%= t ".carousel1" %></h2>
-              <p><%= t ".carousel_line" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="carousel-caption">
-            <div class="animated bounceInDown">
-              <h2><%= t ".carousel2" %></h2>
-              <p><%= t ".carousel_line" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="carousel-caption">
-            <div class="animated bounceInUp">
-              <h2><%= t ".carousel3" %></h2>
-              <p><%= t ".carousel_line" %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <nav id="nav-arrows" class="nav-arrows hidden-xs
-        hidden-sm visible-md visible-lg">
-        <%= link_to "#home-carousel", data: {slide: "prev"},
-          class: "sl-prev hidden-xs" do %>
-          <i class="fa fa-angle-left fa-3x"></i>
-        <% end %>
-        <%= link_to "#home-carousel", data: {slide: "next"},
-          class: "sl-next hidden-xs" do %>
-          <i class="fa fa-angle-right fa-3x"></i>
-        <% end %>
-      </nav>
-    </div>
     </section>
     <section id="testimonial" class="parallax-section">
       <div class="container">

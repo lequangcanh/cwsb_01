@@ -1,8 +1,9 @@
-<div class="panel-group online-support-form">
+<div class="panel-group online-support-form" data-display="hide">
   <div class="panel panel-default">
-    <div id="collapse_support" class="panel-collapse collapse">
+    <div id="collapse_support">
       <div class="panel-heading online-support-heading">
         <%= t "supports.contact_with_admin" %>
+        <span class="fa fa-times close-support-form"></span>
       </div>
       <div class="panel-body user-support-list scroll-y" id="support-message"
         data-user-id="<%= current_user.id %>">
@@ -11,13 +12,6 @@
       <div class="panel-footer">
         <%= render "supports/new_support", support: @support %>
       </div>
-    </div>
-    <div class="online-support-title">
-      <a data-toggle="collapse" href="#collapse_support">
-        <i class="online-support-button fa fa-comments-o" aria-hidden="true">
-          <%= @user_unread %>
-        </i>
-      </a>
     </div>
   </div>
 </div>

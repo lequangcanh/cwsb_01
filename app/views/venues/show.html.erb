@@ -1,7 +1,7 @@
 <% provide :button_text, t("reviews.submit_review") %>
 <%= javascript_include_tag "reviews.js" %>
 
-<div class="row full-height margin-left-0 margin-right-0 scroll-y">
+<div class="row full-height margin-left-0 margin-right-0">
   <div class="padding-top-10"></div>
   <% if @venue.images.any? %>
     <%= image_tag @venue.images.first.picture_url, class: "venue-cover" %>

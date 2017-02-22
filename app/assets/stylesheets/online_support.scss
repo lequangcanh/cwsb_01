@@ -1,7 +1,7 @@
 .online-support-form {
   position: fixed;
-  left: 20px;
-  bottom: 10px;
+  right: 20px;
+  bottom: 0;
   z-index: 10000;
 }
 
@@ -59,4 +59,9 @@
 
 .online-support-heading {
   background-color: #6495ED;
+}
+
+.close-support-form {
+  float: right;
+  cursor: pointer;
 }

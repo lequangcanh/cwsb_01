@@ -118,7 +118,8 @@ body {
 #page-container,
 #sidebar,
 #sidebar-alt {
-  background-color: #222222;
+  background-color: #e9ebee;
+  min-height: 100%;
 }
 
 #sidebar,
@@ -126,6 +127,7 @@ body {
   width: 0;
   position: absolute;
   overflow: hidden;
+  background-color: #11496e;
 }
 
 #sidebar-alt {
@@ -143,7 +145,7 @@ body {
 }
 
 #page-content {
-  background-color: white;
+  background-color: #e9ebee;
 }
 
 #page-content + footer {
@@ -713,10 +715,12 @@ a.sidebar-title:focus {
 
 .sidebar-nav a {
   display: block;
-  color: #eaedf1;
+  color: #ffffff;
   padding: 0 10px;
   min-height: 35px;
   line-height: 35px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .sidebar-nav a:hover,
@@ -836,8 +840,9 @@ a.sidebar-title:focus {
 .sidebar-header .sidebar-header-title {
   color: #ffffff;
   font-size: 11px;
+  font-weight: 500;
   text-transform: uppercase;
-  opacity: 0.5;
+  opacity: 0.8;
   filter: alpha(opacity=50);
 }
 
