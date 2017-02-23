@@ -64,6 +64,9 @@
                     <span class="fix-noti">
                       <i class="fa fa-bell sidebar-nav-icon" id="fix-number"></i>
                     </span>
+                    <span class="badge" id="notification_count">
+                      <%= render "admin/notifications/counter", counter: count_notification_read_admin %>
+                    </span>
                   </a>
                 </div>
                 <table class="table admin-working">
@@ -121,7 +124,7 @@
           method: :post, remote: true, class: "pull-right read-all" %>
       </div>
       <hr/>
-      <ul id="notificationList">
+      <ul id="admin-notificationList">
         <%= render "admin/notifications/list" %>
       </ul>
     </div>

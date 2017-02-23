@@ -11,8 +11,16 @@ class Notification < ApplicationRecord
   scope :newest, -> {order created_at: :desc}
   scope :by_receiver, -> receiver {where receiver: receiver}
 
-  after_create_commit {NotificationBroadcastJob.perform_now(Notification.unread.count,self)}
+  after_create_commit :send_message_to_role
 
+  def send_message_to_role
+    if receiver_type == Admin.name
+      AdminNotificationBroadcastJob.perform_now(Notification.unread.count,self)
+    else
+      NotificationBroadcastJob.perform_now(Notification.unread.count,self)
+    end
+  end
+  
   def load_message
     if load_venue
       banking = load_venue.banking.find_by verified: true
