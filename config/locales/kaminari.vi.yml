@@ -1,0 +1,21 @@
+# Override I18n Kaminari
+vi:
+  views:
+    pagination:
+      first: "&laquo; Trang đầu"
+      last: "Trang cuối &raquo;"
+      previous: "&lsaquo; Trang trước"
+      next: "Trang tiếp theo &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Không tìm thấy %{entry_name}"
+          one: "Hiển thị <b>1</b> %{entry_name}"
+          other: "Hiển thị <b>tất cả %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Hiển thị %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> của <b>%{total}</b> trong tất cả"
+  kaminari:
+    next: "Trang tiếp theo"
+    prev: "Trang trước"

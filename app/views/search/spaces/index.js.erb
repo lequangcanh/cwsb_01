@@ -14,3 +14,4 @@
   handler.getMap().setZoom(<%= Settings.default_map_zoom %>);
 <% end %>
 $('#search-space-result').html('<%= escape_javascript(render "search_result") %>')
+<%= render partial: "ratyrate", format: :js %>

@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery.turbolinks
+//= require bootstrap-sprockets
 //= require jquery.transit.min
 //= require jquery_ujs
 //= require cable.js
