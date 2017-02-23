@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   def load_notification_admin
     if admin_signed_in?
       @notifications_admin = Notification.by_receiver(current_admin).limit(Settings.notification.limit).newest
-      count_notification_unread_admin = @notifications_admin.unread.size
+      @count_notification_unread_admin = @notifications_admin.unread.size
     end
   end
 
