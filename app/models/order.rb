@@ -5,6 +5,8 @@ class Order < ApplicationRecord
 
   attr_accessor :booking_ids
 
+  acts_as_paranoid
+  
   belongs_to :coupon
   belongs_to :venue, -> {with_deleted}
   belongs_to :user
