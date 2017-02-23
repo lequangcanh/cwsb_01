@@ -3,7 +3,7 @@ class Notification < ApplicationRecord
 
   belongs_to :user
   belongs_to :admin
-  belongs_to :notifiable, polymorphic: true
+  belongs_to :notifiable, -> {with_deleted}, polymorphic: true
   belongs_to :receiver, polymorphic: true
   belongs_to :order
 

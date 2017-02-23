@@ -44,15 +44,18 @@
   opacity: 1;
 }
 
-.back-report-button {
+.back-button {
+  transform-origin: right top;
+  color: #00464f !important;
   position: fixed;
   z-index: 6000;
-  left: 5px;
-  top: 50%;
+  right: 5px;
+  top: 90%;
   font-size: 20px;
   padding: 10px;
   opacity: 0.5;
   cursor:pointer;
+  opacity: 1;
 }
 
 .venue-info{
