@@ -6,6 +6,11 @@
     border: 1px solid white !important;
   }
 }
+
+body {
+  overflow-y: auto;
+}
+
 .parallax-section {
   background-attachment: fixed !important;
   background-position: center center;
