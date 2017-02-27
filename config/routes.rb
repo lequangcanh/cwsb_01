@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
   root "static_pages#index"
   devise_for :admins, path: :admin, controllers: {sessions: "admin/sessions"}
-  devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks}
+  devise_for :users, controllers:
+    {omniauth_callbacks: :omniauth_callbacks,  registrations: :registrations}
   resources :bookings
   resources :venues do
     resources :user_role_venues
