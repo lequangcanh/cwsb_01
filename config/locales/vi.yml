@@ -155,7 +155,7 @@ vi:
   users:
     change_password:
       title: "Đổi mật khẩu"
-      current_password: "Nhập mật khẩu hiện tạo của bạn ..."
+      current_password: "Nhập mật khẩu hiện tại của bạn ..."
       new_password: "Nhập mật khẩu mới (tối thiểu 8 ký tự) ..."
       confirm_new_password: "Xác nhận mật khẩu mới ..."
       save: "Lưu mật khẩu của bạn"

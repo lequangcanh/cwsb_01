@@ -97,7 +97,8 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #394263;
   font-size: 13px;
-  background-color: #222222;
+  background-color: #e9ebee !important;
+  overflow: hidden;
 }
 
 #page-container,
@@ -110,7 +111,8 @@ body {
   width: 100%;
   padding: 0;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
+  position: relative;
   -webkit-transition: background-color 0.2s ease-out, opacity 0.3s ease-out;
   transition: background-color 0.2s ease-out, opacity 0.3s ease-out;
 }
@@ -125,9 +127,17 @@ body {
 #sidebar,
 #sidebar-alt {
   width: 0;
-  position: absolute;
-  overflow: hidden;
+  position: fixed;
   background-color: #11496e;
+  max-height: 100%;
+}
+
+#sidebar:hover {
+  overflow-y: auto;
+}
+
+#sidebar::-webkit-scrollbar {
+  width: 5px;
 }
 
 #sidebar-alt {
@@ -146,6 +156,10 @@ body {
 
 #page-content {
   background-color: #e9ebee;
+  padding-right: 5px;
+  overflow: auto;
+  padding-bottom: 50px;
+  position: relative;
 }
 
 #page-content + footer {
@@ -258,6 +272,7 @@ header.navbar-inverse {
   margin: 0;
   min-width: 320px;
   border: none;
+  padding-right: 10px;
 }
 
 header.navbar-default.navbar-fixed-top {
@@ -434,6 +449,8 @@ header.navbar-inverse.navbar-fixed-bottom {
 .sidebar-content {
   width: 200px;
   color: #ffffff;
+  overflow: auto;
+  min-height: 100%;
 }
 
 .sidebar-section {
