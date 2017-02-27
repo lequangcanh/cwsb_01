@@ -14,7 +14,6 @@ RSpec.describe Admin::UsersController, type: :controller do
     context "returns users by status" do
       it {expect(User.active.count).not_to be_nil}
       it {expect(User.blocked.count).not_to be_nil}
-      it {expect(User.reject.count).not_to be_nil}
     end
   end
 
@@ -31,8 +30,7 @@ RSpec.describe Admin::UsersController, type: :controller do
       patch :update, id: user,
         user: FactoryGirl.attributes_for(:user, status: "blocked"), format: :json
       expected = {flash: I18n.t("admin.users.succ_update"), status: 200,
-        total_active: User.active.count, total_block: User.blocked.count,
-        total_reject: User.reject.count}.to_json
+        total_active: User.active.count, total_block: User.blocked.count}.to_json
       expect(response.body).to eq expected
     end
 

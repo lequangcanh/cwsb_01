@@ -10,6 +10,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :view
   config.include Warden::Test::Helpers
 end
 # Add additional requires below this line. Rails is not loaded until this point!
